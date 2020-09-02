@@ -4,8 +4,11 @@ summary: Este material lhe guiará, passo a passo, pelos fundamentos de Dinâmic
 date: 2020-01-12
 projects: ['aprenda.py']
 tags:
-- CFD
-- Python
+  - CFD
+  - Python
+aliases:
+  - /blog/12-passos-para-navier-stokes/
+  - /aprenda.py/blog/12-passos-para-navier-stokes.html
 ---
 
 # Introdução
