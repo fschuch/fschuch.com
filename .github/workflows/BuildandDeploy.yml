@@ -15,7 +15,8 @@ jobs:
       - name: Deploy the site
         uses: benmatselby/hugo-deploy-gh-pages@master
         env:
-          HUGO_VERSION: 0.69.1
+          HUGO_VERSION: 0.74.3
+          HUGO_EXTENDED: true
           TARGET_REPO: fschuch/fschuch.github.io
           TOKEN: ${{ secrets.TOKEN }}
           HUGO_ARGS: '-t academic'
