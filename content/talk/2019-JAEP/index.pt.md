@@ -11,6 +11,9 @@ address:
 
 abstract: "O objetivo desta palestra é introduzir os principais conceitos empregados em programação e Python, mais especificamente no contexto interativo da plataforma Jupyter Notebook. Além de demonstrar como solucionar diversos problemas de engenharia por meio de propostas computacionais. Para tanto, o material inclui uma breve revisão de conceitos fundamentais, estruturas de dados e as principais bibliotecas científicas disponíveis. Para maiores detalhes, pode-se consultar a documentação disponível ou mesmo as diversas leituras recomendadas que aparecem no decorrer do texto. Finalmente, a prática leva a perfeição, há uma série de exercícios propostos ao final do material, visando a fixação do conhecimento."
 
+# Summary. An optional shortened abstract.
+summary: Oficina de programação ministrada durante a Jornada Acadêmica, da Escola Politécnica - PUCRS.
+
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
 date: 2019-07-16T14:00:00-03:00
