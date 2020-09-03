@@ -10,12 +10,12 @@ authors:
 superuser: true
 
 # Role/position
-role: Postdoc at LaSET
+role: Postdoc
 
 # Organizations/Affiliations
 organizations:
-- name: PUCRS
-  url: "https://www.pucrs.br/"
+- name: LaSET, the CFD lad at PUCRS
+  url: "https://www.politecnica.pucrs.br/laboratorios/laset/"
 
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include Computational Fluid Dynamics (CFD) and STEAM.
@@ -31,7 +31,7 @@ interests:
 education:
   courses:
   - course: PhD in Engineering and Materials Technology
-    institution: Pontifical Catholic University of Rio Grande do Sul
+    institution: Pontifical Catholic University of Rio Grande do Sul and Sandwich Doctorate at the University of California, Santa Barbara
     year: 2020
   - course: MSc in Engineering and Materials Technology
     institution: Pontifical Catholic University of Rio Grande do Sul

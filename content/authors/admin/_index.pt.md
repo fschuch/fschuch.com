@@ -10,12 +10,12 @@ authors:
 superuser: true
 
 # Role/position
-role: Pós-Doutorando no LaSET
+role: Pós-Doutorando
 
 # Organizations/Affiliations
 organizations:
-- name: PUCRS
-  url: "https://www.pucrs.br/"
+- name: LaSET - PUCRS
+  url: "https://www.politecnica.pucrs.br/laboratorios/laset/"
 
 # Short bio (displayed in user profile at end of posts)
 bio: Dr. Eng. Mecânico pela PUCRS. Possui experiência em mecânica dos fluidos computacional, fenômenos de transporte, programação, métodos numéricos, educação financeira e outros.
@@ -30,7 +30,7 @@ interests:
 education:
   courses:
   - course: Doutorado em Engenharia e Tecnologia de Materiais
-    institution: Pontifícia Universidade Católica do Rio Grande do Sul
+    institution: Pontifícia Universidade Católica do Rio Grande do Sul, com período sanduíche em University of California, Santa Barbara
     year: 2020
   - course: Mestrado em Engenharia e Tecnologia de Materiais
     institution: Pontifícia Universidade Católica do Rio Grande do Sul
