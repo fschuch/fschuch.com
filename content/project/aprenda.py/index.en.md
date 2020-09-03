@@ -1,12 +1,9 @@
 ---
 title: Aprenda.py
-summary: It is a STEM initiative that teaches Python coding applied to problem-solving, specially designed for engineering students *(Content in Portuguese)*.
+summary: It is a STEM initiative that teaches Python coding applied to problem-solving, specially designed for engineering students.
 tags:
 - Python
 date: "2019-07-19"
-
-# Optional external URL for project (replaces project detail page).
-external_link: "www.fschuch.com/project/aprenda.py/"
 
 image:
   caption:
