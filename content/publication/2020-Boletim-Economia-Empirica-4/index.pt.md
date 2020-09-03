@@ -26,6 +26,7 @@ summary:
 
 tags:
 - Engenharia Econômica
+- Educação Financeira
 - Python
 featured: false
 
