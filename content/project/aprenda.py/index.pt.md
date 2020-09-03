@@ -31,7 +31,13 @@ url_slides: ""
 url_video: ""
 ---
 
-O projeto *Aprenda.py* tem por objetivo incentivar e divulgar a resolução de problemas por meio de ferramentas computacionais. Nos últimos anos, a denominação STEAM tem se popularizado, vindo do inglês para:
+Esta é a primeira linha de código para esse projeto:
+
+```python
+print("Olá mundo!")
+```
+
+*Aprenda.py* tem por objetivo incentivar e divulgar a resolução de problemas por meio de ferramentas computacionais. Nos últimos anos, a denominação STEAM tem se popularizado, vindo do inglês para:
 * *Science* (Ciência);
 * *Technology* (Tecnologia);
 * *Engineering* (Engenharia);
