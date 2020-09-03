@@ -7,7 +7,7 @@ tags:
 date: "2020-08-14"
 
 # Optional external URL for project (replaces project detail page).
-external_link: https://github.com/fschuch/xcompact3d_toolbox
+external_link: https://pypi.org/project/xcompact3d-toolbox/
 
 image:
   caption: Image from [pypi.org](https://pypi.org/)
