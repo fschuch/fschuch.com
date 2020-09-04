@@ -36,7 +36,7 @@ featured: false
 url_pdf:
 url_code: 'https://github.com/fschuch/Xcompact3d'
 url_dataset: ''
-url_poster: 'https://brpucrs-my.sharepoint.com/:b:/g/personal/felipe_schuch_edu_pucrs_br/EfwBPHAaN5lFkV1p1jZDqq4BxSaZafp9zDjshngW9Z3D-w?e=TRVZxk'
+url_poster: 'https://brpucrs-my.sharepoint.com/:b:/g/personal/felipe_schuch_edu_pucrs_br/EWdsoV22iQVJhc6ZuUHMMIUBQMyfmfI3gL_TVO07irw_jg?e=ubjncH'
 url_project: ''
 url_slides: ''
 url_source: ''

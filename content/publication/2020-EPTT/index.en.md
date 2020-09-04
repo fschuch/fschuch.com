@@ -42,9 +42,9 @@ url_pdf: ''
 url_code: 'https://github.com/fschuch/Xcompact3d'
 url_dataset: 'https://doi.10.5281/zenodo.3968993'
 url_poster: ''
-url_project: 'https://github.com/fschuch/the-plunging-flow-by-3D-LES'
+url_project: ''
 url_slides: ''
-url_source: ''
+url_source: 'https://github.com/fschuch/the-plunging-flow-by-3D-LES'
 url_video: 'https://youtu.be/n08U9l1Pgis'
 
 # Featured image
