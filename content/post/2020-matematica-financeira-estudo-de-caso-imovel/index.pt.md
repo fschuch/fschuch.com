@@ -55,9 +55,15 @@ Essa não é uma recomendação de compra. Lucros passados não são garantia de
 
 ### Execute Online
 
-Você pode executar esse notebook em seu próprio navegador (nenhuma instalação é necessária), existem duas opções:
-* [Colab](https://colab.research.google.com/github/fschuch/fschuch.com/blob/master/content/post/2020-matematica-financeira-estudo-de-caso-imovel/Notebook.ipynb): O login em uma conta Google pode ser necessário, modifique o bloco acima para os valores que você desejar, na barra de menu superior, procure por `Runtime > Run All`;
-* [Binder](https://hub-binder.mybinder.ovh/user/fschuch-fschuch.com-i8o6tqbq/notebooks/content\post\2020-matematica-financeira-estudo-de-caso-imovel\Notebook.ipynb), aguarde enquanto o sistema é preparado (isso pode levar algum tempo), modifique o bloco acima para os valores que você desejar, na barra de menu superior, procure por `Cell > Run All`.
+Você pode executar esse notebook em seu próprio navegador (nenhuma instalação é necessária), existem duas opções para isso:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fschuch/fschuch.com/blob/master/content/post/2020-matematica-financeira-estudo-de-caso-imovel/Notebook.ipynb)
+
+* O login em uma conta Google pode ser necessário, modifique os blocos de código para os valores que você desejar, na barra de menu superior, procure por `Runtime > Run All`;
+
+[![Binder](https://binder.pangeo.io/badge_logo.svg)](https://mybinder.org/v2/gh/fschuch/fschuch.com/master?urlpath=lab/tree/content/post/2020-matematica-financeira-estudo-de-caso-imovel/Notebook.ipynb)
+
+* Aguarde enquanto o sistema é preparado (isso pode levar algum tempo), modifique os blocos de código para os valores que você desejar, na barra de menu superior, procure por `Cell > Run All`.
 
 Pronto! Interprete os novos resultados obtidos.
 
