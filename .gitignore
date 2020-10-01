@@ -5,3 +5,6 @@
 hugo.exe
 resources/
 public/
+
+# Jupyter
+.ipynb_checkpoints
