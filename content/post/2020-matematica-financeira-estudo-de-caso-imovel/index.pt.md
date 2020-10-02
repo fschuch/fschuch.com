@@ -13,8 +13,6 @@ tags:
   - Pandas
   - Matplotlib
   - Python
-aliases:
-  - /aprenda.py/blog/matematica-financeira-imovel.html
 ---
 
 {{% toc %}}
