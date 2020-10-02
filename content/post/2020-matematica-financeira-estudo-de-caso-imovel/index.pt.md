@@ -826,7 +826,6 @@ summary[['Patrimônio - Imóvel',
 plt.title('Estudo de caso: Financiar, economizar e pagar \n à vista ou alugar um imóvel?')
 plt.xlabel('Valor (R$)')
 plt.locator_params(axis='x', nbins=5)
-copyright()
 ```
 
 
