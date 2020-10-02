@@ -9,6 +9,7 @@ weight = 60  # Order that this section will appear.
 
 title = "Blog"
 subtitle = "Postagens Recentes"
+aliases = /aprenda.py
 
 [content]
   # Page type to display. E.g. post, talk, or publication.

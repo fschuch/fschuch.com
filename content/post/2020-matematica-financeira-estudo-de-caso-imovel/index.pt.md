@@ -14,7 +14,7 @@ tags:
   - Matplotlib
   - Python
 aliases:
-  - /aprenda.py/blog/matematica-financeira-imovel.html
+  - /aprenda.py/blog/matematica-financeira-imovel
 ---
 
 {{% toc %}}
