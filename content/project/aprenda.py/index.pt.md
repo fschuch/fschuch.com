@@ -4,7 +4,6 @@ summary: Esse projeto tem por objetivo incentivar e divulgar a resolução de pr
 tags:
 - Python
 aliases:
-  - /aprenda.py
   - /aprenda.py/blog/hello-world
 date: "2019-07-19"
 
