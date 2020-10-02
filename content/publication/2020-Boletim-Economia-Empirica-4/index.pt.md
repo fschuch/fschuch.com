@@ -2,7 +2,7 @@
 title: "Simulações em Python para Tomada de Decisão: Alugar, Economizar e Pagar à Vista ou Financiar um Imóvel"
 authors:
 - admin
-- Mathias S. Tessmann
+- m.tessmann
 date: "2020-08-27"
 doi:
 

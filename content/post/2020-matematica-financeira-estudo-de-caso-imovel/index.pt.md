@@ -2,7 +2,7 @@
 title: "Alugar, economizar e pagar à vista ou financiar um imóvel? Um estudo de caso"
 authors:
 - admin
-- Mathias S. Tessmann
+- m.tessmann
 date: "2020-08-27"
 summary: Temos aqui um estudo de caso em matemática financeira resolvido em Python. O exercício envolve calcular diferentes cenários com relação a aquisição - ou não - de um imóvel. Além disso, veja como manipular tabelas com o pacote Pandas e a produção de gráficos com Matplotlib.
 date: 2020-04-11
