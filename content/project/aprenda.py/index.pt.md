@@ -5,6 +5,7 @@ tags:
 - Python
 aliases:
   - /aprenda.py
+  - /aprenda.py/blog/hello-world
 date: "2019-07-19"
 
 # Optional external URL for project (replaces project detail page).

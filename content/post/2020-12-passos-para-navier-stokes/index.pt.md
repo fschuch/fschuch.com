@@ -8,6 +8,7 @@ tags:
   - Python
 aliases:
   - /blog/12-passos-para-navier-stokes/
+  - /aprenda.py/blog/12-passos-para-navier-stokes
   - /aprenda.py/blog/12-passos-para-navier-stokes.html
 ---
 

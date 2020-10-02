@@ -15,6 +15,7 @@ tags:
   - Python
 aliases:
   - /aprenda.py/blog/matematica-financeira-imovel
+  - /aprenda.py/blog/matematica-financeira-imovel.html
 ---
 
 {{% toc %}}
