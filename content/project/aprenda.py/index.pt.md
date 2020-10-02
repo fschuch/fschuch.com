@@ -3,6 +3,8 @@ title: Aprenda.py
 summary: Esse projeto tem por objetivo incentivar e divulgar a resolução de problemas por meio de ferramentas computacionais.
 tags:
 - Python
+aliases:
+  - /aprenda.py
 date: "2019-07-19"
 
 # Optional external URL for project (replaces project detail page).
