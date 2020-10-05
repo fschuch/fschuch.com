@@ -1,7 +1,5 @@
 ---
 title: "Condução de Calor Transiente Bidimensional"
-authors:
-- admin
 summary: Este post apresenta a resolução do problema de transferência de calor transiente em uma placa bidimensional por meio do método das diferenças finitas, incluindo a discretização da equação governante e duas abordagens distintas para o gerenciamento de dados em Python (NumPy e Xarray).
 date: 2020-06-05
 projects: ['aprenda.py']

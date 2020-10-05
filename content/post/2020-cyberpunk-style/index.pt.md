@@ -1,7 +1,5 @@
 ---
 title: "Produção de gráficos para Matplotlib usando o estilo Cyberpunk"
-authors:
-- admin
 summary: Com o objetivo de expor a capacidade de personalização de estilo das figuras em Matplotlib, neste post apresentamos o pacote *mplcyberpunk*.
 date: 2020-04-13
 projects: ['aprenda.py']
