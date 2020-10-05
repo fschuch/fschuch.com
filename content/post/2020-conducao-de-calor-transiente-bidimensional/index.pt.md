@@ -2,7 +2,7 @@
 title: "Condução de Calor Transiente Bidimensional"
 authors:
 - admin
-summary: Este post apresenta a resolução do problema de transferência de calor transiente em uma placa bidimensional por meio do método das diferenças finitas, incluindo a discretização da equação governante e duas abordagens distintas para o gerenciamento de dados em Python, NumPy e Xarray.
+summary: Este post apresenta a resolução do problema de transferência de calor transiente em uma placa bidimensional por meio do método das diferenças finitas, incluindo a discretização da equação governante e duas abordagens distintas para o gerenciamento de dados em Python (NumPy e Xarray).
 date: 2020-06-05
 projects: ['aprenda.py']
 tags:
@@ -277,12 +277,12 @@ Sobre **NumPy**, além do suporte para arranjos multi-dimensionais, toda a bibli
 ```python
 %%time
 for n in range(t.size-1):
-  T[1:-1,1:-1,n+1] = T[1:-1,1:-1,n] + dt * alpha * (
-    (T[ :-2,1:-1,n] - 2. * T[1:-1,1:-1,n] + T[2:  ,1:-1,n]) / dx2 +
-    (T[1:-1, :-2,n] - 2. * T[1:-1,1:-1,n] + T[1:-1,2:  ,n]) / dy2
-  )
-  # Condições de contorno
-  T[0,:,n+1], T[-1,:,n+1], T[:,0,n+1], T[:,-1,n+1] = Tx0, Txn, Ty0, Tyn
+    T[1:-1,1:-1,n+1] = T[1:-1,1:-1,n] + dt * alpha * (
+        (T[ :-2,1:-1,n] - 2. * T[1:-1,1:-1,n] + T[2:  ,1:-1,n]) / dx2 +
+        (T[1:-1, :-2,n] - 2. * T[1:-1,1:-1,n] + T[1:-1,2:  ,n]) / dy2
+    )
+    # Condições de contorno
+    T[0,:,n+1], T[-1,:,n+1], T[:,0,n+1], T[:,-1,n+1] = Tx0, Txn, Ty0, Tyn
 ```
 
     Wall time: 21 ms
@@ -307,12 +307,12 @@ Vale destacar que no momento não conheço nenhuma função **NumPy** que calcul
 ```python
 %%timeit
 for n in range(t.size-1):
-  T[:,:,n+1] = T[:,:,n] + dt * alpha * (
-    np.gradient(np.gradient(T[:,:,n], x, axis=0), x, axis=0) +
-    np.gradient(np.gradient(T[:,:,n], y, axis=1), y, axis=1)
-  )
-  # Condições de contorno
-  T[0,:,n+1], T[-1,:,n+1], T[:,0,n+1], T[:,-1,n+1] = Tx0, Txn, Ty0, Tyn
+    T[:,:,n+1] = T[:,:,n] + dt * alpha * (
+        np.gradient(np.gradient(T[:,:,n], x, axis=0), x, axis=0) +
+        np.gradient(np.gradient(T[:,:,n], y, axis=1), y, axis=1)
+    )
+    # Condições de contorno
+    T[0,:,n+1], T[-1,:,n+1], T[:,0,n+1], T[:,-1,n+1] = Tx0, Txn, Ty0, Tyn
 ```
 
     221 ms ± 43.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
@@ -818,17 +818,17 @@ Se novamente admitirmos que a derivada segunda pode ser aproximada com a aplica�
 ```python
 %%time
 for n in range(data.t.size - 1):
-  dt = data.t[n+1] - data.t[n]
-  # Equação Governate
-  data.T[dict(t=n+1)] = data.T.isel(t=n) + dt * data.alpha * (
-      data.T.isel(t=n).differentiate('x').differentiate('x') +
-      data.T.isel(t=n).differentiate('y').differentiate('y')
-  )
-  # Condições de Contorno
-  data.T[dict(t=n+1,x=0)] = data.T.isel(t=0,x=0)
-  data.T[dict(t=n+1,x=-1)] = data.T.isel(t=0,x=-1)
-  data.T[dict(t=n+1,y=0)] = data.T.isel(t=0,y=0)
-  data.T[dict(t=n+1,y=-1)] = data.T.isel(t=0,y=-1)
+    dt = data.t[n+1] - data.t[n]
+    # Equação Governate
+    data.T[dict(t=n+1)] = data.T.isel(t=n) + dt * data.alpha * (
+        data.T.isel(t=n).differentiate('x').differentiate('x') +
+        data.T.isel(t=n).differentiate('y').differentiate('y')
+    )
+    # Condições de Contorno
+    data.T[dict(t=n+1,x=0)] = data.T.isel(t=0,x=0)
+    data.T[dict(t=n+1,x=-1)] = data.T.isel(t=0,x=-1)
+    data.T[dict(t=n+1,y=0)] = data.T.isel(t=0,y=0)
+    data.T[dict(t=n+1,y=-1)] = data.T.isel(t=0,y=-1)
 ```
 
     Wall time: 5.2 s
@@ -872,11 +872,11 @@ data.T.isel(t=slice(None,None,120), x=data.x.size//2).plot.line(x='y');
 ```python
 # E aqui temos a completa variação espaço-temporal
 data.T.sel(t=slice(None,None,40)).T.plot.contourf(
-  col='t',
-  col_wrap=4,
-  aspect = 1,
-  cmap='bone',
-  levels = 32
+    col='t',
+    col_wrap=4,
+    aspect = 1,
+    cmap='bone',
+    levels = 32
 );
 ```
 
