@@ -1,5 +1,7 @@
 ---
 title: "CFD com Python: 12 Passos para Navier-Stokes"
+authors:
+- admin
 summary: Este material lhe guiará, passo a passo, pelos fundamentos de Dinâmica dos Fluidos Computacional. Cada tarefa introduz tanto novos conceitos físicos sobre as equações de Navier-Stokes, quanto detalhes sobre a programação em Python que resolve as equações diferenciais parciais. Tudo isso de maneira interativa e online (nenhuma instalação é necessária).
 date: 2020-01-12
 projects: ['aprenda.py']
