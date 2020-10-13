@@ -1,12 +1,10 @@
 ---
-title: "Turbulence-Resolving Simulations of the Plunge Phenomenon in a Stratified Ambient"
+title: "Plunging criterion for particle-laden flows over sloping bottoms: three-dimensional turbulence-resolving simulations"
 authors:
 - admin
 - E. Meiburg
-- S. Laizet
 - J.H. Silvestrini
-date: "2018-12-10"
-doi: 10.13140/RG.2.2.27540.35208
+date: "2020-10-13"
 
 # Schedule page publish date (NOT publication's date).
 #publishDate: "2017-01-01T00:00:00Z"
@@ -15,18 +13,19 @@ doi: 10.13140/RG.2.2.27540.35208
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["0"]
+publication_types: ["3"]
 
 # Publication name and optional abbreviated publication name.
-publication: "AGU Fall Meeting 2018, Washington, D.C."
-publication_short: "AGU Fall Meeting 2018"
+publication: "Summited to Computers & Geosciences"
+publication_short: ""
 
-abstract:
+abstract: Hyperpycnal flows are observed when the density of a fluid entering into a quiescent basin is greater than that of the ambient fluid. This difference can be due to temperature, salinity, turbidity, concentration, or a combination of them. Over a sloping bottom, the inflowing momentum decreases progressively until a critical point is reached where the inflow plunges under the ambient fluid and flows along the bed as an underflow density current. In the present work, a new equation is proposed in order to predict the critical depth for plunging, i.e., the plunging criterion. The high spatiotemporal resolution from twelve original numerical simulations allows us to validate the initial hypotheses established, in addition to numerical and experimental data available in the literature, and good agreement is found between them. The proposed plunging criterion may assist in the design of future experimental or numerical works.
 
 # Summary. An optional shortened abstract.
 summary:
 
 tags:
+- Plunging Flow
 - Xcompact3d
 featured: false
 
@@ -34,13 +33,13 @@ featured: false
 # - name: ""
 #   url: ""
 url_pdf:
-url_code: 'https://github.com/fschuch/Xcompact3d'
+url_code: ''
 url_dataset: ''
-url_poster: 'https://brpucrs-my.sharepoint.com/:b:/g/personal/felipe_schuch_edu_pucrs_br/EWdsoV22iQVJhc6ZuUHMMIUBQMyfmfI3gL_TVO07irw_jg?e=ubjncH'
+url_poster: ''
 url_project: ''
 url_slides: ''
 url_source: ''
-url_video: 'https://youtu.be/4Aq0Lv_66go'
+url_video: ''
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.

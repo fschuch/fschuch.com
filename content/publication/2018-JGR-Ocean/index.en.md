@@ -24,7 +24,7 @@ publication_short: ""
 abstract: Abstract Hyperpycnal flows are produced when the density of a fluid flowing in a relatively quiescent basin is greater than the density of the fluid in the basin. The density differences can be due to the difference in temperatures, salinity, turbidity, concentration, or a combination of them. When the inflow momentum diminishes, the inflowing fluid eventually plunges under the basin fluid and flows along the bottom floor as an underflow density current. In the present work, 3-D turbulence-resolving simulations are performed for an hyperpycnal flow evolving at the bottom floor of a tilted channel. Using advanced numerical techniques designed for supercomputers, the incompressible Navier-Stokes and transport equations are solved to reproduce numerically the experiments of [Lamb et al. (2010)](https://doi.org/10.1130/B30125.1) obtained inside a flume with a long tilted ramp. This study focuses on presenting and validating a new numerical framework for the correct reproduction and analysis of the plunge phenomenon and its associated flow features. A very good agreement is found between the experimental data of Lamb et al. (2010), the analytical models of [Parker and Toniolo (2007)](https://doi.org/10.1061/(ASCE)0733-9429(2007)133:6(690)), and the present turbulence-resolving simulations. The mixing process between the ambient fluid and the underflow density current is also analyzed thanks to visualizations of vortical structures at the interface.
 
 # Summary. An optional shortened abstract.
-summary: A new framework for turbulence-resolving simulations of an hyperpycnal ﬂow at the bottom ﬂoor of a tilted channel is proposed.
+summary:
 
 tags:
 - Plunging Flow

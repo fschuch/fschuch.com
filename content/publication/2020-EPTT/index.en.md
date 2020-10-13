@@ -50,7 +50,6 @@ url_video: 'https://youtu.be/n08U9l1Pgis'
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 image:
-  caption: 'Instantaneous volumetric visualization of the total concentration field for case 4 at t=1,000.'
   focal_point: "smart"
   preview_only: false
 
