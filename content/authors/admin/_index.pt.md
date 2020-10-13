@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Pós-Doutorando
+role: Pesquisador
 
 # Organizations/Affiliations
 organizations:
@@ -18,12 +18,13 @@ organizations:
   url: "https://www.politecnica.pucrs.br/laboratorios/laset/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: Dr. Eng. Mecânico pela PUCRS. Possui experiência em mecânica dos fluidos computacional, fenômenos de transporte, programação, métodos numéricos, educação financeira e outros.
+bio: Dr. Eng. Mecânico pela PUCRS. Possui interesse em fluidodinâmica computacional, fenômenos de transporte, programação, computação de alto desempenho, métodos numéricos, educação financeira e outros.
 
 interests:
 - Fluidodinâmica Computacional
 - Fenômenos de Transporte
 - Computação de Alto Desempenho
+- Ciência de Dados
 - Métodos Numéricos
 - Educação Financeira
 
@@ -74,3 +75,5 @@ email: ""
 # - Researchers
 # - Visitors
 ---
+
+Atualmente sou pesquisador no nível Pós-Doutorado no Laboratório de simulação de escoamento Turbulentos (LaSET), da Escola Politécnica - PUCRS. Nossos estudos são orientados aos escoamentos transicionais e turbulentos em ambientes naturais e industriais, incluindo também transferência de calor e/ou massa, e interação fluido-estrutura.

@@ -73,4 +73,4 @@ email: ""
 # - Visitors
 ---
 
-I’m a PhD Mechanical Engineer working with CFD and STEAM.
+I am currently a postdoctoral researcher at LaSET, the CFD lab at PUCRS. Our studies are oriented to transitional and turbulent flows in natural and industrial environments, also including heat and/or mass transfer, and fluid-structure interaction.
