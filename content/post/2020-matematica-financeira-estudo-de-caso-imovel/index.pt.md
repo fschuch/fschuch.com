@@ -3,7 +3,6 @@ title: "Alugar, economizar e pagar à vista ou financiar um imóvel? Um estudo d
 authors:
 - admin
 - m.tessmann
-date: "2020-08-27"
 summary: Temos aqui um estudo de caso em matemática financeira resolvido em Python. O exercício envolve calcular diferentes cenários com relação a aquisição - ou não - de um imóvel. Além disso, veja como manipular tabelas com o pacote Pandas e a produção de gráficos com Matplotlib.
 date: 2020-04-11
 projects: ['aprenda.py']
@@ -22,7 +21,7 @@ aliases:
 
 ## Introdução
 
-A matemática financeira é uma disciplina fundamental na atuação de profissionais de diversos setores e, adicionalment, possui importante papel na gestão de recursos próprios e no gerenciamento do orçamento doméstico.  É justamente nesse ponto que muitas pessoas têm seu primeiro contato com programação, e talvez nem se deem conta disso, ao utilizar alguma aplicação de manipulação de planilhas para controlar os gastos de casa. Verdade seja dita, planilhas são estruturas de dados muito úteis.
+A matemática financeira é uma disciplina fundamental na atuação de profissionais de diversos setores e, adicionalmente, possui importante papel na gestão de recursos próprios e no gerenciamento do orçamento doméstico.  É justamente nesse ponto que muitas pessoas têm seu primeiro contato com programação, e talvez nem se deem conta disso, ao utilizar alguma aplicação de manipulação de planilhas para controlar os gastos de casa. Verdade seja dita, planilhas são estruturas de dados muito úteis.
 
 Esta postagem trata de um estudo de cenários didáticos sobre a aquisição - ou não - de um imóvel. Ele cobre três  situações:
 * Comprar com uma entrada e financiamento;
