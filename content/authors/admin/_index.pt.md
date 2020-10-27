@@ -18,7 +18,7 @@ organizations:
   url: "https://www.politecnica.pucrs.br/laboratorios/laset/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: Dr. Eng. Mecânico pela PUCRS. Possui interesse em fluidodinâmica computacional, fenômenos de transporte, programação, computação de alto desempenho, métodos numéricos, educação financeira e outros.
+bio: "Pesquisador em Fluidodinâmica Computacional na PUCRS, com interesse em: Escoamentos turbulentos, transferência de calor e massa, e interação fluido-estrutura; Processamento e visualização de dados em Python; Jupyter Notebook como uma ferramenta de colaboração, pesquisa e ensino."
 
 interests:
 - Fluidodinâmica Computacional
@@ -76,4 +76,4 @@ email: ""
 # - Visitors
 ---
 
-Atualmente sou pesquisador no nível Pós-Doutorado no Laboratório de simulação de escoamento Turbulentos (LaSET), da Escola Politécnica - PUCRS. Nossos estudos são orientados aos escoamentos transicionais e turbulentos em ambientes naturais e industriais, incluindo também transferência de calor e/ou massa, e interação fluido-estrutura.
+Atualmente pesquisador no nível Pós-Doutorado no Laboratório de simulação de escoamentos Turbulentos (LaSET), da Escola Politécnica - PUCRS. Nossos estudos são orientados aos escoamentos transicionais e turbulentos em ambientes naturais e industriais, incluindo também transferência de calor e/ou massa, e interação fluido-estrutura. Um defensor do Jupyter Notebook, como uma ferramenta de produção, colaboração, pesquisa e ensino.

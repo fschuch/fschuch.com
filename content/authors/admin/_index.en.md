@@ -18,7 +18,7 @@ organizations:
   url: "https://www.politecnica.pucrs.br/laboratorios/laset/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include Computational Fluid Dynamics (CFD) and STEAM.
+bio: "Researcher in Computational Fluid Dynamics at PUCRS, interested in: Turbulent flows, heat and mass transfer, and fluid-structure interaction; Data processing and visualization in Python; Jupyter Notebook as a tool for collaboration, research and teaching."
 
 interests:
 - Computational Fluid Dynamics
@@ -73,4 +73,4 @@ email: ""
 # - Visitors
 ---
 
-I am currently a postdoctoral researcher at LaSET, the CFD lab at PUCRS. Our studies are oriented to transitional and turbulent flows in natural and industrial environments, also including heat and/or mass transfer, and fluid-structure interaction.
+I am currently a postdoctoral researcher at LaSET, the CFD lab at PUCRS. Our studies are oriented to transitional and turbulent flows in natural and industrial environments, also including heat and/or mass transfer, and fluid-structure interaction. An advocate of Jupyter Notebook as a tool for production, collaboration, research, and teaching.
