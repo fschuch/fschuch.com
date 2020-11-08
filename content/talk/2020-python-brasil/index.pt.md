@@ -15,8 +15,8 @@ summary: "Tutorial introdutório para *Xarray*, um pacote Python de código aber
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: 2020-08-11T14:00:00-03:00
-date_end: 2020-08-11T17:00:00-03:00
+date: 2020-08-11T15:00:00-03:00
+date_end: 2020-08-11T18:00:00-03:00
 all_day: false
 
 tags:
