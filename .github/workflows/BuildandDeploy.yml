@@ -19,7 +19,7 @@ jobs:
     - name: Hugo Deploy GitHub Pages
       uses: benmatselby/hugo-deploy-gh-pages@master
       env:
-        HUGO_VERSION: 0.74.3
+        HUGO_VERSION: 0.80.0
         HUGO_EXTENDED: true
         TARGET_REPO: fschuch/fschuch.github.io
         TOKEN: ${{ secrets.TOKEN }}
