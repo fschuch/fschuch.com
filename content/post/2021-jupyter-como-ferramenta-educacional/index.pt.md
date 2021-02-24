@@ -254,9 +254,7 @@ pyplot.xlabel('Tempo')
 
 ![Exemplo Matplotlib](matplotlib.svg)
 
-E assim, além da análise numérica, temos ferramentas de **visualização integradas ao ambiente Jupyter**. Os alunos são convidados a interagir com a aplicação, podendo facilmente alterar os parâmetros do problema e investigar as mudanças provocadas nos resultados. Veja também:
-
-{{< cite page="post\2020-publication-quality-plots-in-matplotlib" view="3" >}}
+E assim, além da análise numérica, temos ferramentas de **visualização integradas ao ambiente Jupyter**. Os alunos são convidados a interagir com a aplicação, podendo facilmente alterar os parâmetros do problema e investigar as mudanças provocadas nos resultados.
 
 #### Sympy
 
