@@ -28,7 +28,7 @@ links:
   icon_pack: fab
   name: Follow
   url: https://www.facebook.com/aprenda.py
-url_code: "https://github.com/fschuch/aprenda.py"
+url_code: ""
 url_pdf: ""
 url_slides: ""
 url_video: ""

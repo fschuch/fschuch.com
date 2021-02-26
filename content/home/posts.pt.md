@@ -10,13 +10,12 @@ weight = 60  # Order that this section will appear.
 title = "Blog"
 subtitle = "Postagens Recentes"
 
-
 [content]
   # Page type to display. E.g. post, talk, or publication.
   page_type = "post"
 
   # Choose how much pages you would like to display (0 = all pages)
-  count = 5
+  count = 4
 
   # Choose how many pages you would like to offset by
   offset = 0

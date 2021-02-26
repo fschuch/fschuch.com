@@ -34,7 +34,7 @@ featured: true
 # links:
 # - name: ""
 #   url: ""
-url_pdf: ''
+url_pdf: 'http://primo-pmtna01.hosted.exlibrisgroup.com/PUC01:PUC01:puc01000498983'
 url_code: 'https://github.com/fschuch/Xcompact3d'
 url_dataset: ''
 url_poster: ''
