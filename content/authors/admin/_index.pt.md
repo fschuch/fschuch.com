@@ -47,19 +47,19 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:felipe.schuch@edu.pucrs.br  # For a direct email link, use "mailto:test@example.org".
+  link: mailto:felipeschuch@outlook.com  # For a direct email link, use "mailto:test@example.org".
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/fschuch
 - icon: lattes
   icon_pack: ai
   link: http://lattes.cnpq.br/3101315391901348
-- icon: orcid
-  icon_pack: ai
-  link: https://orcid.org/0000-0002-6140-0273
 - icon: github
   icon_pack: fab
   link: https://github.com/fschuch
+- icon: youtube
+  icon_pack: fab
+  link: https://www.youtube.com/channel/UC9UHLxOCmJu-G2RLEr4aVbQ
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
