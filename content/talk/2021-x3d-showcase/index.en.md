@@ -5,10 +5,10 @@ event_url: https://www.incompact3d.com/events
 
 location: Online
 
-abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam."
+abstract: ""
 
 # Summary. An optional shortened abstract.
-summary: An example talk using Academic's Markdown slides feature.
+summary: 
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -33,7 +33,7 @@ links:
 - icon: twitter
   icon_pack: fab
   name: Follow
-  url: https://twitter.com/fschuch
+  url: https://twitter.com/incompact3d
 url_code: ""
 url_pdf: ""
 url_slides: ""
@@ -53,5 +53,3 @@ slides: "2021-x3d-showcase"
 #   Otherwise, set `projects = []`.
 projects: ['xcompact3d-toolbox', 'xcompact3d']
 ---
-
-Oi oi oi

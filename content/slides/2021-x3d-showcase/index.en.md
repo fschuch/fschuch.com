@@ -26,8 +26,8 @@ slides:
 
 {{< speaker_note >}}
 - Hi, my name is Felipe;
-- I'm glad to be here today representing our lab;
-- LaSET is the CDF lad here at PUC rio grande do sul,
+- I'm glad to be here today **REPRESENTING** our LAB;
+- LaSET is the CFD LAB here at PUC rio grande do sul,
 - And this is our work: Sandbox flow configuration: A rapid prototyping tool inside XCompact3d
 {{< /speaker_note >}}
 
@@ -48,13 +48,14 @@ slides:
 * Can we improve the learning curve for beginners in our code?
 
 {{< speaker_note >}}
-The first is:
-- How can we speed up our workflow?
-- I mean, the iterations here the scientific process;
-- But more specifically, the iterations here in the simulation cycle
-and the second second:
-- Can we improve the learning curve for beginners in our code?
-- And especially, how to help them to **code new** flow configurations, going beyond the benchmark cases.
+- The first is:
+  - How can we speed up our workflow?
+  - I mean, the iterations here the scientific PROCESS;
+  - But more specifically, How can we speed up the iterations here in the simulation cycle.
+
+- and the second point:
+  - Can we improve the learning curve for beginners in our code?
+  - And especially, how to help them to **code new** flow configurations, going beyond the benchmark cases.
 {{< /speaker_note >}}
 
 ---
@@ -71,8 +72,8 @@ and the second second:
 
 {{< speaker_note >}}
 - This leads us to identify the main challenges in our workflow, if we want to make it easier for beginners and faster for developers;
-- I would say, the parallel decomposition is great for performance and scalability, but it takes a while to master allocation, transpositions and MPI calls;
-- Besides that, coding, compiling, testing, debugging and handling I/O in Fortran is another point that we would like to improve.
+- I would say, the PARALLEL DECOMPOSITION **IS GREAT** for performance and scalability, but it takes a while to master allocation, transpositions and all the MPI calls;
+- Besides that, coding, compiling, testing, debugging and handling I/O in Fortran is not so easy, it is another point that we would like to improve.
 {{< /speaker_note >}}
 
 ---
@@ -80,7 +81,7 @@ and the second second:
 # Methodology
 
 {{< speaker_note >}}
-- The problems were identified, now, lets see how to solve them!
+- The PROBLEMS WERE identified, now, lets see how to solve them!
 {{< /speaker_note >}}
 
 ---
@@ -93,22 +94,18 @@ Sandbox Flow Configuration ([BC-Sandbox.f90](https://github.com/fschuch/Xcompact
 - The initial set-up is imported from external files;
 - The choice of the external tool is up to the user:
   - Fortran, Matlab, Octave;
-  - Python with just [Numpy](https://numpy.org/) or more specific tools ([Py4Incompact3D ](https://github.com/xcompact3d/Py4Incompact3D) or [Xcompact3d-toolbox](https://github.com/fschuch/xcompact3d_toolbox));
+  - Python with just [Numpy](https://numpy.org/) or more specific tools ([Py4Incompact3D](https://github.com/xcompact3d/Py4Incompact3D) or [Xcompact3d-toolbox](https://github.com/fschuch/xcompact3d_toolbox));
 - It adds no extra dependency to the workflow.
 
 {{< speaker_note >}}
 - This is the Sandbox Flow configuration.
-- Of course, xcompact3d already reads the parameters file at initialization, but with the new `module sandbox`, the entire initial set-up can be imported from the disk;
-- Using it, we can customize any new flow configuration with no need to recompile the code every time.
-- The initial set-up includes case specific definitions, like:
-  - Initial condition;
-  - Boundary conditions;
-  - Geometry;
-  - Others.
-- It can be provided from an external tool.
-- We wanted to keep it simple, so, the choice of what to use is up to the user:
-  - Fortran, Matlab, Python, and many others should work, as long as you can write binary arrays compatible with xcompact3d.
-- And here we have a good point: This framework can speed up our workflow, and at the same time, there is no extra dependencies.
+- Of course, xcompact3d already reads the PARAMETERS FILE at initialization, but with the new `MODULE SANDBOX`, the entire initial set-up can be imported from the disk;
+- Using it, we can customize any new flow configuration with no need to RECOMPILe the code every time.
+- The initial set-up includes case specific definitions, like: Initial condition; Boundary conditions; Geometry; Others.
+- It can be provided EXTERNALLY.
+- We wanted to keep it simple, so, the choice of what to use is **totally** up to the user:
+  - It can be Fortran, Matlab, Python, and many others, as long as you can write binary arrays in the same fashion that xcompact3d would do.
+- And here we have a good point: This framework can speed up our workflow, and at the same time, there is no extra **DEPENDENCIES** to install.
 {{< /speaker_note >}}
 
 ---
@@ -117,7 +114,7 @@ Sandbox Flow Configuration ([BC-Sandbox.f90](https://github.com/fschuch/Xcompact
 
 - Initial condition for velocity and scalar field(s);
 - Inflow profiles for velocity and scalar field(s) (if `nclx1=nclxS1=2`);
-- Top and bottom boundary values for scalar field(s) (if `ncly1=2` or `nclySn=2`);
+- Top and bottom boundary values for scalar field(s) (if `nclyS1=2` or `nclySn=2`);
 - Customized operator for the imposition of constant flow rate (if `nclx1=nclxn=0`);
 - $\epsilon$ array, describing the solid geometry for IBM (if `iibm $\ne$ 0`).
 
@@ -125,9 +122,9 @@ Sandbox Flow Configuration ([BC-Sandbox.f90](https://github.com/fschuch/Xcompact
 
 {{< speaker_note >}}
 - Here we see what we can do with sandbox:
-  - We should always specify the initial condition for velocity, and optionally for scalar;
+  - We should always specify the initial condition for velocity and the scalar fields;
 But the other arrays are just demanded in specific situations:
-  - Like, we can set-up inflow profiles for velocity and scalar if we use Dirichlet boundary condition where x is equals to 0;
+  - Like, we can specify inflow profiles for velocity and scalar if we use Dirichlet boundary condition where x is equals to 0;
   - We can also set scalar values at the bottom and top boundaries if we use Dirichlet;
   - We can specify a customized operator if we want to impose a constant flow rate in a periodic flow;
   - And we set a `epsilon` array if using Immersed Boundary Method.
@@ -183,8 +180,8 @@ for n in range(numscalar):
 {{< speaker_note >}}
 - Here we see an estimation of the cases covered by sandbox at this moment;
 - We can simulate Channel-flow, flow around a cylinder, Periodic Hill and TGV;
-- Density current in the lock-exchange will work too, as long as not using the low mach number approach, it was not implemented in the module yet;
-- And the turbulent boundary layer demands more specific definitions of boundary conditions and flow rate control, it is also not supported yet.
+- Density current in the lock-exchange will work too, as long as we are not using the low mach number approach, it was not implemented in the module yet;
+- And the turbulent boundary layer demands more specific definitions of boundary conditions and flow rate control, so it is also not supported.
 - But, like I told you, it is just an estimation, because now we can play around and modify any of these cases.
 {{< /speaker_note >}}
 
@@ -230,7 +227,7 @@ for n in range(numscalar):
 # Case Study
 
 {{< speaker_note >}}
-- We are going to see an example merging the periodic channel and the flow around a cylinder...
+- For example, we are going to **merge** the periodic channel and the flow around a cylinder...
 {{< /speaker_note >}}
 
 ---
@@ -244,7 +241,7 @@ for n in range(numscalar):
 - No-slip conditions for velocity at top and bottom, besides, high temperature at the walls.
 
 {{< speaker_note >}}
-- Besides combining with heat transfer, in what I called, **The Period Heat Exchanger**.
+- Besides combining it with HEAT TRANSFER, in what I called, **The Period Heat Exchanger**.
 - We have periodic boundary conditions in the streamwise and spanwise directions;
 - A cylinder at the center of the domain with its dimensionless temperature fixed at zero;
 - And no-slip BC at the bottom and top walls, and their temperature fixed in one.
@@ -281,10 +278,10 @@ Data variables:
 ```
 
 {{< speaker_note >}}
-- I'm using xcompact3d-toolbox for any other reason than I'm more familiar working with it;
-- We start importing the Package;
-- Lets say we already set all the correct parameters at the input file, so now we load it;
-- And we start the dataset. It is returned to us with the proper dimensions, coordinates and the data variables that we are going to work with now
+- I'm using xcompact3d-toolbox just because I'm more familiar with it;
+- We start here importing the Package;
+- Lets say that we already had set all the correct parameters at the input file, so now we load it;
+- And we start the dataset. It is returned to us with the proper dimensions, coordinates and the SEVEN data variables that we are going to work with now
 {{< /speaker_note >}}
 
 ---
@@ -366,7 +363,8 @@ $$
 {{< speaker_note >}}
 - Since the domain is periodic in x, we need to specify a forcing term to maintain a constant flow rate,
 and actually, we can specify a customized operator for the volumetric integration.
-- This one will give us a unitary value per height unit, and will include an average in x and z.
+- This one will give us a unitary value per **HEIGHT** unit, and will include an average in x and z.
+- We multiply both top and bottom plane by half because of the composed trapezoidal rule for integration;
 - And of course, we can disconsider the cylinder when integrating.
 {{< /speaker_note >}}
 
@@ -387,7 +385,7 @@ and actually, we can specify a customized operator for the volumetric integratio
 {{< speaker_note >}}
 - Now it is time to write all the variables to the disk and run the simulation;
 - Notice that there is no need to recompile the code every time;
-- And we can code, test, plot and debug the initial set-up using any computational tool;
+- And we can code, test, plot and debug the initial set-up using any computational tool, like a Jupyter Notebook, and make it very interactive;
 {{< /speaker_note >}}
 
 ---
@@ -403,7 +401,7 @@ Periodic Heat Exchanger
 
 {{< speaker_note >}}
 - Here we see an animation of the case that we just coded, the periodic heat exchanger;
-- I have e few more examples to show
+- I have a few more examples to show to you
 {{< /speaker_note >}}
 
 ---
@@ -415,9 +413,10 @@ Periodic Heat Exchanger
 <small>[View the code online](https://xcompact3d-toolbox.readthedocs.io/en/latest/examples/Axisymmetric_flow.html).</small>
 
 {{< speaker_note >}}
-- The figure is like a top view, and is presenting the depth-averaged concentration of the turbidity current in asymmetric configuration.
-- This one is just like Ricardo explained to us earlier in his talk,
+- We are looking in a top view, that is presenting the depth-averaged concentration of the turbidity current in asymmetric configuration.
+- This one is just like Ricardo explained to us earlier in HIS talk,
 - but this time the denser fluid starts here at the bottom left corner and can spread in more directions.
+- We can se the lobes-and-clefts near the front, how some rings are formed in the body and them they break down, and many other nice features.
 {{< /speaker_note >}}
 
 ---
@@ -431,6 +430,8 @@ Periodic Heat Exchanger
 {{< speaker_note >}}
 - End the last example is the flow around a square with passive scalar as a visualization tool.
 - Here at the inlet we have this smooth step function for the passive scalar, as a result, we can see this nice pattern downstream due to the turbulence;
+- As always, everything is very CUSTOMIZABLE. We could change the position of the square, we could include more squares; change the number os steeps here at the inlet;
+- You can see the complete code here in this link, and you can access the slides using the QR code at the end of this talk.
 {{< /speaker_note >}}
 
 ---
@@ -438,7 +439,7 @@ Periodic Heat Exchanger
 # Bonus
 
 {{< speaker_note >}}
-- And a special bonus
+- And I have a special bonus for you
 {{< /speaker_note >}}
 
 ---
@@ -453,8 +454,8 @@ User Interface with IPywidgets ([try it online](https://xcompact3d-toolbox.readt
 
 {{< speaker_note >}}
 - I've talked about improving the learning curve for beginners in our code, and here is another initiative.
-- We have this user interface with IPywidgets under development in our lab;
-- With it, we can enforce the right relationship between the parameters, just to make sure they are compatible with xcompact3d;
+- We have this user interface with IPywidgets under development in our LAB;
+- Using it, we can enforce the right relationship between the parameters, just to make sure they are compatible with xcompact3d;
 {{< /speaker_note >}}
 
 ---
@@ -472,10 +473,10 @@ User Interface with IPywidgets ([try it online](https://xcompact3d-toolbox.readt
 <small>**Note:** `module sandbox` is still in pre-release ([fschuch/Xcompact3d](https://github.com/fschuch/Xcompact3d)).</small>
 
 {{< speaker_note >}}
-- To conclude this talk, we expect to help user from different levels with our framework;
+- To conclude this talk, we **EXPECT** to help **USER** from different levels with our framework;
   - **For students in CFD**, it provides **direct hands-on experience** and a safe place for practising and learning;
   - **For advanced users** and code developers, it works as a **rapid prototyping tool**;
-  - Furthermore, it is a useful advance in terms of **research reproducibility**.
+  - Furthermore, it is a useful advance in terms of **research reproducibility**, because now it is easier to create, collaborate and share any new flow configuration.
 {{< /speaker_note >}}
 
 ---
@@ -486,12 +487,13 @@ User Interface with IPywidgets ([try it online](https://xcompact3d-toolbox.readt
 > <small>**Felipe N. Schuch**, LaSET, School of Technology, PUCRS.<br></small>
 > <small>:house: [fschuch.com](www.fschuch.com/en) :envelope: felipe.schuch@edu.pucrs.br</small>
 
-<img alt="" height="90px" width=auto src="logo.laset.png" style="background:none; border:none; box-shadow:none;">
-<img alt="" height="90px" width=auto src="technology-267x90.png" style="background:none; border:none; box-shadow:none;">
+<img alt="" height="125px" width=auto src="logo.laset.png" style="background:none; border:none; box-shadow:none;">
+<img alt="" height="125px" width=auto src="technology-267x90.png" style="background:none; border:none; box-shadow:none;">
+<img alt="" height="125px" width=auto src="See_the_slides_there.svg" style="border:none;" >
 
 <!-- <small>www.fschuch.com/en/slides/2021-x3d-showcase</small> -->
 
 {{< speaker_note >}}
-- Tank you very much for your attention;
-- I'm ready to take any questions.
+- That is it, tank you very much for your ATTENTION;
+- I'm ready to take any questions now.
 {{< /speaker_note >}}
