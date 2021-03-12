@@ -29,14 +29,14 @@ tags:
 # Is this a featured talk? (true/false)
 featured: false
 
-links:
-- icon: twitter
-  icon_pack: fab
-  name: Follow
-  url: https://twitter.com/incompact3d
+# links:
+# - icon: twitter
+#   icon_pack: fab
+#   name: Slides
+#   url: https://twitter.com/incompact3d
 url_code: ""
 url_pdf: ""
-url_slides: ""
+url_slides: "https://www.fschuch.com/en/slides/2021-x3d-showcase/"
 url_video: ""
 
 # Markdown Slides (optional).

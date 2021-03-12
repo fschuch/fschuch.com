@@ -103,9 +103,11 @@ Sandbox Flow Configuration ([BC-Sandbox.f90](https://github.com/fschuch/Xcompact
 - Using it, we can customize any new flow configuration with no need to RECOMPILE the code every time.
 - The initial set-up includes case specific definitions, like: Initial condition; Boundary conditions; Geometry; Others.
 - It can be provided EXTERNALLY.
-- Our INTENTION was to keep it simple, but using the disk is still very USEFULLY, because with it, the choice of what to use as external tool is **totally** up to the user:
+- Our INTENTION was to keep it simple, but using the disk is still very USEFULL, because with it, the choice of what to use as external tool is **totally** up to the user:
   - It can be Fortran, Matlab, R, Julia, Python, and many others, as long as you can write binary arrays in the same fashion that xcompact3d would do.
 - And here we have a good point: This framework can speed up our workflow, and at the same time, there is no extra **DEPENDENCIES** to install.
+- Besides, the core of the code was **UNTOUCHED**, so we have the usual performance in the code, combined with **FLEXIBILITY** for initial definitions;
+- **In this way, we use the right tool for the right task**.
 {{< /speaker_note >}}
 
 ---
@@ -366,7 +368,7 @@ $$
 
 {{< speaker_note >}}
 - Since the domain is periodic in x, we need to specify a forcing term to maintain a constant flow rate,
-and actually, we can specify a customized operator for the volumetric integration.
+- As you see here, `xcompact3d` will compute the flow rate with this integration, so we can CUSTOMIZE this operator for the volumetric integration;
 - This one will give us a unitary value per **HEIGHT** unit, and will include an average in x and z.
 - We multiply both top and bottom plane by half because of the composed trapezoidal rule for integration;
 - And of course, we can disconsider the cylinder when integrating.
@@ -422,7 +424,7 @@ Periodic Heat Exchanger
 - We are looking in a top view, that is presenting the depth-averaged concentration of the turbidity current in asymmetric configuration.
 - This one is just like Ricardo explained to us earlier in HIS talk,
 - but this time the denser fluid starts here at the bottom left corner and can spread in more directions.
-- We can se the lobes-and-clefts near the front, how some rings are formed in the body and them they break down, and many other nice features.
+- We can see the lobes-and-clefts near the front, how some rings are formed in the body and them they break down, and many other nice features.
 {{< /speaker_note >}}
 
 ---
@@ -461,7 +463,8 @@ User Interface with IPywidgets ([try it online](https://xcompact3d-toolbox.readt
 - I've talked about improving the learning curve for beginners in our code, and here is another initiative.
 - We have this user interface with IPywidgets under development in our LAB;
 - Using it, we can enforce the right relationship between the parameters, just to make sure they are compatible with xcompact3d;
-- You can see here that we ensure that booth boundaries in one direction will be periodic or not, and the number of mesh points goes BACK and FORWARD, but it is always a valid value.
+- You can see here that we ensure that booth boundaries in one direction will be periodic or not, and the number of mesh points goes BACK and FORWARD properly.
+There are more features, but I will leave the link here, so you can try it.
 {{< /speaker_note >}}
 
 ---
@@ -500,6 +503,6 @@ User Interface with IPywidgets ([try it online](https://xcompact3d-toolbox.readt
 <!-- <small>www.fschuch.com/en/slides/2021-x3d-showcase</small> -->
 
 {{< speaker_note >}}
-- That is it, tank you very much for your ATTENTION;
+- **THAT IS IT**, tank you very much for your ATTENTION;
 - I'm ready to take any questions now.
 {{< /speaker_note >}}
