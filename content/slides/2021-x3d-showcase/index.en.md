@@ -71,7 +71,7 @@ slides:
 - Coding, compiling, testing, debugging and handling I/O in Fortran.
 
 {{< speaker_note >}}
-- This leads us to identify the main challenges in our workflow, if we want to make it easier for beginners and faster for developers;
+- This leads us to identify the main challenges in our workflow, if we would like to make it easier for beginners and faster for developers;
 - I would say, the PARALLEL DECOMPOSITION **IS GREAT** for performance and scalability, but it takes a while to master allocation, transpositions and all the MPI calls;
 - Besides that, coding, compiling, testing, debugging and handling I/O in Fortran is not so easy, it is another point that we would like to improve.
 {{< /speaker_note >}}
@@ -93,18 +93,18 @@ Sandbox Flow Configuration ([BC-Sandbox.f90](https://github.com/fschuch/Xcompact
 
 - The initial set-up is imported from external files;
 - The choice of the external tool is up to the user:
-  - Fortran, Matlab, Octave;
+  - Fortran, Matlab, Octave, R, Julia;
   - Python with just [Numpy](https://numpy.org/) or more specific tools ([Py4Incompact3D](https://github.com/xcompact3d/Py4Incompact3D) or [Xcompact3d-toolbox](https://github.com/fschuch/xcompact3d_toolbox));
 - It adds no extra dependency to the workflow.
 
 {{< speaker_note >}}
 - This is the Sandbox Flow configuration.
 - Of course, xcompact3d already reads the PARAMETERS FILE at initialization, but with the new `MODULE SANDBOX`, the entire initial set-up can be imported from the disk;
-- Using it, we can customize any new flow configuration with no need to RECOMPILe the code every time.
+- Using it, we can customize any new flow configuration with no need to RECOMPILE the code every time.
 - The initial set-up includes case specific definitions, like: Initial condition; Boundary conditions; Geometry; Others.
 - It can be provided EXTERNALLY.
-- We wanted to keep it simple, so, the choice of what to use is **totally** up to the user:
-  - It can be Fortran, Matlab, Python, and many others, as long as you can write binary arrays in the same fashion that xcompact3d would do.
+- Our INTENTION was to keep it simple, but using the disk is still very USEFULLY, because with it, the choice of what to use as external tool is **totally** up to the user:
+  - It can be Fortran, Matlab, R, Julia, Python, and many others, as long as you can write binary arrays in the same fashion that xcompact3d would do.
 - And here we have a good point: This framework can speed up our workflow, and at the same time, there is no extra **DEPENDENCIES** to install.
 {{< /speaker_note >}}
 
@@ -181,6 +181,7 @@ for n in range(numscalar):
 - Here we see an estimation of the cases covered by sandbox at this moment;
 - We can simulate Channel-flow, flow around a cylinder, Periodic Hill and TGV;
 - Density current in the lock-exchange will work too, as long as we are not using the low mach number approach, it was not implemented in the module yet;
+- Well, it is a work in progress;
 - And the turbulent boundary layer demands more specific definitions of boundary conditions and flow rate control, so it is also not supported.
 - But, like I told you, it is just an estimation, because now we can play around and modify any of these cases.
 {{< /speaker_note >}}
@@ -342,8 +343,8 @@ $$
 
 {{< speaker_note >}}
 - Now it is time to set the geometry, a cylinder in the center of the domain.
-- Notice that xcompact3d-toolbox includes methods to draw many standards geometries.
-- Here we are using the cylinder, we just have to specify its center and we are good to go.
+- Notice that xcompact3d-toolbox includes methods to **DRAW** many standards geometries.
+- Here we are using the cylinder, we just have to specify its center AND WE ARE GOOD TO GO.
 {{< /speaker_note >}}
 
 ---
@@ -358,7 +359,10 @@ $$
 >>> dataset.vol_frc.isel(z=0).plot()
 ```
 
-<img alt="" width="40%" height=auto src="frc.jpg">
+<img alt="" width="30%" height=auto src="frc.jpg">
+
+<small>**Note:** The code will compute the stream-wise flow rate as `int = sum(vol_frc * ux)`, and correct the stream-wise velocity as `ux = ux / int`.</small>
+
 
 {{< speaker_note >}}
 - Since the domain is periodic in x, we need to specify a forcing term to maintain a constant flow rate,
@@ -384,8 +388,8 @@ and actually, we can specify a customized operator for the volumetric integratio
 
 {{< speaker_note >}}
 - Now it is time to write all the variables to the disk and run the simulation;
-- Notice that there is no need to recompile the code every time;
-- And we can code, test, plot and debug the initial set-up using any computational tool, like a Jupyter Notebook, and make it very interactive;
+- Notice that there is no need to RECOMPILE the code every time;
+- And we can code, test, plot and debug the initial set-up using any computational tool, like a Jupyter Notebook, and make it very INTERACTIVE;
 {{< /speaker_note >}}
 
 ---
@@ -401,7 +405,9 @@ Periodic Heat Exchanger
 
 {{< speaker_note >}}
 - Here we see an animation of the case that we just coded, the periodic heat exchanger;
-- I have a few more examples to show to you
+- It is just a toy model, the Reynolds Number is very low, but you are invited to access the complete code here in this link, and play around with the parameters and definitions;
+- You can access the slides using the QR CODE at the end of this talk.
+- Any way, I have a few more examples to show to you...
 {{< /speaker_note >}}
 
 ---
@@ -431,7 +437,6 @@ Periodic Heat Exchanger
 - End the last example is the flow around a square with passive scalar as a visualization tool.
 - Here at the inlet we have this smooth step function for the passive scalar, as a result, we can see this nice pattern downstream due to the turbulence;
 - As always, everything is very CUSTOMIZABLE. We could change the position of the square, we could include more squares; change the number os steeps here at the inlet;
-- You can see the complete code here in this link, and you can access the slides using the QR code at the end of this talk.
 {{< /speaker_note >}}
 
 ---
@@ -444,7 +449,7 @@ Periodic Heat Exchanger
 
 ---
 
-User Interface with IPywidgets ([try it online](https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial/parameters.html#))
+User Interface with IPywidgets ([try it online](https://xcompact3d-toolbox.readthedocs.io/en/v0.1.11/tutorial/parameters.html#Graphical-User-Interface))
 
 <div class="animations">
   <img alt="Flow Visualization with Passive Scalar Field" width="100%" height=auto src="Output.gif">
@@ -456,6 +461,7 @@ User Interface with IPywidgets ([try it online](https://xcompact3d-toolbox.readt
 - I've talked about improving the learning curve for beginners in our code, and here is another initiative.
 - We have this user interface with IPywidgets under development in our LAB;
 - Using it, we can enforce the right relationship between the parameters, just to make sure they are compatible with xcompact3d;
+- You can see here that we ensure that booth boundaries in one direction will be periodic or not, and the number of mesh points goes BACK and FORWARD, but it is always a valid value.
 {{< /speaker_note >}}
 
 ---
