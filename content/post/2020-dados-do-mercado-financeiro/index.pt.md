@@ -44,6 +44,8 @@ import yfinance as yf
 import mplfinance as mpf
 ```
 
+<!--adsense-->
+
 ## Obtenção e manipulação dos dados
 
 O módulo `Ticker` nos permite o acesso a diversos dados de maneira integrada ao Python, e apenas para exemplificar, usaremos a Microsoft, código de negociação `MSFT`:
@@ -781,6 +783,8 @@ data.describe()
 
 
 Esse foi nosso exemplo, informações complementares podem ser encontradas no [post](https://aroussi.com/post/python-yahoo-finance) do autor original do pacote `yfinance`. Experimente executar os exemplos propostos para outros códigos de negociação, por exemplo com o índice [S&P 500](https://pt.wikipedia.org/wiki/S%26P_500) com o ticker `^GSPC`, o índice [Ibovespa](http://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-amplos/ibovespa.htm) com o ticker `^BVSP`, ou empresas brasileiras, como o ticker `ITUB3.SA`, e muitos outros.
+
+<!--adsense-->
 
 ## Visualização
 

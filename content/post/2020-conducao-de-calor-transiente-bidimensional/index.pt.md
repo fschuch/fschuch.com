@@ -46,6 +46,7 @@ import matplotlib.pyplot as plt
 import xarray as xr
 ```
 
+<!--adsense-->
 
 ## Descrição do Problema
 
@@ -329,7 +330,7 @@ Essa abordagem pode não ser tão precisa quanto as que vimos anteriormente, mas
 Por outro lado, se ainda assim e erro está em uma faixa tolerável para a sua aplicação, essa pode ser uma alternativa pela facilidade de aplicação e boa legibilidade do código.
 Como qualquer outro arranjo **NumPy**, devemos lembrar de que definimos a temperatura na ordem [x, y e t], e assim, `axis=0` resultará no gradiente na direção x, enquanto `axis=1` será o gradiente em y.
 
-
+<!--adsense-->
 
 ### Xarray
 
@@ -881,6 +882,7 @@ data.T.sel(t=slice(None,None,40)).T.plot.contourf(
 
 ![png](output_55_0.png)
 
+<!--adsense-->
 
 ## Conclusão
 

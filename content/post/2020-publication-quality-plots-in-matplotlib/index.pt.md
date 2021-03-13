@@ -23,6 +23,8 @@ Existem quatro tópicos que, na minha opinião, influenciam diretamente no resul
 1. **[Dimensões](#dimensões):** A definição da largura e altura da figura, bem como o tamanho da fonte, devem ser condizentes com o tipo de conteúdo onde o gráfico será inserido, seja em slides, pôster, relatório, artigo, postagem nas redes sociais e muitos outros;
 1. **[Formato](#formato):** O formato no qual as figuras serão salvas. Opções vetoriais são preferíveis, porque mantém uma boa apresentação visual mesmo em telas ou impressões de alta resolução, ou quando as figuras são ampliadas.
 
+<!--adsense-->
+
 ## Metodologia
 
 Os pontos acima serão abordados em Python, ou mais especificamente, no pacote [Matplotlib](https://matplotlib.org/), que é uma biblioteca de plotagem 2D, que produz figuras de qualidade de publicação em uma variedade de formatos impressos e ambientes interativos para múltiplas plataformas. Matplotlib pode ser usada em scripts Python, nos shells do Python e do [IPython](https://ipython.org/), no [Jupyter Notebook](https://jupyter.org/), nos servidores de aplicativos da web e em quatro kits de ferramentas de interface gráfica do usuário. **Matplotlib tenta tornar as coisas fáceis simples e as coisas difíceis possíveis**. Você pode gerar gráficos, histogramas, espectros de potência, gráficos de barras, gráficos de erros, diagramas de dispersão, etc., com apenas algumas linhas de código.
@@ -233,6 +235,8 @@ Em $\LaTeX$, você tem a certeza de que deu tudo certo quando a figura é inclu�
 ```latex
 \includegraphics[scale=1]{<nome_da_figura>}
 ```
+
+<!--adsense-->
 
 ### Formato
 

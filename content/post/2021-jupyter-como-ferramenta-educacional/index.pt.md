@@ -30,6 +30,8 @@ Esse post apresenta uma contextualização sobre o [Projeto Jupyter](https://jup
 Essa própria postagem foi produzida a partir de um Jupyter Notebook, assim como muitas outras nesse blog, mostrando a flexibilidade da ferramenta para a produção de conteúdo em geral.
 {{% /alert %}}
 
+<!--adsense-->
+
 ## O que é um Jupyter Notebook?
 
 O [Projeto Jupyter](https://jupyter.org/) foi fundado em 2015, sendo uma organização sem fins lucrativos que visa desenvolver software aberto e serviços para computação interativa. A denominação do projeto é uma referências às três principais linguagens de programação suportadas por ele, [Julia](https://julialang.org/), [Python](https://www.python.org/) e [R](https://www.r-project.org/) ([veja todas as linguagens suportadas aqui](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)), e também uma homenagem aos cadernos onde [Galileu Galilei](https://pt.wikipedia.org/wiki/Galileu_Galilei) tomava nota de suas descobertas sobre as luas de Júpiter.
@@ -450,6 +452,8 @@ Temos algumas outras ferramentas que merecem destaque no ambiente Jupyter com ap
 - [ipywidgets](https://github.com/jupyter-widgets/ipywidgets) fornece uma série de widgets interativos, como botões, caixas de seleção, controles deslizantes e muito mais, permitindo criar ferramentas interativas avançadas para análise e resolução de problemas, uma opção perfeita para aplicativos de ensino;
 - [voilà](https://github.com/voila-dashboards/voila) permite exportar todos os elementos de um Jupyter Notebook para uma apresentação em estilo aplicativo web. Confira a [Galeria Voilà](https://voila-gallery.org/) para visualizar diversos exemplos;
 - [nbgrader](https://nbgrader.readthedocs.io/en/stable/) é uma ferramenta voltada para auxiliar os instrutores na atribuição e avaliação de tarefas em Jupyter Notebooks.
+
+<!--adsense-->
 
 ## Leitura Recomendada
 
