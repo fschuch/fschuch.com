@@ -37,7 +37,7 @@ featured: false
 url_code: ""
 url_pdf: ""
 url_slides: "https://www.fschuch.com/en/slides/2021-x3d-showcase/"
-url_video: ""
+url_video: "https://youtu.be/W-TFZo4Qnhk"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
