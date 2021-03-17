@@ -1,6 +1,6 @@
 ---
 title: "Desafio de Programação: Encontre o Anagrama"
-summary: 
+summary: Mais um desafio de programação. Temos a tarefa de encontrar um anagrama dentre as palavras da língua portuguesa, e claro, aprender muitos conceitos de programação em Python enquanto resolvemos o problema.
 date: 2021-03-16
 projects: ['aprenda.py']
 tags:
@@ -393,6 +393,6 @@ procurar_anagrama("Python")
 
 ## Conclusão
 
-Incrível como o que parecia uma proposta despretensiosa pode nos proporcionar em termos de aprendizado quando nos comprometemos à resolver o problema.
+Incrível como o que parecia uma proposta que parecia não ser tão complicada pode nos proporcionar em termos de aprendizado quando nos comprometemos à resolver o problema.
 E esse conhecimento acumulado vai sem dúvida contribuir para as próximas soluções que precisarmos resolver no futuro.
 Mesmo já trabalhando com Python por algum tempo, encontrei nesse exercício a chance de praticar alguns conceitos de design de código de uns livros que tenho lido recentemente, além de usar estruturas especializadas como o `Counter`, bem como foi a primeira vez que usei web scraping em um projeto real.
