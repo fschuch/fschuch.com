@@ -5,7 +5,7 @@ event_url: https://www.incompact3d.com/events
 
 location: Online
 
-abstract: ""
+abstract: "Uma ferramenta de prototipagem rápida incorporada ao XCompact3d, um código acadêmico para fluidodinâmica computacional. Isso visa aumentar a capacidade de trabalho dos desenvolvedores do código, ao mesmo tempo em que cria um ambiente mais amigável para estudantes em CDF."
 
 # Summary. An optional shortened abstract.
 summary: 
@@ -24,6 +24,7 @@ tags:
   - CFD
   - HPC
   - Python
+  - STEM
   - Xcompact3d
 
 # Is this a featured talk? (true/false)
@@ -53,3 +54,16 @@ slides:
 #   Otherwise, set `projects = []`.
 projects: ['xcompact3d-toolbox', 'xcompact3d']
 ---
+
+XCompact3d é uma ferramenta acadêmica de alta precisão, voltado para a resolução de problemas em fuidodinâmica computacioanl (CFD), incluindo capacidade para resolver transporte de calor e/ou massa, bem como escoamentos ao redor de obstáculos. Ele é programado em Fortran, com código aberto, e projetado para rodar em super-computadores por meio da interface por troca de mensagens (MPI).
+
+A pesquisa na fronteira do conhecimento geralmente envolve extender as capacidades do código original, visando simular configurações de escoamento inéditas. Com isso, se faz necessário editar diretamente o código fonte, e todas as tarefas derivadas desse ato, como compilar o código, testar, corrigir possiveis falhas, executar e talvez repetir o ciclo. Essa atividade demanda conhecimentos especializados e tempo de deselvolvimento. Nesse contexto surge a motivação para esse trabalho:
+
+- Como podemos acelerar o trabalho de desenvolvimentos de casos inéditos em nosso código?
+- E também, como podemos acelerar o processo de aprendizagem para os que estão começando a estudar o código, ou mesmo tornar ele acessível para estudantes de CFD?
+
+A solução para ambos os problemas acima foi proposta, confira mais detalhes abaixo:
+
+- [Veja a palestra no YouTube](https://youtu.be/W-TFZo4Qnhk);
+- [Veja os Slides Online](https://www.fschuch.com/en/slides/2021-x3d-showcase/);
+- Por fim, [alguns exemplos](https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial.html#sandbox-examples) da ferramenta que desenvolvemos.
