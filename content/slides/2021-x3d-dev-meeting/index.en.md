@@ -48,8 +48,8 @@ slides:
 
 {{< speaker_note >}}
 - I don't know if everyone here already uses Python, so I gonna start with **Why Python**;
-- Many people MAY SAY it is a terrible tool because it doesn't run so fast as other alternatives;
-- But to THOSE people I say, we need to look at the big picture, lets also talk about the COST for development, human resources;
+- Many people MAY SAY it is a terrible tool because it DOESN'T **RUN** SO fast as other alternatives;
+- But to THOSE people I say, we need to look at the big picture, lets also talk about the COST for development, HUMAN RESOURCES;
 - Here is where Python is really good;
 - Together with the INTERACTIVE tools like Jupyter, Python is a very popular CHOICE for data science;
 - And in our case, it's a great tool for pre and post-processing.
@@ -67,14 +67,14 @@ slides:
 
 {{< speaker_note >}}
 - And now, Why Numpy?
-- It provides **multidimensional array** operations in Python;
+- It provides **multidimensional ARRAY** operations in Python;
 - It is much faster than pure Python, because it runs in OPTIMIZED, pre-compiled C code;
-- With Numpy, we have the best of two WORLDS, the **performance** of compiled code, together with the **flexibility** of Python code for the user.
+- With Numpy, we have the best of two WORLDS, the **performance** of compiled code, together with the **flexibility** of Python CODE FOR THE USER.
 {{< /speaker_note >}}
 
 ---
 
-### Numpy - Example
+#### Numpy - Example
 
 ```python
 x = np.linspace(start=0., stop=2*np.pi, num=50)
@@ -83,17 +83,23 @@ y = np.linspace(start=0., stop=2*np.pi, num=50)
 ux = np.sin(x[:,np.newaxis])*np.cos(y[np.newaxis,:])
 uy = -np.cos(x[:,np.newaxis])*np.sin(y[np.newaxis,:])
 
+int = np.trapz(np.trapz(ux, x=x, axis=0), x=y, axis=0)
+
 plt.streamplot(x,y,ux.T,uy.T)
 plt.xlabel(r"$x_1$"); plt.ylabel(r"$x_2$");
 ```
 
-<img alt="" width="50%" height=auto src="numpy-example.svg">
+<img alt="" width="45%" height=auto src="numpy-example.svg">
 
 {{< speaker_note >}}
-- I wanna show this little workflow using Numpy;
-- We start here setting two vectors, they will work as our coordinates, **x** and **y**;
-- Now you see that booth **ux** and **uy** are 2D, but Numpy doesn't know it, so we should inform it using this `np.newaxis` notation;
-- The plot is just for reference;
+- This is a little workflow using Numpy;
+  - We start here setting two vectors, they will work as our coordinates, **x** and **y**;
+  - Now you see that booth **ux** and **uy** are 2D, but Numpy doesn't know it, so we should inform it using this `np.newaxis` notation;
+  - And we can compute a integration in this plane, but it is up to the user to keep track of the coordinates and the number of each AXIS.
+  - The plot is just for reference;
+- But WHO am I to complain about Numpy?
+  - It is the core of the scientific ecosystem in Python;
+  - I Just wanna show you that we can use Numpy in a better way;
 {{< /speaker_note >}}
 
 ---
@@ -109,14 +115,15 @@ plt.xlabel(r"$x_1$"); plt.ylabel(r"$x_2$");
 <small>See http://xarray.pydata.org</small>
 
 {{< speaker_note >}}
-- This is the last why. Why Xarray?
-- Xarray introduces labels in the form of dimensions, coordinates and attributes on top of raw NumPy arrays, which allows for a more intuitive, more CONCISE, and LESS ERROR-PRONE **DEVELOPER** experience;
-- Besides, it's integrated with other tools for Plotting, Parallel computing, I/O.
+- WITH Xarray.
+- It introduces labels in the form of dimensions, coordinates and attributes on top of raw NumPy arrays, which allows for a more intuitive, more CONCISE, and LESS ERROR-PRONE **DEVELOPER** experience:
+  - Xarray can do axis alignment and broadcast AUTOMATICALLY for any array operation;
+- Besides, it's integrated with other tools for Plotting, Parallel computing and I/O.
 {{< /speaker_note >}}
 
 ---
 
-### Xarray - Example
+#### Xarray - Example
 
 ```python
 dataset = xr.Dataset(
@@ -144,10 +151,10 @@ Data variables:
 <small>**Note:** This is just the string representation, the dataset will look even better in HTML when running in Jupyter.</small>
 
 {{< speaker_note >}}
-- Here is an example using xarray;
-- We start with this dataset OBJECT, informing the coordinates of data here in this DICT-LIKE structure;
+- See this example using xarray;
+- We start with the dataset OBJECT, informing the coordinates in this DICT-LIKE constructor;
 - Now we can access the coordinates by THEIR name, and with it, xarray knows this result should be 2D;
-- We can investigate the dataset, its dimensions, coordinates and variables, all together in a single object;
+- We can investigate the dataset, its dimensions, coordinates and variables, ALL TOGETHER in a single object;
 - We will see more examples applied to xcompact soon;
 {{< /speaker_note >}}
 
@@ -167,7 +174,7 @@ https://xcompact3d-toolbox.readthedocs.io
 {{< speaker_note >}}
 - But first, lets talk about the **toolbox**;
 - It is a Package designed to handle pre and post-processing in Python;
-- Actually, it is more like a Python wrapper, because it relies heavily on other Python tools;
+- Actually, it is more like a Python WRAPPER, because it RELIES HEAVILY on other Python tools;
 - For instance, the physical and computational parameters are built on top of TRAITLETS;
   - Together with a friendly user interface in IPywidgets;
 - And the Data structure is provided by Xarray, again with support for Plotting, Parallel computing and I/O;
@@ -205,10 +212,11 @@ TraitError: Invalid value for mesh points (nx)
 {{< speaker_note >}}
 - With Traitlets, the parameters can be checked for consistence;
 - The GOAL here is to anticipate some user mistakes;
-- For instance; the parameters are type checked;
-- We can impose some boundaries;
-- We can see some on CHANGE validations;
-- And onchange callbacks;
+- For instance:
+  - The parameters are type checked;
+  - We can impose some boundaries;
+  - We can see some on CHANGE validations;
+  - And onchange callbacks;
 - So, with it, we make sure that the parameters file will be compatible with xcompact3d;
 {{< /speaker_note >}}
 
@@ -223,8 +231,10 @@ TraitError: Invalid value for mesh points (nx)
 <!-- <small>[Try it online](https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial/parameters.html#).</small> -->
 
 {{< speaker_note >}}
-- And all the behavior that we saw in the command line are also available here at the user interface;
-- As you can see, we ensure that booth boundaries in one direction will be periodic or not at the same time, and the number of **MESH** POINTS goes BACK and FORWARD properly.
+- And all the behaviors we saw in the command line are also available at the user interface;
+- As you can see, we ensure that booth boundaries in one direction will be periodic or not at the same time, and the number of **MESH** POINTS goes BACK and FORWARD properly;
+- You can see the estimation for size in disk changing as well;
+-It is  pretty cool, you can try it online in this link.
 {{< /speaker_note >}}
 
 ---
@@ -264,13 +274,13 @@ Data variables:
 - We start with an empty dataset, and them populate it with all the variables from our simulation;
 - You see here the three velocity components and pressure;
 - With toolbox, we can read all files at once;
-- Besides five scalar fractions that are concatenated in just one array with this command here;
+- Besides five scalar fractions are concatenated in just one array with this command here;
 - And finally, we can see the dataset, with:
-  - Five scalar fractions, from 76 snapshots in time, with this spatial resolution;
+  - 5 scalar fractions, from 76 snapshots in time, with this spatial resolution;
   - The coordinates are also INCLUDED. With xarray, we can do many operations calling the coordinates by name, it is very powerful;
   - and we see the five variables.
-- For me, it is really impressive to have ALL data AVAILABLE for us at once here in this Python application;
-- **But just make sure to have have enough memory for it!**
+- For me, it is really impressive to have ALL data AVAILABLE FOR US at once here in this single object;
+- **But JUST MAKE SURE to have have enough memory for it!**
 - Now, lets see how to use it
 {{< /speaker_note >}}
 
@@ -295,15 +305,19 @@ ds['w1'] = ds.uz.differentiate("y") - ds.uy.x3d.first_derivative("z")
 ```
 
 {{< speaker_note >}}
-- Here in the first example, from the dataset, we select the scalar. I'm choosing JUST where time is equals to 10, computing a vertical average calling the coordinate by its name; and finally a plot for reference, presenting each scalar fraction in a different figure;
-- Here we see it;
+- In the first example:
+  - From the dataset, we select the scalar;
+  - I'm choosing JUST where time is equals to 10.0;
+  - Computing a vertical average calling the coordinate by its name;
+  - And finally a plot for reference, presenting each scalar fraction in a different figure;
+  - The settling velocity is different for each fraction, so that is why the concentration is decreasing from LEFT to RIGHT;
 - In the second line, I'm showing how to compute the suspended material, it is defined as the volumetric INTEGRATION of the concentration fields, we can code it in this way, and again a plot for reference;
 - And the last code shows how to compute the first component of VORTICITY;
-  - It is equal to `duz / dy` minus `duy / dz`;
+  - It is equal to `duz / dy` **SUBTRACTING** `duy / dz`;
   - We can use the standard second order scheme from xarray;
   - Or the high order alternative from the toolbox;
-- From my experience working with xarray, we can solve more complicated PROBLEMS with less lines of code;
-- Besides, calling the coordinates by their name, makes our code very readable, AND CONSEQUENTLY, it is easier to collaborate, share and maintain;
+- From my experience working with xarray, we can solve more complicated PROBLEMS with **FEWER** lines of code;
+- Besides, calling the coordinates by their name, makes our code VERY READABLE, AND CONSEQUENTLY, it is easier to collaborate, share and maintain;
 {{< /speaker_note >}}
 
 ---
@@ -326,12 +340,12 @@ ds['w1'] = ds.uz.differentiate("y") - ds.uy.x3d.first_derivative("z")
 - But, how about this question?
 - Can we handle larger-than-memory Datasets?
 - Yes, we can, and we just did it;
-- The example we just saw was a `66GB` dataset, working on a `8GB` virtual machine in our campus, that I accessed remotely;
+- The example WE JUST SAW WAS A `60 GB` dataset, working on a `8 GB` virtual machine in our campus, that I accessed remotely;
 - I wrote a script to convert the RAW BINARIES to NetCDF, aiming to test this CONCEPT;
 - And now you tell me, would you like to work in this way?
-  - Opening the entire dataset with just one command line;
+  - Opening the entire dataset with just one command line?
   - It uses lazy computation, so the data will only be transfered to the memory when demanded;
-- Let’s consider implementing I/O with NetCDF at XCompact3d?
+- Which leads to another question: Let’s consider implementing I/O with NetCDF at XCompact3d?
 {{< /speaker_note >}}
 
 ---
@@ -375,12 +389,12 @@ if __name__ == '__main__':
 
 {{< speaker_note >}}
 - F2PY is a tool from the Scipy / Numpy universe, it is a FORTRAN TO PYTHON **INTERFACE GENERATOR**;
-- Here I presenting a working prototype;
-- I just rearranged a little `xcompact3d.f90` and put everything in this module called core, so we can still run it;
-- F2PY produced the Python interface;
-- And now we can access the same module core here at `xcompact3d.py`, and we can, actually, run the simulation with no performance penalty;
+- And this is a working prototype;
+- I just rearranged a little the FORTRAN code, putting everything in this module called core, so we can still run it;
+- F2PY produces the Python interface;
+- And now we can access the same module core here in Python, and we can, actually, run the simulation WITH NO PERFORMANCE PENALTY;
 - Because we are running with the exactly same compiled code;
-- AND, AFTER TESTING IT, A HAVE SOME IDEAS.
+- AND, AFTER TESTING IT, A HAD SOME IDEAS.
 {{< /speaker_note >}}
 
 ---
@@ -396,7 +410,7 @@ if __name__ == '__main__':
 {{< speaker_note >}}
 - Using F2PY, we could make some key subroutines available in Python:
   - For the simulation itself, but also post-processing;
-- We could test them with unitary test, increasing the codes maintainability;
+- We could test them with UNITARY TEST, increasing the codes **MAINTAINABILITY**;
 - We could distribute the compiled code, in order to increase our user base;
 - And all of this with no significant change at the fortran code;
 - So, of course, it would be still possible to download the code from source, compile it, and keep our WORKFLOW just as it is today, but OPENING **SOME** new possibilities.
@@ -430,9 +444,9 @@ if __name__ == "__main__":
 - This is how I plan the next step;
 - We could make more routines available, for instance, open up the main loop;
   - There is here at the begging, lets say, my own boundary conditions coded in Python, very customizable;
-  - We call `advance_time` with the performance and scalability that we are USED to;
+  - From the solver, we call `advance_time` with the performance and scalability that we are USED to;
   - After that, we could call on board postprocessing, again, very customizable in Python.
-- The main point here is that we have EVERY Python tool at our DISPOSAL, like modules for optimization, control, visualization, machine learning, I/O, maybe GPU accelerated computing and many others.
+- The main point here is that we have EVERY Python tool at our DISPOSAL, like modules for optimization, control, visualization, machine learning, I/O, maybe some GPU accelerated computing and many others.
 - It results in a very flexible interface without affecting the main code in Fortran.
 {{< /speaker_note >}}
 
