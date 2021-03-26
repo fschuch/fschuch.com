@@ -23,9 +23,9 @@ graph TD
 
 Do ponto de vista computacional, esse é um belo exercício para praticar.
 
-{{% alert note %}}
+{{% callout note %}}
 Dica: A função [choise](https://docs.python.org/3/library/random.html#random.choice) do módulo [random](https://docs.python.org/3/library/random.html) é uma boa opção para que o computador escolha aleatoriamente a sua jogada dentre as possibilidades pré estabelecidas em uma lista.
-{{% /alert %}}
+{{% /callout %}}
 
 Claro que existem vários caminhos diferentes para resolver um dado problema, para esse desafio não seria diferente. A cada problemas que resolvemos, agregamos experiência para abordar o seguinte.
 

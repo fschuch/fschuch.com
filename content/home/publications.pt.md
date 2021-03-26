@@ -67,6 +67,6 @@ subtitle = ""
  css_class = ""
 +++
 
-{{% alert note %}}
+{{% callout note %}}
 Descubra rapidamente conteúdo relevante [filtrando publicações]({{< ref "/publication/_index.pt.md" >}}).
-{{% /alert %}}
+{{% /callout %}}

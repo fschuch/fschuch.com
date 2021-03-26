@@ -25,9 +25,9 @@ Boa parte dos materiais por aí são baseados naqueles famosos aplicativos de pl
 
 * [mplfinance](https://github.com/matplotlib/mplfinance) é uma utilidade construída sobre Matplotlib, que oferece visualização e análise para dados financeiros.
 
-{{% alert note %}}
+{{% callout note %}}
 Lembre-se sempre que lucros passados não são garantia de lucros futuros, e que esse post não é uma recomendação de compra.
-{{% /alert %}}
+{{% /callout %}}
 
 O primeiro passo é instalar os pacotes que usaremos, e isso pode ser feito no ambiente Jupyter (como esse post) com o seguinte comando mágico:
 

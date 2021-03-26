@@ -26,9 +26,9 @@ As opções mais intuitivas seriam no ensino de engenharia ou ciência exatas em
 
 Esse post apresenta uma contextualização sobre o [Projeto Jupyter](https://jupyter.org/), uma explanação sobre a utilidade da ferramenta no cenário pedagógico, além da exemplificação de como se pode avançar progressivamente ao combinar Jupyter com diversas outras ferramentas do universo Python, para tornar a experiência mais agradável tanto para docentes quanto para estudantes. Ao final, apresenta-se a leitura recomendada e exemplos de aplicação.
 
-{{% alert note %}}
+{{% callout note %}}
 Essa própria postagem foi produzida a partir de um Jupyter Notebook, assim como muitas outras nesse blog, mostrando a flexibilidade da ferramenta para a produção de conteúdo em geral.
-{{% /alert %}}
+{{% /callout %}}
 
 <!--adsense-->
 

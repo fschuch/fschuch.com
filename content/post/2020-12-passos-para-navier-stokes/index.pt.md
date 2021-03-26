@@ -77,9 +77,9 @@ Os passos 1 a 4 são em uma direção espacial (1D). Passos 5 a 10 são em duas 
 * [Passo 12](http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/15_Passo_12.ipynb)
 -- Resolve o escoamento em Canal com Navier–Stokes 2D.
 
-{{% alert note %}}
+{{% callout note %}}
 Clicar nos links nessa seção irá abrir cada Notebook pelo serviço `nbviewer`, que os apresenta na tela, porem não em forma executável. Para isso, consulte [Executar online](#executar-online).
-{{% /alert %}}
+{{% /callout %}}
 
 # Conteúdo complementar
 

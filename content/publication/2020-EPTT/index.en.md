@@ -68,6 +68,6 @@ projects: []
 slides: ""
 ---
 
-{{% alert note %}}
+{{% callout note %}}
 To appear soon at [EPTT 2020](https://eventos.abcm.org.br/eptt2020/pt/home-pt/).
-{{% /alert %}}
+{{% /callout %}}

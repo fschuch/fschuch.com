@@ -129,13 +129,13 @@ print(I) # E finalmente temos o resultado
 
 E estamos cada vez mais perto da resposta exata. Nesse ponto, se estiver seguindo essa lição com uma aplicação Python aberta (**o que é altamente recomendado**), aproveite para experimentar diferentes possibilidades, varie os parâmetros, varie a função, veja o que acontece.
 
-{{% alert note %}}
+{{% callout note %}}
 Uma desvantagem dessa abordagem é que o laço `for` vai realizar as operações em série, uma de cada vez, e isso é bem ruim do ponto de vista do desempenho computacional.
-{{% /alert %}}
+{{% /callout %}}
 
-{{% alert note %}}
+{{% callout note %}}
 Caso não conheça a função `np.linspace`, lembre-se que em Python é sempre possível acessar a documentação facilmente, basta digitar `help(np.linspace)`.
-{{% /alert %}}
+{{% /callout %}}
 
 ### Operador Integral
 
@@ -178,9 +178,9 @@ np.sum(W * y)
 
 Nessa opção, após a inicialização, podemos calcular outras integrais apenas repetindo a última linha do código, aumentando a legibilidade e a chance de reutilização do código, e menos linhas para copiar e colar também são um benefício na hora de procurar e corrigir falhas.
 
-{{% alert note %}}
+{{% callout note %}}
 Todas as operações embutidas nas principais bibliotecas python (como NumPy e SciPy) empregam conceitos de otimização e programação vetorial, então são preferíveis por aumentar o desempenho computacional.
-{{% /alert %}}
+{{% /callout %}}
 
 ### Biblioteca SciPy
 

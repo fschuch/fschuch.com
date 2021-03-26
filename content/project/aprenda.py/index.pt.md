@@ -3,6 +3,7 @@ title: Aprenda.py
 summary: Esse projeto tem por objetivo incentivar e divulgar a resolução de problemas por meio de ferramentas computacionais.
 tags:
 - Python
+- Educação
 aliases:
   - /aprenda.py
   - /aprenda.py/blog/hello-world
@@ -12,29 +13,45 @@ date: "2019-07-19"
 external_link: ""
 
 image:
+  placement: 3
   caption:
-  focal_point: Smart
+  focal_point: Center
 
 links:
 - icon: twitter
   icon_pack: fab
-  name: Follow
+  name: Siga
   url: https://twitter.com/aprenda_py
 - icon: instagram
   icon_pack: fab
-  name: Follow
+  name: Siga
   url: https://www.instagram.com/aprenda.py/
 - icon: facebook
   icon_pack: fab
-  name: Follow
+  name: Siga
   url: https://www.facebook.com/aprenda.py
+- icon: discord
+  icon_pack: fab
+  name: Participe
+  url: https://discord.com/invite/G7ZXGmAxwx
 url_code: ""
 url_pdf: ""
 url_slides: ""
 url_video: ""
+
 ---
 
-Esta é a primeira linha de código para esse projeto:
+{{< cta cta_text="Postagens Recentes" cta_link="/post" cta_new_tab="false" >}}
+
+{{< cta cta_text="Leitura Recomendada" cta_link="/produtos/#books" cta_new_tab="false" >}}
+
+{{< cta cta_text="Aula Particular Online" cta_link="/produtos/#hotmart" cta_new_tab="false" >}}
+
+{{< cta cta_text="Participe do nosso servidor no Discord" cta_link="https://discord.com/invite/G7ZXGmAxwx" cta_new_tab="true" >}}
+
+{{< spoiler text="Conheça o Projeto" >}}
+
+Esta é a primeira linha de código para Aprenda.py:
 
 ```python
 print("Olá mundo!")
@@ -52,3 +69,5 @@ Em meio a tantas linguagens de programação disponíveis, a escolha do Python s
 Minha relação com Python começou de maneira autodidata, e consistia em resolver os problemas que vivenciava diariamente na minha atuação como aluno de pós-graduação. Inicialmente o foco era apenas como uma ferramenta para produção de figuras com [Matplotlib](https://matplotlib.org/), em substituição ao [Gnuplot](http://www.gnuplot.info/) que era empregado por mim até então. Com o tempo e com a prática, pude perceber que eu podia usar Python de fato para todo o processamento de dados (que antes era feito em Fortran). Essa foi uma mudança chave para um nítido aumento de produtividade. Perceba que o fluxo de trabalho em Fortran consiste em programar o código, compilar (se nenhum erro for encontrado), executar e avaliar os resultados (muitas vezes em ferramentas externas). Enquanto com [Jupiter Notebook](https://jupyter.org), o fluxo de trabalho é interativo, multiplataforma e facilmente documentável.
 
 Com essa experiência, me dispus a palestrar na Jornada Acadêmica da minha universidade ([disponível no GitHub](https://github.com/fschuch/JAEP-2019.py)), mostrando uma introdução a linguagem Python e exemplificando como resolver diversos problemas na área da engenharia. Entre eles: Métodos Numéricos, Transferência de Calor, Resistência dos Materiais, Vibrações Mecânica e outros. E desde então sigo aprendendo mais sobre o assunto, e fico feliz em compartilhar isso com você.
+
+{{< /spoiler >}}

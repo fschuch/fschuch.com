@@ -49,9 +49,9 @@ Se reproduzir esse conteúdo em partes ou em sua totalidade, forneça um link pa
 
 E por favor, apoie os nossos autores [@fschuch](https://twitter.com/fschuch) e [@mathiazst](https://twitter.com/mathiazst).
 
-{{% alert warning %}}
+{{% callout warning %}}
 Essa não é uma recomendação de compra. Lucros passados não são garantia de lucros futuros. Esse é um estudo de cenários didáticos e hipotéticos. Os autores se eximem completamente de qualquer responsabilidade sobre o uso, interpretação e consequências do uso direto ou indireto de qualquer informação contida nesse material.
-{{% /alert %}}
+{{% /callout %}}
 
 ### Execute Online
 
