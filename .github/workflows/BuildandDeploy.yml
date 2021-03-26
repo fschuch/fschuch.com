@@ -16,15 +16,18 @@ jobs:
       with:
         submodules: true
         
-    - run: go version
-
-    - name: setup env
-      run: echo "$GOPATH/bin" >> $GITHUB_PATH
-
-    - name: Hugo Deploy GitHub Pages
+    - name: setup go
       uses: actions/setup-go@v2
       with:
         go-version: 1.16.x
+      run: echo "GOPATH=$GOPATH" >> $GITHUB_ENV
+      run: echo "$GOPATH/bin" >> $GITHUB_PATH
+
+    - run: go version
+    
+    - run: echo $GOPATH
+
+    - name: Hugo Deploy GitHub Pages
       uses: benmatselby/hugo-deploy-gh-pages@master
       env:
         HUGO_VERSION: 0.81.0
