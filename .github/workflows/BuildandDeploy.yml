@@ -16,8 +16,16 @@ jobs:
       with:
         submodules: true
         
-    - name: Install Go
-      run: sudo snap install --classic go
+    - name: setup go
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.16.x
+
+    - name: setup env
+      run: |
+        echo "::set-env name=GOPATH::$(go env GOPATH)"
+        echo "::add-path::$(go env GOPATH)/bin"
+      shell: bash
 
     - name: Hugo Deploy GitHub Pages
       uses: benmatselby/hugo-deploy-gh-pages@master
