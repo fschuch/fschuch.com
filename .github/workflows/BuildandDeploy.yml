@@ -20,6 +20,7 @@ jobs:
       uses: actions/setup-go@v1
       with:
         go-version: '1.16.2' # The Go version to download (if necessary) and use.
+    - run: go run hello.go
 
     - name: Hugo Deploy GitHub Pages
       uses: benmatselby/hugo-deploy-gh-pages@master
