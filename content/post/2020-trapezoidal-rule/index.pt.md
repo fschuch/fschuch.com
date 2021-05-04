@@ -47,6 +47,8 @@ Considerando a função \\( f(x) = \cos(x) + x/\pi \\) no intervalo \\( 0 \le x 
 
 Sabe-se, entretanto, que a solução exata é aproximadamente \\( 25,133 \\). Nossa estimativa passou longe do valor esperado, mas como podemos melhorar isso?
 
+<!--adsense-->
+
 ## Trapézio Composto
 
 Bem, podemos melhorar a aproximação para o cálculo do valor da integral ao aumentarmos o número de trapézios, ou ao usar a regra trapezoidal composta. Ela é dada pela equação:

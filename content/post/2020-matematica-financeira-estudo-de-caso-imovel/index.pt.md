@@ -67,6 +67,8 @@ Você pode executar esse notebook em seu próprio navegador (nenhuma instalaçã
 
 Pronto! Interprete os novos resultados obtidos.
 
+<!--adsense-->
+
 ## Sistemas de Amortização
 
 Quando falamos em sistemas de pagamento, ou sistema de amortização, existem quatro parâmetros fundamentais:
@@ -164,69 +166,13 @@ sistema_pagamento('sac',0.05,4,1000)
 ```
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Juros</th>
-      <th>Amortização</th>
-      <th>Parcela</th>
-      <th>Saldo Devedor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>50</td>
-      <td>250</td>
-      <td>300</td>
-      <td>750</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>37.5</td>
-      <td>250</td>
-      <td>287.5</td>
-      <td>500</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>25</td>
-      <td>250</td>
-      <td>275</td>
-      <td>250</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>12.5</td>
-      <td>250</td>
-      <td>262.5</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|    |   Juros |   Amortização |   Parcela |   Saldo Devedor |
+|---:|--------:|--------------:|----------:|----------------:|
+|  0 |   nan   |           nan |     nan   |            1000 |
+|  1 |    50   |           250 |     300   |             750 |
+|  2 |    37.5 |           250 |     287.5 |             500 |
+|  3 |    25   |           250 |     275   |             250 |
+|  4 |    12.5 |           250 |     262.5 |               0 |
 
 
 
@@ -238,72 +184,13 @@ sistema_pagamento('price',0.05,4,1000).fillna(0)
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Juros</th>
-      <th>Amortização</th>
-      <th>Parcela</th>
-      <th>Saldo Devedor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>1000.00</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>50.00</td>
-      <td>232.01</td>
-      <td>282.01</td>
-      <td>767.99</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>38.40</td>
-      <td>243.61</td>
-      <td>282.01</td>
-      <td>524.38</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>26.22</td>
-      <td>255.79</td>
-      <td>282.01</td>
-      <td>268.59</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>13.43</td>
-      <td>268.58</td>
-      <td>282.02</td>
-      <td>0.00</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+|    |   Juros |   Amortização |   Parcela |   Saldo Devedor |
+|---:|--------:|--------------:|----------:|----------------:|
+|  0 |    0    |          0    |      0    |         1000    |
+|  1 |   50    |        232.01 |    282.01 |          767.99 |
+|  2 |   38.4  |        243.61 |    282.01 |          524.38 |
+|  3 |   26.22 |        255.79 |    282.01 |          268.59 |
+|  4 |   13.43 |        268.58 |    282.02 |            0    |
 
 
 Uma das vantagens de se trabalhar com dados tabulares é que eles podem ser facilmente transformados em gráfico, veja como fazemos isso com apenas algumas linhas de código:
@@ -422,138 +309,21 @@ financiar
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+|     |   Juros |   Amortização |   Parcela |   Saldo Devedor |   Patrimônio - Imóvel |   Custo - Juros |
+|----:|--------:|--------------:|----------:|----------------:|----------------------:|----------------:|
+|   0 |  nan    |        nan    |    nan    |          400000 |                   nan |          nan    |
+|   1 | 3012.07 |       1111.11 |   4123.18 |          398889 |                101111 |         3012.07 |
+|   2 | 3003.7  |       1111.11 |   4114.81 |          397778 |                102222 |         6015.77 |
+|   3 | 2995.33 |       1111.11 |   4106.44 |          396667 |                103333 |         9011.1  |
+|   4 | 2986.97 |       1111.11 |   4098.08 |          395556 |                104444 |        11998.1  |
+|  ...|      ...|            ...|        ...|              ...|                    ...|              ...|
+| 356 |   41.83 |       1111.11 |   1152.94 |         4444.44 |                495556 |          543595 |
+| 357 |   33.47 |       1111.11 |   1144.58 |         3333.33 |                496667 |          543628 |
+| 358 |   25.1  |       1111.11 |   1136.21 |         2222.22 |                497778 |          543653 |
+| 359 |   16.73 |       1111.11 |   1127.84 |         1111.11 |                498889 |          543670 |
+| 360 |    8.37 |       1111.11 |   1119.48 |            0    |                500000 |          543678 |
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Juros</th>
-      <th>Amortização</th>
-      <th>Parcela</th>
-      <th>Saldo Devedor</th>
-      <th>Patrimônio - Imóvel</th>
-      <th>Custo - Juros</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>400000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>3012.07</td>
-      <td>1111.11</td>
-      <td>4123.18</td>
-      <td>398889</td>
-      <td>101111</td>
-      <td>3012.07</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3003.7</td>
-      <td>1111.11</td>
-      <td>4114.81</td>
-      <td>397778</td>
-      <td>102222</td>
-      <td>6015.77</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2995.33</td>
-      <td>1111.11</td>
-      <td>4106.44</td>
-      <td>396667</td>
-      <td>103333</td>
-      <td>9011.1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2986.97</td>
-      <td>1111.11</td>
-      <td>4098.08</td>
-      <td>395556</td>
-      <td>104444</td>
-      <td>11998.1</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>356</th>
-      <td>41.83</td>
-      <td>1111.11</td>
-      <td>1152.94</td>
-      <td>4444.44</td>
-      <td>495556</td>
-      <td>543595</td>
-    </tr>
-    <tr>
-      <th>357</th>
-      <td>33.47</td>
-      <td>1111.11</td>
-      <td>1144.58</td>
-      <td>3333.33</td>
-      <td>496667</td>
-      <td>543628</td>
-    </tr>
-    <tr>
-      <th>358</th>
-      <td>25.1</td>
-      <td>1111.11</td>
-      <td>1136.21</td>
-      <td>2222.22</td>
-      <td>497778</td>
-      <td>543653</td>
-    </tr>
-    <tr>
-      <th>359</th>
-      <td>16.73</td>
-      <td>1111.11</td>
-      <td>1127.84</td>
-      <td>1111.11</td>
-      <td>498889</td>
-      <td>543670</td>
-    </tr>
-    <tr>
-      <th>360</th>
-      <td>8.37</td>
-      <td>1111.11</td>
-      <td>1119.48</td>
-      <td>0</td>
-      <td>500000</td>
-      <td>543678</td>
-    </tr>
-  </tbody>
-</table>
-<p>361 rows × 6 columns</p>
-</div>
-
-
+361 rows × 6 columns
 
 Ou facilmente graficar os resultados para o primeiro cenário:
 
@@ -755,59 +525,11 @@ summary.fillna(0)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Custo - Aluguel</th>
-      <th>Patrimônio - Principal</th>
-      <th>Patrimônio - Rendimentos</th>
-      <th>Patrimônio - Imóvel</th>
-      <th>Custo - Juros</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Alugar</th>
-      <td>589273.20</td>
-      <td>454404.980000</td>
-      <td>2.690410e+06</td>
-      <td>0.0</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>Comprar à Vista</th>
-      <td>166960.74</td>
-      <td>562981.636969</td>
-      <td>1.050871e+06</td>
-      <td>500000.0</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>Financiar</th>
-      <td>0.00</td>
-      <td>0.000000</td>
-      <td>0.000000e+00</td>
-      <td>500000.0</td>
-      <td>543678.18</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|                 |   Custo - Aluguel |   Patrimônio - Principal |   Patrimônio - Rendimentos |   Patrimônio - Imóvel |   Custo - Juros |
+|:----------------|------------------:|-------------------------:|---------------------------:|----------------------:|----------------:|
+| Alugar          |            589273 |                   454405 |                2.69041e+06 |                     0 |               0 |
+| Comprar à Vista |            166961 |                   562982 |                1.05087e+06 |                500000 |               0 |
+| Financiar       |                 0 |                        0 |                0           |                500000 |          543678 |
 
 
 
@@ -830,6 +552,7 @@ plt.locator_params(axis='x', nbins=5)
 
 ![png](./Notebook_58_0.png)
 
+<!--adsense-->
 
 # Conclusão
 

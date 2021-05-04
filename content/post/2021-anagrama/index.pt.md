@@ -278,17 +278,16 @@ def obtem_as_palavras_possiveis(primeira_letra: str, numero_de_letras: int) -> l
         page = requests.get(f"https://www.dicio.com.br/{palavras_alvo}/")
         soup = BeautifulSoup(page.content, "html.parser")
         lista_de_palavras = soup.find_all("p")[1].get_text(separator=" ").strip()
-        lista_de_palavras = normalizar_palavra(lista_de_palavras)
         escreva_o_arquivo(arquivo_backup, lista_de_palavras)
         time.sleep(2)
 
-    return lista_de_palavras.split()
+    return map(normalizar_palavra, lista_de_palavras.split())
 ```
 
 Um teste de funcionalidade:
 
 ```python
-obtem_as_palavras_possiveis("z", 14)
+list(obtem_as_palavras_possiveis("z", 14))
 ```
 
 

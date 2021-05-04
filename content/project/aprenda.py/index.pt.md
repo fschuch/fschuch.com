@@ -13,9 +13,7 @@ date: "2019-07-19"
 external_link: ""
 
 image:
-  placement: 3
-  caption:
-  focal_point: Center
+  focal_point: Smart
 
 links:
 - icon: twitter
@@ -43,9 +41,7 @@ url_video: ""
 
 {{< cta cta_text="Postagens Recentes" cta_link="/post" cta_new_tab="false" >}}
 
-{{< cta cta_text="Leitura Recomendada" cta_link="/produtos/#books" cta_new_tab="false" >}}
-
-{{< cta cta_text="Aula Particular Online" cta_link="/produtos/#hotmart" cta_new_tab="false" >}}
+{{< cta cta_text="Aula Particular Online" cta_link="https://go.hotmart.com/U51515599Q?dp=1" cta_new_tab="true" >}}
 
 {{< cta cta_text="Participe do nosso servidor no Discord" cta_link="https://discord.com/invite/G7ZXGmAxwx" cta_new_tab="true" >}}
 
@@ -66,7 +62,7 @@ print("Olá mundo!")
 
 Em meio a tantas linguagens de programação disponíveis, a escolha do Python se deu pela sua incrível popularidade, boa flexibilidade, e principalmente, pela vasta gama de bibliotecas encontradas para os mais diversos fins. Soma-se isso à interatividade da plataforma [Jupyter Notebook](https://jupyter.org), que permite combinar blocos de código com textos, equações, vídeos, figuras e tabelas, criando um perfeito ambiente para produção de conteúdo interativo e aprendizagem, assim como esse blog.
 
-Minha relação com Python começou de maneira autodidata, e consistia em resolver os problemas que vivenciava diariamente na minha atuação como aluno de pós-graduação. Inicialmente o foco era apenas como uma ferramenta para produção de figuras com [Matplotlib](https://matplotlib.org/), em substituição ao [Gnuplot](http://www.gnuplot.info/) que era empregado por mim até então. Com o tempo e com a prática, pude perceber que eu podia usar Python de fato para todo o processamento de dados (que antes era feito em Fortran). Essa foi uma mudança chave para um nítido aumento de produtividade. Perceba que o fluxo de trabalho em Fortran consiste em programar o código, compilar (se nenhum erro for encontrado), executar e avaliar os resultados (muitas vezes em ferramentas externas). Enquanto com [Jupiter Notebook](https://jupyter.org), o fluxo de trabalho é interativo, multiplataforma e facilmente documentável.
+Minha relação com Python começou de maneira autodidata, e consistia em resolver os problemas que vivenciava diariamente na minha atuação como aluno de pós-graduação. Inicialmente o foco era apenas como uma ferramenta para produção de figuras com [Matplotlib](https://matplotlib.org/), em substituição ao [Gnuplot](http://www.gnuplot.info/) que era empregado por mim até então. Com o tempo e com a prática, pude perceber que eu podia usar Python de fato para todo o processamento de dados (que antes era feito em Fortran). Essa foi uma mudança chave para um nítido aumento de produtividade. Perceba que o fluxo de trabalho em Fortran consiste em programar o código, compilar (se nenhum erro for encontrado), executar e avaliar os resultados (muitas vezes em ferramentas externas). Enquanto com [Jupyter Notebook](https://jupyter.org), o fluxo de trabalho é interativo, multiplataforma e facilmente documentável.
 
 Com essa experiência, me dispus a palestrar na Jornada Acadêmica da minha universidade ([disponível no GitHub](https://github.com/fschuch/JAEP-2019.py)), mostrando uma introdução a linguagem Python e exemplificando como resolver diversos problemas na área da engenharia. Entre eles: Métodos Numéricos, Transferência de Calor, Resistência dos Materiais, Vibrações Mecânica e outros. E desde então sigo aprendendo mais sobre o assunto, e fico feliz em compartilhar isso com você.
 

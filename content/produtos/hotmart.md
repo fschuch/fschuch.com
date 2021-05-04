@@ -3,10 +3,10 @@ widget: hero
 headless: true
 weight: 10
 title: "Programação em Python"
-hero_media: "aprenda.py.logo.png"
+hero_media: "aprenda.py.online.png"
 cta:
   label: '<i class="far fa-calendar-alt"></i> Agende um Horário'
-  url: "https://hotmart.com/product/aprenda-programacao-em-python-aula-particular-online/F36209513D"
+  url: "https://go.hotmart.com/U51515599Q?dp=1"
 cta_alt:
   label: '<i class="far fa-question-circle"></i> Tire suas dúvidas'
   url: "/#contact"

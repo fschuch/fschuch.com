@@ -1,0 +1,13 @@
+{
+    "cSpell.language": ",pt,pt_BR",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./content",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": true
+}
