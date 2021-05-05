@@ -32,6 +32,10 @@ jobs:
       env:
         GOPATH: /home/runner/work/fschuch.com/go
 
+
+    - name: Debug
+      run: echo $PATH
+
     - name: Hugo Deploy GitHub Pages
       uses: benmatselby/hugo-deploy-gh-pages@master
       env:
