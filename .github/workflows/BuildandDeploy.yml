@@ -35,3 +35,4 @@ jobs:
         TARGET_REPO: fschuch/fschuch.github.io
         TOKEN: ${{ secrets.TOKEN }}
         CNAME: www.fschuch.com
+        GOPATH: /home/runner/go
