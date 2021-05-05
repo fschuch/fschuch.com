@@ -23,15 +23,9 @@ jobs:
 
     - name: Checkout master
       uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
-        path: go/src/github.com/fschuch/fschuch.com
 
     - name: Debug
       run: echo "$GOPATH/bin" >> $GITHUB_PATH
-      env:
-        GOPATH: /home/runner/work/fschuch.com/go
-
 
     - name: Debug
       run: echo $PATH
@@ -44,4 +38,3 @@ jobs:
         TARGET_REPO: fschuch/fschuch.github.io
         TOKEN: ${{ secrets.TOKEN }}
         CNAME: www.fschuch.com
-        GOPATH: /home/runner/work/fschuch.com/go
