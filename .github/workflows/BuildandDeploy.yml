@@ -25,7 +25,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Debug
-      run: echo "$GOPATH/bin" >> $GITHUB_PATH
+      run: echo "/home/runner/go/bin" >> $GITHUB_PATH
 
     - name: Debug
       run: echo $PATH
