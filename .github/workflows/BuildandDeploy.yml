@@ -28,7 +28,7 @@ jobs:
         path: go/src/github.com/fschuch/fschuch.com
 
     - name: Debug
-      run: echo "::add-path::$RUNNER_WORKSPACE/$GOPATH/bin" # Make it accessible from runner
+      run: echo "$GOPATH/bin" >> $GITHUB_PATH
       env:
         GOPATH: /home/runner/work/fschuch.com/go
 
