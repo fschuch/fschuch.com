@@ -461,6 +461,7 @@ Temos algumas outras ferramentas que merecem destaque no ambiente Jupyter com ap
 
 ## Exemplos
 
+- {{< cite page="/event/2021-IPH" view="1" >}}
 - {{< cite page="/event/2019-JAEP" view="1" >}}
 - {{< cite page="/event/2019-Transferencia-de-Calor" view="1" >}}
 - {{< cite page="/post/2020-12-passos-para-navier-stokes" view="1" >}}
