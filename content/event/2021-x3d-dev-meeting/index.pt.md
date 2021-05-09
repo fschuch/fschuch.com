@@ -5,10 +5,10 @@ event_url: https://www.incompact3d.com/events
 
 location: Online
 
-abstract: ""
+abstract: "Palestra apresentada para o encontro anual da equipe de desenvolvimento do XCompact3d. Foram apresentados os avanços na integração do solver de Navier-Stokes com Python, para uma interface mais amigável para pré e pós-processamento de dados por meio do pacote Python *Xcompact3d Toolbox*. Além disso, foram demonstrados os planos de trabalho para o corrente ano, que seriam embalar o código fonte do XCompact3d (que é escrito em Fortran) com uma interface Python, aumentando a sinergia e facilidade para manutenção de ambas as ferramentas."
 
 # Summary. An optional shortened abstract.
-summary: 
+summary: "Palestra para o encontro anual da equipe de desenvolvimento do XCompact3d. Apresentando os avanços na integração do solver de Navier-Stokes com Python, para uma interface mais amigável com os usuários por meio do pacote Python *Xcompact3d Toolbox*, além dos planos futuros para embalar o código fonte em Fortan do XCompact3d com uma interface Python, aumentando a sinergia e facilidade para manutenção de ambas as ferramentas."
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.

@@ -8,7 +8,7 @@ location: Online
 abstract: "Uma ferramenta de prototipagem rápida incorporada ao XCompact3d, um código acadêmico para fluidodinâmica computacional. Isso visa aumentar a capacidade de trabalho dos desenvolvedores do código, ao mesmo tempo em que cria um ambiente mais amigável para estudantes em CDF."
 
 # Summary. An optional shortened abstract.
-summary: 
+summary: "Uma ferramenta de prototipagem rápida incorporada ao XCompact3d, um código acadêmico para fluidodinâmica computacional. Isso visa aumentar a capacidade de trabalho dos desenvolvedores do código, ao mesmo tempo em que cria um ambiente mais amigável para estudantes em CDF."
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.

@@ -2,7 +2,7 @@
 title: 'Métodos Numéricos Aplicados à Transferência de Calor'
 event: 'Aula especial para a turma de Transferência de Calor'
 
-location: PUCRS
+location: Escola Politécnica, PUCRS
 address:
   city: Porto Alegre
   region: RS

@@ -3,7 +3,7 @@ title: 'Python: Introdução e Aplicações da Linguagem de Programação em Eng
 event: 'Jornada Acadêmica, Escola Politécnica - PUCRS'
 event_url: https://www.politecnica.pucrs.br/jaep/
 
-location: PUCRS
+location: Escola Politécnica, PUCRS
 address:
   city: Porto Alegre
   region: RS
