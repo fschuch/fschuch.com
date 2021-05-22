@@ -427,6 +427,7 @@ from xcompact3d import core, solver
 if __name__ == "__main__":
 
     core.init_xcompact3d()
+    my_own_initial_conditions() # Low cost, very customizable
 
     while solver.is_running:
 

@@ -83,7 +83,7 @@ Para tanto, o código CFD de alta ordem [Xcompact3d](https://github.com/fschuch/
 
 O resultado da metodologia apresentada nesse trabalho pode beneficiar usuários de diferentes níveis:
 
-Para alunos de fluidodinâmica computacional, oferece experiência prática direta e um local seguro para praticar e aprender;
+* Para alunos de fluidodinâmica computacional, oferece experiência prática direta e um local seguro para praticar e aprender;
 * Para usuários avançados e desenvolvedores de código, ele funciona como uma ferramenta de prototipagem rápida, onde é possível testar conceitos e, em seguida, comparar os resultados para validar quaisquer implementações futuras no solucionador numérico.
 
 Além disso, é um avanço importante em termos de reprodutibilidade de pesquisa, e pode ser portado para qualquer outro solucionador numérico, (avise-nos se você fizer isso).
