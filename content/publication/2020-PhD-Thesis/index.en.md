@@ -29,7 +29,7 @@ tags:
 - Large-eddy simulation
 - Plunging criteria
 - Xcompact3d
-featured: true
+featured: false
 
 links:
 - name: PDF (In Portuguese)
