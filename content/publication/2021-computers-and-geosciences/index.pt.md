@@ -33,7 +33,7 @@ featured: true
 # links:
 # - name: ""
 #   url: ""
-url_pdf: 
+url_pdf: 'https://authors.elsevier.com/a/1dNVsMMTPhD7k'
 url_code: 'https://github.com/fschuch/incompact3d_plunging_criterion'
 url_dataset: 'https://doi.org/10.5281/zenodo.4044388'
 url_poster: ''
