@@ -93,7 +93,7 @@ print(locale.currency(value))
     'R$ 0,67'
 ```
 
-E o formato das datas, com o pacote [time](https://docs.python.org/3.8/library/time.html), seja:
+E o formato das datas, com o pacote [time](https://docs.python.org/3.8/library/time.html), veja:
 
 ```python
 from time import gmtime, strftime
@@ -146,7 +146,81 @@ O ideal aqui é a precisa definição da largura e da altura que se deseja a fig
 
 Temos uma função preparada para isso:
 
-{{< gist fschuch 26293f73c07f525b0c2b6ce571b71d53 >}}
+```
+def get_figsize(
+    columnwidth=4, wf=1.0, hf_rel=(5.0 ** 0.5 - 1.0) / 2.0, hf_abs=None, unit="inch"
+):
+    """A função aceita uma série de argumentos para a precisa customização da
+    largura e altura de uma figura que será produzida com Matplotlib.
+    
+    Maiores detalhes em:
+    www.fschuch/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib
+    
+    © 2020 Felipe N. Schuch, sob os termos da CC BY SA 4.0.
+    (www.creativecommons.org/licenses/by-sa/4.0)
+    
+    Parâmetros
+    ----------
+    columnwidth : float
+        Largura da página ou da coluna de texto (o padrão é 4)
+        Obtenha isso em LaTeX usando \the\columnwidth
+    wf : float
+        A fração da largura que será utilizada pela figura (o padrão é 1.0)
+    hf_rel : float
+        Altura da figura, valor relativo em relação à largura (o padrão é a proporção áurea)
+    hf_abs : float
+        Altura da figura em termos absolutos, caso desejado (o padrão é None)
+        Obtenha isso em LaTeX usando \the\textheight
+    unit : float
+        Unidade de comprimento utilizada para `columnwidth` e `hf_abs`,
+        as opções suportadas são "inch" (polegada), "mm", "cm" e "pt" (Pontos tipográfico)
+        (o padrão é "inch")
+    Retorno
+    -------
+    set
+        Retorna um set contendo a largura e a altura especificada para a figura.
+    Apura
+    -------
+    ValueError
+        Caso a unidade não seja suportada pela função.
+    Exemplos
+    -------
+    
+    >>> import matplotlib.pyplot as plt
+    
+    >>> get_figsize()
+    (4.0, 2.4721359549995796)
+    >>> get_figsize(columnwidth=16, unit='cm', hf_abs=9)
+    (6.299212598425196, 3.543307086614173)
+    
+    >>> plt.rcParams.update({
+    ... 'figure.figsize' : get_figsize(columnwidth=160, wf=0.75, unit='mm', hf_rel=1)
+    ... })
+    """
+
+    # Dessa maneira, unit não será sensível a letras maiúsculas e minúsculas
+    unit = unit.lower()
+
+    # Converte unidades para polegadas, conforme esperado por Matplotlib
+    conversion = dict(inch=1.0, mm=25.4, cm=2.54, pt=72.0,)
+
+    if unit in conversion.keys():
+        fig_width = columnwidth / conversion[unit]
+        if ha_abs is not None:
+            fig_height = ha_abs / conversion[unit]
+    else:
+        raise ValueError(f"unit deve ser: {conversion.keys()}")
+
+    # A figura será apenas uma fração da largura útil da página
+    fig_width *= wf
+
+    # Caso hf_abs não seja definido, a altura será uma fração da largura
+    if hf_abs is None:
+        fig_height = fig_width * hf_rel
+
+    # Retorna a largura e altura especificada para a figura
+    return (fig_width, fig_height)
+```
 
 Vamos detalhar cada um dos parâmetros:
 
