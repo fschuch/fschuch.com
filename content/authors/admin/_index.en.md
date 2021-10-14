@@ -10,15 +10,15 @@ authors:
 superuser: true
 
 # Role/position
-role: Postdoc
+role: Python and Fortran Developer | Researcher in CFD
 
 # Organizations/Affiliations
 organizations:
-- name: LaSET, the CFD lad at PUCRS
-  url: "https://www.politecnica.pucrs.br/laboratorios/laset/"
+- name: Freelancer
+#  url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: "Researcher in Computational Fluid Dynamics at PUCRS, interested in: Turbulent flows, heat and mass transfer, and fluid-structure interaction; Data processing and visualization in Python; Jupyter Notebook as a tool for collaboration, research and teaching."
+bio: "Researcher in Computational Fluid Dynamics, interested in: Turbulent flows, heat and mass transfer, and fluid-structure interaction; Data processing and visualization in Python; Jupyter Notebook as a tool for collaboration, research and teaching."
 
 interests:
 - Computational Fluid Dynamics
@@ -47,7 +47,7 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:felipeschuch@outlook.com  # For a direct email link, use "mailto:test@example.org".
+  link: mailto:felipe@aprendapy.com  # For a direct email link, use "mailto:test@example.org".
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/fschuch
@@ -76,4 +76,8 @@ email: ""
 # - Visitors
 ---
 
-I am currently a postdoctoral researcher at LaSET, the CFD lab at PUCRS. Our studies are oriented to transitional and turbulent flows in natural and industrial environments, also including heat and/or mass transfer, and fluid-structure interaction. An advocate of Jupyter Notebook as a tool for production, collaboration, research, and teaching.
+
+I have experience in the study of transitional and turbulent flows in natural and industrial environments, also including heat and/or mass transfer, and fluid-structure interaction.
+Such works are powered by Computational Fluid Dynamics (CFD) tools and often supported by High-Performance Computing (HPC).
+An advocate of Jupyter Notebook as a tool for production, collaboration, research, and teaching.
+Formerly a Postdoctoral researcher at LaSET, the CFD lab at PUCRS.

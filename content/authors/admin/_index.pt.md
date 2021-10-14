@@ -10,15 +10,15 @@ authors:
 superuser: true
 
 # Role/position
-role: Pesquisador
+role: Pesquisador em CFD | Professor Conteudista
 
 # Organizations/Affiliations
 organizations:
-- name: LaSET - PUCRS
-  url: "https://www.politecnica.pucrs.br/laboratorios/laset/"
+- name: Aprenda.py
+  url: "https://www.fschuch.com/aprenda.py/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: "Pesquisador em Fluidodinâmica Computacional na PUCRS, com interesse em: Escoamentos turbulentos, transferência de calor e massa, e interação fluido-estrutura; Processamento e visualização de dados em Python; Jupyter Notebook como uma ferramenta de colaboração, pesquisa e ensino."
+bio: "Pesquisador em Fluidodinâmica Computacional e professor de programação em Python, com interesse em: Escoamentos turbulentos, transferência de calor e massa, e interação fluido-estrutura; Processamento e visualização de dados em Python; Jupyter Notebook como uma ferramenta de colaboração, pesquisa e ensino."
 
 interests:
 - Fluidodinâmica Computacional
@@ -47,7 +47,7 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:felipeschuch@outlook.com  # For a direct email link, use "mailto:test@example.org".
+  link: mailto:felipe@aprendapy.com  # For a direct email link, use "mailto:test@example.org".
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/fschuch
@@ -76,4 +76,7 @@ email: ""
 # - Visitors
 ---
 
-Atualmente pesquisador no nível Pós-Doutorado no Laboratório de simulação de escoamentos Turbulentos (LaSET), da Escola Politécnica - PUCRS. Nossos estudos são orientados aos escoamentos transicionais e turbulentos em ambientes naturais e industriais, incluindo também transferência de calor e/ou massa, e interação fluido-estrutura. Um defensor do Jupyter Notebook, como uma ferramenta de produção, colaboração, pesquisa e ensino.
+Possuo experiência no estudo de escoamentos transicionais e turbulentos em ambientes naturais e industriais, incluindo também transferência de calor e/ou massa, e interação fluido-estrutura.
+Tais trabalhos são desenvolvidos por meio de ferramentas de Fluidodinâmica Computacional (CFD), que são frequentemente apoiadas por Computação de Alto Desempenho (HPC).
+Um defensor do Jupyter Notebook, como uma ferramenta de produção, colaboração, pesquisa e ensino.
+Anteriormente pesquisador no nível Pós-Doutorado no Laboratório de simulação de escoamentos Turbulentos (LaSET), da Escola Politécnica - PUCRS.
