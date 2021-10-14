@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Pesquisador em CFD | Professor Conteudista
+role: Professor Conteudista
 
 # Organizations/Affiliations
 organizations:
