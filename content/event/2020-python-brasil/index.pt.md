@@ -51,6 +51,9 @@ slides: "2020-python-brasil"
 #   Otherwise, set `projects = []`.
 projects:
   - aprenda.py
+
+aliases:
+  - /talk/2020-python-brasil
 ---
 
 # Introdução

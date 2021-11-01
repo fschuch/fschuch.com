@@ -9,10 +9,10 @@ address:
   region: RS
   country: Brazil
 
-abstract: "Aula como professor convidado, para as turmas de Métodos Numéricos e Turbulência do Programa de Pós-Graduação em Recursos Hídricos e Saneamento Ambiental do Instituto de Pesquisas Hidraúlicas da Universidade Federal do Rio Grande do Sul. Essas disciplinas são ministradas no programa de pós-graduação pela professora Edith Beatriz Camano Schettini, que acompanhou as apresentações."
+abstract: "Aula como professor convidado, para as turmas de Métodos Numéricos e Turbulência do Programa de Pós-Graduação em Recursos Hídricos e Saneamento Ambiental do Instituto de Pesquisas Hidraulicas da Universidade Federal do Rio Grande do Sul. Essas disciplinas são ministradas no programa de pós-graduação pela professora Edith Beatriz Camano Schettini, que acompanhou as apresentações."
 
 # Summary. An optional shortened abstract.
-summary: Aula como professor convidado, ministrada para as turmas de Métodos Numéricos e Turbulência do Programa de Pós-Graduação em Recursos Hídricos e Saneamento Ambiental do Instituto de Pesquisas Hidraúlicas da Universidade Federal do Rio Grande do Sul.
+summary: Aula como professor convidado, ministrada para as turmas de Métodos Numéricos e Turbulência do Programa de Pós-Graduação em Recursos Hídricos e Saneamento Ambiental do Instituto de Pesquisas Hidraulicas da Universidade Federal do Rio Grande do Sul.
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -57,6 +57,9 @@ slides: ""
 #   Otherwise, set `projects = []`.
 projects:
   - aprenda.py
+
+aliases:
+  - /talk/2021-metodos-iph
 ---
 
 Esta palestra tem por objetivo introduzir os principais conceitos de programação e Python, empregando a didática interativa da plataforma Jupyter Notebook. Além disso, demonstra-se como solucionar problemas em métodos numéricos por meio de propostas computacionais. Para tanto, o material é dividido em duas aulas:

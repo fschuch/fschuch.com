@@ -59,4 +59,7 @@ slides: ""
 #   Otherwise, set `projects = []`.
 projects:
   - aprenda.py
+
+aliases:
+  - /talk/2020-transferencia-de-calor
 ---
