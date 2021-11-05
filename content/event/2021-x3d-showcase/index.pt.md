@@ -58,7 +58,7 @@ aliases:
   - /talk/2021-x3d-showcase/
 ---
 
-XCompact3d é uma ferramenta acadêmica de alta precisão, voltado para a resolução de problemas em fuidodinâmica computacioanl (CFD), incluindo capacidade para resolver transporte de calor e/ou massa, bem como escoamentos ao redor de obstáculos. Ele é programado em Fortran, com código aberto, e projetado para rodar em super-computadores por meio da interface por troca de mensagens (MPI).
+XCompact3d é uma ferramenta acadêmica de alta precisão, voltado para a resolução de problemas em fluidodinâmica computacional (CFD), incluindo capacidade para resolver transporte de calor e/ou massa, bem como escoamentos ao redor de obstáculos. Ele é programado em Fortran, com código aberto, e projetado para rodar em super-computadores por meio da interface por troca de mensagens (MPI).
 
 A pesquisa na fronteira do conhecimento geralmente envolve extender as capacidades do código original, visando simular configurações de escoamento inéditas. Com isso, se faz necessário editar diretamente o código fonte, e todas as tarefas derivadas desse ato, como compilar o código, testar, corrigir possiveis falhas, executar e talvez repetir o ciclo. Essa atividade demanda conhecimentos especializados e tempo de deselvolvimento. Nesse contexto surge a motivação para esse trabalho:
 
