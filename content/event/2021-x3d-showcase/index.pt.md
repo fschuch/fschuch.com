@@ -53,6 +53,9 @@ slides:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: ['xcompact3d-toolbox', 'xcompact3d']
+
+aliases:
+  - /talk/2021-x3d-showcase/
 ---
 
 XCompact3d é uma ferramenta acadêmica de alta precisão, voltado para a resolução de problemas em fuidodinâmica computacioanl (CFD), incluindo capacidade para resolver transporte de calor e/ou massa, bem como escoamentos ao redor de obstáculos. Ele é programado em Fortran, com código aberto, e projetado para rodar em super-computadores por meio da interface por troca de mensagens (MPI).
