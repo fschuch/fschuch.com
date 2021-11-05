@@ -40,7 +40,7 @@ featured: false
 #   url: ""
 url_pdf: ''
 url_code: 'https://github.com/fschuch/Xcompact3d'
-url_dataset: 'https://doi.10.5281/zenodo.3968993'
+url_dataset: 'https://doi.org/10.5281/zenodo.3968993'
 url_poster: ''
 url_project: ''
 url_slides: ''
