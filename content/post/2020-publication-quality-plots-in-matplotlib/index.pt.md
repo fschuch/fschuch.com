@@ -192,7 +192,9 @@ def get_figsize(
     (4.0, 2.4721359549995796)
     >>> get_figsize(columnwidth=16, unit='cm', hf_abs=9)
     (6.299212598425196, 3.543307086614173)
-    
+    >>> get_figsize(columnwidth=4, unit='inch', hf_rel = 1.0)
+    (4.0, 4.0)
+
     >>> plt.rcParams.update({
     ... 'figure.figsize' : get_figsize(columnwidth=160, wf=0.75, unit='mm', hf_rel=1)
     ... })
@@ -206,8 +208,8 @@ def get_figsize(
 
     if unit in conversion.keys():
         fig_width = columnwidth / conversion[unit]
-        if ha_abs is not None:
-            fig_height = ha_abs / conversion[unit]
+        if hf_abs is not None:
+            fig_height = hf_abs / conversion[unit]
     else:
         raise ValueError(f"unit deve ser: {conversion.keys()}")
 
