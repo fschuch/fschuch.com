@@ -10,22 +10,21 @@ authors:
 superuser: true
 
 # Role/position
-role: Professor Conteudista
+role: Python Engineer
 
 # Organizations/Affiliations
 organizations:
-- name: Aprenda.py
-  url: "https://www.fschuch.com/aprenda.py/"
+- name: Kobe | Creative Software House
+  url: "https://www.kobe.io/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: "Pesquisador em Fluidodinâmica Computacional e professor de programação em Python, com interesse em: Escoamentos turbulentos, transferência de calor e massa, e interação fluido-estrutura; Processamento e visualização de dados em Python; Jupyter Notebook como uma ferramenta de colaboração, pesquisa e ensino."
+bio: "Possuo experiência na aplicação e também no desenvolvimento de ferramentas computacionais capazes de resolver problemas complexos, além de realizar o processamento, visualização e comunicação dos dados produzidos por essas soluções."
 
 interests:
-- Fluidodinâmica Computacional
-- Fenômenos de Transporte
 - Computação de Alto Desempenho
 - Ciência de Dados
 - Métodos Numéricos
+- Fluidodinâmica Computacional
 - Educação Financeira
 
 education:
@@ -48,15 +47,15 @@ social:
 - icon: envelope
   icon_pack: fas
   link: mailto:felipe@aprendapy.com  # For a direct email link, use "mailto:test@example.org".
-- icon: twitter
+- icon: linkedin
   icon_pack: fab
-  link: https://twitter.com/fschuch
-- icon: lattes
-  icon_pack: ai
-  link: http://lattes.cnpq.br/3101315391901348
+  link: https://www.linkedin.com/in/fschuch/
 - icon: github
   icon_pack: fab
   link: https://github.com/fschuch
+- icon: twitter
+  icon_pack: fab
+  link: https://twitter.com/fschuch
 - icon: youtube
   icon_pack: fab
   link: https://www.youtube.com/channel/UC9UHLxOCmJu-G2RLEr4aVbQ
@@ -76,7 +75,6 @@ email: ""
 # - Visitors
 ---
 
-Possuo experiência no estudo de escoamentos transicionais e turbulentos em ambientes naturais e industriais, incluindo também transferência de calor e/ou massa, e interação fluido-estrutura.
-Tais trabalhos são desenvolvidos por meio de ferramentas de Fluidodinâmica Computacional (CFD), que são frequentemente apoiadas por Computação de Alto Desempenho (HPC).
+Possuo experiência na aplicação e também no desenvolvimento de ferramentas computacionais capazes de resolver problemas complexos, além de realizar o processamento, visualização e comunicação dos dados produzidos por essas soluções.
+Tais ferramentas são frequentemente impulsionadas por Computação de Alto Desempenho (HPC).
 Um defensor do Jupyter Notebook, como uma ferramenta de produção, colaboração, pesquisa e ensino.
-Anteriormente pesquisador no nível Pós-Doutorado no Laboratório de simulação de escoamentos Turbulentos (LaSET), da Escola Politécnica - PUCRS.

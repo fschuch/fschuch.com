@@ -10,28 +10,27 @@ authors:
 superuser: true
 
 # Role/position
-role: Python and Fortran Developer | Researcher in CFD
+role: Python Engineer
 
 # Organizations/Affiliations
 organizations:
-- name: Freelancer
-#  url: ""
+- name: Kobe | Creative Software House
+  url: "https://www.kobe.io/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: "Researcher in Computational Fluid Dynamics, interested in: Turbulent flows, heat and mass transfer, and fluid-structure interaction; Data processing and visualization in Python; Jupyter Notebook as a tool for collaboration, research and teaching."
+bio: "I have the experience of applying and also developing computational tools that are able to solve complex problems, besides processing, visualizing, and communicating the data produced by these solutions. They are often powered by High-Performance Computing (HPC)."
 
 interests:
-- Computational Fluid Dynamics
 - High Performance Computing
-- Numerical Methods
 - Data Science
 - Data Viz
-- Turbidity Currents
+- Numerical Methods
+- Computational Fluid Dynamics
 
 education:
   courses:
   - course: PhD in Engineering and Materials Technology
-    institution: Pontifical Catholic University of Rio Grande do Sul and Sandwich Doctorate at the University of California, Santa Barbara
+    institution: Pontifical Catholic University of Rio Grande do Sul and Split PhD at the University of California, Santa Barbara
     year: 2020
   - course: MSc in Engineering and Materials Technology
     institution: Pontifical Catholic University of Rio Grande do Sul
@@ -48,15 +47,15 @@ social:
 - icon: envelope
   icon_pack: fas
   link: mailto:felipe@aprendapy.com  # For a direct email link, use "mailto:test@example.org".
-- icon: twitter
+- icon: linkedin
   icon_pack: fab
-  link: https://twitter.com/fschuch
-- icon: orcid
-  icon_pack: ai
-  link: https://orcid.org/0000-0002-6140-0273
+  link: https://www.linkedin.com/in/fschuch/?locale=en_US
 - icon: github
   icon_pack: fab
   link: https://github.com/fschuch
+- icon: twitter
+  icon_pack: fab
+  link: https://twitter.com/fschuch
 - icon: youtube
   icon_pack: fab
   link: https://www.youtube.com/channel/UC9UHLxOCmJu-G2RLEr4aVbQ
@@ -76,8 +75,5 @@ email: ""
 # - Visitors
 ---
 
-
-I have experience in the study of transitional and turbulent flows in natural and industrial environments, also including heat and/or mass transfer, and fluid-structure interaction.
-Such works are powered by Computational Fluid Dynamics (CFD) tools and often supported by High-Performance Computing (HPC).
-An advocate of Jupyter Notebook as a tool for production, collaboration, research, and teaching.
-Formerly a Postdoctoral researcher at LaSET, the CFD lab at PUCRS.
+I have the experience of applying and also developing computational tools that are able to solve complex problems, besides processing, visualizing, and communicating the data produced by these solutions.
+They are often powered by High-Performance Computing (HPC).
