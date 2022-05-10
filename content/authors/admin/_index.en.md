@@ -14,8 +14,8 @@ role: Python Engineer
 
 # Organizations/Affiliations
 organizations:
-- name: Kobe | Creative Software House
-  url: "https://www.kobe.io/"
+- name: Omnivector Solutions
+  url: "https://www.omnivector.solutions/"
 
 # Short bio (displayed in user profile at end of posts)
 bio: "I have the experience of applying and also developing computational tools that are able to solve complex problems, besides processing, visualizing, and communicating the data produced by these solutions. They are often powered by High-Performance Computing (HPC)."

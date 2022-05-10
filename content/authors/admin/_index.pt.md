@@ -14,8 +14,8 @@ role: Python Engineer
 
 # Organizations/Affiliations
 organizations:
-- name: Kobe | Creative Software House
-  url: "https://www.kobe.io/"
+- name: Omnivector Solutions
+  url: "https://www.omnivector.solutions/"
 
 # Short bio (displayed in user profile at end of posts)
 bio: "Possuo experiência na aplicação e também no desenvolvimento de ferramentas computacionais capazes de resolver problemas complexos, além de realizar o processamento, visualização e comunicação dos dados produzidos por essas soluções."
@@ -23,9 +23,9 @@ bio: "Possuo experiência na aplicação e também no desenvolvimento de ferrame
 interests:
 - Computação de Alto Desempenho
 - Ciência de Dados
+- Visualização de Dados
 - Métodos Numéricos
 - Fluidodinâmica Computacional
-- Educação Financeira
 
 education:
   courses:
