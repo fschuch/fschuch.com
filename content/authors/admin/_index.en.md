@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Python Engineer
+role: Application Engineer
 
 # Organizations/Affiliations
 organizations:
