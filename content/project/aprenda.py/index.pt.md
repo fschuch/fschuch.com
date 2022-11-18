@@ -28,10 +28,6 @@ links:
   icon_pack: fab
   name: Siga
   url: https://www.facebook.com/aprenda.py
-- icon: discord
-  icon_pack: fab
-  name: Participe
-  url: https://discord.com/invite/G7ZXGmAxwx
 url_code: ""
 url_pdf: ""
 url_slides: ""
@@ -43,8 +39,6 @@ url_video: ""
 
 {{< cta cta_text="Aula Particular Online" cta_link="https://go.hotmart.com/U51515599Q?dp=1" cta_new_tab="true" >}}
 
-{{< cta cta_text="Participe do nosso servidor no Discord" cta_link="https://discord.com/invite/G7ZXGmAxwx" cta_new_tab="true" >}}
-
 {{< spoiler text="Conheça o Projeto" >}}
 
 Esta é a primeira linha de código para Aprenda.py:
@@ -54,6 +48,7 @@ print("Olá mundo!")
 ```
 
 *Aprenda.py* tem por objetivo incentivar e divulgar a resolução de problemas por meio de ferramentas computacionais. Nos últimos anos, a denominação STEAM tem se popularizado, vindo do inglês para:
+
 * *Science* (Ciência);
 * *Technology* (Tecnologia);
 * *Engineering* (Engenharia);

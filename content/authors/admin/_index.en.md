@@ -46,7 +46,7 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:felipe@aprendapy.com  # For a direct email link, use "mailto:test@example.org".
+  link: mailto:me@fschuch.com  # For a direct email link, use "mailto:test@example.org".
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/fschuch/?locale=en_US
@@ -56,9 +56,9 @@ social:
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/fschuch
-- icon: youtube
-  icon_pack: fab
-  link: https://www.youtube.com/channel/UC9UHLxOCmJu-G2RLEr4aVbQ
+# - icon: youtube
+#   icon_pack: fab
+#   link: https://www.youtube.com/channel/UC9UHLxOCmJu-G2RLEr4aVbQ
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
