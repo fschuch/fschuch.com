@@ -88,7 +88,7 @@ show_related = {docs = true, page = false, post = true, project = true, publicat
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = "felipe@aprendapy.com"
+email = "me@fschuch.com"
 phone = ""
 
 # Address
@@ -114,7 +114,6 @@ appointment_url = ""
 contact_links = [
   {icon = "twitter", icon_pack = "fab", name = "DM Me", link = "https://twitter.com/fschuch"},
   {icon = "instagram", icon_pack = "fab", name = "DM Me", link = "https://www.instagram.com/aprenda.py/"},
-  {icon = "discord", icon_pack = "fab", name = "Aprenda.py", link = "https://discord.com/invite/G7ZXGmAxwx"},
   #{icon = "keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/"},
   #{icon = "comments", icon_pack = "fas", name = "Discuss on Forum", link = "https://discourse.gohugo.io"},
   # {icon = "telegram", icon_pack = "fab", name = "Telegram Me", link = "https://telegram.me/@Telegram"},
