@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jupyter | F. Schuch</title><link>https://www.fschuch.com/tag/jupyter/</link><atom:link href="https://www.fschuch.com/tag/jupyter/index.xml" rel="self" type="application/rss+xml"/><description>Jupyter</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Fri, 22 Jan 2021 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Jupyter</title><link>https://www.fschuch.com/tag/jupyter/</link></image><item><title>Jupyter Notebook como uma Poderosa Ferramenta Educacional</title><link>https://www.fschuch.com/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/</link><pubDate>Fri, 22 Jan 2021 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+&lt;summary class="font-weight-bold">Lista de Conteúdos&lt;/summary>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#introdução">Introdução&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#o-que-é-um-jupyter-notebook">O que é um Jupyter Notebook?&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#formas-de-acessarcompartilhar">Formas de Acessar/Compartilhar&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#conceitos-pedagógicos">Conceitos Pedagógicos&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#curva-de-progressão">Curva de Progressão&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#nível-inicial">Nível Inicial&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#nível-intermediário">Nível Intermediário&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#nível-avançado">Nível Avançado&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#leitura-recomendada">Leitura Recomendada&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#exemplos">Exemplos&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#conclusão">Conclusão&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/details>
+&lt;h2 id="introdução">Introdução&lt;/h2>
+&lt;p>O ambiente Jupyter Notebook vem se consolidando como principal ferramenta de trabalho em Ciência de Dados, Aprendizado de Máquina e Inteligência Artificial.
+Muitas das características que o tornam tão popular nessas áreas também o colocam em uma posição de &lt;strong>destaque para o campo educacional&lt;/strong>.
+As opções mais intuitivas seriam no ensino de engenharia ou ciência exatas em geral, mas não se engane, qualquer atividade que envolva o trabalho com dados pode se beneficiar, incluindo as ciências da saúde e as ciências humanas.&lt;/p>
+&lt;p>Esse post apresenta uma contextualização sobre o &lt;a href="https://jupyter.org/" target="_blank" rel="noopener">Projeto Jupyter&lt;/a>, uma explanação sobre a utilidade da ferramenta no cenário pedagógico, além da exemplificação de como se pode avançar progressivamente ao combinar Jupyter com diversas outras ferramentas do universo Python, para tornar a experiência mais agradável tanto para docentes quanto para estudantes. Ao final, apresenta-se a leitura recomendada e exemplos de aplicação.&lt;/p>
+&lt;div class="alert alert-note">
+&lt;div>
+Essa própria postagem foi produzida a partir de um Jupyter Notebook, assim como muitas outras nesse blog, mostrando a flexibilidade da ferramenta para a produção de conteúdo em geral.
+&lt;/div>
+&lt;/div>
+&lt;!--adsense-->
+&lt;h2 id="o-que-é-um-jupyter-notebook">O que é um Jupyter Notebook?&lt;/h2>
+&lt;p>O &lt;a href="https://jupyter.org/" target="_blank" rel="noopener">Projeto Jupyter&lt;/a> foi fundado em 2015, sendo uma organização sem fins lucrativos que visa desenvolver software aberto e serviços para computação interativa. A denominação do projeto é uma referências às três principais linguagens de programação suportadas por ele, &lt;a href="https://julialang.org/" target="_blank" rel="noopener">Julia&lt;/a>, &lt;a href="https://www.python.org/" target="_blank" rel="noopener">Python&lt;/a> e &lt;a href="https://www.r-project.org/" target="_blank" rel="noopener">R&lt;/a> (&lt;a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels" target="_blank" rel="noopener">veja todas as linguagens suportadas aqui&lt;/a>), e também uma homenagem aos cadernos onde &lt;a href="https://pt.wikipedia.org/wiki/Galileu_Galilei" target="_blank" rel="noopener">Galileu Galilei&lt;/a> tomava nota de suas descobertas sobre as luas de Júpiter.&lt;/p>
+&lt;p>O Jupyter Notebook é uma das peças do projeto, compreendendo o software no qual se pode criar os cadernos de anotações Jupyter (&lt;em>Jupyter notebooks&lt;/em>), que por sua vez são constituídos por um ambiente de programação que &lt;strong>mistura blocos de código executável, visualizações e texto enriquecido&lt;/strong> com equações, figuras, animações, tabelas, links que redirecionem para recursos externos, títulos e subtítulos, listas e muitos outros recursos.
+Essa flexibilidade permite ao usuário unir código, dados e narrativa, para construir uma verdadeira &lt;strong>história computacional e interativa&lt;/strong>.
+É possível executar o código, ver o que acontece, modificar e repetir, onde o usuário tem uma &lt;em>conversa&lt;/em> com os dados que está analisando.
+Veja o exemplo a seguir:&lt;/p>
+&lt;figure id="figure-exemplo-de-um-jupyter-notebook-começando-por-um-bloco-de-texto-em-markdown-contendo-um-título-explicações-e-uma-equação-renderizada-com-latexhttpswwwlatex-projectorg-três-blocos-de-código-produzem-o-gráfico-final-fonte-adaptado-de-la-barba-et-al-2019httpsjupyter4edugithubiojupyter-edu-book">
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >
+&lt;img alt="Exemplo de um Jupyter Notebook, começando por um bloco de texto em markdown contendo um título, explicações e uma equação renderizada com [LaTeX](https://www.latex-project.org/). Três blocos de código produzem o gráfico final. Fonte: Adaptado de [L.A. Barba et al. (2019)](https://jupyter4edu.github.io/jupyter-edu-book/)." srcset="
+/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/figure_hu23f249effb7277f4d44bfabb20b1d620_223359_7372e6c61fb2e044be1f0e827e8ffddc.jpg 400w,
+/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/figure_hu23f249effb7277f4d44bfabb20b1d620_223359_82b292b2cde02e606bb43f91bff88d13.jpg 760w,
+/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/figure_hu23f249effb7277f4d44bfabb20b1d620_223359_1200x1200_fit_q90_lanczos.jpg 1200w"
+src="https://www.fschuch.com/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/figure_hu23f249effb7277f4d44bfabb20b1d620_223359_7372e6c61fb2e044be1f0e827e8ffddc.jpg"
+width="760"
+height="488"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Exemplo de um Jupyter Notebook, começando por um bloco de texto em markdown contendo um título, explicações e uma equação renderizada com &lt;a href="https://www.latex-project.org/">LaTeX&lt;/a>. Três blocos de código produzem o gráfico final. Fonte: Adaptado de &lt;a href="https://jupyter4edu.github.io/jupyter-edu-book/">L.A. Barba et al. (2019)&lt;/a>.
+&lt;/figcaption>&lt;/figure>
+&lt;p>Além disso, &lt;strong>Jupyter é uma ferramenta grátis e de código aberto&lt;/strong>. Está disponível para os principais sistemas operacionais do mercado e também por serviços remotos na nuvem, onde apenas o acesso a um navegador de internet é o suficiente para utilizar a ferramenta. Esse é um ponto importante frente à outras alternativas de software proprietário, que os alunos muitas vezes sequer conseguem ter acesso fora das instituições de ensino.&lt;/p>
+&lt;h3 id="formas-de-acessarcompartilhar">Formas de Acessar/Compartilhar&lt;/h3>
+&lt;p>A maneira mais simples de testar o Jupyter é por meio &lt;a href="https://colab.research.google.com/" target="_blank" rel="noopener">Colaboratory&lt;/a>, ou simplesmente &lt;em>Colab&lt;/em>, um serviço Google que permite a criação, colaboração e compartilhamento de Notebooks inteiramente na nuvem.&lt;/p>
+&lt;p>Outra opção é o &lt;a href="https://mybinder.org/" target="_blank" rel="noopener">Binder&lt;/a>, serviço na nuvem que permite construir ambientes personalizados e lançar um servidor Jupyter na nuvem a partir de um repositório do GitHub. Além disso, o site apresenta um tutorial de como utilizar o Jupyter em Julia, Python e R.&lt;/p>
+&lt;p>Para instalação local em sua máquina, o Jupyter já acompanha as principais instalações do &lt;a href="https://www.anaconda.com/" target="_blank" rel="noopener">Anaconda&lt;/a>, um gerenciador de pacotes Python. Caso já tenha Anaconda instalado mas não o Jupyter, basta utilizar o comando:&lt;/p>
+&lt;pre>&lt;code class="language-bash">conda install -c conda-forge jupyterlab
+&lt;/code>&lt;/pre>
+&lt;p>Outra possibilidade é o gerenciar de pacotes Python &lt;a href="https://pypi.org/project/pip/" target="_blank" rel="noopener">pip&lt;/a>, com o comando:&lt;/p>
+&lt;pre>&lt;code class="language-bash">pip install jupyterlab
+&lt;/code>&lt;/pre>
+&lt;p>Por fim, o &lt;a href="https://jupyter.org/hub" target="_blank" rel="noopener">JupyterHub&lt;/a> disponibiliza o poder de Jupyter para um grupo de usuários (estudantes de um curso ou um grupo de pesquisa, por exemplo), gerenciando ambientes virtuais e recursos computacionais.&lt;/p>
+&lt;p>Os Jupyter notebooks podem ser exportados em diversos formatos, dependendo do meio onde serão distribuídos. O arquivo &lt;code>.ipynb&lt;/code> é o notebook em sua essência, possibilitando aos demais executar e interagir com o seu conteúdo.
+É possível exportar como PDF, para impressão e compartilhamento, Markdown ou HTML para visualização web (como esse post), LaTeX para inclusão em material técnico/científico e até mesmo para apresentação de slides.&lt;/p>
+&lt;h2 id="conceitos-pedagógicos">Conceitos Pedagógicos&lt;/h2>
+&lt;p>Como vimos anteriormente, a mistura entre blocos de código executáveis e blocos de texto enriquecido permitem ao Jupyter e seus usuários algo como combinar as explicações tradicionalmente encontrada nos livros com a interatividade de um aplicativo web.
+E com isso, Jupyter pode ter seu papel de destaque também como ferramenta educacional.
+Por ser tão flexível, se enquadra não apenas em áreas do conhecimento onde a programação é um objetivo final, mas também em áreas onde &lt;strong>a programação se apresenta como um meio para analisar e resolver problemas&lt;/strong>.&lt;/p>
+&lt;p>A aplicação de Jupyter no ensino pode se dar nos mais &lt;strong>diversos formatos&lt;/strong>, a depender das necessidades do curso, e do conforto/interesse do instrutor para elaborar o material.
+Jupyter pode compreender apenas parte de uma aula, ou um curso inteiro. Pode ser utilizado para produzir a apostila que o turma deverá seguir durante o curso, o material de apoio, leitura complementar, listas de exercícios, exercícios resolvidos ou o gabarito de atividades avaliativas.
+Pode ser apresentado e encorajado como um formato no qual os alunos possam realizar e entregar o dever de casa e atividades avaliativas.
+Podem ser exibidos durante uma aula demonstrativa, presencial ou online, ou convidar os alunos a interagir com o conteúdo durante uma aula prática em laboratório.
+&lt;strong>O objetivo é instigar o aprendizado ativo&lt;/strong>, aumentando o engajamento, participação, entendimento, desempenho e a preparação para a carreira futura dos alunos.
+É exercitada a criatividade, raciocínio lógico, capacidade de resolver problemas, comunicação e outras habilidades que são indispensáveis para qualquer área de atuação.&lt;/p>
+&lt;h2 id="curva-de-progressão">Curva de Progressão&lt;/h2>
+&lt;p>Esta seção apresenta uma descrição (não exaustiva) da curva de aprendizado para alunos e instrutores, exemplificada com programação em Python e suas principais bibliotecas de uso geral.&lt;/p>
+&lt;p>Mas antes de começar, vale mencionar que o nível zero é dominar as denominadas células &lt;em>Markdown&lt;/em>, para texto enriquecido. Nelas, é possível inserir equações com sintaxe $\LaTeX$:&lt;/p>
+&lt;p>$$E = mc^2,$$&lt;/p>
+&lt;p>títulos e subtítulos, texto em &lt;strong>destaque&lt;/strong> e &lt;em>itálico&lt;/em>. Temos também listas:&lt;/p>
+&lt;ul>
+&lt;li>Item 1&lt;/li>
+&lt;li>Item 2&lt;/li>
+&lt;li>Item 3&lt;/li>
+&lt;/ul>
+&lt;p>Citações:&lt;/p>
+&lt;blockquote>
+&lt;p>Considere usar Jupyter na sua instituição de ensino (2021, F. N. Schuch).&lt;/p>
+&lt;/blockquote>
+&lt;p>Além de código com destaque de sintaxe, lista de tarefas, tabelas, figuras, vídeos, links e muito mais (&lt;a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="noopener">veja mais detalhes aqui&lt;/a>).&lt;/p>
+&lt;h3 id="nível-inicial">Nível Inicial&lt;/h3>
+&lt;p>Uma vez que sabemos como adicionar blocos explicativos detalhados, o próximo passo é trabalhar com blocos de código. Vamos tomar como exemplo o caso do movimento uniformemente variável, onde a posição de um dado objeto no espaço em função do tempo é dado pela seguinte equação:&lt;/p>
+&lt;p>$$ S(t) = S_0 + v_0t + \dfrac{at^2}{2}, $$&lt;/p>
+&lt;p>onde $S$ é a posição, $S_0$ a posição inicial, $v_0$ é a velocidade inicial, $a$ a aceleração e $t$ o tempo.&lt;/p>
+&lt;p>Digamos que a aula não seja de programação, mas mesmo assim, a turma pode ser convidada a interagir com o problema e testar diferentes respostas ao alterar os parâmetros quando o seguinte bloco de código é fornecido:&lt;/p>
+&lt;pre>&lt;code class="language-Python"># Atribuímos os parâmetros do problema
+S0 = 0
+v0 = 10
+a = -1
+t = 10
+# A equação que descreve o problema
+S = S0 + v0 * t + (a * t ** 2) / 2
+# Por fim, exibimos a resposta
+print(S)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">50.0
+&lt;/code>&lt;/pre>
+&lt;p>Essa situação pode se aplicar nas mais diversas disciplinas que envolvam algum tipo de cálculo, análise de dados e/ou tomada de decisão.
+Ou dependendo do objetivo do material, o bloco de código pode estar em vazio, servindo como um convite para que a turma resolva o problema por meio de ferramentas computacionais com uma barreira de entrada mínima.&lt;/p>
+&lt;h3 id="nível-intermediário">Nível Intermediário&lt;/h3>
+&lt;p>Como próximo passo, pode-se incluir mais aspectos de lógica de programação, como: &lt;a href="https://docs.python.org/pt-br/3/tutorial/controlflow.html#for-statements" target="_blank" rel="noopener">laços&lt;/a>, &lt;a href="https://docs.python.org/pt-br/3/tutorial/controlflow.html#if-statements" target="_blank" rel="noopener">testes lógicos&lt;/a>, &lt;a href="https://docs.python.org/pt-br/3/tutorial/inputoutput.html" target="_blank" rel="noopener">entrada e saída de arquivos&lt;/a>, &lt;a href="https://docs.python.org/pt-br/3/tutorial/controlflow.html#defining-functions" target="_blank" rel="noopener">funções&lt;/a>, &lt;a href="https://docs.python.org/pt-br/3/tutorial/errors.html" target="_blank" rel="noopener">controle de erros e exceções&lt;/a> e a manipulação de &lt;a href="%28https://docs.python.org/pt-br/3/tutorial/datastructures.html%29">estruturas de dados&lt;/a>.&lt;/p>
+&lt;p>Outro ponto chave é a utilização de ferramentas mais sofisticadas para álgebra matricial, produção de gráficos, álgebra analítica e métodos numéricos. Quatro exemplos são incluídos a seguir.&lt;/p>
+&lt;h4 id="numpy">Numpy&lt;/h4>
+&lt;p>&lt;a href="https://numpy.org/" target="_blank" rel="noopener">Numpy&lt;/a> é um pacote fundamental para a computação científica em Python. Dentre outras coisas, destaca-se pela definição e &lt;strong>manipulação de arranjos de dados multidimensionais&lt;/strong> (tensores), conveniente álgebra linear, transformada de Fourier e capacidade de produzir números aleatórios.&lt;/p>
+&lt;p>No nível anterior, o problema do movimento uniformemente variável foi resolvido para obter a distância de deslocamento para um único ponto no tempo. Vamos usar um espaço linear do Numpy, indo de 0 à 20, discretizado em 51 pontos temporais. O código é o que segue:&lt;/p>
+&lt;pre>&lt;code class="language-Python"># Importamos a biblioteca
+import numpy
+# Criamos o espaço linear
+tempo = numpy.linspace(0, 20, num=51, endpoint=True)
+# Exibimos a variável na tela
+tempo
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">array([ 0. , 0.4, 0.8, 1.2, 1.6, 2. , 2.4, 2.8, 3.2, 3.6, 4. ,
+4.4, 4.8, 5.2, 5.6, 6. , 6.4, 6.8, 7.2, 7.6, 8. , 8.4,
+8.8, 9.2, 9.6, 10. , 10.4, 10.8, 11.2, 11.6, 12. , 12.4, 12.8,
+13.2, 13.6, 14. , 14.4, 14.8, 15.2, 15.6, 16. , 16.4, 16.8, 17.2,
+17.6, 18. , 18.4, 18.8, 19.2, 19.6, 20. ])
+&lt;/code>&lt;/pre>
+&lt;p>Calculamos novamente o deslocamento, agora para o vetor do bloco anterior, para cada ponto no espaço temporal teremos o retorno da respectiva posição, usando o seguinte código:&lt;/p>
+&lt;pre>&lt;code class="language-Python"># Calcula o vetor posição
+posicao = S0 + v0 * tempo + (a * tempo ** 2) / 2
+# Exibe o resultado na tela
+posicao
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">array([ 0. , 3.92, 7.68, 11.28, 14.72, 18. , 21.12, 24.08, 26.88,
+29.52, 32. , 34.32, 36.48, 38.48, 40.32, 42. , 43.52, 44.88,
+46.08, 47.12, 48. , 48.72, 49.28, 49.68, 49.92, 50. , 49.92,
+49.68, 49.28, 48.72, 48. , 47.12, 46.08, 44.88, 43.52, 42. ,
+40.32, 38.48, 36.48, 34.32, 32. , 29.52, 26.88, 24.08, 21.12,
+18. , 14.72, 11.28, 7.68, 3.92, 0. ])
+&lt;/code>&lt;/pre>
+&lt;p>Podemos extrair mais informações do vetor posição que obtivemos no bloco anterior, se lembrarmos que a velocidade para cada instante é igual ao diferencial da posição com relação ao tempo.
+Mostrar exatamente como se programa um esquema diferencial é uma boa opção para um curso de métodos numéricos, ou a turma pode ser convidada a programar por si mesma.
+De qualquer modo, pode-se verificar o resultado também utilizando as funções de cálculo numérico que acompanham a biblioteca Numpy, como por exemplo &lt;a href="https://numpy.org/doc/stable/reference/generated/numpy.gradient.html" target="_blank" rel="noopener">numpy.gradient&lt;/a>. Note que, em Python, pode-se acessar a documentação da função ao digitar &lt;code>help(numpy.gradient)&lt;/code>, ou ainda com o comando mágico &lt;code>numpy.gradient?&lt;/code> quando em um ambiente Jupyter. O comando &lt;code>numpy.gradient??&lt;/code> retorna o código fonte da função, possibilitando assim investigar como ela realmente foi programada.
+O primeiro argumento informado para a função é o arranjo sobre o qual será calculado o gradiente, seguido pelo arranjo de coordenadas, o tempo nesse caso. &lt;code>edge_order&lt;/code> é um argumento opcional que permite escolher a precisão da derivada junto aos contornos, por padrão esse valor é 1, mas podemos usar segunda ordem ao escolher o valor 2. Veja como fica o código:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Diferencial da posição com relação ao tempo
+velocidade = numpy.gradient(posicao, tempo, edge_order=2)
+# Exibe o resultado na tela
+velocidade
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">array([ 1.00000000e+01, 9.60000000e+00, 9.20000000e+00, 8.80000000e+00,
+8.40000000e+00, 8.00000000e+00, 7.60000000e+00, 7.20000000e+00,
+6.80000000e+00, 6.40000000e+00, 6.00000000e+00, 5.60000000e+00,
+5.20000000e+00, 4.80000000e+00, 4.40000000e+00, 4.00000000e+00,
+3.60000000e+00, 3.20000000e+00, 2.80000000e+00, 2.40000000e+00,
+2.00000000e+00, 1.60000000e+00, 1.20000000e+00, 8.00000000e-01,
+4.00000000e-01, 7.10542736e-15, -4.00000000e-01, -8.00000000e-01,
+-1.20000000e+00, -1.60000000e+00, -2.00000000e+00, -2.40000000e+00,
+-2.80000000e+00, -3.20000000e+00, -3.60000000e+00, -4.00000000e+00,
+-4.40000000e+00, -4.80000000e+00, -5.20000000e+00, -5.60000000e+00,
+-6.00000000e+00, -6.40000000e+00, -6.80000000e+00, -7.20000000e+00,
+-7.60000000e+00, -8.00000000e+00, -8.40000000e+00, -8.80000000e+00,
+-9.20000000e+00, -9.60000000e+00, -1.00000000e+01])
+&lt;/code>&lt;/pre>
+&lt;p>A aceleração, por sua vez, é igual ao diferencial da velocidade com relação ao tempo. Seguindo a mesma lógica do bloco anterior, temos:&lt;/p>
+&lt;pre>&lt;code class="language-Python"># Diferencial da velocidade com relação ao tempo
+aceleracao = numpy.gradient(velocidade, tempo, edge_order=2)
+# Exibe o resultado na tela
+aceleracao
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">array([-1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1.,
+-1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1.,
+-1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1.,
+-1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1., -1.])
+&lt;/code>&lt;/pre>
+&lt;p>Note que a aceleração constante está em conformidade com o problema aqui exemplificado, do movimento uniformemente variável.&lt;/p>
+&lt;p>Confira a &lt;a href="https://numpy.org/doc/" target="_blank" rel="noopener">Documentação Numpy&lt;/a> para ver tudo que o pacote tem a oferecer.&lt;/p>
+&lt;h4 id="matplotlib">Matplotlib&lt;/h4>
+&lt;p>&lt;a href="https://matplotlib.org/" target="_blank" rel="noopener">Matplotlib&lt;/a> é uma biblioteca de &lt;strong>plotagem em Python&lt;/strong>, que produz figuras com qualidade de publicação em uma variedade de formatos e ambientes interativos. Você pode gerar gráficos, histogramas, espectros de potência, gráficos de barras, gráficos de erro, diagramas de dispersão e muito mais, com apenas algumas linhas de código, confira a &lt;a href="https://matplotlib.org/3.1.0/gallery/index.html" target="_blank" rel="noopener">Galeria de Exemplos&lt;/a>.&lt;/p>
+&lt;p>Seguindo o caso de estudo dessa postagem, a visualização dos resultados do movimento uniformemente variável é realizada com o seguinte bloco de código:&lt;/p>
+&lt;pre>&lt;code class="language-Python"># Importamos o pacote
+from matplotlib import pyplot
+# Descrevemos as três linhas que irão compor o gráfico
+pyplot.plot(tempo, posicao, label = 'Posição')
+pyplot.plot(tempo, velocidade, label = 'Velocidade')
+pyplot.plot(tempo, aceleracao, label = 'Aceleração')
+# Ativamos a legenda
+pyplot.legend()
+# Definimos a notação do eixo horizontal
+pyplot.xlabel('Tempo')
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="matplotlib.svg" alt="Exemplo Matplotlib">&lt;/p>
+&lt;p>E assim, além da análise numérica, temos ferramentas de &lt;strong>visualização integradas ao ambiente Jupyter&lt;/strong>. Os alunos são convidados a interagir com a aplicação, podendo facilmente alterar os parâmetros do problema e investigar as mudanças provocadas nos resultados.&lt;/p>
+&lt;h4 id="sympy">Sympy&lt;/h4>
+&lt;p>&lt;a href="https://www.sympy.org" target="_blank" rel="noopener">Sympy&lt;/a> é uma biblioteca Python para &lt;strong>matemática simbólica&lt;/strong>. Seu objetivo é tornar-se um sistema de álgebra computacional (CAS) completo, mantendo o código o mais simples possível, para ser compreendido e facilmente extensível.&lt;/p>
+&lt;p>Exemplificamos o uso de matemática simbólica aqui em nosso estudo de caso. Para tanto, importamos Sympy, atribuímos para variáveis Python as suas representações simbólicas com &lt;a href="https://docs.sympy.org/latest/modules/core.html#module-sympy.core.symbol" target="_blank" rel="noopener">sympy.symbols&lt;/a>, construímos a equação analítica para o movimento uniformemente variável, e por fim apresentamos a equação resultante na tela:&lt;/p>
+&lt;pre>&lt;code class="language-Python">import sympy # Importamos o pacote
+# Declaramos os símbolos
+S0, v0, a, t = sympy.symbols(&amp;quot;S_0 v_0 a t&amp;quot;)
+# Atribuímos a equação proposta
+eq_posicao = S0 + v0 * t + (a * t ** 2) / 2
+# Exibimos a equação na tela
+eq_posicao
+&lt;/code>&lt;/pre>
+&lt;p>$$ S_0 + v_0t + \dfrac{at^2}{2} $$&lt;/p>
+&lt;p>Um recurso interessante é a substituição alguns dos símbolos por um valor numérico:&lt;/p>
+&lt;pre>&lt;code class="language-Python">eq_posicao.subs({S0: 0, v0: 10, a: -1})
+&lt;/code>&lt;/pre>
+&lt;p>$$ - \frac{t^{2}}{2} + 10 t$$&lt;/p>
+&lt;p>Com isso, podemos graficar (com Matplotlib) a solução analítica:&lt;/p>
+&lt;pre>&lt;code class="language-Python">sympy.plotting.plot(
+eq_posicao.subs({S0: 0, a: -1, v0: 10}), (t, 0, 20), legend=True
+)
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="sympy.svg" alt="Exemplo Sympy">&lt;/p>
+&lt;p>Ou ainda substituir todos os valores, e obter o dado deslocamento para o tempo 10, por exemplo:&lt;/p>
+&lt;pre>&lt;code class="language-Python">eq_posicao.subs({S0: 0, v0: 10, a: -1, t: 10})
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">50.0
+&lt;/code>&lt;/pre>
+&lt;p>A solução analítica para a velocidade é obtida ao diferenciar a equação da posição em relação ao tempo:&lt;/p>
+&lt;pre>&lt;code class="language-Python"># Velocidade é o diferencial da posição pelo tempo
+eq_velocidade = sympy.diff(eq_posicao, t)
+# Exibimos a equação na tela
+eq_velocidade
+&lt;/code>&lt;/pre>
+&lt;p>$$ a t + v_{0} $$&lt;/p>
+&lt;p>De maneira semelhante, a solução analítica para a aceleração é obtida ao diferenciar a equação da velocidade em relação ao tempo:&lt;/p>
+&lt;pre>&lt;code class="language-Python"># Aceleração é o diferencial da velocidade pelo tempo
+eq_aceleracao = sympy.diff(eq_velocidade, t)
+# Exibimos a equação na tela
+eq_aceleracao
+&lt;/code>&lt;/pre>
+&lt;p>$$ a $$&lt;/p>
+&lt;p>A aceleração é uma constante, afinal, esse é o movimento uniformemente variável.&lt;/p>
+&lt;p>Muitos outros recursos estão disponíveis para a álgebra analítica com Sympy, como derivadas, integrais, limites, expansões em séries, aproximação para esquemas de diferenças finitas, resolução de equações (inclusive equações diferenciais), álgebra matricial, inequações, estatística, probabilidade, e muitos outros. Para uma visão completa, consulte a &lt;a href="https://docs.sympy.org/" target="_blank" rel="noopener">Documentação Sympy&lt;/a>.&lt;/p>
+&lt;h4 id="scipy">Scipy&lt;/h4>
+&lt;p>Por último, mas não menos importante, &lt;a href="https://www.scipy.org/" target="_blank" rel="noopener">Scipy&lt;/a>.
+Mais do que uma biblioteca Python, Scipy é uma coleção de software de &lt;strong>código aberto para computação científica em Python&lt;/strong>. Fazem parte do projeto Numpy, Matplotlib e Sympy, que foram demonstradas anteriormente, &lt;a href="https://ipython.org/" target="_blank" rel="noopener">IPython&lt;/a>, que é na verdade o precursor do Projeto Jupyter, além de Pandas, que veremos a seguir.
+Por estarem todas essas importantes bibliotecas no contexto de um mesmo projeto, percebemos a grande sinergia e interoperabilidade entre elas.&lt;/p>
+&lt;p>Além disso, a própria biblioteca Scipy, um componente do universo Scipy, fornece muitas rotinas numéricas para: Integração numérica, diferenciação numérica, otimização, interpolação, transformada de Fourier, processamento de sinal, álgebra linear e álgebra linear esparsa, solução de problemas de autovalor, estatística, processamento de imagens e I/O de arquivos. Confira todos os detalhes na &lt;a href="https://docs.scipy.org/doc/" target="_blank" rel="noopener">Documentação Scipy&lt;/a>.&lt;/p>
+&lt;h3 id="nível-avançado">Nível Avançado&lt;/h3>
+&lt;p>Após construir a base da solução de problemas por ferramentas numéricas e analíticas na seção anterior, além de vermos como realizar gráficos com Matplotlib, chegamos agora à etapa final.&lt;/p>
+&lt;p>Nesse ponto, vale destacar a importância de balancear o nível de complexidade da resolução dos problemas com a expectativa didática, a experiência dos alunos pode ser frustrante ao se deparar com centenas de linha de código sem sentido. Esse ponto de equilíbrio deve ser avaliado caso a caso.&lt;/p>
+&lt;p>A seguir, veremos alternativas para estruturas de dados, e também opções para produção de figuras interativas, que são uma grande ajuda para análise e interpretação dos resultados. Vale destacar que embora esses elementos apresentem uma barreira de entrada ligeiramente maior, uma vez sejam dominados, acabam por simplificar o fluxo de trabalho, permitindo &lt;strong>resolver problemas mais complicados utilizando menos linhas de código&lt;/strong>.&lt;/p>
+&lt;h4 id="estruturas-de-dados">Estruturas de Dados&lt;/h4>
+&lt;p>Um passo natural após dominar Numpy, é partir para estruturas de dados mais elaboradas.
+O &lt;a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas&lt;/a> é um pacote Python que fornece &lt;strong>estruturas de dados rápidas, flexíveis e expressivas&lt;/strong>, projetadas para tornar o trabalho com dados &lt;em>relacionais&lt;/em> ou &lt;em>rotulados&lt;/em> fáceis e intuitivos.
+A ferramenta apresenta dois tipos primários de estruturas de dados: &lt;a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html#pandas.Series" target="_blank" rel="noopener">Series&lt;/a> (unidimensional) e &lt;a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" target="_blank" rel="noopener">DataFrame&lt;/a> (bidimensional); sendo ideal para trabalhar com dados tabelados (SQL, arquivos Excel ou CSV, por exemplo), que cobre a vasta maioria da análise de dados em casos como finanças, estatística, ciências sociais e diversas áreas da engenharia.
+Uma das vantagens de utilizar Pandas é a facilidade com que podemos converter dados entre diferentes ferramentas. Na verdade, Pandas foi justamente construída sobre Numpy, e projetada para se integrar perfeitamente com todo a ambiente de computação científica.&lt;/p>
+&lt;p>Seguindo o nosso estudo de caso, podemos agrupar os quatro vetores que construímos em Numpy em uma única estrutura Pandas, segundo o código:&lt;/p>
+&lt;pre>&lt;code class="language-Python"># Importamos o pacote
+import pandas
+# Criamos um DataFrame com base nos vetores
+# que produzimos anteriormente com Numpy
+tabela = pandas.DataFrame(
+{
+&amp;quot;Tempo&amp;quot;: tempo,
+&amp;quot;Posição&amp;quot;: posicao,
+&amp;quot;Velocidade&amp;quot;: velocidade,
+&amp;quot;Aceleração&amp;quot;: aceleracao,
+},
+)
+# Exibimos as 5 primeiras linhas da tabela na tela com .head()
+tabela.head()
+&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">&lt;/th>
+&lt;th style="text-align:right">Tempo&lt;/th>
+&lt;th style="text-align:right">Posição&lt;/th>
+&lt;th style="text-align:right">Velocidade&lt;/th>
+&lt;th style="text-align:right">Aceleração&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:right">0.4&lt;/td>
+&lt;td style="text-align:right">3.92&lt;/td>
+&lt;td style="text-align:right">9.6&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:right">0.8&lt;/td>
+&lt;td style="text-align:right">7.68&lt;/td>
+&lt;td style="text-align:right">9.2&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:right">1.2&lt;/td>
+&lt;td style="text-align:right">11.28&lt;/td>
+&lt;td style="text-align:right">8.8&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:right">1.6&lt;/td>
+&lt;td style="text-align:right">14.72&lt;/td>
+&lt;td style="text-align:right">8.4&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Obtemos facilmente uma descrição dos dados, incluindo a contagem, média, desvio padrão, e outros, basta utilizar o método &lt;code>.describe()&lt;/code>, como segue:&lt;/p>
+&lt;pre>&lt;code class="language-Python">tabela.describe()
+&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">&lt;/th>
+&lt;th style="text-align:right">Tempo&lt;/th>
+&lt;th style="text-align:right">Posição&lt;/th>
+&lt;th style="text-align:right">Velocidade&lt;/th>
+&lt;th style="text-align:right">Aceleração&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">count&lt;/td>
+&lt;td style="text-align:right">51&lt;/td>
+&lt;td style="text-align:right">51&lt;/td>
+&lt;td style="text-align:right">51&lt;/td>
+&lt;td style="text-align:right">51&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">mean&lt;/td>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:right">32.6667&lt;/td>
+&lt;td style="text-align:right">1.2539e-15&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">std&lt;/td>
+&lt;td style="text-align:right">5.94643&lt;/td>
+&lt;td style="text-align:right">15.6486&lt;/td>
+&lt;td style="text-align:right">5.94643&lt;/td>
+&lt;td style="text-align:right">8.35323e-14&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">min&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">-10&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">25%&lt;/td>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:right">21.12&lt;/td>
+&lt;td style="text-align:right">-5&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">50%&lt;/td>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:right">36.48&lt;/td>
+&lt;td style="text-align:right">7.10543e-15&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">75%&lt;/td>
+&lt;td style="text-align:right">15&lt;/td>
+&lt;td style="text-align:right">46.6&lt;/td>
+&lt;td style="text-align:right">5&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">max&lt;/td>
+&lt;td style="text-align:right">20&lt;/td>
+&lt;td style="text-align:right">50&lt;/td>
+&lt;td style="text-align:right">10&lt;/td>
+&lt;td style="text-align:right">-1&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Conseguimos graficar todos os dados contidos na tabela com o método do DataFrame Pandas &lt;code>.plot()&lt;/code>, que internamente está invocando Matplotlib, mas para o usuário, basta digitar:&lt;/p>
+&lt;pre>&lt;code class="language-Python">tabela.plot(x='Tempo')
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="matplotlib.svg" alt="Exemplo Matplotlib">&lt;/p>
+&lt;p>Note que é exatamente a mesma figura que obtivemos antes com Matplotlib, mas dessa vez necessitamos de apenas uma linha de código. Recomenda-se a leitura da &lt;a href="https://pandas.pydata.org/docs/getting_started/overview.html" target="_blank" rel="noopener">Documentação Pandas&lt;/a> para uma visão geral de todas as vantagens que o pacote oferece.&lt;/p>
+&lt;p>Pandas funciona muito bem para dados 1D e 2D, mas &lt;strong>e se o problema tiver mais dimensões&lt;/strong>? Bom, felizmente para esse caso temos &lt;a href="http://xarray.pydata.org/en/stable/" target="_blank" rel="noopener">Xarray&lt;/a>, um pacote Python para lidar com arranjos catalogados N-dimensionais, também construído sobre Numpy, e com as funcionalidades fortemente inspiradas em Pandas. Xarray é ainda capaz de lidar com computação paralela e mesmo arquivos maiores do que a memória disponível, graças a sua integração com &lt;a href="https://dask.org/" target="_blank" rel="noopener">Dask&lt;/a>. Temos um tutorial completo disponível em:&lt;/p>
+&lt;h4 id="figuras-interativas">Figuras Interativas&lt;/h4>
+&lt;p>Para exposição interativa dos resultados, possibilitando um &lt;em>conversa&lt;/em> com os dados, outros pacotes gráficos Python surgem como alternativa à Matplotlib. Um exemplo é &lt;a href="https://plotly.com/" target="_blank" rel="noopener">Plotly&lt;/a>, que também está disponível para R e JavaScript. Os nossos dados tabelados são apresentados de maneira interativa com o seguinte bloco de código (experimente interagir com o mouse e testar as diferentes ferramentas):&lt;/p>
+&lt;pre>&lt;code class="language-Python">import plotly.express as px
+fig = px.line(
+tabela,
+x=&amp;quot;Tempo&amp;quot;,
+y=[&amp;quot;Posição&amp;quot;, &amp;quot;Velocidade&amp;quot;, &amp;quot;Aceleração&amp;quot;],
+title=&amp;quot;Uma Figura Interativa&amp;quot;,
+)
+fig.show()
+&lt;/code>&lt;/pre>
+&lt;div id="chart-613827495" class="chart">&lt;/div>
+&lt;script>
+(function() {
+let a = setInterval( function() {
+if ( typeof window.Plotly === 'undefined' ) {
+return;
+}
+clearInterval( a );
+Plotly.d3.json("./example.json", function(chart) {
+Plotly.plot('chart-613827495', chart.data, chart.layout, {responsive: true});
+});
+}, 500 );
+})();
+&lt;/script>
+&lt;p>Novamente, no contexto educacional, &lt;strong>a turma é convidada a interagir com os resultados&lt;/strong>, modificar parâmetros, analisar os novos resultados, em um aprendizado ativo.&lt;/p>
+&lt;p>Existe uma série de outras ferramentas gráficas interativas disponíveis para as mais diversas aplicações, podemos citar:
+&lt;a href="https://altair-viz.github.io/" target="_blank" rel="noopener">altair&lt;/a>,
+&lt;a href="https://bokeh.org/" target="_blank" rel="noopener">bokeh&lt;/a>,
+&lt;a href="https://holoviews.org/" target="_blank" rel="noopener">holoviews&lt;/a>,
+e &lt;a href="https://seaborn.pydata.org/" target="_blank" rel="noopener">seaborn&lt;/a>.&lt;/p>
+&lt;h4 id="outros">Outros&lt;/h4>
+&lt;p>Temos algumas outras ferramentas que merecem destaque no ambiente Jupyter com aplicações didáticas:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/jupyter-widgets/ipywidgets" target="_blank" rel="noopener">ipywidgets&lt;/a> fornece uma série de widgets interativos, como botões, caixas de seleção, controles deslizantes e muito mais, permitindo criar ferramentas interativas avançadas para análise e resolução de problemas, uma opção perfeita para aplicativos de ensino;&lt;/li>
+&lt;li>&lt;a href="https://github.com/voila-dashboards/voila" target="_blank" rel="noopener">voilà&lt;/a> permite exportar todos os elementos de um Jupyter Notebook para uma apresentação em estilo aplicativo web. Confira a &lt;a href="https://voila-gallery.org/" target="_blank" rel="noopener">Galeria Voilà&lt;/a> para visualizar diversos exemplos;&lt;/li>
+&lt;li>&lt;a href="https://nbgrader.readthedocs.io/en/stable/" target="_blank" rel="noopener">nbgrader&lt;/a> é uma ferramenta voltada para auxiliar os instrutores na atribuição e avaliação de tarefas em Jupyter Notebooks.&lt;/li>
+&lt;/ul>
+&lt;!--adsense-->
+&lt;h2 id="leitura-recomendada">Leitura Recomendada&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Teaching and Learning with Jupyter&lt;/strong>, &lt;em>Lorena A. Barba, Lecia J. Barker, Douglas S. Blank, Jed Brown, Allen B. Downey, Timothy George, Lindsey J. Heagy, Kyle T. Mandli, Jason K. Moore, David Lippert, Kyle E. Niemeyer, Ryan R. Watkins, Richard H. West, Elizabeth Wickes, Carol Willing, and Michael Zingale&lt;/em>. Open Book 2019. &lt;a href="https://jupyter4edu.github.io/jupyter-edu-book/" target="_blank" rel="noopener">Disponível online&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="exemplos">Exemplos&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;div class="view-list-item">
+&lt;i class="far fa-calendar-alt pub-icon" aria-hidden="true">&lt;/i>
+&lt;a href="https://www.fschuch.com/talk/metodos-numericos-em-python/" >Métodos Numéricos em Python&lt;/a>
+&lt;div class="article-metadata">
+&lt;span>
+May 4, 2021 3:30 PM &amp;mdash; 5:30 PM
+&lt;/span>
+&lt;span class="middot-divider">&lt;/span>
+&lt;span>PPGRHSA, IPH, UFRGS&lt;/span>
+&lt;/div>
+&lt;div class="btn-links">
+&lt;a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/fschuch/metodos-numericos-com-python" target="_blank" rel="noopener">
+&lt;i class="fab fa-github mr-1">&lt;/i>
+Veja no GitHub
+&lt;/a>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;div class="view-list-item">
+&lt;i class="far fa-calendar-alt pub-icon" aria-hidden="true">&lt;/i>
+&lt;a href="https://www.fschuch.com/talk/python-introducao-e-aplicacoes-da-linguagem-de-programacao-em-engenharia/" >Python: Introdução e Aplicações da Linguagem de Programação em Engenharia&lt;/a>
+&lt;div class="article-metadata">
+&lt;span>
+Jul 16, 2019 2:00 PM &amp;mdash; Jul 16, 2020 5:30 PM
+&lt;/span>
+&lt;span class="middot-divider">&lt;/span>
+&lt;span>Escola Politécnica, PUCRS&lt;/span>
+&lt;/div>
+&lt;div class="btn-links">
+&lt;a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/fschuch/JAEP-2019.py" target="_blank" rel="noopener">
+&lt;i class="fab fa-github mr-1">&lt;/i>
+Veja no GitHub
+&lt;/a>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;div class="view-list-item">
+&lt;i class="far fa-calendar-alt pub-icon" aria-hidden="true">&lt;/i>
+&lt;a href="https://www.fschuch.com/talk/metodos-numericos-aplicados-a-transferencia-de-calor/" >Métodos Numéricos Aplicados à Transferência de Calor&lt;/a>
+&lt;div class="article-metadata">
+&lt;span>
+Oct 9, 2019 7:30 PM &amp;mdash; Oct 9, 2020 8:15 PM
+&lt;/span>
+&lt;span class="middot-divider">&lt;/span>
+&lt;span>Escola Politécnica, PUCRS&lt;/span>
+&lt;/div>
+&lt;div class="btn-links">
+&lt;a class="btn btn-outline-primary btn-page-header btn-sm" href="https://github.com/fschuch/Python-Transferencia-de-Calor" target="_blank" rel="noopener">
+&lt;i class="fab fa-github mr-1">&lt;/i>
+Veja no GitHub
+&lt;/a>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;div class="view-list-item">
+&lt;i class="far fa-newspaper pub-icon" aria-hidden="true">&lt;/i>
+&lt;a href="https://www.fschuch.com/blog/2020/01/12/cfd-com-python-12-passos-para-navier-stokes/" >CFD com Python: 12 Passos para Navier-Stokes&lt;/a>
+&lt;div class="btn-links">
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;div class="view-list-item">
+&lt;i class="far fa-newspaper pub-icon" aria-hidden="true">&lt;/i>
+&lt;a href="https://www.fschuch.com/blog/2020/04/11/alugar-economizar-e-pagar-a-vista-ou-financiar-um-imovel-um-estudo-de-caso/" >Alugar, economizar e pagar à vista ou financiar um imóvel? Um estudo de caso&lt;/a>
+&lt;div class="btn-links">
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="conclusão">Conclusão&lt;/h2>
+&lt;p>Esse foi um material demonstrativo sobre o emprego do Jupyter Notebook no contexto didático, uma vez que a ferramenta permite misturar trechos de texto descritivo com blocos de código interativos (assim como essa própria postagem), visando aumentar a participação, engajamento e desempenho dos estudantes das mais diversas áreas do conhecimento.
+Jupyter é um software gratuito e de código aberto, disponível em todos os sistemas operacionais e em servidores na nuvem (teste sem nenhuma instalação), além de ser compatível com dezenas de diferentes linguagens de programação.
+Por ser tão flexível, se enquadra não apenas em áreas do conhecimento onde a programação é um objetivo final, mas também em áreas onde a programação se apresenta como um meio para analisar e resolver problemas.
+Para uma demonstração mais imersivas, diversos pacotes Python de aplicação geral foram exemplificados.
+Certamente existe uma infinidade de outros pacotes Python com relevância ao contexto educacional, principalmente quando pensamos em soluções para problemas de domínios mais específicos.
+Mas de qualquer maneira, espero que essa leitura auxilie na disseminação dessa incrível ferramenta de ensino.&lt;/p></description></item><item><title>Xcompact3d Toolbox</title><link>https://www.fschuch.com/project/xcompact3d-toolbox/</link><pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/project/xcompact3d-toolbox/</guid><description>&lt;h2 id="sobre">Sobre&lt;/h2>
+&lt;p>Esse é um pacote Python projetado para lidar com o pré e pós-processamento dos dados
+provenientes do código &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a>, uma solução acadêmica de código aberto e alta precisão,
+empregada para solucionar problemas de fluidodinâmica computacional com transporte de escalares.
+Tem como objetivo ajudar os usuários e desenvolvedores de código com um conjunto de ferramentas e processos automatizados.&lt;/p>
+&lt;p>Os parâmetros físicos e computacionais são construídos sobre &lt;a href="https://traitlets.readthedocs.io/en/stable/index.html" target="_blank" rel="noopener">traitlets&lt;/a>,
+uma estrutura que permite que as classes em Python tenham seus atributos checados quanto ao tipo, definição de valores padrões,
+e chamadas de métodos de verificação de atributos quando necessário. Isso visa manter todos os parâmetros em compatibilidade com o que
+o simulador espera. Além disso, &lt;a href="https://ipywidgets.readthedocs.io/en/latest/" target="_blank" rel="noopener">ipywidgets&lt;/a> são fornecidos para uma experiência amigável com o usuário (veja exemplos na &lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial/parameters.html" target="_blank" rel="noopener">Documentação&lt;/a>).&lt;/p>
+&lt;p>A estrutura de dados empregada é &lt;a href="http://xarray.pydata.org/en/stable/" target="_blank" rel="noopener">xarray&lt;/a> (veja &lt;a href="http://xarray.pydata.org/en/stable/why-xarray.html" target="_blank" rel="noopener">&lt;em>Why xarray?&lt;/em>&lt;/a>), que introduz mapeamentos na forma de dimensões, coordenadas e atributos sobre os arranjos puramente &lt;a href="https://numpy.org/" target="_blank" rel="noopener">NumPy&lt;/a>, permitindo uma experiência de desenvolvimento mais intuitiva, concisa e menos propensa à erros.
+Xcompact3d Toolbox conta com métodos capazes de ler os dados binários brutos resultantes das simulações do &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a>, e empacota-los em um arranjo de dados Xarray, assim como o processo contrário, escrevendo-os para o disco em uma maneira compatível com a leitura de dados do &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a>.
+Além disso, os arranjos de dados são compatíveis com &lt;a href="https://dask.org/" target="_blank" rel="noopener">dask&lt;/a> para computação paralela.&lt;/p>
+&lt;p>Por fim, Xcompact3d Toolbox está perfeitamente integrado à nova &lt;em>configuração de escoamento &lt;strong>Sandbox&lt;/strong>&lt;/em> (veja &lt;a href="https://github.com/fschuch/Xcompact3d/" target="_blank" rel="noopener">fschuch/Xcompact3d&lt;/a>). O plano é fornecer toda a informação que o &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a> precisa para especificar uma simulação, como condição inicial, geometria sólida, condições de contorno e o arquivo de parâmetros (&lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial.html#sandbox-examples" target="_blank" rel="noopener">veja os exemplos&lt;/a>). Desse modo, iniciantes podem executar qualquer configuração inédita sem ter que se preocupar com programar em Fortran e com o ambiente de paralelização &lt;a href="http://www.2decomp.org/" target="_blank" rel="noopener">2decomp&lt;/a>. Para desenvolvedores, isso funciona como uma ferramenta de prototipagem rápida, para testar hipóteses e conceitos, além de servir como base de comparação para validar qualquer implementação futura no código fonte do &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a>.&lt;/p></description></item></channel></rss>

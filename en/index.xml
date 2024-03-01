@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>F. Schuch</title><link>https://www.fschuch.com/en/</link><atom:link href="https://www.fschuch.com/en/index.xml" rel="self" type="application/rss+xml"/><description>F. Schuch</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 05 Sep 2022 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>F. Schuch</title><link>https://www.fschuch.com/en/</link></image><item><title>A Cartesian Immersed Boundary Method Based on 1D Flow Reconstructions for High-Fidelity Simulations of Incompressible Turbulent Flows Around Moving Objects</title><link>https://www.fschuch.com/en/publication/2022-flow-turbulence-and-combustion/</link><pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2022-flow-turbulence-and-combustion/</guid><description/></item><item><title>Plunging condition for particle-laden flows over sloping bottoms: three-dimensional turbulence-resolving simulations</title><link>https://www.fschuch.com/en/publication/2021-computers-and-geosciences/</link><pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2021-computers-and-geosciences/</guid><description/></item><item><title>Python and XCompact3d</title><link>https://www.fschuch.com/en/talk/python-and-xcompact3d/</link><pubDate>Fri, 19 Mar 2021 13:15:00 +0000</pubDate><guid>https://www.fschuch.com/en/talk/python-and-xcompact3d/</guid><description/></item><item><title>Sandbox flow configuration: A rapid prototyping tool inside XCompact3d</title><link>https://www.fschuch.com/en/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</link><pubDate>Fri, 12 Mar 2021 15:55:00 +0000</pubDate><guid>https://www.fschuch.com/en/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</guid><description/></item><item><title>A Jupyter sandbox environment coupled into the high-order Navier-Stokes solver Xcompact3d</title><link>https://www.fschuch.com/en/publication/2020-jupytercon/</link><pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2020-jupytercon/</guid><description>&lt;h1 id="outline">Outline&lt;/h1>
+&lt;p>Beginners may face many barriers to entry in a Navier-Stokes solver, for instance:&lt;/p>
+&lt;ul>
+&lt;li>The domain decomposition for parallel computation in a distributed-memory system;&lt;/li>
+&lt;li>Coding, compiling, testing and debugging in programming languages like Fortran or C;&lt;/li>
+&lt;li>The fear of lower anything in the code;&lt;/li>
+&lt;li>Stability of different numerical methods;&lt;/li>
+&lt;li>Lack of documentation and others.&lt;/li>
+&lt;/ul>
+&lt;p>This work aims to break these barriers by coupling a sandbox environment into the solver.&lt;/p>
+&lt;p>To this end, the high-order Navier-Stokes solver &lt;a href="https://github.com/fschuch/Xcompact3d" target="_blank" rel="noopener">Xcompact3d&lt;/a> was modified to accept the entire initial set-up from an external source, including physical and numerical parameters, initial and boundary conditions, and a solid geometry that can be inserted with Immersed Boundary Method (IBM). The initial set-up, in turn, is provided from a &lt;a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook&lt;/a>, taking advantage of the built-in documentation with markdown cells (easily including figures and Latex equations), visualization and interactivity with widgets and plotting libraries, besides the versatility and readability of Python coding. Additionally, the input parameters can be checked for consistency and compatibility. Previous knowledge of &lt;a href="https://numpy.org/" target="_blank" rel="noopener">NumPy&lt;/a> and &lt;a href="https://matplotlib.org/" target="_blank" rel="noopener">Matplotlib&lt;/a> is enough to start with the exemplified flow configurations. However, there is no limitation to extend it to more advantaged tools like &lt;a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas&lt;/a>, &lt;a href="http://xarray.pydata.org/" target="_blank" rel="noopener">Xarray&lt;/a>, &lt;a href="https://dask.org/" target="_blank" rel="noopener">Dask&lt;/a>, &lt;a href="http://numba.pydata.org/" target="_blank" rel="noopener">Numba&lt;/a>, &lt;a href="https://holoviews.org/" target="_blank" rel="noopener">Holoview&lt;/a>, &lt;a href="https://plotly.com/python/" target="_blank" rel="noopener">Plotly&lt;/a> and many others from the Jupyter ecosystem. In fact, the &lt;em>Jupyter CFD Sandbox&lt;/em> was incorporated into the Python package &lt;a href="https://github.com/fschuch/xcompact3d_toolbox" target="_blank" rel="noopener">Xcompact3d-toolbox&lt;/a>.&lt;/p>
+&lt;p>The outcome of the presented framework benefits users from different levels:&lt;/p>
+&lt;ul>
+&lt;li>For students in computational fluid dynamics, it provides direct hands-on experience and a safe place for practising and learning;&lt;/li>
+&lt;li>For advanced users and code developers, it works as a rapid prototyping tool to test concepts and then compare results to validate any future implementations at the numerical solver.&lt;/li>
+&lt;/ul>
+&lt;p>Furthermore, it is a useful advance in terms of research reproducibility and can be ported to any other numerical solver, let we know if you do so.&lt;/p>
+&lt;p>Tutorials and exemplified flow configurations are available at &lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/" target="_blank" rel="noopener">Xcompact3d-toolbox&amp;rsquo;s Documentation&lt;/a>.&lt;/p></description></item><item><title>The Plunging of Hyperpycnal Plumes on Tilted Bed by Three-Dimensional Large-Eddy Simulations</title><link>https://www.fschuch.com/en/publication/2020-eptt/</link><pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2020-eptt/</guid><description>&lt;div class="alert alert-note">
+&lt;div>
+To appear soon at &lt;a href="https://eventos.abcm.org.br/eptt2020/pt/home-pt/">EPTT 2020&lt;/a>.
+&lt;/div>
+&lt;/div></description></item><item><title>Xcompact3d Toolbox</title><link>https://www.fschuch.com/en/project/xcompact3d-toolbox/</link><pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/project/xcompact3d-toolbox/</guid><description/></item><item><title>Xcompact3D: An open-source framework for solving turbulence problems on a Cartesian mesh</title><link>https://www.fschuch.com/en/publication/2020-softwarex/</link><pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2020-softwarex/</guid><description/></item><item><title>Analysis of the Plunging of Hyperpycnal Flows on Tilted bed by Large-Eddy Simulations</title><link>https://www.fschuch.com/en/publication/2020-phd-thesis/</link><pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2020-phd-thesis/</guid><description/></item><item><title>An interactive tool for stratigraphic visualization applied to turbulence-resolved numerical simulations of turbidity currents</title><link>https://www.fschuch.com/en/publication/2019-agu-fall-meeting/</link><pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2019-agu-fall-meeting/</guid><description/></item><item><title>Aprenda.py</title><link>https://www.fschuch.com/en/project/aprenda.py/</link><pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/project/aprenda.py/</guid><description/></item><item><title>Python and XCompact3d</title><link>https://www.fschuch.com/en/slides/2021-x3d-dev-meeting/</link><pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/slides/2021-x3d-dev-meeting/</guid><description>&lt;h2 id="python-and-xcompact3d">Python and XCompact3d&lt;/h2>
+&lt;img alt="" height="180px" width=auto src="python-logo.png" style="background:none; border:none; box-shadow:none;">
+&lt;img alt="" height="180px" width=auto src="ekman_orig.png" style="background:none; border:none; box-shadow:none;">
+&lt;h4 id="xcompact3d-2021-online-developer-meeting">XCompact3d 2021 Online Developer Meeting&lt;/h4>
+&lt;p>&lt;strong>Felipe N. Schuch&lt;/strong>&lt;em>, LaSET, School of Technology, PUCRS.&lt;/em>&lt;/p>
+&lt;img alt="" height="90px" width=auto src="logo.laset.png" style="background:none; border:none; box-shadow:none;">
+&lt;img alt="" height="90px" width=auto src="technology-267x90.png" style="background:none; border:none; box-shadow:none;">
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Hi, my name is Felipe;&lt;/li>
+&lt;li>Today I gonna talk about Python and XCompact3d;&lt;/li>
+&lt;li>Starting with a quick introduction;&lt;/li>
+&lt;li>Then I gonna show a little bit of what I&amp;rsquo;ve been doing in this TOPIC;&lt;/li>
+&lt;li>And finally, I will bring some points for discussion here with you, especially AIMING to improve the synergy between Python and XCompact.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;hr>
+&lt;h3 id="why-python">Why Python?&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Computational cost&lt;/strong> vs &lt;strong>Cost for development&lt;/strong>;&lt;/li>
+&lt;li>Faster to Prototype ideas;&lt;/li>
+&lt;li>Code interactively using &lt;a href="https://ipython.org" target="_blank" rel="noopener">IPython&lt;/a> and &lt;a href="https://jupyter.org" target="_blank" rel="noopener">Jupyter&lt;/a>;&lt;/li>
+&lt;li>It is a great tool for pre and post-processing.&lt;/li>
+&lt;/ul>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>I don&amp;rsquo;t know if everyone here already uses Python, so I gonna start with &lt;strong>Why Python&lt;/strong>;&lt;/li>
+&lt;li>Many people MAY SAY it is a terrible tool because it DOESN&amp;rsquo;T &lt;strong>RUN&lt;/strong> SO fast as other alternatives;&lt;/li>
+&lt;li>But to THOSE people I say, we need to look at the big picture, lets also talk about the COST for development, HUMAN RESOURCES;&lt;/li>
+&lt;li>Here is where Python is really good;&lt;/li>
+&lt;li>Together with the INTERACTIVE tools like Jupyter, Python is a very popular CHOICE for data science;&lt;/li>
+&lt;li>And in our case, it&amp;rsquo;s a great tool for pre and post-processing.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="why-numpy">Why Numpy?&lt;/h3>
+&lt;ul>
+&lt;li>It is a Python library that provides a &lt;strong>multidimensional array object&lt;/strong> and an assortment of routines for fast operations on arrays;&lt;/li>
+&lt;li>Much faster option, because it runs in optimized, pre-compiled C code;&lt;/li>
+&lt;li>With Numpy, we have the best of two worlds, the &lt;strong>performance&lt;/strong> of compiled code in the background, together with the &lt;strong>flexibility&lt;/strong> of Python code for the user.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;small>See &lt;a href="https://numpy.org">https://numpy.org&lt;/a>&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>And now, Why Numpy?&lt;/li>
+&lt;li>It provides &lt;strong>multidimensional ARRAY&lt;/strong> operations in Python;&lt;/li>
+&lt;li>It is much faster than pure Python, because it runs in OPTIMIZED, pre-compiled C code;&lt;/li>
+&lt;li>With Numpy, we have the best of two WORLDS, the &lt;strong>performance&lt;/strong> of compiled code, together with the &lt;strong>flexibility&lt;/strong> of Python CODE FOR THE USER.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h4 id="numpy---example">Numpy - Example&lt;/h4>
+&lt;pre>&lt;code class="language-python">x = np.linspace(start=0., stop=2*np.pi, num=50)
+y = np.linspace(start=0., stop=2*np.pi, num=50)
+ux = np.sin(x[:,np.newaxis])*np.cos(y[np.newaxis,:])
+uy = -np.cos(x[:,np.newaxis])*np.sin(y[np.newaxis,:])
+int = np.trapz(np.trapz(ux, x=x, axis=0), x=y, axis=0)
+plt.streamplot(x,y,ux.T,uy.T)
+plt.xlabel(r&amp;quot;$x_1$&amp;quot;); plt.ylabel(r&amp;quot;$x_2$&amp;quot;);
+&lt;/code>&lt;/pre>
+&lt;img alt="" width="45%" height=auto src="numpy-example.svg">
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>This is a little workflow using Numpy;
+&lt;ul>
+&lt;li>We start here setting two vectors, they will work as our coordinates, &lt;strong>x&lt;/strong> and &lt;strong>y&lt;/strong>;&lt;/li>
+&lt;li>Now you see that booth &lt;strong>ux&lt;/strong> and &lt;strong>uy&lt;/strong> are 2D, but Numpy doesn&amp;rsquo;t know it, so we should inform it using this &lt;code>np.newaxis&lt;/code> notation;&lt;/li>
+&lt;li>And we can compute a integration in this plane, but it is up to the user to keep track of the coordinates and the number of each AXIS.&lt;/li>
+&lt;li>The plot is just for reference;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>But WHO am I to complain about Numpy?
+&lt;ul>
+&lt;li>It is the core of the scientific ecosystem in Python;&lt;/li>
+&lt;li>I Just wanna show you that we can use Numpy in a better way;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="why-xarray">Why Xarray?&lt;/h3>
+&lt;ul>
+&lt;li>Xarray introduces labels in the form of dimensions, coordinates and attributes on top of raw NumPy-like multidimensional arrays, which allows for a more intuitive, more concise, and less error-prone developer experience;&lt;/li>
+&lt;li>Besides, it is integrated to other tools for:
+&lt;ul>
+&lt;li>Plotting (&lt;a href="http://matplotlib.org/" target="_blank" rel="noopener">matplotlib&lt;/a>, &lt;a href="http://holoviews.org/" target="_blank" rel="noopener">HoloViews&lt;/a> and others);&lt;/li>
+&lt;li>Parallel computing (&lt;a href="http://dask.org/" target="_blank" rel="noopener">Dask&lt;/a>);&lt;/li>
+&lt;li>I/O (&lt;a href="http://www.unidata.ucar.edu/software/netcdf" target="_blank" rel="noopener">NetCDF&lt;/a>).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;small>See &lt;a href="http://xarray.pydata.org">http://xarray.pydata.org&lt;/a>&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>WITH Xarray.&lt;/li>
+&lt;li>It introduces labels in the form of dimensions, coordinates and attributes on top of raw NumPy arrays, which allows for a more intuitive, more CONCISE, and LESS ERROR-PRONE &lt;strong>DEVELOPER&lt;/strong> experience:
+&lt;ul>
+&lt;li>Xarray can do axis alignment and broadcast AUTOMATICALLY for any array operation;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Besides, it&amp;rsquo;s integrated with other tools for Plotting, Parallel computing and I/O.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h4 id="xarray---example">Xarray - Example&lt;/h4>
+&lt;pre>&lt;code class="language-python">dataset = xr.Dataset(
+coords={
+&amp;quot;y&amp;quot;: np.linspace(start=0.0, stop=2 * np.pi, num=50),
+&amp;quot;x&amp;quot;: np.linspace(start=0.0, stop=2 * np.pi, num=50),
+}
+)
+dataset[&amp;quot;ux&amp;quot;] = np.sin(dataset[&amp;quot;x&amp;quot;]) * np.cos(dataset[&amp;quot;y&amp;quot;])
+dataset[&amp;quot;uy&amp;quot;] = -np.cos(dataset[&amp;quot;x&amp;quot;]) * np.sin(dataset[&amp;quot;y&amp;quot;])
+dataset
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">&amp;lt;xarray.Dataset&amp;gt;
+Dimensions: (x: 50, y: 50)
+Coordinates:
+* y (y) float64 0.0 0.1282 0.2565 0.3847 ... 5.899 6.027 6.155 6.283
+* x (x) float64 0.0 0.1282 0.2565 0.3847 ... 5.899 6.027 6.155 6.283
+Data variables:
+ux (x, y) float64 0.0 0.0 0.0 0.0 ... -2.369e-16 -2.429e-16 -2.449e-16
+uy (x, y) float64 -0.0 -0.1279 -0.2537 ... 0.2537 0.1279 2.449e-16
+&lt;/code>&lt;/pre>
+&lt;p>&lt;small>&lt;strong>Note:&lt;/strong> This is just the string representation, the dataset will look even better in HTML when running in Jupyter.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>See this example using xarray;&lt;/li>
+&lt;li>We start with the dataset OBJECT, informing the coordinates in this DICT-LIKE constructor;&lt;/li>
+&lt;li>Now we can access the coordinates by THEIR name, and with it, xarray knows this result should be 2D;&lt;/li>
+&lt;li>We can investigate the dataset, its dimensions, coordinates and variables, ALL TOGETHER in a single object;&lt;/li>
+&lt;li>We will see more examples applied to xcompact soon;&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h2 id="xcompact3d-toolbox">&lt;code>XCompact3d-toolbox&lt;/code>&lt;/h2>
+&lt;p>&lt;a href="https://xcompact3d-toolbox.readthedocs.io">https://xcompact3d-toolbox.readthedocs.io&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>The physical and computational parameters are built on top of &lt;a href="https://traitlets.readthedocs.io/en/stable/index.html" target="_blank" rel="noopener">traitlets&lt;/a>:
+&lt;ul>
+&lt;li>&lt;a href="https://ipywidgets.readthedocs.io/en/latest/" target="_blank" rel="noopener">IPywidgets&lt;/a> for a friendly user interface;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Data structure is provided by &lt;a href="http://xarray.pydata.org/en/stable/" target="_blank" rel="noopener">xarray&lt;/a>, again with:
+&lt;ul>
+&lt;li>Plotting (&lt;a href="http://matplotlib.org/" target="_blank" rel="noopener">matplotlib&lt;/a>, &lt;a href="http://holoviews.org/" target="_blank" rel="noopener">HoloViews&lt;/a> and others);&lt;/li>
+&lt;li>Parallel computing (&lt;a href="http://dask.org/" target="_blank" rel="noopener">Dask&lt;/a>);&lt;/li>
+&lt;li>I/O (&lt;a href="http://www.unidata.ucar.edu/software/netcdf" target="_blank" rel="noopener">NetCDF&lt;/a>).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>But first, lets talk about the &lt;strong>toolbox&lt;/strong>;&lt;/li>
+&lt;li>It is a Package designed to handle pre and post-processing in Python;&lt;/li>
+&lt;li>Actually, it is more like a Python WRAPPER, because it RELIES HEAVILY on other Python tools;&lt;/li>
+&lt;li>For instance, the physical and computational parameters are built on top of TRAITLETS;
+&lt;ul>
+&lt;li>Together with a friendly user interface in IPywidgets;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>And the Data structure is provided by Xarray, again with support for Plotting, Parallel computing and I/O;&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h4 id="parameters-consistency-with-traitletshttpstraitletsreadthedocsioenstableindexhtml">Parameters' consistency with &lt;a href="https://traitlets.readthedocs.io/en/stable/index.html" target="_blank" rel="noopener">Traitlets&lt;/a>&lt;/h4>
+&lt;pre>&lt;code class="language-python">&amp;gt;&amp;gt;&amp;gt; prm = x3d.Parameters(loadfile=&amp;quot;example.i3d&amp;quot;)
+&amp;gt;&amp;gt;&amp;gt; # Type checking
+&amp;gt;&amp;gt;&amp;gt; prm.iibm = 10.0
+TraitError: The 'iibm' trait of a Parameters instance expected an int,
+not the float 10.0.
+&amp;gt;&amp;gt;&amp;gt; # Limits are imposed
+&amp;gt;&amp;gt;&amp;gt; prm.iibm = 5 # &amp;lt;--- This can be only 0, 1 or 2, as x3d expects
+TraitError: The value of the 'iibm' trait of a Parameters instance
+should not be greater than 2, but a value of 5 was specified
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-python">&amp;gt;&amp;gt;&amp;gt; # On change validation
+&amp;gt;&amp;gt;&amp;gt; prm.nx = 93
+TraitError: Invalid value for mesh points (nx)
+&amp;gt;&amp;gt;&amp;gt; prm.nx = 17
+&amp;gt;&amp;gt;&amp;gt; # On chance callbacks
+&amp;gt;&amp;gt;&amp;gt; print(prm.nclx1, prm.nclxn, prm.nx, prm.dx)
+2 2 17 0.0625
+&amp;gt;&amp;gt;&amp;gt; prm.nclx1 = 0 # &amp;lt;--- Setting periodic BC
+&amp;gt;&amp;gt;&amp;gt; print(prm.nclx1, prm.nclxn, prm.nx, prm.dx)
+0 0 16 0.0625
+&lt;/code>&lt;/pre>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>With Traitlets, the parameters can be checked for consistence;&lt;/li>
+&lt;li>The GOAL here is to anticipate some user mistakes;&lt;/li>
+&lt;li>For instance:
+&lt;ul>
+&lt;li>The parameters are type checked;&lt;/li>
+&lt;li>We can impose some boundaries;&lt;/li>
+&lt;li>We can see some on CHANGE validations;&lt;/li>
+&lt;li>And onchange callbacks;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>So, with it, we make sure that the parameters file will be compatible with xcompact3d;&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h4 id="user-interface-with-ipywidgets-try-it-onlinehttpsxcompact3d-toolboxreadthedocsioenv0111tutorialparametershtml">User Interface with IPywidgets (&lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/v0.1.11/tutorial/parameters.html" target="_blank" rel="noopener">try it online&lt;/a>)&lt;/h4>
+&lt;div class="animations">
+&lt;img alt="Flow Visualization with Passive Scalar Field" width="100%" height=auto src="Output.gif">
+&lt;/div>
+&lt;!-- &lt;small>[Try it online](https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial/parameters.html#).&lt;/small> -->
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>And all the behaviors we saw in the command line are also available at the user interface;&lt;/li>
+&lt;li>As you can see, we ensure that booth boundaries in one direction will be periodic or not at the same time, and the number of &lt;strong>MESH&lt;/strong> POINTS goes BACK and FORWARD properly;&lt;/li>
+&lt;li>You can see the estimation for size in disk changing as well;
+-It is pretty cool, you can try it online in this link.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h4 id="xcompact3d-toolbox---example">&lt;code>XCompact3d-toolbox&lt;/code> - Example&lt;/h4>
+&lt;pre>&lt;code class="language-python">prm = x3d.Parameters(loadfile=&amp;quot;input.i3d&amp;quot;)
+ds = xr.Dataset()
+# Make sure to have enough memory!
+for var in &amp;quot;ux uy uz pp&amp;quot;.split():
+ds[var] = prm.read_all_fields(f&amp;quot;./data/3d_snapshots/{var}-*.bin&amp;quot;)
+ds[&amp;quot;phi&amp;quot;] = xr.concat([prm.read_all_fields(f&amp;quot;./data/3d_snapshots/phi{n+1}-*.bin&amp;quot;) for n in range(prm.numscalar)], &amp;quot;n&amp;quot;,).assign_coords(n=(&amp;quot;n&amp;quot;, range(prm.numscalar)))
+ds
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">&amp;lt;xarray.Dataset&amp;gt;
+Dimensions: (n: 5, t: 76, x: 721, y: 49, z: 721)
+Coordinates:
+* x (x) float32 0.0 0.02083 0.04167 0.0625 ... 14.94 14.96 14.98 15.0
+* z (z) float32 0.0 0.02083 0.04167 0.0625 ... 14.94 14.96 14.98 15.0
+* y (y) float32 0.0 0.02083 0.04167 0.0625 ... 0.9375 0.9583 0.9792 1.0
+* n (n) int32 0 1 2 3 4
+* t (t) float64 0.0 0.4 0.8 1.2 1.6 2.0 ... 28.4 28.8 29.2 29.6 30.0
+Data variables:
+phi (n, t, x, y, z) float32 dask.array&amp;lt;chunksize=(5, 1, 721, 49, 721), meta=np.ndarray&amp;gt;
+ux (t, x, y, z) float32 dask.array&amp;lt;chunksize=(1, 721, 49, 721), meta=np.ndarray&amp;gt;
+uy (t, x, y, z) float32 dask.array&amp;lt;chunksize=(1, 721, 49, 721), meta=np.ndarray&amp;gt;
+uz (t, x, y, z) float32 dask.array&amp;lt;chunksize=(1, 721, 49, 721), meta=np.ndarray&amp;gt;
+pp (t, x, y, z) float32 dask.array&amp;lt;chunksize=(1, 721, 49, 721), meta=np.ndarray&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Now we have a real case using a xarray dataset;&lt;/li>
+&lt;li>This is from a polidispersed Turbidity Current in Axisymmetric Configuration;&lt;/li>
+&lt;li>We start with an empty dataset, and them populate it with all the variables from our simulation;&lt;/li>
+&lt;li>You see here the three velocity components and pressure;&lt;/li>
+&lt;li>With toolbox, we can read all files at once;&lt;/li>
+&lt;li>Besides five scalar fractions are concatenated in just one array with this command here;&lt;/li>
+&lt;li>And finally, we can see the dataset, with:
+&lt;ul>
+&lt;li>5 scalar fractions, from 76 snapshots in time, with this spatial resolution;&lt;/li>
+&lt;li>The coordinates are also INCLUDED. With xarray, we can do many operations calling the coordinates by name, it is very powerful;&lt;/li>
+&lt;li>and we see the five variables.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>For me, it is really impressive to have ALL data AVAILABLE FOR US at once here in this single object;&lt;/li>
+&lt;li>&lt;strong>But JUST MAKE SURE to have have enough memory for it!&lt;/strong>&lt;/li>
+&lt;li>Now, lets see how to use it&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h4 id="xarray---working-with-coordinates">Xarray - Working with coordinates&lt;/h4>
+&lt;pre>&lt;code class="language-python">ds.phi.sel(t=10.0).mean(&amp;quot;y&amp;quot;).plot(col=&amp;quot;n&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;img alt="" width="85%" height=auto src="xarray-phi-example.png">
+&lt;pre>&lt;code class="language-python">ds['suspended'] = ds.phi.integrate([&amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;, &amp;quot;z&amp;quot;]); ds.suspended.plot(hue=&amp;quot;n&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;img alt="" width="45%" height=auto src="xarray-suspended.example.svg">
+&lt;pre>&lt;code class="language-python">ds['w1'] = ds.uz.differentiate(&amp;quot;y&amp;quot;) - ds.uy.x3d.first_derivative(&amp;quot;z&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>In the first example:
+&lt;ul>
+&lt;li>From the dataset, we select the scalar;&lt;/li>
+&lt;li>I&amp;rsquo;m choosing JUST where time is equals to 10.0;&lt;/li>
+&lt;li>Computing a vertical average calling the coordinate by its name;&lt;/li>
+&lt;li>And finally a plot for reference, presenting each scalar fraction in a different figure;&lt;/li>
+&lt;li>The settling velocity is different for each fraction, so that is why the concentration is decreasing from LEFT to RIGHT;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>In the second line, I&amp;rsquo;m showing how to compute the suspended material, it is defined as the volumetric INTEGRATION of the concentration fields, we can code it in this way, and again a plot for reference;&lt;/li>
+&lt;li>And the last code shows how to compute the first component of VORTICITY;
+&lt;ul>
+&lt;li>It is equal to &lt;code>duz / dy&lt;/code> &lt;strong>SUBTRACTING&lt;/strong> &lt;code>duy / dz&lt;/code>;&lt;/li>
+&lt;li>We can use the standard second order scheme from xarray;&lt;/li>
+&lt;li>Or the high order alternative from the toolbox;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>From my experience working with xarray, we can solve more complicated PROBLEMS with &lt;strong>FEWER&lt;/strong> lines of code;&lt;/li>
+&lt;li>Besides, calling the coordinates by their name, makes our code VERY READABLE, AND CONSEQUENTLY, it is easier to collaborate, share and maintain;&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="could-we-handle-larger-than-memory-datasets">Could we handle larger-than-memory Datasets?&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Yes, if the files were written as &lt;a href="https://www.unidata.ucar.edu/software/netcdf/" target="_blank" rel="noopener">NetCDF&lt;/a>:&lt;/p>
+&lt;pre>&lt;code>ds = xr.open_mfdataset(&amp;quot;./data/3d_snapshots/*.nc&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>Actually, it is just what we did! In the previous example we handled a &lt;code>66,5GB&lt;/code> dataset in a &lt;code>8GB&lt;/code> virtual machine;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Let&amp;rsquo;s consider implementing I/O with &lt;a href="https://www.unidata.ucar.edu/software/netcdf/" target="_blank" rel="noopener">NetCDF&lt;/a> at XCompact3d?&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;small>&lt;strong>Note:&lt;/strong> I&amp;rsquo;ve written a script to convert raw binaries to NetCDF, in order to test this concept.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>But, how about this question?&lt;/li>
+&lt;li>Can we handle larger-than-memory Datasets?&lt;/li>
+&lt;li>Yes, we can, and we just did it;&lt;/li>
+&lt;li>The example WE JUST SAW WAS A &lt;code>60 GB&lt;/code> dataset, working on a &lt;code>8 GB&lt;/code> virtual machine in our campus, that I accessed remotely;&lt;/li>
+&lt;li>I wrote a script to convert the RAW BINARIES to NetCDF, aiming to test this CONCEPT;&lt;/li>
+&lt;li>And now you tell me, would you like to work in this way?
+&lt;ul>
+&lt;li>Opening the entire dataset with just one command line?&lt;/li>
+&lt;li>It uses lazy computation, so the data will only be transfered to the memory when demanded;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Which leads to another question: Let’s consider implementing I/O with NetCDF at XCompact3d?&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h2 id="integrating-python-and-xcompact3d">Integrating Python and XCompact3d&lt;/h2>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Now talking more specifically about the integrating between Python and XCompact3d&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h4 id="f2pyhttpsnumpyorgdevdocsf2pyindexhtml---fortran-to-python-interface-generator">&lt;a href="https://numpy.org/devdocs/f2py/index.html" target="_blank" rel="noopener">F2PY&lt;/a> - Fortran to Python interface generator&lt;/h4>
+&lt;pre>&lt;code class="language-fortran">! xcompact3d.f90 | mpirun -n 4 ./xcompact3d
+program xcompact3d
+use core
+implicit none
+call init_xcompact3d()
+call main_loop()
+call finalise_xcompact3d()
+end program xcompact3d
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-python"># xcompact3d.py | mpirun -n 4 python xcompact3d.py
+from xcompact3d import core
+if __name__ == '__main__':
+core.init_xcompact3d()
+core.main_loop()
+core.finalise_xcompact3d()
+&lt;/code>&lt;/pre>
+&lt;p>&lt;small>&lt;strong>Note:&lt;/strong> This example actually works, and with no performance penalty.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>F2PY is a tool from the Scipy / Numpy universe, it is a FORTRAN TO PYTHON &lt;strong>INTERFACE GENERATOR&lt;/strong>;&lt;/li>
+&lt;li>And this is a working prototype;&lt;/li>
+&lt;li>I just rearranged a little the FORTRAN code, putting everything in this module called core, so we can still run it;&lt;/li>
+&lt;li>F2PY produces the Python interface;&lt;/li>
+&lt;li>And now we can access the same module core here in Python, and we can, actually, run the simulation WITH NO PERFORMANCE PENALTY;&lt;/li>
+&lt;li>Because we are running with the exactly same compiled code;&lt;/li>
+&lt;li>AND, AFTER TESTING IT, A HAD SOME IDEAS.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="overview--objectives">Overview / Objectives&lt;/h3>
+&lt;img alt="" width="100%" height=auto src="mermaid-diagram.svg" style="background:none; border:none; box-shadow:none;">
+&lt;ul>
+&lt;li>Make key subroutines available in Python;&lt;/li>
+&lt;li>Testing them individually with &lt;a href="https://docs.python.org/3/library/unittest.html" target="_blank" rel="noopener">unittest&lt;/a> will increase XCompact3d&amp;rsquo;s maintainability;&lt;/li>
+&lt;li>Distributing the compiled code with &lt;a href="https://pypi.org/project/pip/" target="_blank" rel="noopener">pip&lt;/a> may increase our user base.&lt;/li>
+&lt;/ul>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Using F2PY, we could make some key subroutines available in Python:
+&lt;ul>
+&lt;li>For the simulation itself, but also post-processing;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>We could test them with UNITARY TEST, increasing the codes &lt;strong>MAINTAINABILITY&lt;/strong>;&lt;/li>
+&lt;li>We could distribute the compiled code, in order to increase our user base;&lt;/li>
+&lt;li>And all of this with no significant change at the fortran code;&lt;/li>
+&lt;li>So, of course, it would be still possible to download the code from source, compile it, and keep our WORKFLOW just as it is today, but OPENING &lt;strong>SOME&lt;/strong> new possibilities.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h4 id="f2pyhttpsnumpyorgdevdocsf2pyindexhtml---fortran-to-python-interface-generator-1">&lt;a href="https://numpy.org/devdocs/f2py/index.html" target="_blank" rel="noopener">F2PY&lt;/a> - Fortran to Python interface generator&lt;/h4>
+&lt;h4 id="the-next-steep">The next steep&lt;/h4>
+&lt;pre>&lt;code class="language-python">from xcompact3d import core, solver
+if __name__ == &amp;quot;__main__&amp;quot;:
+core.init_xcompact3d()
+my_own_initial_conditions() # Low cost, very customizable
+while solver.is_running:
+my_own_boundary_conditions() # Low cost, very customizable
+solver.advance_time() # High performance with Fortran code
+my_own_postprocessing() # Low cost, very customizable
+core.finalise_xcompact3d()
+&lt;/code>&lt;/pre>
+&lt;p>&lt;small>&lt;strong>Note 1:&lt;/strong> Here we have every Python tool at our disposal, like modules for optimization, control, visualization, machine learning, I/O, GPU accelerated computing (&lt;a href="https://cupy.dev/" target="_blank" rel="noopener">CuPy&lt;/a>), etc.&lt;/small>
+&lt;small>&lt;strong>Note 2:&lt;/strong> It results in a very customizable interface without affecting the main code in Fortran.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>This is how I plan the next step;&lt;/li>
+&lt;li>We could make more routines available, for instance, open up the main loop;
+&lt;ul>
+&lt;li>There is here at the begging, lets say, my own boundary conditions coded in Python, very customizable;&lt;/li>
+&lt;li>From the solver, we call &lt;code>advance_time&lt;/code> with the performance and scalability that we are USED to;&lt;/li>
+&lt;li>After that, we could call on board postprocessing, again, very customizable in Python.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The main point here is that we have EVERY Python tool at our DISPOSAL, like modules for optimization, control, visualization, machine learning, I/O, maybe some GPU accelerated computing and many others.&lt;/li>
+&lt;li>It results in a very flexible interface without affecting the main code in Fortran.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="it-is-time-to-discuss-the-conclusions">It is time to discuss the conclusions&lt;/h3>
+&lt;blockquote>
+&lt;p>&lt;small>&lt;strong>Felipe N. Schuch&lt;/strong>, LaSET, School of Technology, PUCRS.&lt;br>&lt;/small>
+&lt;small>🏠 &lt;a href="www.fschuch.com/en">fschuch.com&lt;/a> ✉ &lt;a href="mailto:felipe.schuch@edu.pucrs.br">felipe.schuch@edu.pucrs.br&lt;/a>&lt;/small>&lt;/p>
+&lt;/blockquote>
+&lt;img alt="" height="125px" width=auto src="logo.laset.png" style="background:none; border:none; box-shadow:none;">
+&lt;img alt="" height="125px" width=auto src="technology-267x90.png" style="background:none; border:none; box-shadow:none;">
+&lt;img alt="" height="125px" width=auto src="See_the_slides_there.svg" style="border:none;" >
+&lt;!-- &lt;small>www.fschuch.com/en/slides/2021-x3d-showcase&lt;/small> -->
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>&lt;strong>THAT IS IT&lt;/strong>, I have no conclusion, because I think we could discuss IT NOW;&lt;/li>
+&lt;li>So, Please, let me know what do you think about it.&lt;/li>
+&lt;/ul>
+&lt;/aside></description></item><item><title>Sandbox flow configuration: A rapid prototyping tool inside XCompact3d</title><link>https://www.fschuch.com/en/slides/2021-x3d-showcase/</link><pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/slides/2021-x3d-showcase/</guid><description>&lt;h3 id="sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d">Sandbox flow configuration: A rapid prototyping tool inside XCompact3d&lt;/h3>
+&lt;div class="animations">
+&lt;img alt="Flow Visualization with Passive Scalar Field" width="50%" height=auto src="square.gif" >
+&lt;/div>
+&lt;p>&lt;strong>Felipe N. Schuch&lt;/strong>&lt;em>, LaSET, School of Technology, PUCRS.&lt;/em>&lt;/p>
+&lt;img alt="" height="90px" width=auto src="logo.laset.png" style="background:none; border:none; box-shadow:none;">
+&lt;img alt="" height="90px" width=auto src="technology-267x90.png" style="background:none; border:none; box-shadow:none;">
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Hi, my name is Felipe;&lt;/li>
+&lt;li>I&amp;rsquo;m glad to be here today &lt;strong>REPRESENTING&lt;/strong> our LAB;&lt;/li>
+&lt;li>LaSET is the CFD LAB here at PUC rio grande do sul,&lt;/li>
+&lt;li>And this is our work: Sandbox flow configuration: A rapid prototyping tool inside XCompact3d&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h1 id="motivation">Motivation&lt;/h1>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Starting with the motivation for this work, there are two main points to highlight&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;ul>
+&lt;li>
+&lt;p>How can we speed up our workflow?&lt;/p>
+&lt;p>&lt;img src="https://mermaid.ink/svg/eyJjb2RlIjoiZmxvd2NoYXJ0IFJMXG4gICAgQShbSHlwb3RoZXNpc10pIC0tPiBTaW11bGF0aW9uc1xuICAgIHN1YmdyYXBoIFNpbXVsYXRpb25zXG4gICAgICAgIENvZGUgLS0-IENvbXBpbGUgLS0-IERlYnVnIC0tPiBSdW4gLS0-IENvZGVcbiAgICBlbmRcbiAgICBTaW11bGF0aW9ucyAtLT4gQyhbUmVzdWx0c10pXG4gICAgQyAtLT4gRChbQ29uY2x1c2lvbnNdKVxuICAgIEQgLS0-IEFcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJiYXNlIiwidGhlbWVWYXJpYWJsZXMiOnsiZm9udEZhbWlseSI6ImFyaWFsIiwiZm9udFNpemUiOiIyMHB4In19LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ" alt="alt text">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Can we improve the learning curve for beginners in our code?&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>
+&lt;p>The first is:&lt;/p>
+&lt;ul>
+&lt;li>How can we speed up our workflow?&lt;/li>
+&lt;li>I mean, the iterations here the scientific PROCESS;&lt;/li>
+&lt;li>But more specifically, How can we speed up the iterations here in the simulation cycle.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>and the second point:&lt;/p>
+&lt;ul>
+&lt;li>Can we improve the learning curve for beginners in our code?&lt;/li>
+&lt;li>And especially, how to help them to &lt;strong>code new&lt;/strong> flow configurations, going beyond the benchmark cases.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="identifying-the-main-challenges">Identifying the main challenges&lt;/h3>
+&lt;ul>
+&lt;li>Using parallel computation in a distributed-memory system and Message Passing Interface;&lt;/li>
+&lt;/ul>
+&lt;img alt="" height="85%" width=auto src="2d_decomp.png">
+&lt;p>&lt;small> &lt;em>Illustration of the 2D domain decomposition from &lt;a href="http://www.2decomp.org/decomp.html" target="_blank" rel="noopener">2DECOMP&amp;amp;FFT&lt;/a>.&lt;/em> &lt;/small>&lt;/p>
+&lt;ul>
+&lt;li>Coding, compiling, testing, debugging and handling I/O in Fortran.&lt;/li>
+&lt;/ul>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>This leads us to identify the main challenges in our workflow, if we would like to make it easier for beginners and faster for developers;&lt;/li>
+&lt;li>I would say, the PARALLEL DECOMPOSITION &lt;strong>IS GREAT&lt;/strong> for performance and scalability, but it takes a while to master allocation, transpositions and all the MPI calls;&lt;/li>
+&lt;li>Besides that, coding, compiling, testing, debugging and handling I/O in Fortran is not so easy, it is another point that we would like to improve.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h1 id="methodology">Methodology&lt;/h1>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>The PROBLEMS WERE identified, now, lets see how to solve them!&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;p>Sandbox Flow Configuration (&lt;a href="https://github.com/fschuch/Xcompact3d/blob/master/src/BC-Sandbox.f90" target="_blank" rel="noopener">BC-Sandbox.f90&lt;/a>)&lt;/p>
+&lt;!-- ![alt text](mermaid-diagram-20210310173223.svg) -->
+&lt;p>&lt;img src="mermaid-diagram-20210310111106.svg" alt="alt text">&lt;/p>
+&lt;ul>
+&lt;li>The initial set-up is imported from external files;&lt;/li>
+&lt;li>The choice of the external tool is up to the user:
+&lt;ul>
+&lt;li>Fortran, Matlab, Octave, R, Julia;&lt;/li>
+&lt;li>Python with just &lt;a href="https://numpy.org/" target="_blank" rel="noopener">Numpy&lt;/a> or more specific tools (&lt;a href="https://github.com/xcompact3d/Py4Incompact3D" target="_blank" rel="noopener">Py4Incompact3D&lt;/a> or &lt;a href="https://github.com/fschuch/xcompact3d_toolbox" target="_blank" rel="noopener">Xcompact3d-toolbox&lt;/a>);&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>It adds no extra dependency to the workflow.&lt;/li>
+&lt;/ul>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>This is the Sandbox Flow configuration.&lt;/li>
+&lt;li>Of course, xcompact3d already reads the PARAMETERS FILE at initialization, but with the new &lt;code>MODULE SANDBOX&lt;/code>, the entire initial set-up can be imported from the disk;&lt;/li>
+&lt;li>Using it, we can customize any new flow configuration with no need to RECOMPILE the code every time.&lt;/li>
+&lt;li>The initial set-up includes case specific definitions, like: Initial condition; Boundary conditions; Geometry; Others.&lt;/li>
+&lt;li>It can be provided EXTERNALLY.&lt;/li>
+&lt;li>Our INTENTION was to keep it simple, but using the disk is still very USEFULL, because with it, the choice of what to use as external tool is &lt;strong>totally&lt;/strong> up to the user:
+&lt;ul>
+&lt;li>It can be Fortran, Matlab, R, Julia, Python, and many others, as long as you can write binary arrays in the same fashion that xcompact3d would do.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>And here we have a good point: This framework can speed up our workflow, and at the same time, there is no extra &lt;strong>DEPENDENCIES&lt;/strong> to install.&lt;/li>
+&lt;li>Besides, the core of the code was &lt;strong>UNTOUCHED&lt;/strong>, so we have the usual performance in the code, combined with &lt;strong>FLEXIBILITY&lt;/strong> for initial definitions;&lt;/li>
+&lt;li>&lt;strong>In this way, we use the right tool for the right task&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="variables-handled-by-sandbox">Variables handled by &lt;code>Sandbox&lt;/code>&lt;/h3>
+&lt;ul>
+&lt;li>Initial condition for velocity and scalar field(s);&lt;/li>
+&lt;li>Inflow profiles for velocity and scalar field(s) (if &lt;code>nclx1=nclxS1=2&lt;/code>);&lt;/li>
+&lt;li>Top and bottom boundary values for scalar field(s) (if &lt;code>nclyS1=2&lt;/code> or &lt;code>nclySn=2&lt;/code>);&lt;/li>
+&lt;li>Customized operator for the imposition of constant flow rate (if &lt;code>nclx1=nclxn=0&lt;/code>);&lt;/li>
+&lt;li>$\epsilon$ array, describing the solid geometry for IBM (if &lt;code>iibm $\ne$ 0&lt;/code>).&lt;/li>
+&lt;/ul>
+&lt;p>&lt;small>See &lt;a href="https://github.com/fschuch/Xcompact3d/blob/master/examples/Sandbox/README.md" target="_blank" rel="noopener">README&lt;/a> for more details.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Here we see what we can do with sandbox:
+&lt;ul>
+&lt;li>We should always specify the initial condition for velocity and the scalar fields;
+But the other arrays are just demanded in specific situations:&lt;/li>
+&lt;li>Like, we can specify inflow profiles for velocity and scalar if we use Dirichlet boundary condition where x is equals to 0;&lt;/li>
+&lt;li>We can also set scalar values at the bottom and top boundaries if we use Dirichlet;&lt;/li>
+&lt;li>We can specify a customized operator if we want to impose a constant flow rate in a periodic flow;&lt;/li>
+&lt;li>And we set a &lt;code>epsilon&lt;/code> array if using Immersed Boundary Method.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="an-example-using-python-and-numpy">An example using Python and Numpy&lt;/h3>
+&lt;pre>&lt;code class="language-python">import numpy as np
+ux = np.zeros(shape=(nx, ny, nz), dtype=np.float64)
+uy = np.zeros_like(ux)
+uz = np.zeros_like(ux)
+phi = np.zeros(shape=(nx, ny, nz, numscalar), dtype=np.float64)
+# Sequence of operations to set the initial condition
+ux.T.tofile('./data/ux.bin')
+uy.T.tofile('./data/uy.bin')
+uz.T.tofile('./data/uz.bin')
+for n in range(numscalar):
+phi[:,:,:,n].T.tofile('./data/phi{}.bin'.format(n+1))
+&lt;/code>&lt;/pre>
+&lt;p>&lt;small>&lt;strong>Note&lt;/strong>: The initial set-up can be provided from any other language, as long as the files are written as raw binaries (compatible with &lt;a href="http://www.2decomp.org/" target="_blank" rel="noopener">2DECOMP&amp;amp;FFT&lt;/a>) and the filenames are correct.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Here is an example of how to set the initial condition in Python with Numpy;&lt;/li>
+&lt;li>We initialize the arrays with the right shape and data type;&lt;/li>
+&lt;li>Then, we take advantage of Python&amp;rsquo;s flexibility and readability to set the values for our flow configuration; Besides, we can combine with other tools to plot, compute and test our set-up.&lt;/li>
+&lt;li>And finally, we write them to the disk, so they will be available for the &lt;code>module sandbox&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="cases-covered-by-sandbox">Cases Covered by &lt;code>Sandbox&lt;/code>&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Case&lt;/th>
+&lt;th style="text-align:center">IC&lt;/th>
+&lt;th style="text-align:center">BC&lt;/th>
+&lt;th style="text-align:center">FRC&lt;/th>
+&lt;th style="text-align:left">IBM&lt;/th>
+&lt;th style="text-align:center">LMN&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Channel-Flow&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:left">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Cylinder&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:left">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Lock-exchange&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:left">&lt;/td>
+&lt;td style="text-align:center">⚠️&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Periodic Hill&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:left">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Taylor–Green vortex&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:left">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TBL&lt;/td>
+&lt;td style="text-align:center">✔️&lt;/td>
+&lt;td style="text-align:center">⚠️&lt;/td>
+&lt;td style="text-align:center">⚠️&lt;/td>
+&lt;td style="text-align:left">&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;small>&lt;strong>Note&lt;/strong>: Initial Condition (&lt;strong>IC&lt;/strong>); Boundary Conditions (&lt;strong>BC&lt;/strong>); Flow rate Control (&lt;strong>FRC&lt;/strong>); Immersed Boundary Method (&lt;strong>IBM&lt;/strong>); Low Mach Number (&lt;strong>LMN&lt;/strong>).&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Here we see an estimation of the cases covered by sandbox at this moment;&lt;/li>
+&lt;li>We can simulate Channel-flow, flow around a cylinder, Periodic Hill and TGV;&lt;/li>
+&lt;li>Density current in the lock-exchange will work too, as long as we are not using the low mach number approach, it was not implemented in the module yet;&lt;/li>
+&lt;li>Well, it is a work in progress;&lt;/li>
+&lt;li>And the turbulent boundary layer demands more specific definitions of boundary conditions and flow rate control, so it is also not supported.&lt;/li>
+&lt;li>But, like I told you, it is just an estimation, because now we can play around and modify any of these cases.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;!-- ---
+### It supports Initial Condition
+| Filename | Shape | Demanded |
+| ----------- | ------| -------- |
+| `ux.bin` | (nx, ny, nz) | always |
+| `uy.bin` | (nx, ny, nz) | always |
+| `uz.bin` | (nx, ny, nz) | always |
+| `phi&lt;n>.bin` | (nx, ny, nz) | `numscalar $>$ 0` |
+---
+### It supports Boundary Condition
+| Filename | Shape | Demanded |
+| ----------- | ------| -------- |
+| `bxx1.bin` | (ny, nz) | `nclx1=2` |
+| `bxy1.bin` | (ny, nz) | `nclx1=2` |
+| `bxz1.bin` | (ny, nz) | `nclx1=2` |
+| `bxphi1&lt;n>.bin` | (ny, nz) | `nclxS1=2` |
+| `byphi1&lt;n>.bin` | (nx, nz) | `nclyS1=2` |
+| `byphin&lt;n>.bin` | (nx, nz) | `nclySn=2` |
+---
+### It supports other arrays
+| Filename | Description | Demanded |
+| ----------- | ----------- | -------- |
+| `geometry.bin` | $\epsilon$ array set to 1 inside the solid and zero otherwise | `iibm $\ne$ 0` |
+| `vol_frc.bin` | Customized operator to impose constant flow rate | `nclx1=nclxn=0` |
+--- -->
+&lt;hr>
+&lt;h1 id="case-study">Case Study&lt;/h1>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>For example, we are going to &lt;strong>merge&lt;/strong> the periodic channel and the flow around a cylinder&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="periodic-heat-exchanger">Periodic Heat Exchanger&lt;/h3>
+&lt;img alt="Flow Visualization with Passive Scalar Field" width="35%" height=auto src="Heat-exchanger.jpg">
+&lt;ul>
+&lt;li>Periodic boundary conditions in x and z;&lt;/li>
+&lt;li>A cylinder at the center with low temperature;&lt;/li>
+&lt;li>No-slip conditions for velocity at top and bottom, besides, high temperature at the walls.&lt;/li>
+&lt;/ul>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Besides combining it with HEAT TRANSFER, in what I called, &lt;strong>The Period Heat Exchanger&lt;/strong>.&lt;/li>
+&lt;li>We have periodic boundary conditions in the streamwise and spanwise directions;&lt;/li>
+&lt;li>A cylinder at the center of the domain with its dimensionless temperature fixed at zero;&lt;/li>
+&lt;li>And no-slip BC at the bottom and top walls, and their temperature fixed in one.&lt;/li>
+&lt;li>Lets see how to code it!&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="initialization">Initialization&lt;/h3>
+&lt;pre>&lt;code class="language-python">&amp;gt;&amp;gt;&amp;gt; import xcompact3d_toolbox as x3d
+&amp;gt;&amp;gt;&amp;gt; import xcompact3d_toolbox.sandbox
+&amp;gt;&amp;gt;&amp;gt; prm = x3d.Parameters(loadfile='input.i3d')
+&amp;gt;&amp;gt;&amp;gt; dataset = x3d.sandbox.init_dataset(prm)
+&amp;gt;&amp;gt;&amp;gt; dataset
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">&amp;lt;xarray.Dataset&amp;gt;
+Dimensions: (n: 1, x: 128, y: 129, z: 8)
+Coordinates:
+* x (x) float64 0.0 0.04688 0.09375 0.1406 ... 5.812 5.859 5.906 5.953
+* y (y) float64 0.0 0.04688 0.09375 0.1406 ... 5.859 5.906 5.953 6.0
+* z (z) float64 0.0 0.04688 0.09375 0.1406 0.1875 0.2344 0.2812 0.3281
+* n (n) int32 0
+Data variables:
+byphi1 (n, x, z) float64 0.0 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0
+byphin (n, x, z) float64 0.0 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0
+ux (x, y, z) float64 0.0 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0
+uy (x, y, z) float64 0.0 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0
+uz (x, y, z) float64 0.0 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0
+phi (n, x, y, z) float64 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0
+vol_frc (x, y, z) float64 0.0 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0
+&lt;/code>&lt;/pre>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>I&amp;rsquo;m using xcompact3d-toolbox just because I&amp;rsquo;m more familiar with it;&lt;/li>
+&lt;li>We start here importing the Package;&lt;/li>
+&lt;li>Lets say that we already had set all the correct parameters at the input file, so now we load it;&lt;/li>
+&lt;li>And we start the dataset. It is returned to us with the proper dimensions, coordinates and the SEVEN data variables that we are going to work with now&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="boundary-conditions">Boundary Conditions&lt;/h3>
+&lt;p>High temperature at the bottom and top walls:&lt;/p>
+&lt;p>$$
+\Theta(x,y=0,z,t) = 1
+$$&lt;/p>
+&lt;p>$$
+\Theta(x,y=L_y,z,t) = 1
+$$&lt;/p>
+&lt;pre>&lt;code class="language-python">&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;byphi1&amp;quot;] += 1.0
+&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;byphin&amp;quot;] += 1.0
+&lt;/code>&lt;/pre>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>We start setting the temperature as one at the bottom and top walls, like specified for our new flow configuration;&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="initial-condition">Initial Condition&lt;/h3>
+&lt;img alt="" width="40%" height=auto src="vertical_vel_prot.svg">
+&lt;pre>&lt;code class="language-python">&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;ux&amp;quot;] += velocity_profile + random_noise
+&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;uy&amp;quot;] += random_noise
+&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;uz&amp;quot;] += random_noise
+&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;phi&amp;quot;] += 1.0
+&lt;/code>&lt;/pre>
+&lt;p>&lt;small>&lt;strong>Note:&lt;/strong> Part of the code was not presented, for simplicity.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Now, lets set the initial condition for the streamwise velocity as this vertical profile in addition to some random noise, and just random noise for uy and uz;&lt;/li>
+&lt;li>And the initial temperature will be one everywhere.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="geometry">Geometry&lt;/h3>
+&lt;pre>&lt;code class="language-python">&amp;gt;&amp;gt;&amp;gt; epsi = x3d.sandbox.init_epsi(prm)
+&amp;gt;&amp;gt;&amp;gt; for array in epsi.values():
+... array = array.geo.cylinder(x=prm.xlx / 2.0, y=prm.yly / 2.0)
+...
+&amp;gt;&amp;gt;&amp;gt; epsi[&amp;quot;epsi&amp;quot;].isel(z=0).plot()
+&lt;/code>&lt;/pre>
+&lt;img alt="" width="40%" height=auto src="epsi.jpg">
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Now it is time to set the geometry, a cylinder in the center of the domain.&lt;/li>
+&lt;li>Notice that xcompact3d-toolbox includes methods to &lt;strong>DRAW&lt;/strong> many standards geometries.&lt;/li>
+&lt;li>Here we are using the cylinder, we just have to specify its center AND WE ARE GOOD TO GO.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h3 id="flow-rate-control">Flow rate Control&lt;/h3>
+&lt;pre>&lt;code class="language-python">&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;vol_frc&amp;quot;] += prm.dy / prm.yly / prm.nx / prm.nz
+&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;vol_frc&amp;quot;][dict(y=0)] *= 0.5
+&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;vol_frc&amp;quot;][dict(y=-1)] *= 0.5
+&amp;gt;&amp;gt;&amp;gt; dataset[&amp;quot;vol_frc&amp;quot;] = dataset.vol_frc.where(epsi == False, 0.0)
+&amp;gt;&amp;gt;&amp;gt; dataset.vol_frc.isel(z=0).plot()
+&lt;/code>&lt;/pre>
+&lt;img alt="" width="30%" height=auto src="frc.jpg">
+&lt;p>&lt;small>&lt;strong>Note:&lt;/strong> The code will compute the stream-wise flow rate as &lt;code>int = sum(vol_frc * ux)&lt;/code>, and correct the stream-wise velocity as &lt;code>ux = ux / int&lt;/code>.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Since the domain is periodic in x, we need to specify a forcing term to maintain a constant flow rate,&lt;/li>
+&lt;li>As you see here, &lt;code>xcompact3d&lt;/code> will compute the flow rate with this integration, so we can CUSTOMIZE this operator for the volumetric integration;&lt;/li>
+&lt;li>This one will give us a unitary value per &lt;strong>HEIGHT&lt;/strong> unit, and will include an average in x and z.&lt;/li>
+&lt;li>We multiply both top and bottom plane by half because of the composed trapezoidal rule for integration;&lt;/li>
+&lt;li>And of course, we can disconsider the cylinder when integrating.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;ul>
+&lt;li>Now we save the arrays to the disk:
+&lt;pre>&lt;code class="language-python">&amp;gt;&amp;gt;&amp;gt; dataset.x3d.write(prm)
+&amp;gt;&amp;gt;&amp;gt; x3d.gene_epsi_3D(epsi, prm)
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>And run the simulation:
+&lt;pre>&lt;code class="language-bash">mpirun -n [number of cores] ./xcompact3d |tee log.out
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>There is no need to recompile the code every time;&lt;/li>
+&lt;li>We can code, test, plot and debug the initial set-up interactively in a &lt;a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook&lt;/a> (or any other computational tool).&lt;/li>
+&lt;/ul>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Now it is time to write all the variables to the disk and run the simulation;&lt;/li>
+&lt;li>Notice that there is no need to RECOMPILE the code every time;&lt;/li>
+&lt;li>And we can code, test, plot and debug the initial set-up using any computational tool, like a Jupyter Notebook, and make it very INTERACTIVE;&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;p>Periodic Heat Exchanger&lt;/p>
+&lt;div class="animations">
+&lt;img alt="Flow Visualization with Passive Scalar Field" width="50%" height=auto src="heat.gif">
+&lt;/div>
+&lt;p>&lt;small>&lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/examples/Heat-exchanger.html" target="_blank" rel="noopener">View the code online&lt;/a>.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Here we see an animation of the case that we just coded, the periodic heat exchanger;&lt;/li>
+&lt;li>It is just a toy model, the Reynolds Number is very low, but you are invited to access the complete code here in this link, and play around with the parameters and definitions;&lt;/li>
+&lt;li>You can access the slides using the QR CODE at the end of this talk.&lt;/li>
+&lt;li>Any way, I have a few more examples to show to you&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;div class="animations">
+&lt;img alt="Flow Visualization with Passive Scalar Field" width="100%" height=auto src="axisymmetric.gif">
+&lt;/div>
+&lt;p>&lt;small>&lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/examples/Axisymmetric_flow.html" target="_blank" rel="noopener">View the code online&lt;/a>.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>We are looking in a top view, that is presenting the depth-averaged concentration of the turbidity current in asymmetric configuration.&lt;/li>
+&lt;li>This one is just like Ricardo explained to us earlier in HIS talk,&lt;/li>
+&lt;li>but this time the denser fluid starts here at the bottom left corner and can spread in more directions.&lt;/li>
+&lt;li>We can see the lobes-and-clefts near the front, how some rings are formed in the body and them they break down, and many other nice features.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;div class="animations">
+&lt;img alt="Flow Visualization with Passive Scalar Field" width="100%" height=auto src="square.gif">
+&lt;/div>
+&lt;p>&lt;small>&lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/examples/Square.html" target="_blank" rel="noopener">View the code online&lt;/a>.&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>End the last example is the flow around a square with passive scalar as a visualization tool.&lt;/li>
+&lt;li>Here at the inlet we have this smooth step function for the passive scalar, as a result, we can see this nice pattern downstream due to the turbulence;&lt;/li>
+&lt;li>As always, everything is very CUSTOMIZABLE. We could change the position of the square, we could include more squares; change the number os steeps here at the inlet;&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h1 id="bonus">Bonus&lt;/h1>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>And I have a special bonus for you&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;p>User Interface with IPywidgets (&lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/v0.1.11/tutorial/parameters.html#Graphical-User-Interface" target="_blank" rel="noopener">try it online&lt;/a>)&lt;/p>
+&lt;div class="animations">
+&lt;img alt="Flow Visualization with Passive Scalar Field" width="100%" height=auto src="Output.gif">
+&lt;/div>
+&lt;!-- &lt;small>[Try it online](https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial/parameters.html#).&lt;/small> -->
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>I&amp;rsquo;ve talked about improving the learning curve for beginners in our code, and here is another initiative.&lt;/li>
+&lt;li>We have this user interface with IPywidgets under development in our LAB;&lt;/li>
+&lt;li>Using it, we can enforce the right relationship between the parameters, just to make sure they are compatible with xcompact3d;&lt;/li>
+&lt;li>You can see here that we ensure that booth boundaries in one direction will be periodic or not, and the number of mesh points goes BACK and FORWARD properly.
+There are more features, but I will leave the link here, so you can try it.&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h1 id="conclusion">Conclusion&lt;/h1>
+&lt;hr>
+&lt;h3 id="the-outcome-of-this-work-benefits-users-from-different-levels">The outcome of this work benefits users from different levels:&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>For students in CFD&lt;/strong>, it provides &lt;strong>direct hands-on experience&lt;/strong> and a safe place for practising and learning;&lt;/li>
+&lt;li>&lt;strong>For advanced users&lt;/strong> and code developers, it works as a &lt;strong>rapid prototyping tool&lt;/strong>;&lt;/li>
+&lt;li>Furthermore, it is a useful advance in terms of &lt;strong>research reproducibility&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;small>&lt;strong>Note:&lt;/strong> &lt;code>module sandbox&lt;/code> is still in pre-release (&lt;a href="https://github.com/fschuch/Xcompact3d" target="_blank" rel="noopener">fschuch/Xcompact3d&lt;/a>).&lt;/small>&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>To conclude this talk, we &lt;strong>EXPECT&lt;/strong> to help &lt;strong>USER&lt;/strong> from different levels with our framework;
+&lt;ul>
+&lt;li>&lt;strong>For students in CFD&lt;/strong>, it provides &lt;strong>direct hands-on experience&lt;/strong> and a safe place for practising and learning;&lt;/li>
+&lt;li>&lt;strong>For advanced users&lt;/strong> and code developers, it works as a &lt;strong>rapid prototyping tool&lt;/strong>;&lt;/li>
+&lt;li>Furthermore, it is a useful advance in terms of &lt;strong>research reproducibility&lt;/strong>, because now it is easier to create, collaborate and share any new flow configuration.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h1 id="questions">Questions?&lt;/h1>
+&lt;blockquote>
+&lt;p>&lt;small>&lt;strong>Felipe N. Schuch&lt;/strong>, LaSET, School of Technology, PUCRS.&lt;br>&lt;/small>
+&lt;small>🏠 &lt;a href="www.fschuch.com/en">fschuch.com&lt;/a> ✉ &lt;a href="mailto:felipe.schuch@edu.pucrs.br">felipe.schuch@edu.pucrs.br&lt;/a>&lt;/small>&lt;/p>
+&lt;/blockquote>
+&lt;img alt="" height="125px" width=auto src="logo.laset.png" style="background:none; border:none; box-shadow:none;">
+&lt;img alt="" height="125px" width=auto src="technology-267x90.png" style="background:none; border:none; box-shadow:none;">
+&lt;img alt="" height="125px" width=auto src="See_the_slides_there.svg" style="border:none;" >
+&lt;!-- &lt;small>www.fschuch.com/en/slides/2021-x3d-showcase&lt;/small> -->
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>&lt;strong>THAT IS IT&lt;/strong>, tank you very much for your ATTENTION;&lt;/li>
+&lt;li>I&amp;rsquo;m ready to take any questions now.&lt;/li>
+&lt;/ul>
+&lt;/aside></description></item><item><title>Turbulence-Resolving Simulations of the Plunge Phenomenon in a Stratified Ambient</title><link>https://www.fschuch.com/en/publication/2018-agu-fall-meeting/</link><pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2018-agu-fall-meeting/</guid><description/></item><item><title>Three‐Dimensional Turbulence‐Resolving Simulations of the Plunge Phenomenon in a Tilted Channel</title><link>https://www.fschuch.com/en/publication/2018-jgr-ocean/</link><pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2018-jgr-ocean/</guid><description/></item><item><title>Analisys of hiperpycnal poly-disperse plume by direct numerical simulation</title><link>https://www.fschuch.com/en/publication/2016-master-thesis/</link><pubDate>Thu, 31 Mar 2016 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2016-master-thesis/</guid><description/></item><item><title/><link>https://www.fschuch.com/en/admin/config.yml</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/admin/config.yml</guid><description/></item><item><title>Jobbergate</title><link>https://www.fschuch.com/en/project/jobbergate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/project/jobbergate/</guid><description/></item><item><title>Xcompact3d</title><link>https://www.fschuch.com/en/project/xcompact3d/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/project/xcompact3d/</guid><description/></item></channel></rss>

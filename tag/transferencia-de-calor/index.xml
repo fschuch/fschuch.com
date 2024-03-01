@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Transferência de Calor | F. Schuch</title><link>https://www.fschuch.com/tag/transferencia-de-calor/</link><atom:link href="https://www.fschuch.com/tag/transferencia-de-calor/index.xml" rel="self" type="application/rss+xml"/><description>Transferência de Calor</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Transferência de Calor</title><link>https://www.fschuch.com/tag/transferencia-de-calor/</link></image><item><title>Condução de Calor Transiente Bidimensional</title><link>https://www.fschuch.com/blog/2020/06/05/conducao-de-calor-transiente-bidimensional/</link><pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2020/06/05/conducao-de-calor-transiente-bidimensional/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+&lt;summary class="font-weight-bold">Lista de Conteúdos&lt;/summary>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#introdução">Introdução&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#descrição-do-problema">Descrição do Problema&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#desenvolvimento">Desenvolvimento&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#numpy">NumPy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#xarray">Xarray&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#conclusão">Conclusão&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/details>
+&lt;h2 id="introdução">Introdução&lt;/h2>
+&lt;p>O estudo de caso apresentado aqui, a condução de calor transiente em uma placa bidimensional, tem um papel interessante, pois ele não é exatamente o objetivo deste texto, mas sim um meio.
+Deixe-me explicar, dia desses me deparei com &lt;a href="http://xarray.pydata.org/en/stable/" target="_blank" rel="noopener">Xarray&lt;/a> (formalmente &lt;em>xray&lt;/em>), pacote Python que se destina a tornar o trabalho com arranjos de dados multidimensionais uma tarefa simples, eficiente e divertida.&lt;/p>
+&lt;p>&lt;strong>Xarray&lt;/strong> introduz rótulos na forma de dimensões, coordenadas e atributos sobre os dados brutos dos arranjos em formato &lt;a href="https://numpy.org/" target="_blank" rel="noopener">NumPy&lt;/a>, permitindo uma experiência de desenvolvimento mais intuitiva, consistente e a prova de falhas.&lt;/p>
+&lt;p>Após ler a &lt;a href="http://xarray.pydata.org/en/stable/" target="_blank" rel="noopener">documentação oficial&lt;/a>, fiquei empolgado para ver como esse pacote funciona na prática, e fico feliz em compartilhar essa experiência com você.
+Aqui entra o estudo da condução de calor transiente bidimensional, que será descrito a seguir.
+Logo após, o problema será resolvido com estruturas de dados &lt;strong>NumPy&lt;/strong>, para contextualizar o leitor com três abordagens diferentes, e então, o mesmo problema será resolvido com &lt;strong>Xarray&lt;/strong> para comparação.&lt;/p>
+&lt;pre>&lt;code class="language-python"># Como sempre, o primeiro passo é importar
+# os pacotes que vamos utilizar
+# NumPy para manipulação de arranjos N-dimensionais
+import numpy as np
+# Matplotlib para graficar os resultados
+import matplotlib.pyplot as plt
+# Xarray, para testar o conceito dos rótulos
+# na forma de dimensões, coordenadas e atributos
+import xarray as xr
+&lt;/code>&lt;/pre>
+&lt;!--adsense-->
+&lt;h2 id="descrição-do-problema">Descrição do Problema&lt;/h2>
+&lt;p>Uma placa de cobre de \( (L_x \times L_y) = ( 50 ~ cm \times 50 ~ cm ) \) inicialmente possui temperatura em toda a sua extensão igual à \( T_0 = 0^oC \).&lt;/p>
+&lt;p>Instantaneamente, a temperatura em suas bordas é elevada. Vamos admitir que cada um dos contornos tenha uma variação linear de acordo com a temperatura definida nos vértices da geometria, conforme mostra a figura a seguir:&lt;/p>
+&lt;p>&lt;img src="transcal-transiente-bidimensional.jpeg" alt="Regra do Trapézio">&lt;/p>
+&lt;p>Sabe-se que as propriedades do material são:&lt;/p>
+&lt;ul>
+&lt;li>Condutividade térmica \( k = 52 ~ W/m \cdot K \);&lt;/li>
+&lt;li>Calor específico \( c_p = 420 ~ J / kg \cdot K \);&lt;/li>
+&lt;li>Massa específica \( \rho = 8.800 ~ kg / m^3 \);&lt;/li>
+&lt;li>Difusividade térmica \( \alpha = k / (\rho c_p) \).&lt;/li>
+&lt;/ul>
+&lt;p>Considerando um passo de tempo $\Delta t = 4 ~ s$ e a resolução espacial de $\Delta x = \Delta y = 5 ~ cm$, calcule a evolução da temperatura na placa até o tempo de $6.000 ~ s$.&lt;/p>
+&lt;p>Equação bidimensional que define a difusão de calor:&lt;/p>
+&lt;p>\[
+\dfrac{\partial T}{\partial t} = \alpha \left( \dfrac{\partial ^2 T}{\partial x^2} + \dfrac{\partial ^2 T}{\partial y^2} \right), \quad 0 \le x \le L_x, \quad 0 \le y \le L_y, \quad t \ge 0.
+\]&lt;/p>
+&lt;p>Condições de cortorno:&lt;/p>
+&lt;p>\[
+T_{x0} = T(x=0,y) = y \dfrac{T_d - T_a}{L_y} + T_a,
+\]
+\[
+T_{xn} = T(x=L_x,y) = y \dfrac{T_b - T_c}{L_y} + T_c,
+\]
+\[
+T_{y0} = T(x,y=0) = x \dfrac{T_c - T_a}{L_x} + T_a,
+\]
+\[
+T_{yn} = T(x,y=Ly) = x \dfrac{T_b - T_d}{L_x} + T_d.
+\]&lt;/p>
+&lt;p>Condição inicial:&lt;/p>
+&lt;p>\[
+T(x,y) = T_0, \quad para \quad t=0.
+\]&lt;/p>
+&lt;p>Discretizando com a derivada segunda numa representação por diferença central e a derivada primeira com diferença ascendente temos:&lt;/p>
+&lt;p>\[
+\dfrac{T^{n+1} _{i,j}-T^{n} _{i,j}}{\Delta t}=\alpha \left[ \dfrac{T^{n} _{i-1,j}-2T^{n} _{i,j}+T^{n} _{i+1,j}}{(\Delta x)^2} +\dfrac{T^{n} _{i,j-1}-2T^{n} _{i,j}+T^{n} _{i,j+1}}{(\Delta y)^2} \right], \quad 0 \le i \le I, \quad 0 \le j \le J, \quad n \ge 0,
+\]&lt;/p>
+&lt;p>\[
+T_{x0} = y_j \dfrac{T_d - T_a}{L_y} + T_a, \quad para \quad i=0 \quad e \quad 0 \le j \le J,
+\]
+\[
+T_{xn} = y_j \dfrac{T_b - T_c}{L_y} + T_c, \quad para \quad i=I \quad e \quad 0 \le j \le J,
+\]
+\[
+T_{y0} = x_i \dfrac{T_c - T_a}{L_x} + T_a, \quad para \quad 0 \le i \le I \quad e \quad j=0,
+\]
+\[
+T_{yn} = x_i \dfrac{T_b - T_d}{L_x} + T_d, \quad para \quad 0 \le i \le I \quad e \quad j=J,
+\]
+\[
+T_{i,j}^n = T_0, \quad para \quad n=0.
+\]&lt;/p>
+&lt;p>Lembre-se que o critério de estabilidade numérica do problema é:&lt;/p>
+&lt;p>\[
+\Delta t \le \dfrac{\Delta x^2}{4 \alpha}.
+\]&lt;/p>
+&lt;h2 id="desenvolvimento">Desenvolvimento&lt;/h2>
+&lt;p>Uma vez descrito o problema, partimos para a prática!
+No bloco de código a seguir definimos todos os parâmetros físicos e numéricos que necessitamos:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Propriedades do Material
+k = 52.0 # W/mK
+cp = 420.0 # J/kgK
+rho = 8800.0 # kg/m^3
+# Temperatura nos vértices
+Ta = 60.
+Tb = 20.
+Tc = 0.
+Td = 100.
+# Temperatura inicial
+T0 = 0.
+# Discretização espacial
+x = np.linspace(start=0., stop=.5, num=21, endpoint=True)
+y = np.linspace(start=0., stop=.5, num=21, endpoint=True)
+# e temporal
+t = np.linspace(start=0., stop=600., num=601, endpoint=True)
+&lt;/code>&lt;/pre>
+&lt;p>E então realizamos os primeiros cálculos:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Cálculo da difusividade térmica
+alpha = k / (rho * cp)
+# Passo de tempo e resolução da malha ao quadrado
+dt, dx2, dy2 = t[1] - t[0], (x[1] - x[0])**2., (y[1] - y[0])**2.
+# Estabilidade numérica
+if dt &amp;lt;= np.minimum(dx2, dy2) / 4. / alpha:
+print('Critério de estabilidade satisfeito.')
+else:
+print('Atenção! Critério de estabilidade não satisfeito.')
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>Critério de estabilidade satisfeito.
+&lt;/code>&lt;/pre>
+&lt;p>Lembre-se que a documentação de qualquer função pode ser facilmente acessada sempre que surgir alguma dúvida sobre a sintaxe ou sobre os argumentos que ela aceita, basta digitar &lt;code>help(np.linspace)&lt;/code>.&lt;/p>
+&lt;p>A partir daqui começa a resolução do problema:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Alocar a temperatura e impor condição inicial
+T = T0 * np.ones((x.size, y.size, t.size))
+# Condições de Contorno
+Tx0 = (Td - Ta) / (y[-1] - y[0]) * y + Ta
+Txn = (Tb - Tc) / (y[-1] - y[0]) * y + Tc
+Ty0 = (Tc - Ta) / (x[-1] - x[0]) * x + Ta
+Tyn = (Tb - Td) / (x[-1] - x[0]) * x + Td
+# Aplicando as condições de contorno no tempo inicial
+T[0, :, 0] = Tx0
+T[-1, :, 0] = Txn
+T[:, 0, 0] = Ty0
+T[:, -1, 0] = Tyn
+&lt;/code>&lt;/pre>
+&lt;p>Bom, aqui fazemos uma observação quanto aos arranjos em NumPy, é preciso sempre ter em mente a maneira como foram definidos.
+No caso da temperatura temos três coordenadas na ordem [x, y e t], ou [i, j e n] no espaço discreto. Portanto, ao aplicar &lt;code>T[0,:,0] = Tx0&lt;/code>, dizemos que &lt;code>T&lt;/code> será igual à &lt;code>Tx0&lt;/code> onde &lt;code>i=0&lt;/code> e &lt;code>n=0&lt;/code>, para todo o &lt;code>j&lt;/code>, exatamente o que queremos para essa condição de contorno, o mesmo pode ser percebido nas demais superfícies. Lembre-se que em Python, o índice &lt;code>-1&lt;/code> retoma o último elemento de uma dada dimensão.&lt;/p>
+&lt;p>Vamos definir uma função auxiliar para graficar os resultados obtidos, assim podemos facilmente repetir a produção de figuras para as diversas abordagens que usaremos. Veja o código:&lt;/p>
+&lt;pre>&lt;code class="language-python">def minha_figura(T, x, y):
+fig, ax = plt.subplots(nrows=1, ncols=3, sharey=True, figsize=(12, 4))
+# Variação temporal da temperatura no centro da placa
+ax[0].plot(t, T[x.size // 2, y.size // 2, :])
+ax[0].set(xlabel='t [s]',
+ylabel=r'T [$^0C$]',
+title=f'x={x[x.size//2]} e y={y[y.size//2]}')
+# E duas figuras para variação espacial:
+nfigs = 5
+for n in range(nfigs):
+time = n * ((t.size) // (nfigs - 1))
+# Variação com x e t para y fixo
+ax[1].plot(x, T[:, y.size // 2, time], label=f't={t[time]}s')
+# Variação com y e t com x fixo
+ax[2].plot(y, T[x.size // 2, :, time], label=f't={t[time]}s')
+# Adicionamos alguns detalhes visuais
+ax[1].set(xlabel='x [cm]', title=f'y={y[y.size//2]}')
+ax[2].set(xlabel='y [cm]', title=f'x={x[x.size//2]}')
+ax[1].legend()
+ax[2].legend()
+plt.show();
+&lt;/code>&lt;/pre>
+&lt;h3 id="numpy">NumPy&lt;/h3>
+&lt;p>O avanço no tempo se dá ao isolarmos o termo \( T^{n+1} _{i,j} \) na equação governante discreta, que então assume a forma:&lt;/p>
+&lt;p>\[
+T^{n+1} _{i,j} = T^{n} _{i,j} + \alpha \Delta t \left[ \dfrac{T^{n} _{i-1,j}-2T^{n} _{i,j}+T^{n} _{i+1,j}}{(\Delta x)^2} +\dfrac{T^{n} _{i,j-1}-2T^{n} _{i,j}+T^{n} _{i,j+1}}{(\Delta y)^2} \right],
+\]&lt;/p>
+&lt;p>para: \(\quad 0 \le i \le I, \quad 0 \le j \le J, \quad n \ge 0 \).&lt;/p>
+&lt;p>Perceba que quando &lt;code>n=0&lt;/code>, todos os valores à direita da igualdade são conhecidos (nossa condição inicial), e assim, pode-se calcular o termo à esquerda, que será a temperatura em &lt;code>n+1&lt;/code>.
+Repetindo esse processo sucessivamente para cada valor de &lt;code>i&lt;/code>, &lt;code>j&lt;/code> e &lt;code>n&lt;/code>, atingimos qualquer valor de tempo desejado, passo à passo.&lt;/p>
+&lt;p>A maneira mais intuitiva de programar a equação acima é escrevê-la exatamente como ela é, percorrendo todo o espaço bidimensional e o tempo por meio de três laços aninhados, e aplicando as condições de contorno ao final de cada passo de tempo:&lt;/p>
+&lt;pre>&lt;code class="language-python">%%time
+for n in range(t.size - 1):
+for i in range(1, x.size - 1):
+for j in range(1, y.size - 1):
+T[i, j, n + 1] = T[i, j, n] + alpha * dt * (
+(T[i - 1, j, n] - 2. * T[i, j, n] + T[i + 1, j, n]) / dx2 +
+(T[i, j - 1, n] - 2. * T[i, j, n] + T[i, j + 1, n]) / dy2)
+# Condições de contorno
+T[0, :, n + 1], T[-1, :, n + 1], T[:, 0,
+n + 1], T[:, -1,
+n + 1] = Tx0, Txn, Ty0, Tyn
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>Wall time: 921 ms
+&lt;/code>&lt;/pre>
+&lt;p>E então graficamos o resultado:&lt;/p>
+&lt;pre>&lt;code class="language-python">minha_figura(T, x, y)
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="output_23_0.png" alt="png">&lt;/p>
+&lt;p>Note que no tempo nós já conhecemos a solução para &lt;code>n=0&lt;/code>, então calculamos o laço temporal &lt;code>t.size-1&lt;/code> vezes. De maneira similar, a temperatura é conhecida em todas as paredes, então não precisamos resolver a equação nos contornos, e assim, cada laço temporal exclui a primeira e a última posição (&lt;code>range(1,x.size-1)&lt;/code>, por exemplo).&lt;/p>
+&lt;p>Embora o bloco de código acima resolva o problema, essa não é uma boa abordagem do ponto de vista do tempo necessário para o cálculo, ao realizar sequencialmente cada uma das operações por meio do aninhamento de laços.&lt;/p>
+&lt;p>Sobre &lt;strong>NumPy&lt;/strong>, além do suporte para arranjos multi-dimensionais, toda a biblioteca é programada em C. Temos o desempenho de uma linguagem compilada (C), dentro de um ambiente de linguagem interpretada (Python), o melhor de dois mundos. Para tirar proveito disso, o ideal é realizar as operações vetorialmente ao resolver o problema em &lt;em>fatias&lt;/em> (mais informações &lt;a href="https://numpy.org/doc/stable/user/basics.indexing.html?highlight=slicing#other-indexing-options" target="_blank" rel="noopener">aqui&lt;/a>), de modo que podemos reescrever o código como:&lt;/p>
+&lt;pre>&lt;code class="language-python">%%time
+for n in range(t.size-1):
+T[1:-1,1:-1,n+1] = T[1:-1,1:-1,n] + dt * alpha * (
+(T[ :-2,1:-1,n] - 2. * T[1:-1,1:-1,n] + T[2: ,1:-1,n]) / dx2 +
+(T[1:-1, :-2,n] - 2. * T[1:-1,1:-1,n] + T[1:-1,2: ,n]) / dy2
+)
+# Condições de contorno
+T[0,:,n+1], T[-1,:,n+1], T[:,0,n+1], T[:,-1,n+1] = Tx0, Txn, Ty0, Tyn
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>Wall time: 21 ms
+&lt;/code>&lt;/pre>
+&lt;p>Vemos os resultados novamente com:&lt;/p>
+&lt;pre>&lt;code class="language-python">minha_figura(T, x, y)
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="output_27_0.png" alt="png">&lt;/p>
+&lt;p>Temos exatamente a mesma resposta para um tempo de cálculo inferior. Bem, esse ganho de desempenho depende das características da sua máquina e do problema, talvez podem nem ser perceptíveis quando usamos apenas 21 pontos em cada direção espacial, mas experimente aumentar esses valores.&lt;/p>
+&lt;p>Uma terceira alternativa com &lt;strong>NumPy&lt;/strong> é deixar com que suas funções embarcadas façam parte do trabalho, o pacote conta com diversos recursos para derivação, integração, interpolação, trigonometria e muitos outros.&lt;/p>
+&lt;p>Vale destacar que no momento não conheço nenhuma função &lt;strong>NumPy&lt;/strong> que calcule a derivada segunda em um arranjo. De qualquer maneira, se admitirmos que a derivada segunda pode ser aproximada com a aplicação dupla da derivada primeira (lembre-se que embora analiticamente sejam equivalentes, numericamente isso nem sempre é verdade), podemos usar a função &lt;a href="https://numpy.org/doc/1.18/reference/generated/numpy.gradient.html?highlight=gradient#numpy.gradient" target="_blank" rel="noopener">np.gradient&lt;/a> para reescrever nosso código na forma:&lt;/p>
+&lt;pre>&lt;code class="language-python">%%timeit
+for n in range(t.size-1):
+T[:,:,n+1] = T[:,:,n] + dt * alpha * (
+np.gradient(np.gradient(T[:,:,n], x, axis=0), x, axis=0) +
+np.gradient(np.gradient(T[:,:,n], y, axis=1), y, axis=1)
+)
+# Condições de contorno
+T[0,:,n+1], T[-1,:,n+1], T[:,0,n+1], T[:,-1,n+1] = Tx0, Txn, Ty0, Tyn
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>221 ms ± 43.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+&lt;/code>&lt;/pre>
+&lt;p>A figura dos resultados mais uma vez:&lt;/p>
+&lt;pre>&lt;code class="language-python">minha_figura(T, x, y)
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="output_31_0.png" alt="png">&lt;/p>
+&lt;p>Essa abordagem pode não ser tão precisa quanto as que vimos anteriormente, mas a descrição de como implementar operadores diferenciais será assunto para um outro dia.
+Por outro lado, se ainda assim e erro está em uma faixa tolerável para a sua aplicação, essa pode ser uma alternativa pela facilidade de aplicação e boa legibilidade do código.
+Como qualquer outro arranjo &lt;strong>NumPy&lt;/strong>, devemos lembrar de que definimos a temperatura na ordem [x, y e t], e assim, &lt;code>axis=0&lt;/code> resultará no gradiente na direção x, enquanto &lt;code>axis=1&lt;/code> será o gradiente em y.&lt;/p>
+&lt;!--adsense-->
+&lt;h3 id="xarray">Xarray&lt;/h3>
+&lt;p>Uma vez realizada a contextualização, vamos agora abordar a transferência de calor transiente bidimensional com &lt;strong>Xarray&lt;/strong>, um pacote para estruturas de dados rotulados N-dimensionais (também denominados tensores). A sua vantagem é permitir realizar operações empregando o nome das coordenadas em vez da sua numeração (&lt;code>dim='x'&lt;/code> em vez de &lt;code>axis=0&lt;/code>), além de armazenar atributos como o nome e unidade das diversas variáveis.&lt;/p>
+&lt;p>O ganho imediato em usar &lt;strong>Xarray&lt;/strong> é que escrevemos menos código. A longo prazo o ganho é a legibilidade, podemos entender o que estávamos pensando ao retomar para um código semanas ou meses depois.&lt;/p>
+&lt;p>Para exemplificar, vamos iniciar criando um &lt;code>Dataset&lt;/code> para armazenar as informações do nosso problema. Existem diversos modos para isso, e uma leitura na &lt;a href="http://xarray.pydata.org/en/stable/index.html" target="_blank" rel="noopener">documentação oficial&lt;/a> é recomendada. Com o seguinte bloco de código, inicializamos nosso sistema de coordenadas:&lt;/p>
+&lt;pre>&lt;code class="language-python">data = xr.Dataset(coords={
+'x': np.linspace(start = 0., stop = 0.5, num = 21, endpoint = True),
+'y': np.linspace(start = 0., stop = 0.5, num = 21, endpoint = True),
+'t': np.linspace(start = 0., stop = 600., num = 601, endpoint = True)
+})
+&lt;/code>&lt;/pre>
+&lt;p>Ao contrário do exemplo anterior em &lt;strong>Numpy&lt;/strong> onde tínhamos as três variáveis (&lt;code>x&lt;/code>, &lt;code>y&lt;/code> e &lt;code>t&lt;/code>), aqui toda a informação está consolidada em uma única estrutura, que denominamos &lt;code>data&lt;/code>. O acesso específico a cada uma delas ocorre de maneira similar a notação dos dicionários em Python, isso é, &lt;code>data['x']&lt;/code>, ou ainda de maneira mais condensada como &lt;code>data.x&lt;/code>, por exemplo.&lt;/p>
+&lt;p>Vamos adicionar atributos às nossas coordenadas para facilitar o entendimento do código, além disso, veremos que os atributos são automaticamente incluídos nas figuras, diminuindo nosso trabalho futuro. Aqui incluimos as unidades e denominamos &lt;code>t&lt;/code> como tempo:&lt;/p>
+&lt;pre>&lt;code class="language-python">data.x.attrs['units'] = 'm'
+data.y.attrs['units'] = 'm'
+data.t.attrs['units'] = 's'
+data.t.attrs['name'] = 'tempo'
+&lt;/code>&lt;/pre>
+&lt;p>Agora definimos a temperatura como um arranjo tridimensional (x, y e tempo) e também incluimos os atributos para referência:&lt;/p>
+&lt;pre>&lt;code class="language-python">data['T'] = xr.DataArray(0., coords=[data.x, data.y, data.t])
+data.T.attrs['units'] = '°C'
+data.T.attrs['name'] = 'Temperatura'
+&lt;/code>&lt;/pre>
+&lt;p>E as propriedades do material:&lt;/p>
+&lt;pre>&lt;code class="language-python">data['alpha'] = 1.407e-5
+data.alpha.attrs['units'] = r'm$^2$/s'
+data.alpha.attrs['name'] = 'Difusividade térmica'
+&lt;/code>&lt;/pre>
+&lt;p>Em um ambiente Jupyter Notebook interativo, visualizamos facilmente todo o conteúdo e atributos da nossa estrutura de dados ao imprimi-la na tela:&lt;/p>
+&lt;pre>&lt;code class="language-python">data
+&lt;/code>&lt;/pre>
+&lt;div>&lt;svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+&lt;defs>
+&lt;symbol id="icon-database" viewBox="0 0 32 32">
+&lt;path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z">&lt;/path>
+&lt;path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z">&lt;/path>
+&lt;path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z">&lt;/path>
+&lt;/symbol>
+&lt;symbol id="icon-file-text2" viewBox="0 0 32 32">
+&lt;path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z">&lt;/path>
+&lt;path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z">&lt;/path>
+&lt;path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z">&lt;/path>
+&lt;path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z">&lt;/path>
+&lt;/symbol>
+&lt;/defs>
+&lt;/svg>
+&lt;style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+*
+*/
+&lt;p>:root {
+&amp;ndash;xr-font-color0: var(&amp;ndash;jp-content-font-color0, rgba(0, 0, 0, 1));
+&amp;ndash;xr-font-color2: var(&amp;ndash;jp-content-font-color2, rgba(0, 0, 0, 0.54));
+&amp;ndash;xr-font-color3: var(&amp;ndash;jp-content-font-color3, rgba(0, 0, 0, 0.38));
+&amp;ndash;xr-border-color: var(&amp;ndash;jp-border-color2, #e0e0e0);
+&amp;ndash;xr-disabled-color: var(&amp;ndash;jp-layout-color3, #bdbdbd);
+&amp;ndash;xr-background-color: var(&amp;ndash;jp-layout-color0, white);
+&amp;ndash;xr-background-color-row-even: var(&amp;ndash;jp-layout-color1, white);
+&amp;ndash;xr-background-color-row-odd: var(&amp;ndash;jp-layout-color2, #eeeeee);
+}&lt;/p>
+&lt;p>html[theme=dark],
+body.vscode-dark {
+&amp;ndash;xr-font-color0: rgba(255, 255, 255, 1);
+&amp;ndash;xr-font-color2: rgba(255, 255, 255, 0.54);
+&amp;ndash;xr-font-color3: rgba(255, 255, 255, 0.38);
+&amp;ndash;xr-border-color: #1F1F1F;
+&amp;ndash;xr-disabled-color: #515151;
+&amp;ndash;xr-background-color: #111111;
+&amp;ndash;xr-background-color-row-even: #111111;
+&amp;ndash;xr-background-color-row-odd: #313131;
+}&lt;/p>
+&lt;p>.xr-wrap {
+display: block;
+min-width: 300px;
+max-width: 700px;
+}&lt;/p>
+&lt;p>.xr-text-repr-fallback {
+/* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+display: none;
+}&lt;/p>
+&lt;p>.xr-header {
+padding-top: 6px;
+padding-bottom: 6px;
+margin-bottom: 4px;
+border-bottom: solid 1px var(&amp;ndash;xr-border-color);
+}&lt;/p>
+&lt;p>.xr-header &amp;gt; div,
+.xr-header &amp;gt; ul {
+display: inline;
+margin-top: 0;
+margin-bottom: 0;
+}&lt;/p>
+&lt;p>.xr-obj-type,
+.xr-array-name {
+margin-left: 2px;
+margin-right: 10px;
+}&lt;/p>
+&lt;p>.xr-obj-type {
+color: var(&amp;ndash;xr-font-color2);
+}&lt;/p>
+&lt;p>.xr-sections {
+padding-left: 0 !important;
+display: grid;
+grid-template-columns: 150px auto auto 1fr 20px 20px;
+}&lt;/p>
+&lt;p>.xr-section-item {
+display: contents;
+}&lt;/p>
+&lt;p>.xr-section-item input {
+display: none;
+}&lt;/p>
+&lt;p>.xr-section-item input + label {
+color: var(&amp;ndash;xr-disabled-color);
+}&lt;/p>
+&lt;p>.xr-section-item input:enabled + label {
+cursor: pointer;
+color: var(&amp;ndash;xr-font-color2);
+}&lt;/p>
+&lt;p>.xr-section-item input:enabled + label:hover {
+color: var(&amp;ndash;xr-font-color0);
+}&lt;/p>
+&lt;p>.xr-section-summary {
+grid-column: 1;
+color: var(&amp;ndash;xr-font-color2);
+font-weight: 500;
+}&lt;/p>
+&lt;p>.xr-section-summary &amp;gt; span {
+display: inline-block;
+padding-left: 0.5em;
+}&lt;/p>
+&lt;p>.xr-section-summary-in:disabled + label {
+color: var(&amp;ndash;xr-font-color2);
+}&lt;/p>
+&lt;p>.xr-section-summary-in + label:before {
+display: inline-block;
+content: &amp;lsquo;►&amp;rsquo;;
+font-size: 11px;
+width: 15px;
+text-align: center;
+}&lt;/p>
+&lt;p>.xr-section-summary-in:disabled + label:before {
+color: var(&amp;ndash;xr-disabled-color);
+}&lt;/p>
+&lt;p>.xr-section-summary-in:checked + label:before {
+content: &amp;lsquo;▼&amp;rsquo;;
+}&lt;/p>
+&lt;p>.xr-section-summary-in:checked + label &amp;gt; span {
+display: none;
+}&lt;/p>
+&lt;p>.xr-section-summary,
+.xr-section-inline-details {
+padding-top: 4px;
+padding-bottom: 4px;
+}&lt;/p>
+&lt;p>.xr-section-inline-details {
+grid-column: 2 / -1;
+}&lt;/p>
+&lt;p>.xr-section-details {
+display: none;
+grid-column: 1 / -1;
+margin-bottom: 5px;
+}&lt;/p>
+&lt;p>.xr-section-summary-in:checked ~ .xr-section-details {
+display: contents;
+}&lt;/p>
+&lt;p>.xr-array-wrap {
+grid-column: 1 / -1;
+display: grid;
+grid-template-columns: 20px auto;
+}&lt;/p>
+&lt;p>.xr-array-wrap &amp;gt; label {
+grid-column: 1;
+vertical-align: top;
+}&lt;/p>
+&lt;p>.xr-preview {
+color: var(&amp;ndash;xr-font-color3);
+}&lt;/p>
+&lt;p>.xr-array-preview,
+.xr-array-data {
+padding: 0 5px !important;
+grid-column: 2;
+}&lt;/p>
+&lt;p>.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+display: none;
+}&lt;/p>
+&lt;p>.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+display: inline-block;
+}&lt;/p>
+&lt;p>.xr-dim-list {
+display: inline-block !important;
+list-style: none;
+padding: 0 !important;
+margin: 0;
+}&lt;/p>
+&lt;p>.xr-dim-list li {
+display: inline-block;
+padding: 0;
+margin: 0;
+}&lt;/p>
+&lt;p>.xr-dim-list:before {
+content: &amp;lsquo;(';
+}&lt;/p>
+&lt;p>.xr-dim-list:after {
+content: &amp;lsquo;)';
+}&lt;/p>
+&lt;p>.xr-dim-list li:not(:last-child):after {
+content: &amp;lsquo;,';
+padding-right: 5px;
+}&lt;/p>
+&lt;p>.xr-has-index {
+font-weight: bold;
+}&lt;/p>
+&lt;p>.xr-var-list,
+.xr-var-item {
+display: contents;
+}&lt;/p>
+&lt;p>.xr-var-item &amp;gt; div,
+.xr-var-item label,
+.xr-var-item &amp;gt; .xr-var-name span {
+background-color: var(&amp;ndash;xr-background-color-row-even);
+margin-bottom: 0;
+}&lt;/p>
+&lt;p>.xr-var-item &amp;gt; .xr-var-name:hover span {
+padding-right: 5px;
+}&lt;/p>
+&lt;p>.xr-var-list &amp;gt; li:nth-child(odd) &amp;gt; div,
+.xr-var-list &amp;gt; li:nth-child(odd) &amp;gt; label,
+.xr-var-list &amp;gt; li:nth-child(odd) &amp;gt; .xr-var-name span {
+background-color: var(&amp;ndash;xr-background-color-row-odd);
+}&lt;/p>
+&lt;p>.xr-var-name {
+grid-column: 1;
+}&lt;/p>
+&lt;p>.xr-var-dims {
+grid-column: 2;
+}&lt;/p>
+&lt;p>.xr-var-dtype {
+grid-column: 3;
+text-align: right;
+color: var(&amp;ndash;xr-font-color2);
+}&lt;/p>
+&lt;p>.xr-var-preview {
+grid-column: 4;
+}&lt;/p>
+&lt;p>.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+padding-right: 10px;
+}&lt;/p>
+&lt;p>.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+overflow: visible;
+width: auto;
+z-index: 1;
+}&lt;/p>
+&lt;p>.xr-var-attrs,
+.xr-var-data {
+display: none;
+background-color: var(&amp;ndash;xr-background-color) !important;
+padding-bottom: 5px !important;
+}&lt;/p>
+&lt;p>.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+display: block;
+}&lt;/p>
+&lt;p>.xr-var-data &amp;gt; table {
+float: right;
+}&lt;/p>
+&lt;p>.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+padding-left: 25px !important;
+}&lt;/p>
+&lt;p>.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+grid-column: 1 / -1;
+}&lt;/p>
+&lt;p>dl.xr-attrs {
+padding: 0;
+margin: 0;
+display: grid;
+grid-template-columns: 125px auto;
+}&lt;/p>
+&lt;p>.xr-attrs dt, dd {
+padding: 0;
+margin: 0;
+float: left;
+padding-right: 10px;
+width: auto;
+}&lt;/p>
+&lt;p>.xr-attrs dt {
+font-weight: normal;
+grid-column: 1;
+}&lt;/p>
+&lt;p>.xr-attrs dt:hover span {
+display: inline-block;
+background: var(&amp;ndash;xr-background-color);
+padding-right: 10px;
+}&lt;/p>
+&lt;p>.xr-attrs dd {
+grid-column: 2;
+white-space: pre-wrap;
+word-break: break-all;
+}&lt;/p>
+&lt;p>.xr-icon-database,
+.xr-icon-file-text2 {
+display: inline-block;
+vertical-align: middle;
+width: 1em;
+height: 1.5em !important;
+stroke-width: 0;
+stroke: currentColor;
+fill: currentColor;
+}
+&lt;/style>&lt;pre class='xr-text-repr-fallback'>&amp;lt;xarray.Dataset&amp;gt;
+Dimensions: (t: 601, x: 21, y: 21)
+Coordinates:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>x (x) float64 0.0 0.025 0.05 0.075 0.1 &amp;hellip; 0.4 0.425 0.45 0.475 0.5&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>y (y) float64 0.0 0.025 0.05 0.075 0.1 &amp;hellip; 0.4 0.425 0.45 0.475 0.5&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>t (t) float64 0.0 1.0 2.0 3.0 4.0 &amp;hellip; 596.0 597.0 598.0 599.0 600.0
+Data variables:
+T (x, y, t) float64 0.0 0.0 0.0 0.0 0.0 0.0 &amp;hellip; 0.0 0.0 0.0 0.0 0.0
+alpha float64 1.407e-05&lt;/pre>&lt;div class='xr-wrap' hidden>&lt;div class='xr-header'>&lt;div class='xr-obj-type'>xarray.Dataset&lt;/div>&lt;/div>&lt;ul class='xr-sections'>&lt;li class='xr-section-item'>&lt;input id='section-85ac3138-0203-46a2-ab26-44751956fac9' class='xr-section-summary-in' type='checkbox' disabled >&lt;label for='section-85ac3138-0203-46a2-ab26-44751956fac9' class='xr-section-summary' title='Expand/collapse section'>Dimensions:&lt;/label>&lt;div class='xr-section-inline-details'>&lt;ul class='xr-dim-list'>&lt;li>&lt;span class='xr-has-index'>t&lt;/span>: 601&lt;/li>&lt;li>&lt;span class='xr-has-index'>x&lt;/span>: 21&lt;/li>&lt;li>&lt;span class='xr-has-index'>y&lt;/span>: 21&lt;/li>&lt;/ul>&lt;/div>&lt;div class='xr-section-details'>&lt;/div>&lt;/li>&lt;li class='xr-section-item'>&lt;input id='section-f36911b6-6d63-4e1a-b1ff-ce768505f216' class='xr-section-summary-in' type='checkbox' checked>&lt;label for='section-f36911b6-6d63-4e1a-b1ff-ce768505f216' class='xr-section-summary' >Coordinates: &lt;span>(3)&lt;/span>&lt;/label>&lt;div class='xr-section-inline-details'>&lt;/div>&lt;div class='xr-section-details'>&lt;ul class='xr-var-list'>&lt;li class='xr-var-item'>&lt;div class='xr-var-name'>&lt;span class='xr-has-index'>x&lt;/span>&lt;/div>&lt;div class='xr-var-dims'>(x)&lt;/div>&lt;div class='xr-var-dtype'>float64&lt;/div>&lt;div class='xr-var-preview xr-preview'>0.0 0.025 0.05 &amp;hellip; 0.45 0.475 0.5&lt;/div>&lt;input id='attrs-05469a32-41a5-4b8a-80f6-76a04a382883' class='xr-var-attrs-in' type='checkbox' >&lt;label for='attrs-05469a32-41a5-4b8a-80f6-76a04a382883' title='Show/Hide attributes'>&lt;svg class='icon xr-icon-file-text2'>&lt;use xlink:href='#icon-file-text2'>&lt;/use>&lt;/svg>&lt;/label>&lt;input id='data-4348fd74-2e76-4601-9267-2ad2ceb62667' class='xr-var-data-in' type='checkbox'>&lt;label for='data-4348fd74-2e76-4601-9267-2ad2ceb62667' title='Show/Hide data repr'>&lt;svg class='icon xr-icon-database'>&lt;use xlink:href='#icon-database'>&lt;/use>&lt;/svg>&lt;/label>&lt;div class='xr-var-attrs'>&lt;dl class='xr-attrs'>&lt;dt>&lt;span>units :&lt;/span>&lt;/dt>&lt;dd>m&lt;/dd>&lt;/dl>&lt;/div>&lt;div class='xr-var-data'>&lt;pre>array([0. , 0.025, 0.05 , 0.075, 0.1 , 0.125, 0.15 , 0.175, 0.2 , 0.225,
+0.25 , 0.275, 0.3 , 0.325, 0.35 , 0.375, 0.4 , 0.425, 0.45 , 0.475,
+0.5 ])&lt;/pre>&lt;/div>&lt;/li>&lt;li class='xr-var-item'>&lt;div class='xr-var-name'>&lt;span class='xr-has-index'>y&lt;/span>&lt;/div>&lt;div class='xr-var-dims'>(y)&lt;/div>&lt;div class='xr-var-dtype'>float64&lt;/div>&lt;div class='xr-var-preview xr-preview'>0.0 0.025 0.05 &amp;hellip; 0.45 0.475 0.5&lt;/div>&lt;input id='attrs-1de9d6fb-c5be-4c05-8230-602ce3d9c5c7' class='xr-var-attrs-in' type='checkbox' >&lt;label for='attrs-1de9d6fb-c5be-4c05-8230-602ce3d9c5c7' title='Show/Hide attributes'>&lt;svg class='icon xr-icon-file-text2'>&lt;use xlink:href='#icon-file-text2'>&lt;/use>&lt;/svg>&lt;/label>&lt;input id='data-05a8bd00-385b-4a41-b685-cf9d4319e5fb' class='xr-var-data-in' type='checkbox'>&lt;label for='data-05a8bd00-385b-4a41-b685-cf9d4319e5fb' title='Show/Hide data repr'>&lt;svg class='icon xr-icon-database'>&lt;use xlink:href='#icon-database'>&lt;/use>&lt;/svg>&lt;/label>&lt;div class='xr-var-attrs'>&lt;dl class='xr-attrs'>&lt;dt>&lt;span>units :&lt;/span>&lt;/dt>&lt;dd>m&lt;/dd>&lt;/dl>&lt;/div>&lt;div class='xr-var-data'>&lt;pre>array([0. , 0.025, 0.05 , 0.075, 0.1 , 0.125, 0.15 , 0.175, 0.2 , 0.225,
+0.25 , 0.275, 0.3 , 0.325, 0.35 , 0.375, 0.4 , 0.425, 0.45 , 0.475,
+0.5 ])&lt;/pre>&lt;/div>&lt;/li>&lt;li class='xr-var-item'>&lt;div class='xr-var-name'>&lt;span class='xr-has-index'>t&lt;/span>&lt;/div>&lt;div class='xr-var-dims'>(t)&lt;/div>&lt;div class='xr-var-dtype'>float64&lt;/div>&lt;div class='xr-var-preview xr-preview'>0.0 1.0 2.0 &amp;hellip; 598.0 599.0 600.0&lt;/div>&lt;input id='attrs-778118c1-172d-4b9f-9100-170d21db6135' class='xr-var-attrs-in' type='checkbox' >&lt;label for='attrs-778118c1-172d-4b9f-9100-170d21db6135' title='Show/Hide attributes'>&lt;svg class='icon xr-icon-file-text2'>&lt;use xlink:href='#icon-file-text2'>&lt;/use>&lt;/svg>&lt;/label>&lt;input id='data-4bbc1156-c6a4-4f93-93a4-d3df1d27dff3' class='xr-var-data-in' type='checkbox'>&lt;label for='data-4bbc1156-c6a4-4f93-93a4-d3df1d27dff3' title='Show/Hide data repr'>&lt;svg class='icon xr-icon-database'>&lt;use xlink:href='#icon-database'>&lt;/use>&lt;/svg>&lt;/label>&lt;div class='xr-var-attrs'>&lt;dl class='xr-attrs'>&lt;dt>&lt;span>units :&lt;/span>&lt;/dt>&lt;dd>s&lt;/dd>&lt;dt>&lt;span>name :&lt;/span>&lt;/dt>&lt;dd>tempo&lt;/dd>&lt;/dl>&lt;/div>&lt;div class='xr-var-data'>&lt;pre>array([ 0., 1., 2., &amp;hellip;, 598., 599., 600.])&lt;/pre>&lt;/div>&lt;/li>&lt;/ul>&lt;/div>&lt;/li>&lt;li class='xr-section-item'>&lt;input id='section-ff720833-a331-4d73-9ea7-4c8d89a01d6d' class='xr-section-summary-in' type='checkbox' checked>&lt;label for='section-ff720833-a331-4d73-9ea7-4c8d89a01d6d' class='xr-section-summary' >Data variables: &lt;span>(2)&lt;/span>&lt;/label>&lt;div class='xr-section-inline-details'>&lt;/div>&lt;div class='xr-section-details'>&lt;ul class='xr-var-list'>&lt;li class='xr-var-item'>&lt;div class='xr-var-name'>&lt;span>T&lt;/span>&lt;/div>&lt;div class='xr-var-dims'>(x, y, t)&lt;/div>&lt;div class='xr-var-dtype'>float64&lt;/div>&lt;div class='xr-var-preview xr-preview'>0.0 0.0 0.0 0.0 &amp;hellip; 0.0 0.0 0.0 0.0&lt;/div>&lt;input id='attrs-b96edd68-c29a-4fde-a462-6e331f02a41b' class='xr-var-attrs-in' type='checkbox' >&lt;label for='attrs-b96edd68-c29a-4fde-a462-6e331f02a41b' title='Show/Hide attributes'>&lt;svg class='icon xr-icon-file-text2'>&lt;use xlink:href='#icon-file-text2'>&lt;/use>&lt;/svg>&lt;/label>&lt;input id='data-76b9728c-fbee-4d27-865d-ca980805f22b' class='xr-var-data-in' type='checkbox'>&lt;label for='data-76b9728c-fbee-4d27-865d-ca980805f22b' title='Show/Hide data repr'>&lt;svg class='icon xr-icon-database'>&lt;use xlink:href='#icon-database'>&lt;/use>&lt;/svg>&lt;/label>&lt;div class='xr-var-attrs'>&lt;dl class='xr-attrs'>&lt;dt>&lt;span>units :&lt;/span>&lt;/dt>&lt;dd>°C&lt;/dd>&lt;dt>&lt;span>name :&lt;/span>&lt;/dt>&lt;dd>Temperatura&lt;/dd>&lt;/dl>&lt;/div>&lt;div class='xr-var-data'>&lt;pre>array([[[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+&amp;hellip;,
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.]],&lt;/p>
+&lt;p>[[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+&amp;hellip;,
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.]],&lt;/p>
+&lt;p>[[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+&amp;hellip;,
+&amp;hellip;
+&amp;hellip;,
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.]],&lt;/p>
+&lt;p>[[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+&amp;hellip;,
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.]],&lt;/p>
+&lt;p>[[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+&amp;hellip;,
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.],
+[0., 0., 0., &amp;hellip;, 0., 0., 0.]]])&lt;/pre>&lt;/div>&lt;/li>&lt;li class='xr-var-item'>&lt;div class='xr-var-name'>&lt;span>alpha&lt;/span>&lt;/div>&lt;div class='xr-var-dims'>()&lt;/div>&lt;div class='xr-var-dtype'>float64&lt;/div>&lt;div class='xr-var-preview xr-preview'>1.407e-05&lt;/div>&lt;input id='attrs-68b20fab-5ca0-4781-a31c-f784ea8c3804' class='xr-var-attrs-in' type='checkbox' >&lt;label for='attrs-68b20fab-5ca0-4781-a31c-f784ea8c3804' title='Show/Hide attributes'>&lt;svg class='icon xr-icon-file-text2'>&lt;use xlink:href='#icon-file-text2'>&lt;/use>&lt;/svg>&lt;/label>&lt;input id='data-4ffa7c3f-f9b0-45a8-a1b6-17fef98532f4' class='xr-var-data-in' type='checkbox'>&lt;label for='data-4ffa7c3f-f9b0-45a8-a1b6-17fef98532f4' title='Show/Hide data repr'>&lt;svg class='icon xr-icon-database'>&lt;use xlink:href='#icon-database'>&lt;/use>&lt;/svg>&lt;/label>&lt;div class='xr-var-attrs'>&lt;dl class='xr-attrs'>&lt;dt>&lt;span>units :&lt;/span>&lt;/dt>&lt;dd>m$^2$/s&lt;/dd>&lt;dt>&lt;span>name :&lt;/span>&lt;/dt>&lt;dd>Difusividade térmica&lt;/dd>&lt;/dl>&lt;/div>&lt;div class='xr-var-data'>&lt;pre>array(1.407e-05)&lt;/pre>&lt;/div>&lt;/li>&lt;/ul>&lt;/div>&lt;/li>&lt;li class='xr-section-item'>&lt;input id='section-932b59ea-38fa-4fd2-abfb-4456de4d21d0' class='xr-section-summary-in' type='checkbox' disabled >&lt;label for='section-932b59ea-38fa-4fd2-abfb-4456de4d21d0' class='xr-section-summary' title='Expand/collapse section'>Attributes: &lt;span>(0)&lt;/span>&lt;/label>&lt;div class='xr-section-inline-details'>&lt;/div>&lt;div class='xr-section-details'>&lt;dl class='xr-attrs'>&lt;/dl>&lt;/div>&lt;/li>&lt;/ul>&lt;/div>&lt;/div>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Existe uma série de métodos para selecionar dados dentro dos nossos arranjos (mais informações &lt;a href="http://xarray.pydata.org/en/stable/indexing.html" target="_blank" rel="noopener">aqui&lt;/a>), uma delas é por meio de dicionários. Por exemplo, para impor a condição inicial na temperatura podemos usar o dicionário &lt;code>{'t' : 0}&lt;/code>, ou a notação equivalente &lt;code>dict(t=0)&lt;/code>. De maneira análoga, iremos impor as condições de contorno, como vemos:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Condição Inicial
+data.T[dict(t=0)] = T0
+# Condições de Contorno
+data.T[dict(t=0,x=0)] = (Td - Ta) / (data.y[-1] - data.y[0]) * data.y + Ta
+data.T[dict(t=0,x=-1)] = (Tb - Tc) / (data.y[-1] - data.y[0]) * data.y + Tc
+data.T[dict(t=0,y=0)] = (Tc - Ta) / (data.x[-1] - data.x[0]) * data.x + Ta
+data.T[dict(t=0,y=-1)] = (Tb - Td) / (data.x[-1] - data.x[0]) * data.x + Td
+&lt;/code>&lt;/pre>
+&lt;p>Se novamente admitirmos que a derivada segunda pode ser aproximada com a aplicação dupla da derivada primeira, resolvemos o problema com o seguinte bloco de código:&lt;/p>
+&lt;pre>&lt;code class="language-python">%%time
+for n in range(data.t.size - 1):
+dt = data.t[n+1] - data.t[n]
+# Equação Governate
+data.T[dict(t=n+1)] = data.T.isel(t=n) + dt * data.alpha * (
+data.T.isel(t=n).differentiate('x').differentiate('x') +
+data.T.isel(t=n).differentiate('y').differentiate('y')
+)
+# Condições de Contorno
+data.T[dict(t=n+1,x=0)] = data.T.isel(t=0,x=0)
+data.T[dict(t=n+1,x=-1)] = data.T.isel(t=0,x=-1)
+data.T[dict(t=n+1,y=0)] = data.T.isel(t=0,y=0)
+data.T[dict(t=n+1,y=-1)] = data.T.isel(t=0,y=-1)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>Wall time: 5.2 s
+&lt;/code>&lt;/pre>
+&lt;p>Note a diferença visual em relação ao nosso exemplo anterior em &lt;strong>NumPy&lt;/strong>, onde sempre temos que lembrar da ordem de definição dos eixos para manipular os dados, como &lt;code>np.gradient(T[:,:,n], x, axis=0)&lt;/code> para derivação da temperatura no tempo &lt;code>n&lt;/code> em relação a &lt;code>x&lt;/code>, com &lt;strong>Xarray&lt;/strong> usamos simplesmente &lt;code>data.T.isel(t=n).differentiate('x')&lt;/code>.&lt;/p>
+&lt;p>Outra vantagem de usar &lt;strong>Xarray&lt;/strong>, o pacote oferece uma série de funcionalidades gráficas, construídas sobre &lt;strong>Matplotlib&lt;/strong> (mais informações &lt;a href="http://xarray.pydata.org/en/stable/plotting.html" target="_blank" rel="noopener">aqui&lt;/a>), de modo que com poucas linhas de código podemos:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Graficar a evolução temporal da temperatura no centro da placa
+data.T.isel(x=data.x.size//2, y=data.y.size//2).plot.line();
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="output_52_0.png" alt="png">&lt;/p>
+&lt;pre>&lt;code class="language-python"># Variação com x e t para y fixo
+data.T.isel(t=slice(None,None,120), y=data.y.size//2).plot.line(x='x');
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="output_53_0.png" alt="png">&lt;/p>
+&lt;pre>&lt;code class="language-python"># Variação com y e t para x fixo
+data.T.isel(t=slice(None,None,120), x=data.x.size//2).plot.line(x='y');
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="output_54_0.png" alt="png">&lt;/p>
+&lt;pre>&lt;code class="language-python"># E aqui temos a completa variação espaço-temporal
+data.T.sel(t=slice(None,None,40)).T.plot.contourf(
+col='t',
+col_wrap=4,
+aspect = 1,
+cmap='bone',
+levels = 32
+);
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="output_55_0.png" alt="png">&lt;/p>
+&lt;!--adsense-->
+&lt;h2 id="conclusão">Conclusão&lt;/h2>
+&lt;p>Com esse estudo de caso, demonstrou-se como resolver a condução de calor em placa plana bidimensional transiente empregando dois diferentes pacotes para manipulação de arranjos, &lt;strong>NumPy&lt;/strong> e &lt;strong>Xarray&lt;/strong>. Vimos como o primeiro funciona baseado na numeração dos diferentes eixos de coordenadas &lt;code>axis=0&lt;/code>, enquanto o segundo utiliza rótulos &lt;code>dim='x'&lt;/code>, em uma apresentação muito mais intuitiva e visual. Certamente, cada abordagem tem seus pontos fortes e fracos, e a escolha de uma ou outra depende do tipo de aplicação em questão e da preferência do próprio programador.&lt;/p></description></item><item><title>Métodos Numéricos Aplicados à Transferência de Calor</title><link>https://www.fschuch.com/talk/metodos-numericos-aplicados-a-transferencia-de-calor/</link><pubDate>Wed, 09 Oct 2019 19:30:00 -0300</pubDate><guid>https://www.fschuch.com/talk/metodos-numericos-aplicados-a-transferencia-de-calor/</guid><description/></item></channel></rss>

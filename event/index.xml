@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Recent &amp; Upcoming Talks | F. Schuch</title><link>https://www.fschuch.com/event/</link><atom:link href="https://www.fschuch.com/event/index.xml" rel="self" type="application/rss+xml"/><description>Recent &amp; Upcoming Talks</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Recent &amp; Upcoming Talks</title><link>https://www.fschuch.com/event/</link></image><item><title>Acelerando a exploração de dados multidimensionais com Xarray</title><link>https://www.fschuch.com/talk/acelerando-a-exploracao-de-dados-multidimensionais-com-xarray/</link><pubDate>Sun, 17 Oct 2021 15:00:00 -0300</pubDate><guid>https://www.fschuch.com/talk/acelerando-a-exploracao-de-dados-multidimensionais-com-xarray/</guid><description/></item><item><title>Métodos Numéricos em Python</title><link>https://www.fschuch.com/talk/metodos-numericos-em-python/</link><pubDate>Tue, 04 May 2021 15:30:00 -0300</pubDate><guid>https://www.fschuch.com/talk/metodos-numericos-em-python/</guid><description>&lt;p>Esta palestra tem por objetivo introduzir os principais conceitos de programação e Python, empregando a didática interativa da plataforma Jupyter Notebook. Além disso, demonstra-se como solucionar problemas em métodos numéricos por meio de propostas computacionais. Para tanto, o material é dividido em duas aulas:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/metodos-numericos-com-python/blob/main/Aulas/01-Introdu%c3%a7%c3%a3o-Python-Bibliotecas.ipynb" target="_blank" rel="noopener">Ligeira Introdução à Python&lt;/a>, contemplando:&lt;/p>
+&lt;ul>
+&lt;li>Introdução e revisão sobre conceitos de programação em Python;&lt;/li>
+&lt;li>Manipulação de tensores em Python com Numpy;&lt;/li>
+&lt;li>Produção de gráficos com o pacote Matplotlib;&lt;/li>
+&lt;li>Cálculo Diferencial e Integral com Python;&lt;/li>
+&lt;li>Resolvendo Equações Diferenciais;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Exemplos de aplicação em Fenômenos de Transporte (próxima semana).&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="configurando-o-tutorial">Configurando o Tutorial&lt;/h2>
+&lt;p>Esse tutorial foi projetado para rodar no &lt;a href="https://mybinder.org/" target="_blank" rel="noopener">Binder&lt;/a>.
+O serviço permite executar totalmente na nuvem, nenhuma instalação extra é necessária.
+Para tanto, basta clicar &lt;a href="https://mybinder.org/v2/gh/fschuch/metodos-numericos-com-python/main?urlpath=lab" target="_blank" rel="noopener">aqui&lt;/a>:
+&lt;a href="https://mybinder.org/v2/gh/fschuch/metodos-numericos-com-python/main?urlpath=lab" target="_blank" rel="noopener">&lt;img src="https://mybinder.org/badge_logo.svg" alt="Binder">&lt;/a>&lt;/p>
+&lt;p>Se você prefere instalar o tutorial localmente, siga os seguintes passos:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Clone o repositório:&lt;/p>
+&lt;pre>&lt;code class="language-bash">git clone https://github.com/fschuch/metodos-numericos-com-python
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>Instale o ambiente. O repositório inclui um arquivo &lt;code>environment.yaml&lt;/code> que contém uma lista de todos os pacotes necessários para executar esse tutorial.
+Para instalá-los usando conda, use o comando:&lt;/p>
+&lt;pre>&lt;code class="language-bash">conda env create -f environment.yml
+conda activate metodos-numericos-python
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>Inicie uma seção Jupyter:&lt;/p>
+&lt;pre>&lt;code class="language-bash">jupyter lab
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;/ol></description></item><item><title>Python and XCompact3d</title><link>https://www.fschuch.com/talk/python-and-xcompact3d/</link><pubDate>Fri, 19 Mar 2021 13:15:00 +0000</pubDate><guid>https://www.fschuch.com/talk/python-and-xcompact3d/</guid><description/></item><item><title>Sandbox flow configuration: A rapid prototyping tool inside XCompact3d</title><link>https://www.fschuch.com/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</link><pubDate>Fri, 12 Mar 2021 15:55:00 +0000</pubDate><guid>https://www.fschuch.com/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</guid><description>&lt;p>XCompact3d é uma ferramenta acadêmica de alta precisão, voltado para a resolução de problemas em fluidodinâmica computacional (CFD), incluindo capacidade para resolver transporte de calor e/ou massa, bem como escoamentos ao redor de obstáculos. Ele é programado em Fortran, com código aberto, e projetado para rodar em super-computadores por meio da interface por troca de mensagens (MPI).&lt;/p>
+&lt;p>A pesquisa na fronteira do conhecimento geralmente envolve extender as capacidades do código original, visando simular configurações de escoamento inéditas. Com isso, se faz necessário editar diretamente o código fonte, e todas as tarefas derivadas desse ato, como compilar o código, testar, corrigir possiveis falhas, executar e talvez repetir o ciclo. Essa atividade demanda conhecimentos especializados e tempo de deselvolvimento. Nesse contexto surge a motivação para esse trabalho:&lt;/p>
+&lt;ul>
+&lt;li>Como podemos acelerar o trabalho de desenvolvimentos de casos inéditos em nosso código?&lt;/li>
+&lt;li>E também, como podemos acelerar o processo de aprendizagem para os que estão começando a estudar o código, ou mesmo tornar ele acessível para estudantes de CFD?&lt;/li>
+&lt;/ul>
+&lt;p>A solução para ambos os problemas acima foi proposta, confira mais detalhes abaixo:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://youtu.be/W-TFZo4Qnhk" target="_blank" rel="noopener">Veja a palestra no YouTube&lt;/a>;&lt;/li>
+&lt;li>&lt;a href="https://www.fschuch.com/en/slides/2021-x3d-showcase/" target="_blank" rel="noopener">Veja os Slides Online&lt;/a>;&lt;/li>
+&lt;li>Por fim, &lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial.html#sandbox-examples" target="_blank" rel="noopener">alguns exemplos&lt;/a> da ferramenta que desenvolvemos.&lt;/li>
+&lt;/ul></description></item><item><title>Xarray, estruturas para dados multidimensionais</title><link>https://www.fschuch.com/talk/xarray-estruturas-para-dados-multidimensionais/</link><pubDate>Tue, 11 Aug 2020 15:00:00 -0300</pubDate><guid>https://www.fschuch.com/talk/xarray-estruturas-para-dados-multidimensionais/</guid><description>&lt;h1 id="introdução">Introdução&lt;/h1>
+&lt;p>Desejo boas-vindas ao tutorial &lt;strong>Xarray&lt;/strong>.&lt;/p>
+&lt;p>Xarray é um pacote Python de código aberto que visa tornar o trabalho com arranjos de dados catalogados uma tarefa simples, eficiente e até mesmo divertida!&lt;/p>
+&lt;p>Xarray introduz &lt;em>labels&lt;/em> (mapeamento, rótulo, catálogo) como forma de expressar dimensões, coordenadas e atributos construidos acima de arranjos brutos do tipo &lt;a href="https://numpy.org/" target="_blank" rel="noopener">NumPy&lt;/a>,
+o que permite um fluxo de trabalho e desenvolvimento mais intuitivo, conciso e a prova de erros.
+O pacote inclui uma biblioteca grande e crescente de funções aplicadas para análises e visualização com essas estruturas de dados.&lt;/p>
+&lt;p>Xarray é inspirado e inclusive toma várias funcionalidades emprestadas do &lt;a href="https://pandas.pydata.org/" target="_blank" rel="noopener">pandas&lt;/a>, o popular pacote para manipulação de dados tabelados.
+Também é especialmente adaptado para funcionar com &lt;a href="http://www.unidata.ucar.edu/software/netcdf" target="_blank" rel="noopener">arquivos netCDF&lt;/a>, que foram a fonte do modelo de dados em Xarray, além de integrar-se perfeitamente com &lt;a href="http://dask.org/" target="_blank" rel="noopener">Dask&lt;/a> para computação paralela.&lt;/p>
+&lt;h2 id="configurando-o-tutorial">Configurando o Tutorial&lt;/h2>
+&lt;p>Esse tutorial foi projetado para rodar no &lt;a href="https://mybinder.org/" target="_blank" rel="noopener">Binder&lt;/a>.
+O serviço permite executar totalmente na nuvem, nenhuma instalação extra é necessária.
+Para tanto, basta clicar &lt;a href="https://mybinder.org/v2/gh/fschuch/xarray-tutorial-python-brasil/master?urlpath=lab" target="_blank" rel="noopener">aqui&lt;/a>:
+&lt;a href="https://mybinder.org/v2/gh/fschuch/xarray-tutorial-python-brasil/master?urlpath=lab" target="_blank" rel="noopener">&lt;img src="https://mybinder.org/badge_logo.svg" alt="Binder">&lt;/a>&lt;/p>
+&lt;p>Se você prefere instalar o tutorial localmente, siga os seguintes passos:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Clone o repositório:&lt;/p>
+&lt;pre>&lt;code>git clone https://github.com/fschuch/xarray-tutorial-python-brasil
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>Instale o ambiente. O repositório inclui um arquivo &lt;code>environment.yaml&lt;/code> no subdiretório &lt;code>.binder&lt;/code> que contém uma lista de todos os pacotes necessários para executar esse tutorial.
+Para instalá-los usando conda, use o comando:&lt;/p>
+&lt;pre>&lt;code>conda env create -f .binder/environment.yml
+conda activate xarray
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>Inicie uma seção Jupyter:&lt;/p>
+&lt;pre>&lt;code>jupyter lab
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="material-complementar">Material complementar&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Referências&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://xarray.pydata.org/en/stable/" target="_blank" rel="noopener">Documentação&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://xarray.pydata.org/en/stable/why-xarray.html" target="_blank" rel="noopener">Overview: Why xarray?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/pydata/xarray" target="_blank" rel="noopener">Repositório do Xarray&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Peça ajuda:&lt;/p>
+&lt;ul>
+&lt;li>Use a seção &lt;a href="https://stackoverflow.com/questions/tagged/python-xarray" target="_blank" rel="noopener">python-xarray&lt;/a> no StackOverflow&lt;/li>
+&lt;li>&lt;a href="https://github.com/pydata/xarray/issues" target="_blank" rel="noopener">GitHub Issues&lt;/a> para reportar bugs e requisitar novas funcionalidades&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="estrutura-do-tutorial">Estrutura do Tutorial&lt;/h2>
+&lt;p>O material é composto por múltiplos Jupyter Notebooks. Eles, por sua vez, são compostos por uma mistura de código, texto, visualizações e exercícios.&lt;/p>
+&lt;p>Se essa é sua primeira experiência com JupyterLab, não se preocupe, ele é bastante simular com o Jupyter Notebook clássico. Se essa é a sua primeira vez com um Notebook, aqui vai uma introdução rápida:&lt;/p>
+&lt;ol>
+&lt;li>Existem células em dois modos: comando e edição;&lt;/li>
+&lt;li>A partir do modo de comando, precione &lt;code>Enter&lt;/code> para editar uma célular (assim como essa célula em Markdown);&lt;/li>
+&lt;li>Do modo de edição, precione &lt;code>Esc&lt;/code> para retornar ao modo de comando;&lt;/li>
+&lt;li>Precione &lt;code>Shift + Enter&lt;/code> para executar a célula e mover o cursor para a célula seguinte;&lt;/li>
+&lt;li>A barra de ferramentas contém botões para executar, converter, criar, quebrar e mesclar células.&lt;/li>
+&lt;/ol>
+&lt;p>O conteúdo abordado será o seguinte:&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://nbviewer.jupyter.org/github/fschuch/xarray-tutorial-python-brasil/blob/master/python-brasil-2020/01_estruturas_de_dados_e_io.ipynb" target="_blank" rel="noopener">Introdução + Estruturas para dados Multidimensionais&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://nbviewer.jupyter.org/github/fschuch/xarray-tutorial-python-brasil/blob/master/python-brasil-2020/02_trabalhando_com_dados_mapeados.ipynb" target="_blank" rel="noopener">Trabalhando com dados mapeados&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://nbviewer.jupyter.org/github/fschuch/xarray-tutorial-python-brasil/blob/master/python-brasil-2020/03_calculos_com_xarray.ipynb" target="_blank" rel="noopener">Computação com Xarray&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://nbviewer.jupyter.org/github/fschuch/xarray-tutorial-python-brasil/blob/master/python-brasil-2020/04_graficos_e_visualizacao.ipynb" target="_blank" rel="noopener">Gráficos e Visualização&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://nbviewer.jupyter.org/github/fschuch/xarray-tutorial-python-brasil/blob/master/python-brasil-2020/05_introducao_ao_dask.ipynb" target="_blank" rel="noopener">Introdução ao Dask&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://nbviewer.jupyter.org/github/fschuch/xarray-tutorial-python-brasil/blob/master/python-brasil-2020/06_xarray_e_dask.ipynb" target="_blank" rel="noopener">Dask e Xarray para computação paralela&lt;/a>&lt;/li>
+&lt;/ol></description></item><item><title>Métodos Numéricos Aplicados à Transferência de Calor</title><link>https://www.fschuch.com/talk/metodos-numericos-aplicados-a-transferencia-de-calor/</link><pubDate>Wed, 09 Oct 2019 19:30:00 -0300</pubDate><guid>https://www.fschuch.com/talk/metodos-numericos-aplicados-a-transferencia-de-calor/</guid><description/></item><item><title>Python: Introdução e Aplicações da Linguagem de Programação em Engenharia</title><link>https://www.fschuch.com/talk/python-introducao-e-aplicacoes-da-linguagem-de-programacao-em-engenharia/</link><pubDate>Tue, 16 Jul 2019 14:00:00 -0300</pubDate><guid>https://www.fschuch.com/talk/python-introducao-e-aplicacoes-da-linguagem-de-programacao-em-engenharia/</guid><description/></item></channel></rss>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CFD | F. Schuch</title><link>https://www.fschuch.com/tag/cfd/</link><atom:link href="https://www.fschuch.com/tag/cfd/index.xml" rel="self" type="application/rss+xml"/><description>CFD</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Fri, 19 Mar 2021 13:15:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>CFD</title><link>https://www.fschuch.com/tag/cfd/</link></image><item><title>Python and XCompact3d</title><link>https://www.fschuch.com/talk/python-and-xcompact3d/</link><pubDate>Fri, 19 Mar 2021 13:15:00 +0000</pubDate><guid>https://www.fschuch.com/talk/python-and-xcompact3d/</guid><description/></item><item><title>Sandbox flow configuration: A rapid prototyping tool inside XCompact3d</title><link>https://www.fschuch.com/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</link><pubDate>Fri, 12 Mar 2021 15:55:00 +0000</pubDate><guid>https://www.fschuch.com/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</guid><description>&lt;p>XCompact3d é uma ferramenta acadêmica de alta precisão, voltado para a resolução de problemas em fluidodinâmica computacional (CFD), incluindo capacidade para resolver transporte de calor e/ou massa, bem como escoamentos ao redor de obstáculos. Ele é programado em Fortran, com código aberto, e projetado para rodar em super-computadores por meio da interface por troca de mensagens (MPI).&lt;/p>
+&lt;p>A pesquisa na fronteira do conhecimento geralmente envolve extender as capacidades do código original, visando simular configurações de escoamento inéditas. Com isso, se faz necessário editar diretamente o código fonte, e todas as tarefas derivadas desse ato, como compilar o código, testar, corrigir possiveis falhas, executar e talvez repetir o ciclo. Essa atividade demanda conhecimentos especializados e tempo de deselvolvimento. Nesse contexto surge a motivação para esse trabalho:&lt;/p>
+&lt;ul>
+&lt;li>Como podemos acelerar o trabalho de desenvolvimentos de casos inéditos em nosso código?&lt;/li>
+&lt;li>E também, como podemos acelerar o processo de aprendizagem para os que estão começando a estudar o código, ou mesmo tornar ele acessível para estudantes de CFD?&lt;/li>
+&lt;/ul>
+&lt;p>A solução para ambos os problemas acima foi proposta, confira mais detalhes abaixo:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://youtu.be/W-TFZo4Qnhk" target="_blank" rel="noopener">Veja a palestra no YouTube&lt;/a>;&lt;/li>
+&lt;li>&lt;a href="https://www.fschuch.com/en/slides/2021-x3d-showcase/" target="_blank" rel="noopener">Veja os Slides Online&lt;/a>;&lt;/li>
+&lt;li>Por fim, &lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial.html#sandbox-examples" target="_blank" rel="noopener">alguns exemplos&lt;/a> da ferramenta que desenvolvemos.&lt;/li>
+&lt;/ul></description></item><item><title>Um ambiente "Jupyter Sandbox" acoplado ao Xcompact3d, um código acadêmico de alta ordem para Fluidodinâmica Computacional</title><link>https://www.fschuch.com/publication/2020-jupytercon/</link><pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/publication/2020-jupytercon/</guid><description>&lt;h1 id="descrição">Descrição&lt;/h1>
+&lt;p>Iniciantes podem enfrentar muitas barreiras de entrada em um código acadêmico para Fluidodinâmica Computacional (CFD), por exemplo:&lt;/p>
+&lt;ul>
+&lt;li>A decomposição de domínio de cálculo para computação paralela em um sistema de memória distribuída;&lt;/li>
+&lt;li>Programação, compilação, teste e depuração em linguagens de programação como Fortran ou C;&lt;/li>
+&lt;li>O receio de estragar qualquer coisa no código fonte;&lt;/li>
+&lt;li>Critérios de estabilidade de diferentes métodos numéricos;&lt;/li>
+&lt;li>Falta de documentação e outros.&lt;/li>
+&lt;/ul>
+&lt;p>Esse trabalho visa quebrar essas barreiras ao construir uma camada Python, ou mais especificamente &lt;a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook&lt;/a>, sobre o código CFD, programado originalmente em Fortran.&lt;/p>
+&lt;p>Para tanto, o código CFD de alta ordem &lt;a href="https://github.com/fschuch/Xcompact3d" target="_blank" rel="noopener">Xcompact3d&lt;/a> foi modificado para aceitar toda a configuração do escoamento sob investigação de uma fonte externa, incluindo parâmetros físicos e numéricos, condição inicial e condições de contorno, e uma geometria sólida que pode ser inserida no domínio cartesiano por meio do método das fronteiras imersas (IBM, do inglês &lt;em>Immersed Boundary Method&lt;/em>). A configuração do escoamento, por sua vez, é fornecida a partir de um &lt;a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook&lt;/a>, aproveitando a documentação embutida com células &lt;em>Markdown&lt;/em> (incluindo facilmente figuras, tabelas e equações $\LaTeX$), visualização e interatividade com &lt;em>widgets&lt;/em> e bibliotecas de plotagem, além da versatilidade e legibilidade da programação em Python. Além disso, os parâmetros de entrada podem ser verificados quanto à consistência e compatibilidade. O conhecimento prévio de &lt;a href="https://numpy.org/" target="_blank" rel="noopener">NumPy&lt;/a> e &lt;a href="https://matplotlib.org/" target="_blank" rel="noopener">Matplotlib&lt;/a> é suficiente para começar com as configurações de escoamento exemplificadas. No entanto, não há limitação para estendê-lo para ferramentas mais avançadas como &lt;a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas&lt;/a>, &lt;a href="http://xarray.pydata.org/" target="_blank" rel="noopener">Xarray&lt;/a>, &lt;a href="https://dask.org/" target="_blank" rel="noopener">Dask&lt;/a>, &lt;a href="http://numba.pydata.org/" target="_blank" rel="noopener">Numba&lt;/a>, &lt;a href="https://holoviews.org/" target="_blank" rel="noopener">Holoview&lt;/a>, &lt;a href="https://plotly.com/python/" target="_blank" rel="noopener">Plotly&lt;/a> e muitos outros do ecossistema Jupyter. Na verdade, o &lt;em>Jupyter CFD Sandbox&lt;/em> foi incorporado ao pacote Python &lt;a href="https://github.com/fschuch/xcompact3d_toolbox" target="_blank" rel="noopener">Xcompact3d-toolbox&lt;/a>.&lt;/p>
+&lt;p>O resultado da metodologia apresentada nesse trabalho pode beneficiar usuários de diferentes níveis:&lt;/p>
+&lt;ul>
+&lt;li>Para alunos de fluidodinâmica computacional, oferece experiência prática direta e um local seguro para praticar e aprender;&lt;/li>
+&lt;li>Para usuários avançados e desenvolvedores de código, ele funciona como uma ferramenta de prototipagem rápida, onde é possível testar conceitos e, em seguida, comparar os resultados para validar quaisquer implementações futuras no solucionador numérico.&lt;/li>
+&lt;/ul>
+&lt;p>Além disso, é um avanço importante em termos de reprodutibilidade de pesquisa, e pode ser portado para qualquer outro solucionador numérico, (avise-nos se você fizer isso).&lt;/p>
+&lt;p>Tutoriais e diversas configurações de escoamento estão disponíveis na &lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/" target="_blank" rel="noopener">Documentação do Xcompact3d-toolbox&lt;/a>.&lt;/p></description></item><item><title>Xcompact3d Toolbox</title><link>https://www.fschuch.com/project/xcompact3d-toolbox/</link><pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/project/xcompact3d-toolbox/</guid><description>&lt;h2 id="sobre">Sobre&lt;/h2>
+&lt;p>Esse é um pacote Python projetado para lidar com o pré e pós-processamento dos dados
+provenientes do código &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a>, uma solução acadêmica de código aberto e alta precisão,
+empregada para solucionar problemas de fluidodinâmica computacional com transporte de escalares.
+Tem como objetivo ajudar os usuários e desenvolvedores de código com um conjunto de ferramentas e processos automatizados.&lt;/p>
+&lt;p>Os parâmetros físicos e computacionais são construídos sobre &lt;a href="https://traitlets.readthedocs.io/en/stable/index.html" target="_blank" rel="noopener">traitlets&lt;/a>,
+uma estrutura que permite que as classes em Python tenham seus atributos checados quanto ao tipo, definição de valores padrões,
+e chamadas de métodos de verificação de atributos quando necessário. Isso visa manter todos os parâmetros em compatibilidade com o que
+o simulador espera. Além disso, &lt;a href="https://ipywidgets.readthedocs.io/en/latest/" target="_blank" rel="noopener">ipywidgets&lt;/a> são fornecidos para uma experiência amigável com o usuário (veja exemplos na &lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial/parameters.html" target="_blank" rel="noopener">Documentação&lt;/a>).&lt;/p>
+&lt;p>A estrutura de dados empregada é &lt;a href="http://xarray.pydata.org/en/stable/" target="_blank" rel="noopener">xarray&lt;/a> (veja &lt;a href="http://xarray.pydata.org/en/stable/why-xarray.html" target="_blank" rel="noopener">&lt;em>Why xarray?&lt;/em>&lt;/a>), que introduz mapeamentos na forma de dimensões, coordenadas e atributos sobre os arranjos puramente &lt;a href="https://numpy.org/" target="_blank" rel="noopener">NumPy&lt;/a>, permitindo uma experiência de desenvolvimento mais intuitiva, concisa e menos propensa à erros.
+Xcompact3d Toolbox conta com métodos capazes de ler os dados binários brutos resultantes das simulações do &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a>, e empacota-los em um arranjo de dados Xarray, assim como o processo contrário, escrevendo-os para o disco em uma maneira compatível com a leitura de dados do &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a>.
+Além disso, os arranjos de dados são compatíveis com &lt;a href="https://dask.org/" target="_blank" rel="noopener">dask&lt;/a> para computação paralela.&lt;/p>
+&lt;p>Por fim, Xcompact3d Toolbox está perfeitamente integrado à nova &lt;em>configuração de escoamento &lt;strong>Sandbox&lt;/strong>&lt;/em> (veja &lt;a href="https://github.com/fschuch/Xcompact3d/" target="_blank" rel="noopener">fschuch/Xcompact3d&lt;/a>). O plano é fornecer toda a informação que o &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a> precisa para especificar uma simulação, como condição inicial, geometria sólida, condições de contorno e o arquivo de parâmetros (&lt;a href="https://xcompact3d-toolbox.readthedocs.io/en/latest/tutorial.html#sandbox-examples" target="_blank" rel="noopener">veja os exemplos&lt;/a>). Desse modo, iniciantes podem executar qualquer configuração inédita sem ter que se preocupar com programar em Fortran e com o ambiente de paralelização &lt;a href="http://www.2decomp.org/" target="_blank" rel="noopener">2decomp&lt;/a>. Para desenvolvedores, isso funciona como uma ferramenta de prototipagem rápida, para testar hipóteses e conceitos, além de servir como base de comparação para validar qualquer implementação futura no código fonte do &lt;a href="https://www.fschuch.com/project/xcompact3d/">Xcompact3d&lt;/a>.&lt;/p></description></item><item><title>CFD com Python: 12 Passos para Navier-Stokes</title><link>https://www.fschuch.com/blog/2020/01/12/cfd-com-python-12-passos-para-navier-stokes/</link><pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2020/01/12/cfd-com-python-12-passos-para-navier-stokes/</guid><description>&lt;h1 id="introdução">Introdução&lt;/h1>
+&lt;p>&lt;strong>CFD com Python&lt;/strong>, também conhecido como os &lt;strong>12 passos para Navier-Stokes&lt;/strong>, é um módulo prático para o aprendizado dos fundamentos de Dinâmica dos Fluidos Computacional (CFD, do Inglês &lt;em>Computational Fluid Dynamics&lt;/em>) por meio de códigos que resolvem as equações diferenciais parciais que descrevem a física dos escoamentos.
+Esta é uma adaptação e tradução para português por &lt;a href="https://fschuch.com" target="_blank" rel="noopener">Felipe N. Schuch&lt;/a>. Os textos e códigos originais foram parte do curso ministrado pela &lt;a href="http://lorenabarba.com" target="_blank" rel="noopener">Prof. Lorena Barba&lt;/a> entre 2009 e 2013 no departamento de Engenharia Mecânica da Universidade de Boston (Prof. Barba então se mudou para Universidade George Washington).&lt;/p>
+&lt;p>&lt;em>O curso é para iniciantes&lt;/em>. O módulo assume que o leitor tenha conhecimentos básicos sobre programação (qualquer linguagem) e alguma familiaridade com equações diferenciais e mecânica dos fluidos.
+Guiando estudantes através destes passos (sem falhar nenhum!), podemos ensina-los lições valiosas. A constante evolução entre os exercícios proporciona um senso de recompensa ao final de cada atividade, e eles sentem que estão aprendendo com pouco esforço. Conforme avançam, eles naturalmente praticam como reutilizar trechos de código e progressivamente aprendem técnicas de programação e visualização. Enquanto eles analisam os resultados, aprendem sobre difusão, precisão e convergência.
+Em todos os casos, o aluno é encorajado a seguir o trabalho de cada lição paralelamente ao reescrever em um Jupyter Notebook novo, mantendo anotações pessoais de seu progresso e de seus experimentos.&lt;/p>
+&lt;blockquote>
+&lt;p>We hope that the CFD Python series will help a new cohort of students and self-learners gain basic CFD skills. Let us know what you think!&lt;br>
+&lt;cite>&lt;a href="https://lorenabarba.com/blog/cfd-python-12-steps-to-navier-stokes/">Prof. Lorena Barba&lt;/a>&lt;/cite>&lt;/p>
+&lt;/blockquote>
+&lt;h1 id="como-acessar">Como Acessar&lt;/h1>
+&lt;p>Existem basicamente duas opções, descritas à seguir:&lt;/p>
+&lt;h2 id="executar-online">Executar online&lt;/h2>
+&lt;p>Execute uma seção interativa dessa versão do &lt;strong>CFD com Python&lt;/strong> em seu navegador usando o serviço Binder. Esta opção não requer nenhuma instalação na sua máquina, apenas clique no botão:&lt;/p>
+&lt;p>&lt;a href="https://binder.pangeo.io/v2/gh/fschuch/CFDPython-BR/master/" target="_blank" rel="noopener">&lt;img src="https://binder.pangeo.io/badge_logo.svg" alt="Binder">&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Espere a aplicação carregar tudo para você, isso pode levar algum tempo;&lt;/li>
+&lt;li>O próximo passo é abrir os arquivos na pasta &lt;code>tarefas&lt;/code>;&lt;/li>
+&lt;li>Ao final do curso, não esqueça de salvar uma cópia do Notebook com suas anotações pessoais.&lt;/li>
+&lt;/ul>
+&lt;h2 id="instalação">Instalação&lt;/h2>
+&lt;p>Se você gostaria de executar na sua própria máquina por meio da instalação de alguma distribuição Python, consulte os detalhes sobre o procedimento em nosso &lt;a href="https://github.com/fschuch/CFDPython-BR" target="_blank" rel="noopener">repositório no GitHub&lt;/a>.&lt;/p>
+&lt;h1 id="conteúdo">Conteúdo&lt;/h1>
+&lt;p>Os passos 1 a 4 são em uma direção espacial (1D). Passos 5 a 10 são em duas dimensões (2D). Passos 11 e 12 resolvem as equações de Navier-Stokes em 2D. Três Notebooks &amp;ldquo;bônus&amp;rdquo; cobrem a condição CFL de estabilidade, operações de arranjos multi-dimensionais com NumPy e definição de funções em Python.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/00_Ligeira_Intro_Python_.ipynb" target="_blank" rel="noopener">Ligeira Introdução à Python&lt;/a>
+&amp;ndash; Para novatos em Python, essa lição introduz bibliotecas numéricas (NumPy e Matplotlib), variáveis em Python, endentação e manipulação de arranjos.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/01_Passo_1.ipynb" target="_blank" rel="noopener">Passo 1&lt;/a>
+&amp;ndash; Convecção linear com avanço à partir da condição inicial (CI) e condições de contorno (CC) apropriadas.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/02_Passo_2.ipynb" target="_blank" rel="noopener">Passo 2&lt;/a>
+&amp;ndash; Com as mesmas CI/BCs, convecção &lt;em>não linear&lt;/em>.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/03_Condicao_CFL.ipynb" target="_blank" rel="noopener">Condição CFL&lt;/a>
+&amp;ndash; Explorando a estabilidade numérica e a condição de Courant-Friedrichs-Lewy (CFL).&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/04_Passo_3.ipynb" target="_blank" rel="noopener">Passo 3&lt;/a>
+&amp;ndash; Com as mesmas CI/BCs, apenas &lt;em>difusão&lt;/em>.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/05_Passo_4.ipynb" target="_blank" rel="noopener">Passo 4&lt;/a>
+&amp;ndash; Equação de Burgers, com CI &lt;em>dente de serra&lt;/em> e CC periódica (e uma introdução ao SymPy).&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/06_Operacoes_de_arranjos_com_NumPy.ipynb" target="_blank" rel="noopener">Operações com arranjos em NumPy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/07_Passo_5.ipynb" target="_blank" rel="noopener">Passo 5&lt;/a>
+&amp;ndash; Convecção linear 2D com CI função quadrada e CC apropriadas.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/08_Passo_6.ipynb" target="_blank" rel="noopener">Passo 6&lt;/a>
+&amp;ndash; Com as mesmas CI/BCs, convecção &lt;em>não linear&lt;/em> 2D.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/09_Passo_7.ipynb" target="_blank" rel="noopener">Passo 7&lt;/a>
+&amp;ndash; Com as mesmas CI/BCs, &lt;em>difusão&lt;/em> 2D.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/10_Passo_8.ipynb" target="_blank" rel="noopener">Passo 8&lt;/a>
+&amp;ndash; Equação de Burgers 2D.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/11_Definindo_Funcoes_em_Python.ipynb" target="_blank" rel="noopener">Definindo Funções em Python&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/12_Passo_9.ipynb" target="_blank" rel="noopener">Passo 9&lt;/a>
+&amp;ndash; Equação de Laplace 2D com CI zero e CC ambas Neumann e Dirichlet.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/13_Passo_10.ipynb" target="_blank" rel="noopener">Passo 10&lt;/a>
+&amp;ndash; Equação de Poisson 2D.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/14_Passo_11.ipynb" target="_blank" rel="noopener">Passo 11&lt;/a>
+&amp;ndash; Resolve o escoamento em Cavidade com Navier-Stokes 2D.&lt;/li>
+&lt;li>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/CFDPython-BR/blob/master/tarefas/15_Passo_12.ipynb" target="_blank" rel="noopener">Passo 12&lt;/a>
+&amp;ndash; Resolve o escoamento em Canal com Navier–Stokes 2D.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-note">
+&lt;div>
+Clicar nos links nessa seção irá abrir cada Notebook pelo serviço &lt;code>nbviewer&lt;/code>, que os apresenta na tela, porem não em forma executável. Para isso, consulte &lt;a href="#executar-online">Executar online&lt;/a>.
+&lt;/div>
+&lt;/div>
+&lt;h1 id="conteúdo-complementar">Conteúdo complementar&lt;/h1>
+&lt;p>Existem ainda duas outras versões do CFD com Python:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/barbagroup/CFDPython" target="_blank" rel="noopener">Versão original em Inglês&lt;/a>, por &lt;a href="http://lorenabarba.com" target="_blank" rel="noopener">Prof. Lorena Barba&lt;/a>.&lt;/li>
+&lt;li>&lt;a href="https://github.com/franktoffel/CFDPython-ES" target="_blank" rel="noopener">Tradução para Espanhol&lt;/a>, por F.J. Navarro-Brull para &lt;a href="http://www.cacheme.org/" target="_blank" rel="noopener">CAChemE.org&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>A versão original foi ainda publicada em:&lt;/p>
+&lt;ul>
+&lt;li>Barba, Lorena A., and Forsyth, Gilbert F. (2018). CFD Python: the 12 steps to Navier-Stokes equations. &lt;em>Journal of Open Source Education&lt;/em>, &lt;strong>1&lt;/strong>(9), 21, &lt;a href="https://doi.org/10.21105/jose.00021" target="_blank" rel="noopener">doi.org/10.21105/jose.00021&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Xcompact3d</title><link>https://www.fschuch.com/project/xcompact3d/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/project/xcompact3d/</guid><description/></item></channel></rss>

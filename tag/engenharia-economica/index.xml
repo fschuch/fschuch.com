@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Engenharia Econômica | F. Schuch</title><link>https://www.fschuch.com/tag/engenharia-economica/</link><atom:link href="https://www.fschuch.com/tag/engenharia-economica/index.xml" rel="self" type="application/rss+xml"/><description>Engenharia Econômica</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Thu, 27 Aug 2020 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Engenharia Econômica</title><link>https://www.fschuch.com/tag/engenharia-economica/</link></image><item><title>Simulações em Python para Tomada de Decisão: Alugar, Economizar e Pagar à Vista ou Financiar um Imóvel</title><link>https://www.fschuch.com/publication/2020-boletim-economia-empirica-4/</link><pubDate>Thu, 27 Aug 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/publication/2020-boletim-economia-empirica-4/</guid><description/></item><item><title>Alugar, economizar e pagar à vista ou financiar um imóvel? Um estudo de caso</title><link>https://www.fschuch.com/blog/2020/04/11/alugar-economizar-e-pagar-a-vista-ou-financiar-um-imovel-um-estudo-de-caso/</link><pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2020/04/11/alugar-economizar-e-pagar-a-vista-ou-financiar-um-imovel-um-estudo-de-caso/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+&lt;summary class="font-weight-bold">Lista de Conteúdos&lt;/summary>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#introdução">Introdução&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#execute-online">Execute Online&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#sistemas-de-amortização">Sistemas de Amortização&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#cenários">Cenários&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#financiar">Financiar&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#alugar-e-aportar-mensalmente">Alugar e Aportar Mensalmente&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#economizar-e-comprar-à-vista">Economizar e Comprar à Vista&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#síntese-dos-resultados">Síntese dos Resultados&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/details>
+&lt;h2 id="introdução">Introdução&lt;/h2>
+&lt;p>A matemática financeira é uma disciplina fundamental na atuação de profissionais de diversos setores e, adicionalmente, possui importante papel na gestão de recursos próprios e no gerenciamento do orçamento doméstico. É justamente nesse ponto que muitas pessoas têm seu primeiro contato com programação, e talvez nem se deem conta disso, ao utilizar alguma aplicação de manipulação de planilhas para controlar os gastos de casa. Verdade seja dita, planilhas são estruturas de dados muito úteis.&lt;/p>
+&lt;p>Esta postagem trata de um estudo de cenários didáticos sobre a aquisição - ou não - de um imóvel. Ele cobre três situações:&lt;/p>
+&lt;ul>
+&lt;li>Comprar com uma entrada e financiamento;&lt;/li>
+&lt;li>Alugar e investir mensalmente;&lt;/li>
+&lt;li>Economizar e comprar à vista.&lt;/li>
+&lt;/ul>
+&lt;p>Para tanto, exemplifica-se como resolver o problema proposto com o emprego de duas importantes ferramentas:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas&lt;/a> é um pacote Python que fornece estruturas de dados rápidas, flexíveis e expressivas, projetadas para tornar o trabalho com dados “relacionais” ou “rotulados” fáceis e intuitivos. O objetivo é ser o alicerce fundamental de alto nível para a análise prática de dados do mundo real em Python. Além disso, tem o objetivo mais amplo de se tornar a mais prestigiada e flexível ferramenta de análise / manipulação de dados de código aberto disponível em qualquer linguagem. Pandas é bem adequado para muitos tipos diferentes de dados:
+&lt;ul>
+&lt;li>Dados tabulares com colunas de tipos heterogêneos, como em uma tabela SQL, arquivo &lt;code>.csv&lt;/code> ou planilha do Excel;&lt;/li>
+&lt;li>Dados de séries temporais ordenados e não ordenados (não necessariamente de frequência fixa);&lt;/li>
+&lt;li>Dados de matriz arbitrária (homogeneamente digitados ou heterogêneos) com rótulos de linha e coluna;&lt;/li>
+&lt;li>Qualquer outra forma de conjuntos de dados observacionais / estatísticos. Os dados realmente não precisam ser rotulados para serem colocados em uma estrutura de dados de pandas.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://matplotlib.org/" target="_blank" rel="noopener">Matplotlib&lt;/a> é uma biblioteca de plotagem 2D do Python, que produz figuras de qualidade de publicação em uma variedade de formatos impressos e ambientes interativos entre plataformas. Matplotlib pode ser usado em scripts Python, nos shells do Python e do IPython, no notebook Jupyter, nos servidores de aplicativos da web e em quatro kits de ferramentas de interface gráfica do usuário. &lt;strong>Matplotlib tenta tornar as coisas fáceis simples e as coisas difíceis possíveis&lt;/strong>. Você pode gerar gráficos, histogramas, espectros de potência, gráficos de barras, gráficos de erros, diagramas de dispersão, etc., com apenas algumas linhas de código.&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code class="language-python"># As primeiras linhas de código tratam de importar ambas bibliotecas
+import pandas as pd
+import matplotlib.pyplot as plt
+&lt;/code>&lt;/pre>
+&lt;p>Se reproduzir esse conteúdo em partes ou em sua totalidade, forneça um link para o material original:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://fschuch.com/blog/2020/04/11/alugar-economizar-e-pagar-a-vista-ou-financiar-um-imovel-um-estudo-de-caso">https://fschuch.com/blog/2020/04/11/alugar-economizar-e-pagar-a-vista-ou-financiar-um-imovel-um-estudo-de-caso&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>E por favor, apoie os nossos autores &lt;a href="https://twitter.com/fschuch" target="_blank" rel="noopener">@fschuch&lt;/a> e &lt;a href="https://twitter.com/mathiazst" target="_blank" rel="noopener">@mathiazst&lt;/a>.&lt;/p>
+&lt;div class="alert alert-warning">
+&lt;div>
+Essa não é uma recomendação de compra. Lucros passados não são garantia de lucros futuros. Esse é um estudo de cenários didáticos e hipotéticos. Os autores se eximem completamente de qualquer responsabilidade sobre o uso, interpretação e consequências do uso direto ou indireto de qualquer informação contida nesse material.
+&lt;/div>
+&lt;/div>
+&lt;h3 id="execute-online">Execute Online&lt;/h3>
+&lt;p>Você pode executar esse notebook em seu próprio navegador (nenhuma instalação é necessária), existem duas opções para isso:&lt;/p>
+&lt;p>&lt;a href="https://colab.research.google.com/github/fschuch/fschuch.com/blob/master/content/post/2020-matematica-financeira-estudo-de-caso-imovel/Notebook.ipynb" target="_blank" rel="noopener">&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>O login em uma conta Google pode ser necessário, modifique os blocos de código para os valores que você desejar, na barra de menu superior, procure por &lt;code>Runtime &amp;gt; Run All&lt;/code>;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://mybinder.org/v2/gh/fschuch/fschuch.com/master?urlpath=lab/tree/content/post/2020-matematica-financeira-estudo-de-caso-imovel/Notebook.ipynb" target="_blank" rel="noopener">&lt;img src="https://binder.pangeo.io/badge_logo.svg" alt="Binder">&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Aguarde enquanto o sistema é preparado (isso pode levar algum tempo), modifique os blocos de código para os valores que você desejar, na barra de menu superior, procure por &lt;code>Cell &amp;gt; Run All&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;p>Pronto! Interprete os novos resultados obtidos.&lt;/p>
+&lt;!--adsense-->
+&lt;h2 id="sistemas-de-amortização">Sistemas de Amortização&lt;/h2>
+&lt;p>Quando falamos em sistemas de pagamento, ou sistema de amortização, existem quatro parâmetros fundamentais:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Tempo total \(N\);&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Taxa de juros \(i\);&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Saldo devedor inicial \(SD_0\);&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Valor da parcela, que por sua vez é subdividido em:&lt;/p>
+&lt;ul>
+&lt;li>Amortização, valor que efetivamente abate parte do saldo devedor;&lt;/li>
+&lt;li>Juros, valor pago como remuneração ao financiador,&lt;/li>
+&lt;/ul>
+&lt;p>onde observa-se que:
+\[ \text{Amortização} = \text{Parcela} - \text{Juros}. \]&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Pode-se citar pelo menos dois modelos clássicos que tratam dessa relação:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Sistema de Amortização Constante (SAC)&lt;/strong>: Como o próprio nome sugere, a amortização é constante ao longo de todo o tempo:
+$$\text{Amortização}_n = \dfrac{SD_0}{N}$$
+Os juros são obtidos ao multiplicar a taxa de juros pelo saldo devedor do período anterior:
+$$\text{Juros}_n = i \times SD _{n-1}$$
+E como vimos, a parcela é a soma dos dois anteriores:
+$$\text{Parcela}_n = \text{Juros}_n + \text{Amortização}_n.$$
+Note que nesse sistema, o saldo devedor decresce linearmente, além disso, as prestações diminuem gradualmente com o passar do tempo.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Outra opção é a &lt;strong>Tabela Price&lt;/strong>, ou sistema francês de amortização. Aqui, o valor das parcelas é constante no tempo, e obtido por meio de equação:
+$$\text{Parcela} = SD_0 \dfrac{i}{1-(1+i)^{-n}}.$$
+Os juros são novamente obtidos por:
+$$\text{Juros}_n = i \times SD _{n-1}.$$
+E por fim obtemos o valor da amortização de cada parcela como:
+$$\text{Amortização}_n = \text{Parcela}_n - \text{Juros}_n.$$&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Tendo tudo isso em vista, podemos construir uma rotina em Python que nos retorne um &lt;code>DataFrame&lt;/code> em Pandas, que nada mais é do que uma tabela. Ele inclui os valores obtidos para juros, amortização, parcela e saldo devedor para cada período &lt;code>n&lt;/code>, em função da escolha do sistema de pagamento (SAC ou Price), da taxa de juros &lt;code>i&lt;/code>, do número de períodos de tempo &lt;code>N&lt;/code> e do saldo devedor inicial &lt;code>SD0&lt;/code>. Segue a função:&lt;/p>
+&lt;pre>&lt;code class="language-python">def sistema_pagamento(sis,i,N,SD0):
+'''
+Calcula os juros, amortização, valor das
+parcelas e saldo devedor em função do
+sistema de amortização escolhido
+Args:
+sis (str): Sistema de amortização
+(SAC ou Price)
+i (float): Taxa de juros
+N (int): Períodos de tempo
+SD0 (float): Saldo devedor inicial
+Returns:
+df: DataFrame com as colunas juros,
+amortização, valor das parcelas
+e saldo devedor
+'''
+df = pd.DataFrame(columns=['Juros',
+'Amortização',
+'Parcela',
+'Saldo Devedor'],
+index=range(N+1)
+)
+df['Saldo Devedor'][0] = SD0
+if sis.lower() == 'sac':
+df['Amortização'][1:] = SD0/N
+for n in df.index[1:]:
+df['Juros'][n] = round(df['Saldo Devedor'][n-1]*i,2)
+df['Parcela'][n] = df['Juros'][n]+df['Amortização'][n]
+df['Saldo Devedor'][n] = df['Saldo Devedor'][n-1] - df['Amortização'][n]
+elif sis.lower() == 'price':
+df['Parcela'][1:] = round(SD0*(i)/(1-(1+i)**(-N)),2)
+for n in df.index[1:]:
+df['Juros'][n] = round(df['Saldo Devedor'][n-1]*i,2)
+df['Amortização'][n] = df['Parcela'][n] - df['Juros'][n]
+df['Saldo Devedor'][n] = df['Saldo Devedor'][n-1] - df['Amortização'][n]
+else:
+print('Valor inválido para sis, tente novamente com sac ou price')
+# Aqui ajustamos a última parcela caso tenha valor residual devido ao arredondamento
+df['Parcela'][N] += df['Saldo Devedor'][N]
+df['Saldo Devedor'][N] -= df['Saldo Devedor'][N]
+return df
+&lt;/code>&lt;/pre>
+&lt;p>Agora podemos ver um exemplo da função em ação para ambos os sistemas de pagamento, para um taxa de juros de 5%, 4 períodos de tempo e saldo devedor inicial de R$1.000:&lt;/p>
+&lt;pre>&lt;code class="language-python">sistema_pagamento('sac',0.05,4,1000)
+&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">&lt;/th>
+&lt;th style="text-align:right">Juros&lt;/th>
+&lt;th style="text-align:right">Amortização&lt;/th>
+&lt;th style="text-align:right">Parcela&lt;/th>
+&lt;th style="text-align:right">Saldo Devedor&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">nan&lt;/td>
+&lt;td style="text-align:right">nan&lt;/td>
+&lt;td style="text-align:right">nan&lt;/td>
+&lt;td style="text-align:right">1000&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:right">50&lt;/td>
+&lt;td style="text-align:right">250&lt;/td>
+&lt;td style="text-align:right">300&lt;/td>
+&lt;td style="text-align:right">750&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:right">37.5&lt;/td>
+&lt;td style="text-align:right">250&lt;/td>
+&lt;td style="text-align:right">287.5&lt;/td>
+&lt;td style="text-align:right">500&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:right">25&lt;/td>
+&lt;td style="text-align:right">250&lt;/td>
+&lt;td style="text-align:right">275&lt;/td>
+&lt;td style="text-align:right">250&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:right">12.5&lt;/td>
+&lt;td style="text-align:right">250&lt;/td>
+&lt;td style="text-align:right">262.5&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Note na tabela acima algumas posições marcadas com &lt;code>NaN&lt;/code>, abreviação para não um número (do inglês para &lt;em>Not a Number&lt;/em>). Eles ocorreram no nosso exemplo para o tempo 0, onde valores não foram informados para algumas colunas. O &lt;code>NaN&lt;/code> não é necessariamente um problema, a biblioteca Pandas é justamente capaz de lidar com dados faltantes (mais detalhes &lt;a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html" target="_blank" rel="noopener">aqui&lt;/a>). Perceba que essas células podem ser definidos para qualquer valor desejado com o método &lt;code>fillna()&lt;/code>, vamos utiliza-lo no segundo exemplo:&lt;/p>
+&lt;pre>&lt;code class="language-python">sistema_pagamento('price',0.05,4,1000).fillna(0)
+&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">&lt;/th>
+&lt;th style="text-align:right">Juros&lt;/th>
+&lt;th style="text-align:right">Amortização&lt;/th>
+&lt;th style="text-align:right">Parcela&lt;/th>
+&lt;th style="text-align:right">Saldo Devedor&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">1000&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:right">50&lt;/td>
+&lt;td style="text-align:right">232.01&lt;/td>
+&lt;td style="text-align:right">282.01&lt;/td>
+&lt;td style="text-align:right">767.99&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:right">38.4&lt;/td>
+&lt;td style="text-align:right">243.61&lt;/td>
+&lt;td style="text-align:right">282.01&lt;/td>
+&lt;td style="text-align:right">524.38&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:right">26.22&lt;/td>
+&lt;td style="text-align:right">255.79&lt;/td>
+&lt;td style="text-align:right">282.01&lt;/td>
+&lt;td style="text-align:right">268.59&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:right">13.43&lt;/td>
+&lt;td style="text-align:right">268.58&lt;/td>
+&lt;td style="text-align:right">282.02&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Uma das vantagens de se trabalhar com dados tabulares é que eles podem ser facilmente transformados em gráfico, veja como fazemos isso com apenas algumas linhas de código:&lt;/p>
+&lt;pre>&lt;code class="language-python">fig, (ax1, ax2) = plt.subplots(nrows=2,
+ncols=1,
+sharex=True,
+sharey=True)
+sistema_pagamento('sac',0.05,30,1000).plot(ax=ax1,title='Sistema SAC')
+sistema_pagamento('price',0.05,30,1000).plot(ax=ax2,title='Tabela Price')
+ax2.set_xlabel('Tempo')
+ax1.set_ylabel('Valor - R$')
+ax2.set_ylabel('Valor - R$');
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="./Notebook_17_0.png" alt="png">&lt;/p>
+&lt;p>Note na figura acima todos os comentários que fizemos anteriormente sobre ambas as formas de pagamento.&lt;/p>
+&lt;h2 id="cenários">Cenários&lt;/h2>
+&lt;p>Aqui estabelecemos os parâmetros de cálculo que serão empregados nos diferentes cenários. São eles:&lt;/p>
+&lt;ul>
+&lt;li>Valor do imóvel &lt;code>valor_do_imovel&lt;/code>;&lt;/li>
+&lt;li>Valor da entrada &lt;code>entrada&lt;/code>;&lt;/li>
+&lt;li>Taxa de juros anual para o financiamento &lt;code>taxa_financeamento_anual&lt;/code>;&lt;/li>
+&lt;li>Taxa anual de aluguel &lt;code>taxa_aluguel_anual&lt;/code>: Fração do preço total do imóvel que seria paga como aluguel em um ano;&lt;/li>
+&lt;li>Rendimento anual esperado caso os aportes sejam investidos &lt;code>rendimento_investimentos_anual&lt;/code>;&lt;/li>
+&lt;li>Quantos anos são esperados para o pagamento &lt;code>tempo_anos&lt;/code>;&lt;/li>
+&lt;li>Sistema de amortização &lt;code>sistema&lt;/code> (SAC ou Price).&lt;/li>
+&lt;/ul>
+&lt;p>Além disso, assume-se que nestes exemplos, todos os parâmetros mantenham-se constantes ao longo do tempo, o que certamente não ocorre em situações reais.&lt;/p>
+&lt;pre>&lt;code class="language-python">valor_do_imovel = 500000.00
+entrada = 100000.00
+taxa_financeamento_anual = 0.0942
+taxa_aluguel_anual = 0.04
+rendimento_investimentos_anual = 0.08
+tempo_anos = 30
+sistema = 'SAC'
+#sistema = 'PRICE'
+&lt;/code>&lt;/pre>
+&lt;p>Agora obtemos a taxa de juros mensal correspondente aos valores anualizados que utilizamos como entrada. Lembre-se que:&lt;/p>
+&lt;p>$$
+i_{\text{mensal}} = (1+ i_{\text{anual}})^\frac{1}{12}-1,
+$$&lt;/p>
+&lt;p>de maneira que podemos escrever a seguinte função:&lt;/p>
+&lt;pre>&lt;code class="language-python">def taxa_aa_para_am(i):
+'''
+Função recebe uma taxa de juros anual
+e retorna a taxa mensal equivalente.
+'''
+return (1.+i)**(1./12.)-1.
+&lt;/code>&lt;/pre>
+&lt;p>No seguinte bloco obtemos a valor a ser financiado como o valor do imóvel menos o valor da entrada, além disso, convertemos as taxas para termos mensais, assim como o tempo:&lt;/p>
+&lt;pre>&lt;code class="language-python">valor_do_financiamento = valor_do_imovel - entrada
+taxa_financeamento = taxa_aa_para_am(taxa_financeamento_anual)
+taxa_aluguel = taxa_aa_para_am(taxa_aluguel_anual)
+rendimento_investimentos = taxa_aa_para_am(rendimento_investimentos_anual)
+tempo = tempo_anos * 12
+&lt;/code>&lt;/pre>
+&lt;h3 id="financiar">Financiar&lt;/h3>
+&lt;p>O primeiro cenário consiste em financiar um imóvel, e para tanto basta aplicarmos a função do sistema de pagamentos que construimos na etapa inicial desse estudo:&lt;/p>
+&lt;pre>&lt;code class="language-python">financiar = sistema_pagamento(
+sistema,
+taxa_financeamento,
+tempo,
+valor_do_financiamento
+)
+&lt;/code>&lt;/pre>
+&lt;p>Lembre-se que em Python é sempre possível acessar o manual de qualquer função, inclusive da que acabamos de criar, com o comando:&lt;/p>
+&lt;pre>&lt;code class="language-python">help(sistema_pagamento)
+&lt;/code>&lt;/pre>
+&lt;p>Para fins comparativos, vamos estabelecer a evolução temporal do &lt;code>Patrimônio - Imóvel&lt;/code> como a soma acumulativa dos valores de amortização (valor da parcela que efetivamente abate o saldo devedor) e da entrada, enquanto &lt;code>Custo - Juros&lt;/code> será a soma acumulativa dos valores de juros (valor da parcela que remunera a instituição financiadora).&lt;/p>
+&lt;pre>&lt;code class="language-python">financiar['Patrimônio - Imóvel'] = financiar['Amortização'].cumsum() + entrada
+financiar['Custo - Juros'] = financiar['Juros'].cumsum()
+&lt;/code>&lt;/pre>
+&lt;p>Podemos visualizar todos os elementos da nossa tabela:&lt;/p>
+&lt;pre>&lt;code class="language-python">financiar
+&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:right">&lt;/th>
+&lt;th style="text-align:right">Juros&lt;/th>
+&lt;th style="text-align:right">Amortização&lt;/th>
+&lt;th style="text-align:right">Parcela&lt;/th>
+&lt;th style="text-align:right">Saldo Devedor&lt;/th>
+&lt;th style="text-align:right">Patrimônio - Imóvel&lt;/th>
+&lt;th style="text-align:right">Custo - Juros&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">nan&lt;/td>
+&lt;td style="text-align:right">nan&lt;/td>
+&lt;td style="text-align:right">nan&lt;/td>
+&lt;td style="text-align:right">400000&lt;/td>
+&lt;td style="text-align:right">nan&lt;/td>
+&lt;td style="text-align:right">nan&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">1&lt;/td>
+&lt;td style="text-align:right">3012.07&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">4123.18&lt;/td>
+&lt;td style="text-align:right">398889&lt;/td>
+&lt;td style="text-align:right">101111&lt;/td>
+&lt;td style="text-align:right">3012.07&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:right">3003.7&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">4114.81&lt;/td>
+&lt;td style="text-align:right">397778&lt;/td>
+&lt;td style="text-align:right">102222&lt;/td>
+&lt;td style="text-align:right">6015.77&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">3&lt;/td>
+&lt;td style="text-align:right">2995.33&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">4106.44&lt;/td>
+&lt;td style="text-align:right">396667&lt;/td>
+&lt;td style="text-align:right">103333&lt;/td>
+&lt;td style="text-align:right">9011.1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;td style="text-align:right">2986.97&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">4098.08&lt;/td>
+&lt;td style="text-align:right">395556&lt;/td>
+&lt;td style="text-align:right">104444&lt;/td>
+&lt;td style="text-align:right">11998.1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">&amp;hellip;&lt;/td>
+&lt;td style="text-align:right">&amp;hellip;&lt;/td>
+&lt;td style="text-align:right">&amp;hellip;&lt;/td>
+&lt;td style="text-align:right">&amp;hellip;&lt;/td>
+&lt;td style="text-align:right">&amp;hellip;&lt;/td>
+&lt;td style="text-align:right">&amp;hellip;&lt;/td>
+&lt;td style="text-align:right">&amp;hellip;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">356&lt;/td>
+&lt;td style="text-align:right">41.83&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">1152.94&lt;/td>
+&lt;td style="text-align:right">4444.44&lt;/td>
+&lt;td style="text-align:right">495556&lt;/td>
+&lt;td style="text-align:right">543595&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">357&lt;/td>
+&lt;td style="text-align:right">33.47&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">1144.58&lt;/td>
+&lt;td style="text-align:right">3333.33&lt;/td>
+&lt;td style="text-align:right">496667&lt;/td>
+&lt;td style="text-align:right">543628&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">358&lt;/td>
+&lt;td style="text-align:right">25.1&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">1136.21&lt;/td>
+&lt;td style="text-align:right">2222.22&lt;/td>
+&lt;td style="text-align:right">497778&lt;/td>
+&lt;td style="text-align:right">543653&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">359&lt;/td>
+&lt;td style="text-align:right">16.73&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">1127.84&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">498889&lt;/td>
+&lt;td style="text-align:right">543670&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:right">360&lt;/td>
+&lt;td style="text-align:right">8.37&lt;/td>
+&lt;td style="text-align:right">1111.11&lt;/td>
+&lt;td style="text-align:right">1119.48&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">500000&lt;/td>
+&lt;td style="text-align:right">543678&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>361 rows × 6 columns&lt;/p>
+&lt;p>Ou facilmente graficar os resultados para o primeiro cenário:&lt;/p>
+&lt;pre>&lt;code class="language-python">financiar[['Patrimônio - Imóvel',
+'Custo - Juros']
+].plot.area(title='Financiar')
+plt.xlabel('Tempo (meses)')
+plt.ylabel('Valor (R$)')
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="./Notebook_34_0.png" alt="png">&lt;/p>
+&lt;p>Veja o que dizem os números:&lt;/p>
+&lt;blockquote>
+&lt;p>Ao longo de 360 meses, o montante total de R$1.043.678,18 foi desembolsado, sendo:&lt;br>&lt;/p>
+&lt;ul>
+&lt;li>R$543.678,18 para a instituição financeira (52,09% do total);&lt;br>&lt;/li>
+&lt;li>R$500.000,0 foram aportados no imóvel (47,91% do total).&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h3 id="alugar-e-aportar-mensalmente">Alugar e Aportar Mensalmente&lt;/h3>
+&lt;p>O segundo cenário avalia não comprar, mas sim alugar o imóvel pelo tempo estipulado. Entretanto, considera-se que todos os valores que seriam gastos com o financiamento no caso anterior serão convertidos em aportes em aplicações financeiras.&lt;/p>
+&lt;pre>&lt;code class="language-python"># Inicializamos um DataFrame vazio
+alugar = pd.DataFrame(index=range(tempo+1))
+# Calculamos o valor do aluguel
+aluguel = round((valor_do_imovel)*taxa_aluguel,2)
+alugar['Aluguel'] = aluguel
+# Aluguel no tempo zero é igual a zero
+alugar['Aluguel'][0] = 0.0
+# Aqui calculamos o custo com aluguel como o somatório
+# de todos os valores pagos
+alugar['Custo - Aluguel'] = alugar['Aluguel'].cumsum()
+# O aporte em aplicações financeiras se da pela diferença
+# entre o que seria pago de financiamento no exemplo anterior
+# e o valor do aluguel do imóvel
+alugar['Aportes'] = financiar['Parcela'] - aluguel
+# E o aporte inicial é o valor que estaria disponível como entrada
+alugar['Aportes'][0] = entrada
+&lt;/code>&lt;/pre>
+&lt;p>Nesse exemplo faremos uma separação do &lt;code>Patrimônio&lt;/code> em duas partes, a fração que é proveniente dos aportes como &lt;code>Patrimônio - Principal&lt;/code>, enquanto a parte proveniente do rendimento dos juros será denominada &lt;code>Patrimônio - Rendimentos&lt;/code>, que podem ser calculados como segue:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Aqui a variável é basicamente inicializada
+alugar['Patrimônio'] = alugar['Aportes']
+# O patrimônio é realmente calculado neste laço
+for n in alugar.index[1:]:
+alugar['Patrimônio'][n] = alugar['Aportes'][n] + alugar['Patrimônio'][n-1] * (1. + rendimento_investimentos)
+# Por fim, a fração Principal é tida como o somatório de todos os aportes
+alugar['Patrimônio - Principal'] = alugar['Aportes'].cumsum()
+# E os rendimentos são obtidos pela seguinte subtração
+alugar['Patrimônio - Rendimentos'] = alugar['Patrimônio'] - alugar['Patrimônio - Principal']
+&lt;/code>&lt;/pre>
+&lt;p>Feito todos os cálculos, podemos analisar os resultados&lt;/p>
+&lt;pre>&lt;code class="language-python">alugar[['Patrimônio - Principal',
+'Patrimônio - Rendimentos',
+'Custo - Aluguel']
+].plot.area(title='Alugar e Aportar Mensalmente')
+plt.xlabel('Tempo (meses)')
+plt.ylabel('Valor (R$)')
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="./Notebook_43_0.png" alt="png">&lt;/p>
+&lt;p>Veja o que dizem os números:&lt;/p>
+&lt;blockquote>
+&lt;p>Ao longo de 360 meses, temos:&lt;br>&lt;/p>
+&lt;ul>
+&lt;li>R$589.273,20 foram desembolsados com aluguel;&lt;br>&lt;/li>
+&lt;li>O montante total em investimentos é de R$3.144.815,24, sendo:&lt;br>
+&lt;ul>
+&lt;li>R$454.404,98 proveniente dos aportes (14,45% do total);&lt;/li>
+&lt;li>R$2.690.410,26 dos rendimentos (85,55% do total).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h3 id="economizar-e-comprar-à-vista">Economizar e Comprar à Vista&lt;/h3>
+&lt;p>O terceiro cenário considera a hipótese de alugar um imóvel e investir a diferença que haveria para um possível financiamento, assim como no caso anterior do aluguel. A diferença é que aqui o imóvel será comprado quando os investimentos atingirem o valor necessário. Nesse momento, o pagamento do aluguel será encerrado e os valores serão convertidos em mais aporte.&lt;/p>
+&lt;p>O patrimônio será composto agora de três partes, além da fração que é proveniente dos aportes como &lt;code>Patrimônio - Principal&lt;/code> e da parte proveniente do rendimento dos juros, denominada &lt;code>Patrimônio - Rendimentos&lt;/code>, teremos o &lt;code>Patrimônio - Imóvel&lt;/code>.&lt;/p>
+&lt;p>Veja o cálculo:&lt;/p>
+&lt;pre>&lt;code class="language-python"># A parte inicial desse cenário é igual ao anterior,
+# então iniciamos copiando os resultados
+comprar = alugar.copy()
+comprar['Patrimônio - Imóvel'] = 0.0
+# A diferença é que o imóvel será comprado quando
+# se atingir o saldo disponível, obtemos essa
+# valor da planilha com o seguinte comando
+tcompra = comprar[comprar['Patrimônio']&amp;gt;=valor_do_imovel].first_valid_index()
+# Escrevemos na tela para conferência
+print(f'O imóvel será comprado no mês {tcompra}')
+# Nesse instante compramos o imóvel
+comprar['Patrimônio - Imóvel'][tcompra::] += valor_do_imovel
+# E descontamos o valor da compra do
+# montante que estava investido
+comprar['Patrimônio'][tcompra::] -= valor_do_imovel
+comprar['Patrimônio - Principal'][tcompra] -= valor_do_imovel - comprar['Patrimônio - Rendimentos'][tcompra]
+comprar['Patrimônio - Rendimentos'][tcompra] = 0.0
+# Então redirecionamos todo o valor que seria gasto
+# com aluguel a partir daqui para mais aportes
+comprar['Aportes'][tcompra::] += comprar['Aluguel'][tcompra::]
+# Zeramos a atualizamos o cálculo com custo de aluguel
+comprar['Aluguel'][tcompra::] = 0.0
+comprar['Custo - Aluguel'] = comprar['Aluguel'].cumsum()
+# Por fim, calcula-se a evolução do patrimônio a
+# partir da data da compra do imóvel
+for n in alugar.index[tcompra+1:]:
+comprar['Patrimônio - Principal'][n] = comprar['Patrimônio - Principal'][n-1] + comprar['Aportes'][n]
+comprar['Patrimônio - Rendimentos'][n] = comprar['Patrimônio'][n-1] * rendimento_investimentos + comprar['Patrimônio - Rendimentos'][n-1]
+comprar['Patrimônio'][n] = comprar['Patrimônio - Principal'][n] + comprar['Patrimônio - Rendimentos'][n]
+&lt;/code>&lt;/pre>
+&lt;blockquote>
+&lt;p>O imóvel será comprado no mês 103.&lt;/p>
+&lt;/blockquote>
+&lt;p>E produzimos a figura do caso:&lt;/p>
+&lt;pre>&lt;code class="language-python">comprar[['Patrimônio - Imóvel',
+'Patrimônio - Principal',
+'Patrimônio - Rendimentos',
+'Custo - Aluguel']
+].plot.area(title='Economizar e Comprar à Vista')
+plt.xlabel('Tempo (meses)')
+plt.ylabel('Valor (R$)')
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="./Notebook_51_0.png" alt="png">&lt;/p>
+&lt;p>Veja o que dizem os números:&lt;/p>
+&lt;blockquote>
+&lt;p>Ao longo de 360 meses:&lt;br>&lt;/p>
+&lt;ul>
+&lt;li>R$166.960,74 foram desembolsados com 103 meses de aluguel;&lt;br>&lt;/li>
+&lt;li>O montante total em investimentos foi de R$2.113.852,73, sendo:&lt;br>
+&lt;ul>
+&lt;li>R$562.981,64 proveniente dos aportes (26,63% do total);&lt;br>&lt;/li>
+&lt;li>R$1.050.871,09 dos rendimentos (49,71% do total);&lt;br>&lt;/li>
+&lt;li>Além de R$500.000,00 do imóvel (23,65% do total).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h2 id="síntese-dos-resultados">Síntese dos Resultados&lt;/h2>
+&lt;p>Para sintetizar tudo o que vimos até aqui, criaremos uma tabela auxiliar apenas com os dados observados ao final do período de estudos, e isso é feito facilmente em um DataFrame com o comando &lt;code>.tail(1)&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Criamos um DataFrame vazio
+summary = pd.DataFrame()
+# Adicionamos os valores obtidos na tempo final de cada um dos cenários
+summary = summary.append(alugar.tail(1), ignore_index=True, sort=False)
+summary = summary.append(comprar.tail(1), ignore_index=True, sort=False)
+summary = summary.append(financiar.tail(1), ignore_index=True, sort=False)
+# Vamos eliminar as colunas da tabela que não nos interessam
+summary.drop(['Aluguel', 'Aportes', 'Patrimônio', 'Juros',
+'Amortização', 'Parcela', 'Saldo Devedor'], axis=1, inplace=True)
+# E renomear as linhas de acordo com cada caso
+summary.index = ['Alugar', 'Comprar à Vista', 'Financiar']
+# Por fim mostramos na tela
+summary.fillna(0)
+&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">&lt;/th>
+&lt;th style="text-align:right">Custo - Aluguel&lt;/th>
+&lt;th style="text-align:right">Patrimônio - Principal&lt;/th>
+&lt;th style="text-align:right">Patrimônio - Rendimentos&lt;/th>
+&lt;th style="text-align:right">Patrimônio - Imóvel&lt;/th>
+&lt;th style="text-align:right">Custo - Juros&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">Alugar&lt;/td>
+&lt;td style="text-align:right">589273&lt;/td>
+&lt;td style="text-align:right">454405&lt;/td>
+&lt;td style="text-align:right">2.69041e+06&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Comprar à Vista&lt;/td>
+&lt;td style="text-align:right">166961&lt;/td>
+&lt;td style="text-align:right">562982&lt;/td>
+&lt;td style="text-align:right">1.05087e+06&lt;/td>
+&lt;td style="text-align:right">500000&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">Financiar&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">0&lt;/td>
+&lt;td style="text-align:right">500000&lt;/td>
+&lt;td style="text-align:right">543678&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Por fim, apresentamos a figura:&lt;/p>
+&lt;pre>&lt;code class="language-python">summary[['Patrimônio - Imóvel',
+'Patrimônio - Principal',
+'Patrimônio - Rendimentos',
+'Custo - Aluguel',
+'Custo - Juros']
+].plot.barh(stacked=True)
+plt.title('Estudo de caso: Financiar, economizar e pagar \n à vista ou alugar um imóvel?')
+plt.xlabel('Valor (R$)')
+plt.locator_params(axis='x', nbins=5)
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="./Notebook_58_0.png" alt="png">&lt;/p>
+&lt;!--adsense-->
+&lt;h1 id="conclusão">Conclusão&lt;/h1>
+&lt;p>Nesse estudo de caso buscamos identificar as possíveis diferenças nos resultados de financiar quatro quintos de um imóvel, alugar um imóvel para morar e investir o montante que seria desembolsado com a compra, e pagar aluguel enquanto poupa o dinheiro para comprá-lo à vista. Para quaisquer exercícios deste tipo, o valor da taxa de juros é sempre o principal determinante.
+Vamos considerar os juros como os valores pagos pela posse do dinheiro, onde você os paga quando é um agente deficitário – tem menos dinheiro do que necessita e precisa tomar emprestado – e os recebe quando é um agente superavitário – tem mais dinheiro do que precisa e investe o que sobra -, e que tem sua taxa definida pelas escolhas intertemporais dos indivíduos, as quais acabam por determinar sua oferta e demanda de equilíbrio.
+Para fins de simplificação e comparação dos três cenários em questão, mantivemos constantes as receitas e despesas das famílias, assim como a taxa de juros do financiamento em 9,42% a.a., do aluguel em 4% a.a. e dos rendimentos financeiros em 8% a.a.
+Os resultados mostram que ao final do período considerado, caso você não atribua valor – tenha prazer - ao fato de se considerar o dono do imóvel, os benefícios pecuniários serão muito maiores se for pago aluguel e investido os valores que seriam gastos com a compra do imóvel. Se por algum motivo essa não for uma alternativa, é mais vantajoso poupar o dinheiro enquanto paga o aluguel para efetuar a compra do imóvel à vista, ao final dos primeiros 29% do período.&lt;br>&lt;/p></description></item></channel></rss>

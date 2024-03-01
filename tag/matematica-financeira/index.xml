@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Matemática Financeira | F. Schuch</title><link>https://www.fschuch.com/tag/matematica-financeira/</link><atom:link href="https://www.fschuch.com/tag/matematica-financeira/index.xml" rel="self" type="application/rss+xml"/><description>Matemática Financeira</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Thu, 21 May 2020 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Matemática Financeira</title><link>https://www.fschuch.com/tag/matematica-financeira/</link></image><item><title>Obtenção e manipulação de dados históricos do mercado financeiro</title><link>https://www.fschuch.com/blog/2020/05/21/obtencao-e-manipulacao-de-dados-historicos-do-mercado-financeiro/</link><pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2020/05/21/obtencao-e-manipulacao-de-dados-historicos-do-mercado-financeiro/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+&lt;summary class="font-weight-bold">Lista de Conteúdos&lt;/summary>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#introdução">Introdução&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#obtenção-e-manipulação-dos-dados">Obtenção e manipulação dos dados&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#visualização">Visualização&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/details>
+&lt;h2 id="introdução">Introdução&lt;/h2>
+&lt;p>A análise de dados históricos do mercado financeiro pode ser prática para diversos fins, como estudos acadêmicos, gerenciamento de portfólio, criação de conteúdo e outros.&lt;/p>
+&lt;p>Boa parte dos materiais por aí são baseados naqueles famosos aplicativos de planilha, nada contra, mas eu gosto mesmo de resolver os problemas propostos usando Python. Para isso, vamos usar dois pacotes:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://github.com/ranaroussi/yfinance" target="_blank" rel="noopener">yfinance&lt;/a> oferece uma alternativa em Python para baixar dados históricos do mercado financeiro a partir do Yahoo! finanças;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://github.com/matplotlib/mplfinance" target="_blank" rel="noopener">mplfinance&lt;/a> é uma utilidade construída sobre Matplotlib, que oferece visualização e análise para dados financeiros.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-note">
+&lt;div>
+Lembre-se sempre que lucros passados não são garantia de lucros futuros, e que esse post não é uma recomendação de compra.
+&lt;/div>
+&lt;/div>
+&lt;p>O primeiro passo é instalar os pacotes que usaremos, e isso pode ser feito no ambiente Jupyter (como esse post) com o seguinte comando mágico:&lt;/p>
+&lt;pre>&lt;code class="language-python">!pip install -q yfinance mplfinance
+&lt;/code>&lt;/pre>
+&lt;p>E então importamos ambos para a nossa aplicação:&lt;/p>
+&lt;pre>&lt;code class="language-python">import yfinance as yf
+import mplfinance as mpf
+&lt;/code>&lt;/pre>
+&lt;!--adsense-->
+&lt;h2 id="obtenção-e-manipulação-dos-dados">Obtenção e manipulação dos dados&lt;/h2>
+&lt;p>O módulo &lt;code>Ticker&lt;/code> nos permite o acesso a diversos dados de maneira integrada ao Python, e apenas para exemplificar, usaremos a Microsoft, código de negociação &lt;code>MSFT&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-python">msft = yf.Ticker(&amp;quot;MSFT&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;p>Informações completas da companhia são obtidos com o método &lt;code>info&lt;/code>, como segue:&lt;/p>
+&lt;pre>&lt;code class="language-python">msft.info
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text"> {'zip': '98052-6399',
+'sector': 'Technology',
+'fullTimeEmployees': 163000,
+'longBusinessSummary': 'Microsoft Corporation develops, licenses, and supports software, services, devices, and solutions worldwide. Its Productivity and Business Processes segment offers Office, Exchange, SharePoint, Microsoft Teams, Office 365 Security and Compliance, and Skype for Business, as well as related Client Access Licenses (CAL); Skype, Outlook.com, and OneDrive; LinkedIn that includes Talent, Learning, Sales, and Marketing solutions, as well as premium subscriptions; and Dynamics 365, a set of cloud-based and on-premises business solutions for small and medium businesses, large organizations, and divisions of enterprises. Its Intelligent Cloud segment licenses SQL and Windows Servers, Visual Studio, System Center, and related CALs; GitHub that provides a collaboration platform and code hosting service for developers; and Azure, a cloud platform. It also offers support services and Microsoft consulting services to assist customers in developing, deploying, and managing Microsoft server and desktop solutions; and training and certification to developers and IT professionals on various Microsoft products. Its More Personal Computing segment provides Windows original equipment manufacturer (OEM) licensing and other non-volume licensing of the Windows operating system; Windows Commercial, such as volume licensing of the Windows operating system, Windows cloud services, and other Windows commercial offerings; patent licensing; Windows Internet of Things; and MSN advertising. It also offers Surface, PC accessories, PCs, tablets, gaming and entertainment consoles, and other intelligent devices; Gaming, including Xbox hardware, and Xbox content and services; video games and third-party video game royalties; and Search, including Bing and Microsoft advertising. It sells its products through OEMs, distributors, and resellers; and directly through digital marketplaces, online stores, and retail stores. The company was founded in 1975 and is headquartered in Redmond, Washington.',
+'city': 'Redmond',
+'phone': '425-882-8080',
+'state': 'WA',
+'country': 'United States',
+'companyOfficers': [],
+'website': 'http://www.microsoft.com',
+'maxAge': 1,
+'address1': 'One Microsoft Way',
+'industry': 'Software—Infrastructure',
+'previousClose': 219.66,
+'regularMarketOpen': 220.15,
+'twoHundredDayAverage': 196.80064,
+'trailingAnnualDividendYield': 0.00928708,
+'payoutRatio': 0.3455,
+'volume24Hr': None,
+'regularMarketDayHigh': 222.29,
+'navPrice': None,
+'averageDailyVolume10Day': 27025187,
+'totalAssets': None,
+'regularMarketPreviousClose': 219.66,
+'fiftyDayAverage': 212.05457,
+'trailingAnnualDividendRate': 2.04,
+'open': 220.15,
+'toCurrency': None,
+'averageVolume10days': 27025187,
+'expireDate': None,
+'yield': None,
+'algorithm': None,
+'dividendRate': 2.24,
+'exDividendDate': 1605657600,
+'beta': 0.923331,
+'circulatingSupply': None,
+'startDate': None,
+'regularMarketDayLow': 219.33,
+'priceHint': 2,
+'currency': 'USD',
+'trailingPE': 38.135414,
+'regularMarketVolume': 25074770,
+'lastMarket': None,
+'maxSupply': None,
+'openInterest': None,
+'marketCap': 1662310023168,
+'volumeAllCurrencies': None,
+'strikePrice': None,
+'averageVolume': 33866804,
+'priceToSalesTrailing12Months': 11.623326,
+'dayLow': 219.33,
+'ask': 219,
+'ytdReturn': None,
+'askSize': 1000,
+'volume': 25074770,
+'fiftyTwoWeekHigh': 232.86,
+'forwardPE': 29.967258,
+'fromCurrency': None,
+'fiveYearAvgDividendYield': 1.8,
+'fiftyTwoWeekLow': 132.52,
+'bid': 219,
+'tradeable': False,
+'dividendYield': 0.010199999,
+'bidSize': 1300,
+'dayHigh': 222.29,
+'exchange': 'NMS',
+'shortName': 'Microsoft Corporation',
+'longName': 'Microsoft Corporation',
+'exchangeTimezoneName': 'America/New_York',
+'exchangeTimezoneShortName': 'EDT',
+'isEsgPopulated': False,
+'gmtOffSetMilliseconds': '-14400000',
+'quoteType': 'EQUITY',
+'symbol': 'MSFT',
+'messageBoardId': 'finmb_21835',
+'market': 'us_market',
+'annualHoldingsTurnover': None,
+'enterpriseToRevenue': 11.243,
+'beta3Year': None,
+'profitMargins': 0.30962,
+'enterpriseToEbitda': 24.639,
+'52WeekChange': 0.59857357,
+'morningStarRiskRating': None,
+'forwardEps': 7.33,
+'revenueQuarterlyGrowth': None,
+'sharesOutstanding': 7567649792,
+'fundInceptionDate': None,
+'annualReportExpenseRatio': None,
+'bookValue': 15.626,
+'sharesShort': 39634230,
+'sharesPercentSharesOut': 0.0052,
+'fundFamily': None,
+'lastFiscalYearEnd': 1593475200,
+'heldPercentInstitutions': 0.74093,
+'netIncomeToCommon': 44280999936,
+'trailingEps': 5.76,
+'lastDividendValue': 0.51,
+'SandP52WeekChange': 0.16647923,
+'priceToBook': 14.057341,
+'heldPercentInsiders': 0.014249999,
+'nextFiscalYearEnd': 1656547200,
+'mostRecentQuarter': 1593475200,
+'shortRatio': 1.09,
+'sharesShortPreviousMonthDate': 1598832000,
+'floatShares': 7455727348,
+'enterpriseValue': 1607928643584,
+'threeYearAverageReturn': None,
+'lastSplitDate': 1045526400,
+'lastSplitFactor': '2:1',
+'legalType': None,
+'lastDividendDate': 1597795200,
+'morningStarOverallRating': None,
+'earningsQuarterlyGrowth': -0.151,
+'dateShortInterest': 1601424000,
+'pegRatio': 2.29,
+'lastCapGain': None,
+'shortPercentOfFloat': 0.0053,
+'sharesShortPriorMonth': 36458662,
+'category': None,
+'fiveYearAverageReturn': None,
+'regularMarketPrice': 220.15,
+'logo_url': 'https://logo.clearbit.com/microsoft.com'}
+&lt;/code>&lt;/pre>
+&lt;p>Pode-se obter informações sobre os principais acionistas:&lt;/p>
+&lt;pre>&lt;code class="language-python">msft.major_holders
+&lt;/code>&lt;/pre>
+&lt;div>
+&lt;style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+&lt;pre>&lt;code>.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+&lt;/code>&lt;/pre>
+&lt;p>&lt;/style>&lt;/p>
+&lt;table border="1" class="dataframe">
+&lt;thead>
+&lt;tr style="text-align: right;">
+&lt;th>&lt;/th>
+&lt;th>0&lt;/th>
+&lt;th>1&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;th>0&lt;/th>
+&lt;td>1.42%&lt;/td>
+&lt;td>% of Shares Held by All Insider&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>1&lt;/th>
+&lt;td>74.09%&lt;/td>
+&lt;td>% of Shares Held by Institutions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>2&lt;/th>
+&lt;td>75.16%&lt;/td>
+&lt;td>% of Float Held by Institutions&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>3&lt;/th>
+&lt;td>4630&lt;/td>
+&lt;td>Number of Institutions Holding Shares&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;pre>&lt;code class="language-python">msft.institutional_holders
+&lt;/code>&lt;/pre>
+&lt;div>
+&lt;style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+&lt;pre>&lt;code>.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+&lt;/code>&lt;/pre>
+&lt;p>&lt;/style>&lt;/p>
+&lt;table border="1" class="dataframe">
+&lt;thead>
+&lt;tr style="text-align: right;">
+&lt;th>&lt;/th>
+&lt;th>Holder&lt;/th>
+&lt;th>Shares&lt;/th>
+&lt;th>Date Reported&lt;/th>
+&lt;th>% Out&lt;/th>
+&lt;th>Value&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;th>0&lt;/th>
+&lt;td>Vanguard Group, Inc. (The)&lt;/td>
+&lt;td>632013255&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0835&lt;/td>
+&lt;td>128621017525&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>1&lt;/th>
+&lt;td>Blackrock Inc.&lt;/td>
+&lt;td>521841633&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0690&lt;/td>
+&lt;td>106199990731&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>2&lt;/th>
+&lt;td>State Street Corporation&lt;/td>
+&lt;td>314554694&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0416&lt;/td>
+&lt;td>64015025775&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>3&lt;/th>
+&lt;td>FMR, LLC&lt;/td>
+&lt;td>236873992&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0313&lt;/td>
+&lt;td>48206226111&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>4&lt;/th>
+&lt;td>Price (T.Rowe) Associates Inc&lt;/td>
+&lt;td>183090016&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0242&lt;/td>
+&lt;td>37260649156&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>5&lt;/th>
+&lt;td>Capital World Investors&lt;/td>
+&lt;td>122923512&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0162&lt;/td>
+&lt;td>25016163927&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>6&lt;/th>
+&lt;td>Geode Capital Management, LLC&lt;/td>
+&lt;td>116688974&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0154&lt;/td>
+&lt;td>23747373098&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>7&lt;/th>
+&lt;td>Capital International Investors&lt;/td>
+&lt;td>98209725&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0130&lt;/td>
+&lt;td>19986661134&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>8&lt;/th>
+&lt;td>Capital Research Global Investors&lt;/td>
+&lt;td>94081197&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0124&lt;/td>
+&lt;td>19146464401&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>9&lt;/th>
+&lt;td>Northern Trust Corporation&lt;/td>
+&lt;td>93331898&lt;/td>
+&lt;td>2020-06-29&lt;/td>
+&lt;td>0.0123&lt;/td>
+&lt;td>18993974561&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Os dados históricos são obtidos com o método &lt;code>history()&lt;/code>, que aceita como argumentos o período desejado, ou datas de início e fim, e retorna um &lt;a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html" target="_blank" rel="noopener">Pandas &lt;code>DataFrame&lt;/code>&lt;/a> que contém os preços de abertura e fechamento do mercado, além de máximas e mínimas, o volume de negociação, informações sobre dividendos pagos e desdobramentos.&lt;/p>
+&lt;pre>&lt;code class="language-python">data = msft.history(period=&amp;quot;max&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;p>E assim, temos a disposição todos os métodos inerentes do &lt;a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas&lt;/a>, como &lt;code>head()&lt;/code>, que nos mostra a parte superior da tabela de dados:&lt;/p>
+&lt;pre>&lt;code class="language-python">data.head()
+&lt;/code>&lt;/pre>
+&lt;div>
+&lt;style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+&lt;pre>&lt;code>.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+&lt;/code>&lt;/pre>
+&lt;p>&lt;/style>&lt;/p>
+&lt;table border="1" class="dataframe">
+&lt;thead>
+&lt;tr style="text-align: right;">
+&lt;th>&lt;/th>
+&lt;th>Open&lt;/th>
+&lt;th>High&lt;/th>
+&lt;th>Low&lt;/th>
+&lt;th>Close&lt;/th>
+&lt;th>Volume&lt;/th>
+&lt;th>Dividends&lt;/th>
+&lt;th>Stock Splits&lt;/th>
+&lt;/tr>
+&lt;tr>
+&lt;th>Date&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;th>1986-03-13&lt;/th>
+&lt;td>0.06&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>1031788800&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>1986-03-14&lt;/th>
+&lt;td>0.06&lt;/td>
+&lt;td>0.07&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>308160000&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>1986-03-17&lt;/th>
+&lt;td>0.06&lt;/td>
+&lt;td>0.07&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>0.07&lt;/td>
+&lt;td>133171200&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>1986-03-18&lt;/th>
+&lt;td>0.07&lt;/td>
+&lt;td>0.07&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>67766400&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>1986-03-19&lt;/th>
+&lt;td>0.06&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>0.06&lt;/td>
+&lt;td>47894400&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Ou &lt;code>tail()&lt;/code>, que mostra a parte inferior:&lt;/p>
+&lt;pre>&lt;code class="language-python">data.tail()
+&lt;/code>&lt;/pre>
+&lt;div>
+&lt;style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+&lt;pre>&lt;code>.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+&lt;/code>&lt;/pre>
+&lt;p>&lt;/style>&lt;/p>
+&lt;table border="1" class="dataframe">
+&lt;thead>
+&lt;tr style="text-align: right;">
+&lt;th>&lt;/th>
+&lt;th>Open&lt;/th>
+&lt;th>High&lt;/th>
+&lt;th>Low&lt;/th>
+&lt;th>Close&lt;/th>
+&lt;th>Volume&lt;/th>
+&lt;th>Dividends&lt;/th>
+&lt;th>Stock Splits&lt;/th>
+&lt;/tr>
+&lt;tr>
+&lt;th>Date&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;th>2020-10-12&lt;/th>
+&lt;td>218.79&lt;/td>
+&lt;td>223.86&lt;/td>
+&lt;td>216.81&lt;/td>
+&lt;td>221.40&lt;/td>
+&lt;td>40461400&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>2020-10-13&lt;/th>
+&lt;td>222.72&lt;/td>
+&lt;td>225.21&lt;/td>
+&lt;td>220.43&lt;/td>
+&lt;td>222.86&lt;/td>
+&lt;td>28950800&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>2020-10-14&lt;/th>
+&lt;td>223.00&lt;/td>
+&lt;td>224.22&lt;/td>
+&lt;td>219.13&lt;/td>
+&lt;td>220.86&lt;/td>
+&lt;td>23451700&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>2020-10-15&lt;/th>
+&lt;td>217.10&lt;/td>
+&lt;td>220.36&lt;/td>
+&lt;td>216.01&lt;/td>
+&lt;td>219.66&lt;/td>
+&lt;td>22718400&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>2020-10-16&lt;/th>
+&lt;td>220.15&lt;/td>
+&lt;td>222.29&lt;/td>
+&lt;td>219.33&lt;/td>
+&lt;td>219.66&lt;/td>
+&lt;td>25074770&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;td>0.0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Podemos facilmente produzir um gráfico com o método &lt;code>plot()&lt;/code>, conforme segue:&lt;/p>
+&lt;pre>&lt;code class="language-python">data.plot();
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="figura_0.svg" alt="svg">&lt;/p>
+&lt;p>Essa figura ficou meio poluída visualmente, vamos nos concentrar apenas no preço de fechamento, e acrescentar algumas opções extras:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Acessamos apenas o preço de fechamento, plotamos com log no eixo y,
+# porque é mais representativo, adicionamos um título à figura
+data.Close.plot(logy=True, title=msft.info['symbol'])
+# Aqui adicionamos médias móveis, porque não?
+# mav vem do inglês para moving average
+for mav in [500, 1000, 2000]:
+data.Close.rolling(mav).mean().plot(label=f'mav {mav}')
+plt.legend();
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="figura_1.svg" alt="svg">&lt;/p>
+&lt;p>Podemos também calcular e graficar a variação percentual diária do preço como:&lt;/p>
+&lt;pre>&lt;code class="language-python">data['Var [%]'] = 100. * (data.Close - data.Open) / data.Open
+data['Var [%]'].plot();
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="figura_2.svg" alt="svg">&lt;/p>
+&lt;p>Que pode ser exibida como um histograma de frequências:&lt;/p>
+&lt;pre>&lt;code class="language-python">data['Var [%]'].plot.hist(bins=100);
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="figura_3.svg" alt="svg">&lt;/p>
+&lt;p>Temos ainda o método &lt;code>actions()&lt;/code> que retorna dados históricos sobre dividendos e desdobramento das ações, e perceba que ele pode ser encadeado com o método &lt;code>plot()&lt;/code>, para múltiplas operações em uma única linha de código:&lt;/p>
+&lt;pre>&lt;code class="language-python">msft.actions.plot();
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="figura_4.svg" alt="svg">&lt;/p>
+&lt;p>O método &lt;code>describe()&lt;/code> é particularmente útil para ter uma rápida representação de uma grande quantidade de dados, fornecendo a contagem, média, desvio padrão, valor mínimo, máximo e outros.&lt;/p>
+&lt;pre>&lt;code class="language-python">data.describe()
+&lt;/code>&lt;/pre>
+&lt;div>
+&lt;style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+&lt;pre>&lt;code>.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+&lt;/code>&lt;/pre>
+&lt;p>&lt;/style>&lt;/p>
+&lt;table border="1" class="dataframe">
+&lt;thead>
+&lt;tr style="text-align: right;">
+&lt;th>&lt;/th>
+&lt;th>Open&lt;/th>
+&lt;th>High&lt;/th>
+&lt;th>Low&lt;/th>
+&lt;th>Close&lt;/th>
+&lt;th>Volume&lt;/th>
+&lt;th>Dividends&lt;/th>
+&lt;th>Stock Splits&lt;/th>
+&lt;th>Var [%]&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;th>count&lt;/th>
+&lt;td>8722.000000&lt;/td>
+&lt;td>8722.000000&lt;/td>
+&lt;td>8722.000000&lt;/td>
+&lt;td>8722.000000&lt;/td>
+&lt;td>8.722000e+03&lt;/td>
+&lt;td>8722.000000&lt;/td>
+&lt;td>8722.000000&lt;/td>
+&lt;td>8722.000000&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>mean&lt;/th>
+&lt;td>26.930644&lt;/td>
+&lt;td>27.217296&lt;/td>
+&lt;td>26.637444&lt;/td>
+&lt;td>26.937902&lt;/td>
+&lt;td>6.000501e+07&lt;/td>
+&lt;td>0.002196&lt;/td>
+&lt;td>0.001949&lt;/td>
+&lt;td>0.067909&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>std&lt;/th>
+&lt;td>37.001413&lt;/td>
+&lt;td>37.388700&lt;/td>
+&lt;td>36.589514&lt;/td>
+&lt;td>37.016185&lt;/td>
+&lt;td>3.867451e+07&lt;/td>
+&lt;td>0.040982&lt;/td>
+&lt;td>0.061015&lt;/td>
+&lt;td>2.052796&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>min&lt;/th>
+&lt;td>0.060000&lt;/td>
+&lt;td>0.060000&lt;/td>
+&lt;td>0.060000&lt;/td>
+&lt;td>0.060000&lt;/td>
+&lt;td>2.304000e+06&lt;/td>
+&lt;td>0.000000&lt;/td>
+&lt;td>0.000000&lt;/td>
+&lt;td>-25.925926&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>25%&lt;/th>
+&lt;td>2.360000&lt;/td>
+&lt;td>2.380000&lt;/td>
+&lt;td>2.330000&lt;/td>
+&lt;td>2.362500&lt;/td>
+&lt;td>3.617535e+07&lt;/td>
+&lt;td>0.000000&lt;/td>
+&lt;td>0.000000&lt;/td>
+&lt;td>-0.781170&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>50%&lt;/th>
+&lt;td>18.595000&lt;/td>
+&lt;td>18.805000&lt;/td>
+&lt;td>18.360000&lt;/td>
+&lt;td>18.590000&lt;/td>
+&lt;td>5.316930e+07&lt;/td>
+&lt;td>0.000000&lt;/td>
+&lt;td>0.000000&lt;/td>
+&lt;td>0.000000&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>75%&lt;/th>
+&lt;td>26.267500&lt;/td>
+&lt;td>26.487500&lt;/td>
+&lt;td>25.925000&lt;/td>
+&lt;td>26.225000&lt;/td>
+&lt;td>7.371192e+07&lt;/td>
+&lt;td>0.000000&lt;/td>
+&lt;td>0.000000&lt;/td>
+&lt;td>0.889940&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;th>max&lt;/th>
+&lt;td>229.270000&lt;/td>
+&lt;td>232.860000&lt;/td>
+&lt;td>227.350000&lt;/td>
+&lt;td>231.650000&lt;/td>
+&lt;td>1.031789e+09&lt;/td>
+&lt;td>3.080000&lt;/td>
+&lt;td>2.000000&lt;/td>
+&lt;td>16.666667&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>Esse foi nosso exemplo, informações complementares podem ser encontradas no &lt;a href="https://aroussi.com/post/python-yahoo-finance" target="_blank" rel="noopener">post&lt;/a> do autor original do pacote &lt;code>yfinance&lt;/code>. Experimente executar os exemplos propostos para outros códigos de negociação, por exemplo com o índice &lt;a href="https://pt.wikipedia.org/wiki/S%26P_500" target="_blank" rel="noopener">S&amp;amp;P 500&lt;/a> com o ticker &lt;code>^GSPC&lt;/code>, o índice &lt;a href="http://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-amplos/ibovespa.htm" target="_blank" rel="noopener">Ibovespa&lt;/a> com o ticker &lt;code>^BVSP&lt;/code>, ou empresas brasileiras, como o ticker &lt;code>ITUB3.SA&lt;/code>, e muitos outros.&lt;/p>
+&lt;!--adsense-->
+&lt;h2 id="visualização">Visualização&lt;/h2>
+&lt;p>A representação gráfica de dados financeiros é mais usual pelo método &lt;a href="https://pt.wikipedia.org/wiki/Candlestick" target="_blank" rel="noopener">Candlestick&lt;/a>, onde exibe-se os preços de abertura, fechamento, máximo e mínimo de maneira mais compreensiva.&lt;/p>
+&lt;p>Vamos mudar os dados empregados apenas para ter um segundo exemplo da utilização do &lt;code>yfinance&lt;/code>, agora especificando uma data de início e fim para a série histórica, e agrupando os resultados no período de uma semana.&lt;/p>
+&lt;pre>&lt;code class="language-python">data = yf.Ticker('^BVSP').history(start='2019-01-01', end='2019-12-31', interval='1wk')
+&lt;/code>&lt;/pre>
+&lt;p>E agora com &lt;code>mplfinance&lt;/code> e apenas uma linha de código, temos a nossa figura:&lt;/p>
+&lt;pre>&lt;code class="language-python">mpf.plot(data, type='candle',
+mav=(5,10), volume=True,
+show_nontrading=True, style='yahoo',
+title='Ibovespa, 2019');
+&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="figura_6.svg" alt="svg">&lt;/p>
+&lt;p>Bem mais limpa visualmente do que a nossa primeira tentativa, não é mesmo? Perceba que o método aceita diferentes tipos de gráfico, a inclusão de médias móveis (&lt;code>mav&lt;/code>), o volume de negociações (pode mostrar, ou não), os dias em que não houveram pregão, e pode-se escolher o estilo do gráfico. Informações completas sobre o pacote &lt;code>mplfinance&lt;/code> estão disponíveis no &lt;a href="https://pypi.org/project/mplfinance/" target="_blank" rel="noopener">link&lt;/a>.&lt;/p></description></item></channel></rss>

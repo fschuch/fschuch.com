@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Desafio | F. Schuch</title><link>https://www.fschuch.com/tag/desafio/</link><atom:link href="https://www.fschuch.com/tag/desafio/index.xml" rel="self" type="application/rss+xml"/><description>Desafio</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Desafio</title><link>https://www.fschuch.com/tag/desafio/</link></image><item><title>Desafio de Programação: Encontre o Anagrama</title><link>https://www.fschuch.com/blog/2021/03/16/desafio-de-programacao-encontre-o-anagrama/</link><pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2021/03/16/desafio-de-programacao-encontre-o-anagrama/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+&lt;summary class="font-weight-bold">Lista de Conteúdos&lt;/summary>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#introdução">Introdução&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#metodologia">Metodologia&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#normalizar">Normalizar&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#inspecionar">Inspecionar&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#testar">Testar&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#obter-lista-de-palavras">Obter Lista de Palavras&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#extrair-opções-válidas">Extrair Opções Válidas&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#resultados">Resultados&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#conclusão">Conclusão&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/details>
+&lt;h2 id="introdução">Introdução&lt;/h2>
+&lt;p>Solucionar problemas é uma questão de prática. É claro que livros, cursos e vídeos são ótimos materiais complementares para melhorar a sua técnica, mas não há como realmente fixar o conhecimento se você não colocar a mão na massa. Mas mesmo compreendendo que devemos praticar, as vezes nos deparamos com outro ponto: Que problema vou resolver para praticar? Temos que prestar atenção, porque os problemas aparecem por todos os lados, e cada problema resolvido nos torna programadores melhores.&lt;/p>
+&lt;p>Com isso surge esse desafio que eu propus lá no &lt;a href="https://www.instagram.com/aprenda.py/" target="_blank" rel="noopener">Intagram @aprenda.py&lt;/a>: Você consegue programar uma solução em Python que encontre uma palavra na língua portuguesa que seja um anagrama para &lt;em>eugenie gut zaza&lt;/em>?&lt;/p>
+&lt;p>Mas primeiro, vamos à definição do problema: Anagrama é um tipo de jogo de palavras, onde a reorganização das letras de uma palavra ou expressão resulta na obtenção de outras palavras ou expressões. Temos por exemplo &lt;em>Iracema&lt;/em> e &lt;em>América&lt;/em>, ou então &lt;em>Ator&lt;/em> e &lt;em>Rota&lt;/em>:&lt;/p>
+&lt;pre>&lt;code class="language-mermaid">graph LR
+subgraph Rota
+R1(R) --- O1(O) --- T1(T) --- A1(A)
+end
+subgraph Ator
+A2(A) --- T2(T) --- O2(O) --- R2(R)
+end
+A2 -.-&amp;gt; A1
+T2 -.-&amp;gt; T1
+O2 -.-&amp;gt; O1
+R2 -.-&amp;gt; R1
+&lt;/code>&lt;/pre>
+&lt;p>Agora que sabemos o que são anagramas, vamos ao próximo ponto, como é que encontramos eles para resolvermos a questão proposta?
+A prática em resolução de problemas mostra que o ideal é começarmos estabelecendo um passo a passo, dividindo o problema em parcelas menores, a assim termos uma ideia clara sobre como prosseguir até o objetivo, vejamos:&lt;/p>
+&lt;ul>
+&lt;li>Devemos procurar uma maneira de &lt;em>normalizar&lt;/em> as palavras ou expressões com as quais estamos trabalhando, para facilitar a comparação entre elas. Podemos listar as seguintes operações:
+&lt;ul>
+&lt;li>Normalizar acentos e caracteres especiais;&lt;/li>
+&lt;li>Remover espaços em branco;&lt;/li>
+&lt;li>Transformar caracteres que porventura esteja em caixa alta, para caixa baixa;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Então, temos que &lt;em>inspecionar&lt;/em> uma palavra ou expressão, e para caracteriza-las, obtendo uma listagem das letras e da sua contagem;&lt;/li>
+&lt;li>Com isso, definimos um método para efetivamente &lt;em>testar&lt;/em> se duas palavras ou expressões são anagramas entre si;&lt;/li>
+&lt;li>Precisamos &lt;em>obter&lt;/em> uma lista de palavras válidas na língua portuguesa para testar contra a nossa referência;&lt;/li>
+&lt;li>Por fim, precisamos &lt;em>extrair&lt;/em> dessa lista todas as palavras que satisfazem o problema.&lt;/li>
+&lt;/ul>
+&lt;p>Já sabemos como proceder, agora, te convido a praticar e tentar resolver o problema.
+Mas de qualquer maneira, a seguir temos a solução completa e comentada.&lt;/p>
+&lt;!--adsense-->
+&lt;h2 id="metodologia">Metodologia&lt;/h2>
+&lt;p>Como passo inicial, pode ser necessário instalar algumas das bibliotecas Python que vamos utilizar. Duas delas merecem destaque, &lt;a href="https://pypi.org/project/beautifulsoup4/" target="_blank" rel="noopener">beautifulsoup4&lt;/a> é uma ferramenta para Web Scraping, com ela vamos obter as palavras válidas de um site de terceiros, e &lt;a href="https://pypi.org/project/Unidecode/" target="_blank" rel="noopener">unidecode&lt;/a> será útil para a normalização das variáveis tipo &lt;code>str&lt;/code> que usaremos nessa solução. Ambos pacotes podem ser instalados com a seguinte linha de comando:&lt;/p>
+&lt;pre>&lt;code class="language-bash">pip install beautifulsoup4 Unidecode
+&lt;/code>&lt;/pre>
+&lt;p>Agora partimos para nossa aplicação Python própriamente dita, começamos com as importações:&lt;/p>
+&lt;pre>&lt;code class="language-python">import os.path
+import time
+from collections import Counter
+import requests
+from bs4 import BeautifulSoup
+from unidecode import unidecode
+&lt;/code>&lt;/pre>
+&lt;h3 id="normalizar">Normalizar&lt;/h3>
+&lt;p>Nós podemos deixar nossa solução mais robusta ao trabalhar com texto, se definirmos uma maneira de normalizar as palavras com as quais vamos lidar. Com &lt;a href="https://pypi.org/project/Unidecode/" target="_blank" rel="noopener">unidecode&lt;/a>, vamos remover acentos e caracteres especiais, por exemplo, &lt;code>ç&lt;/code> será transformado em &lt;code>c&lt;/code>, &lt;code>ã&lt;/code> será simplesmente &lt;code>a&lt;/code>, e assim por diante. A operação seguinte é remover os espaços, para isso, temos o método &lt;code>replace()&lt;/code> das strings, que irá substituir cada espaço &lt;code>&amp;quot; &amp;quot;&lt;/code> por um caractere vazio &lt;code>&amp;quot;&amp;quot;&lt;/code>. Por fim, o método &lt;code>lower()&lt;/code> converte todos os caracteres para caixa baixa, garantindo que nossa aplicação não seja sensível quanto à presença de letras maiúsculas e minúsculas. Tudo isso é feito com a seguinte função:&lt;/p>
+&lt;pre>&lt;code class="language-python">def normalizar_palavra(palavra: str) -&amp;gt; str:
+return unidecode(palavra).replace(&amp;quot; &amp;quot;, &amp;quot;&amp;quot;).lower()
+&lt;/code>&lt;/pre>
+&lt;p>Vamos testar nossa normalização com a frase:&lt;/p>
+&lt;pre>&lt;code class="language-python">normalizar_palavra(&amp;quot;Canção da América&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code> 'cancaodaamerica'
+&lt;/code>&lt;/pre>
+&lt;h3 id="inspecionar">Inspecionar&lt;/h3>
+&lt;p>Segundo passo, definimos como &lt;em>inspecionar&lt;/em> a tarefa de obter um conjunto com as letras únicas que constituem uma palavra ou expressão, bem como a contagem de aparições de cada letra. Quando falamos em conjuntos de &lt;em>chave&lt;/em> (cada caractere que compõem a palavra) e &lt;em>valor&lt;/em> (o número de ocorrências), é natural pensar na utilização de um &lt;a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries" target="_blank" rel="noopener">dicionário&lt;/a> Python.
+Mas podemos ir um passo além se lembrarmos que Python tem embutido o módulo &lt;a href="https://docs.python.org/3/library/collections.html#module-collections" target="_blank" rel="noopener">collections&lt;/a>, com estruturas de dados especializadas em certas tarefas, e o dicionário com contagem é uma dessas estruturas, chama-se &lt;a href="https://docs.python.org/3/library/collections.html#collections.Counter" target="_blank" rel="noopener">Counter&lt;/a>.
+Com essa classe especializada, veremos que podemos resolver o problema com menos linhas de código, melhor legibilidade, e menos propensão a erros.
+O que definimos como &lt;em>inspecionar&lt;/em> será obtido ao enviar uma palavra de entrada &lt;em>normalizada&lt;/em> para o estrutura &lt;code>Counter&lt;/code>, o código é como segue:&lt;/p>
+&lt;pre>&lt;code class="language-python">def inspecionar_palavra(palavra: str) -&amp;gt; Counter:
+return Counter(normalizar_palavra(palavra))
+&lt;/code>&lt;/pre>
+&lt;p>Hora de testar a nossa implementação:&lt;/p>
+&lt;pre>&lt;code class="language-python">inspecionar_palavra(&amp;quot;Aprenda Python&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">Counter({'a': 2,
+'p': 2,
+'r': 1,
+'e': 1,
+'n': 2,
+'d': 1,
+'y': 1,
+'t': 1,
+'h': 1,
+'o': 1})
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-python">inspecionar_palavra(&amp;quot;eugenie gut zaza&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">Counter({'e': 3, 'u': 2, 'g': 2, 'n': 1, 'i': 1, 't': 1, 'z': 2, 'a': 2})
+&lt;/code>&lt;/pre>
+&lt;h3 id="testar">Testar&lt;/h3>
+&lt;p>Terceiro passo, dadas duas palavras ou expressões, devemos testar se são anagramas (retornando &lt;code>True&lt;/code>) ou não (retornando &lt;code>False&lt;/code>). Estabelecemos três critérios para isso:&lt;/p>
+&lt;ul>
+&lt;li>Ambas entradas devem ter o mesmo número total de letras únicas, que pode ser testado por meio da função &lt;a href="https://docs.python.org/3/library/functions.html#len" target="_blank" rel="noopener">len()&lt;/a>;&lt;/li>
+&lt;li>Sendo satisfeito o critério anterior, ambas entradas devem ser constituídas pelo mesmo conjunto de letras únicas. Como esses valores estão armazenados como as chaves do nosso dicionário, obtemos eles com o método &lt;code>keys()&lt;/code>;&lt;/li>
+&lt;li>Então, comparamos que a contagem de cada uma das letras é igual entre as duas entradas. Como a contagem é armazenada nos valores dos dicionários, obtemos com o método &lt;code>values()&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;p>Se as três condições acima forem satisfeitas, teremos um resultado positivo para anagrama.
+Acontece que estamos utilizando a estrutura especializada &lt;a href="https://docs.python.org/3/library/collections.html#collections.Counter" target="_blank" rel="noopener">Counter&lt;/a>, e aqui vemos as vantagens de estudar e conhecer as peculiaridades dos módulos embutidos em Python.
+Realizamos os três testes ao comparar se ambos contadores são iguais, todo o resto já está implementado na classe &lt;code>Counter&lt;/code>.
+Veja como fica o código:&lt;/p>
+&lt;pre>&lt;code class="language-python">def testa_se_anagrama(inspecionada_1: Counter, inspecionada_2: Counter) -&amp;gt; bool:
+return inspecionada_1 == inspecionada_2
+&lt;/code>&lt;/pre>
+&lt;p>Vamos testar com três exemplos:&lt;/p>
+&lt;pre>&lt;code class="language-python">testa_se_anagrama(
+inspecionar_palavra(&amp;quot;Roma&amp;quot;), inspecionar_palavra(&amp;quot;amor&amp;quot;),
+)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>True
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-python">testa_se_anagrama(
+inspecionar_palavra(&amp;quot;Iracema&amp;quot;), inspecionar_palavra(&amp;quot;América&amp;quot;),
+)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>True
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-python">testa_se_anagrama(
+inspecionar_palavra(&amp;quot;Python&amp;quot;), inspecionar_palavra(&amp;quot;Fortran&amp;quot;),
+)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>False
+&lt;/code>&lt;/pre>
+&lt;p>Note que a operação &lt;code>inspecionar_palavra&lt;/code> poderia ter sido executada dentro de &lt;code>testa_se_anagrama&lt;/code>, mas minha opção foi por não fazê-lo. Como nosso problema proposto envolve testar uma mesma palavra de referência contra uma lista de outras opções, podemos inspecionar a palavra de referências apenas umas vez e aproveitar esse valor nas demais comparações. Veremos mais detalhes sobre isso nos próximos tópicos.&lt;/p>
+&lt;h3 id="obter-lista-de-palavras">Obter Lista de Palavras&lt;/h3>
+&lt;p>Quarto passo, temos que obter uma lista de palavras válidas na qual vamos buscar por anagramas. Aqui existe uma série de caminhos para serem seguidos, e algumas decisões a serem tomadas, dependendo das características do problema.
+Certamente, podemos começar recorrendo a uma ferramenta de busca sobre como conseguir uma lista de palavras na língua portuguesa dentro de nossa aplicação Python, mas devo dizer que não encontrei nada satisfatório em termos de custo (o tempo que eu levaria para implementar a solução) e benefício (solucionar o problema sem acrescentar demasiada complexidade).&lt;/p>
+&lt;p>Em um segundo momento, procurei por sites com dicionários online, e foi aí que encontrei &lt;a href="https://www.dicio.com.br" target="_blank" rel="noopener">dicio.com.br&lt;/a>.
+Vi dois pontos fortes no site, eu poderia pesquisar por palavras que começam com uma certa letra, além de poder restringir a busca para o número de letras na palavra.
+Veja que para o problema que queremos resolver, estamos procurando por palavras que comecem com &lt;code>a&lt;/code>, &lt;code>e&lt;/code>, &lt;code>g&lt;/code>, &lt;code>i&lt;/code>, &lt;code>n&lt;/code>, &lt;code>t&lt;/code>, &lt;code>u&lt;/code> e &lt;code>z&lt;/code>, para um total de &lt;code>14&lt;/code> letras, e isso reduz drasticamente a nossa busca pela resposta.&lt;/p>
+&lt;p>Então veio a primeira opção do design da solução, eu pude visitar as 8 páginas do site, uma para cada letra, copiar e colar as listas de palavras e ter rapidamente um protótipo que de fato resolveu o problema. Obtive uma lista com 2010 palavras, e, felizmente, a solução estava entre elas. Em seguida eu pensei, essa é uma chance para mim praticar algo novo, como eu posso automatizar esse processo?&lt;/p>
+&lt;p>E aqui entre o Web Scraping com o pacote &lt;a href="https://pypi.org/project/beautifulsoup4/" target="_blank" rel="noopener">beautifulsoup4&lt;/a>, podemos vasculhar o site automaticamente em busca da informação que precisamos. Começamos requisitando a página para nossa aplicação, por exemplo, começando com a letra &lt;code>z&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-python">page = requests.get(&amp;quot;https://www.dicio.com.br/palavras-comecam-z-com-14-letras/&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;p>Em seguida, podemos analisar mais detalhadamente os elementos da página com:&lt;/p>
+&lt;pre>&lt;code class="language-python">soup = BeautifulSoup(page.content, &amp;quot;html.parser&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;p>E é uma verdadeira sopa de letrinhas, você pode imprimir na tela para testar com &lt;code>print(soup)&lt;/code>, mas o código é muito grande, não ficaria bem no blog, assim preferi não inclui-lo.
+Dentro de todo esse código HTML, precisamos encontrar o trecho de informação que nos interessa, e esse é um trabalho bem específico, pois cada site ou página tem sua própria estrutura e tags HTML.
+Então, por pura especificidade do site que estamos usando como referência, encontrei o que procuramos com na localidade &lt;code>soup.find_all(&amp;quot;p&amp;quot;)[1]&lt;/code>, além de encadear o retorno com &lt;code>get_text()&lt;/code> como remover todas as tags e aumentar a legibilidade, &lt;code>strip()&lt;/code> para remover espaçamentos extras e &lt;code>split()&lt;/code> para quebrar o texto nos espaçamentos, a assim obtemos uma listagem das palavras válidas.
+Veja o exemplo:&lt;/p>
+&lt;pre>&lt;code class="language-python">soup.find_all(&amp;quot;p&amp;quot;)[1].get_text(separator=&amp;quot; &amp;quot;).strip().split()
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>['ziguezagueante',
+'zooterapêutica',
+'zeugobrânquios',
+'zooterapêutico',
+'zoofitantráceo',
+'zigomatolabial',
+'zoocorográfico',
+'zooiatrológico',
+'zoologicamente']
+&lt;/code>&lt;/pre>
+&lt;p>O exemplo com a letra &lt;code>z&lt;/code> funcionou satisfatoriamente, agora é hora de construírmos uma função que retorne para qualquer letra inicial, além do número de letras desejado na palavra.
+Mas antes de irmos ao código, vejamos algumas boas práticas sobre Web Scraping,
+lembre-se que estamos consumindo informações do servidor de um terceiro, e não queremos ser rudes e sobrecarregar o serviço.
+Então uma das ações do nosso código é sempre salvar para o nosso disco local as listas de palavras para uma dada letra inicial e números de palavras, assim, se solicitarmos a mesma lista, não precisamos de um novo acesso ao site externo, podemos simplesmente carregar nossa cópia local. Um outro cuidado foi implementar um intervalo de 2 segundos entre solicitações, para evitarmos qualquer problema com sobrecarga.
+Por fim, vale lembrar que esse método é restrito às características construtivas da URL e do código HTML, e vai parar de funcionar caso algum desses itens seja alterado pelos desenvolvedores do site. Por isso, sempre que possível, verifique se o serviço oferece alguma &lt;a href="https://pt.wikipedia.org/wiki/Interface_de_programa%C3%A7%C3%A3o_de_aplica%C3%A7%C3%B5es" target="_blank" rel="noopener">API&lt;/a> para acesso, o que tende a ser mais robusto tanto para quem envia às informações, quanto para quem às consome.&lt;/p>
+&lt;p>&lt;strong>Nota:&lt;/strong> O site que estamos usando para obter palavras válidas (&lt;a href="https://www.dicio.com.br" target="_blank" rel="noopener">dicio.com.br&lt;/a>) limita o retorno em mil ocorrências para cada letra inicial, significando que nossa solução não cobrirá necessariamente todas as possibilidades da língua portuguesa, mas ainda assim, acho bastante satisfatório para esse estudo de caso.&lt;/p>
+&lt;p>Finalmente veja como ficou nossa função:&lt;/p>
+&lt;pre>&lt;code class="language-python">def obtem_as_palavras_possiveis(primeira_letra: str, numero_de_letras: int) -&amp;gt; list:
+def verifica_se_arquivo_existe(nome_do_arquivo: str) -&amp;gt; bool:
+return os.path.isfile(nome_do_arquivo)
+def leia_o_arquivo(nome_do_arquivo: str) -&amp;gt; str:
+with open(nome_do_arquivo, &amp;quot;r&amp;quot;) as file_in:
+texto = file_in.read()
+return texto
+def escreva_o_arquivo(nome_do_arquivo: str, conteudo: str) -&amp;gt; None:
+with open(nome_do_arquivo, &amp;quot;w&amp;quot;) as file_out:
+file_out.write(conteudo)
+palavras_alvo = f&amp;quot;palavras-comecam-{primeira_letra}-com-{numero_de_letras}-letras&amp;quot;
+arquivo_backup = palavras_alvo + &amp;quot;.txt&amp;quot;
+# Se o arquivo existe, carregue do disco
+if verifica_se_arquivo_existe(arquivo_backup):
+lista_de_palavras = leia_o_arquivo(arquivo_backup)
+# Senão, obtenha as palavras e salve o arquivo para o disco
+# para que possa ser utilizado da próxima vez
+else:
+page = requests.get(f&amp;quot;https://www.dicio.com.br/{palavras_alvo}/&amp;quot;)
+soup = BeautifulSoup(page.content, &amp;quot;html.parser&amp;quot;)
+lista_de_palavras = soup.find_all(&amp;quot;p&amp;quot;)[1].get_text(separator=&amp;quot; &amp;quot;).strip()
+escreva_o_arquivo(arquivo_backup, lista_de_palavras)
+time.sleep(2)
+return map(normalizar_palavra, lista_de_palavras.split())
+&lt;/code>&lt;/pre>
+&lt;p>Um teste de funcionalidade:&lt;/p>
+&lt;pre>&lt;code class="language-python">list(obtem_as_palavras_possiveis(&amp;quot;z&amp;quot;, 14))
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>['ziguezagueante',
+'zooterapeutica',
+'zeugobranquios',
+'zooterapeutico',
+'zoofitantraceo',
+'zigomatolabial',
+'zoocorografico',
+'zooiatrologico',
+'zoologicamente']
+&lt;/code>&lt;/pre>
+&lt;h3 id="extrair-opções-válidas">Extrair Opções Válidas&lt;/h3>
+&lt;p>Chegamos ao último passo que estabelecemos para a resolução do nosso problema, dada uma lista contendo inúmeras palavras, devemos encontrar aquelas que são anagramas de uma certa palavra ou expressão de referência. Isso envolve ainda alguns sub-passos utilizando todas as funções que construímos anteriormente:&lt;/p>
+&lt;ul>
+&lt;li>Dada uma &lt;code>palavra_referencia&lt;/code>, realizamos a &lt;em>inspessão&lt;/em> e armazenamos essa informação;&lt;/li>
+&lt;li>Precisamos obter as listas de possibilidades válidas, mas lembre-se que podemos limitar o conjunto onde procuramos pela solução se lembrarmos que:
+&lt;ul>
+&lt;li>Usamos apenas aquelas que comecem com alguma letra que realmente faça parte de &lt;code>palavra_referencia&lt;/code>;&lt;/li>
+&lt;li>E apenas para aquelas que tenham o mesmo número de caracteres (descontando espaços) que &lt;code>palavra_referencia&lt;/code>;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Por fim, dados todos os elementos em &lt;code>lista_possibilidades&lt;/code>, precisamos filtrar aqueles elementos que sejam anagramas de &lt;code>palavra_referencia&lt;/code>, a para tanto, usamos a função Python &lt;a href="https://docs.python.org/3/library/functions.html#filter" target="_blank" rel="noopener">filter&lt;/a>.
+Note que &lt;code>filter&lt;/code> retorna um iterável, então o transformamos para uma lista para a visualização completa da resposta.&lt;/li>
+&lt;/ul>
+&lt;p>Vamos ao código:&lt;/p>
+&lt;pre>&lt;code class="language-python">def procurar_anagrama(palavra_referencia: str) -&amp;gt; list:
+def compara_contra_alvo(palavra_alvo: str) -&amp;gt; bool:
+return testa_se_anagrama(
+referencia_inspecionada, inspecionar_palavra(palavra_alvo),
+)
+referencia_inspecionada = inspecionar_palavra(palavra_referencia)
+letras_na_referencia = referencia_inspecionada.keys()
+len_referencia = sum(referencia_inspecionada.values())
+lista_possibilidades = []
+for letra in letras_na_referencia:
+lista_possibilidades.extend(obtem_as_palavras_possiveis(letra, len_referencia))
+print(f&amp;quot;Testando anagrama contra {len(lista_possibilidades)} possibilidades&amp;quot;)
+return list(filter(compara_contra_alvo, lista_possibilidades))
+&lt;/code>&lt;/pre>
+&lt;!--adsense-->
+&lt;h2 id="resultados">Resultados&lt;/h2>
+&lt;p>Chegamos ao momento tão aguardado. Após programar uma função para cada passo que estabelecemos para resolver o problema, é hora de conferir a solução. Sem mais delongas, vamos à ela:&lt;/p>
+&lt;pre>&lt;code class="language-python">procurar_anagrama(&amp;quot;eugenie gut zaza&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>Testando anagrama contra 2010 possibilidades
+['ziguezagueante']
+&lt;/code>&lt;/pre>
+&lt;p>Legal, não? &lt;code>ziguezagueante&lt;/code> é a nossa resposta, você conseguiu achar essa solução na sua própria implementação?&lt;/p>
+&lt;p>Mas depois de tantas linhas de código, não vamos nos ater somente a isso, vamos ver três testes extras:&lt;/p>
+&lt;pre>&lt;code class="language-python">procurar_anagrama(&amp;quot;Roma&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>Testando anagrama contra 632 possibilidades
+['amor', 'mora', 'moar', 'maro', 'ramo', 'roma']
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-python">procurar_anagrama(&amp;quot;Aprenda&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>Testando anagrama contra 5078 possibilidades
+['pernada', 'pandear']
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-python">procurar_anagrama(&amp;quot;Python&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code>Testando anagrama contra 1005 possibilidades
+[]
+&lt;/code>&lt;/pre>
+&lt;h2 id="conclusão">Conclusão&lt;/h2>
+&lt;p>Incrível como o que parecia uma proposta que parecia não ser tão complicada pode nos proporcionar em termos de aprendizado quando nos comprometemos à resolver o problema.
+E esse conhecimento acumulado vai sem dúvida contribuir para as próximas soluções que precisarmos resolver no futuro.
+Mesmo já trabalhando com Python por algum tempo, encontrei nesse exercício a chance de praticar alguns conceitos de design de código de uns livros que tenho lido recentemente, além de usar estruturas especializadas como o &lt;code>Counter&lt;/code>, bem como foi a primeira vez que usei web scraping em um projeto real.&lt;/p></description></item><item><title>Desafio de Programação: O jogo Pedra, Papel e Tesoura</title><link>https://www.fschuch.com/blog/2019/07/23/desafio-de-programacao-o-jogo-pedra-papel-e-tesoura/</link><pubDate>Tue, 23 Jul 2019 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2019/07/23/desafio-de-programacao-o-jogo-pedra-papel-e-tesoura/</guid><description>&lt;p>Pedra, papel e tesoura é um clássico, portanto imagino que você já deva ter jogado em algum momento. Mas não custa nada relembrar, a regra é simples: pedra ganha da tesoura, tesoura ganha do papel e papel ganha da pedra (para mais informações, veja &lt;a href="https://pt.wikipedia.org/wiki/Pedra,_papel_e_tesoura" target="_blank" rel="noopener">Wikipédia&lt;/a>).&lt;/p>
+&lt;pre>&lt;code class="language-mermaid">graph TD
+A(Pedra) --&amp;gt;| ganha de | B(Tesoura)
+B --&amp;gt;| ganha de | C(Papel)
+C --&amp;gt;| ganha de | A
+&lt;/code>&lt;/pre>
+&lt;p>Do ponto de vista computacional, esse é um belo exercício para praticar.&lt;/p>
+&lt;div class="alert alert-note">
+&lt;div>
+Dica: A função &lt;a href="https://docs.python.org/3/library/random.html#random.choice">choise&lt;/a> do módulo &lt;a href="https://docs.python.org/3/library/random.html">random&lt;/a> é uma boa opção para que o computador escolha aleatoriamente a sua jogada dentre as possibilidades pré estabelecidas em uma lista.
+&lt;/div>
+&lt;/div>
+&lt;p>Claro que existem vários caminhos diferentes para resolver um dado problema, para esse desafio não seria diferente. A cada problemas que resolvemos, agregamos experiência para abordar o seguinte.&lt;/p>
+&lt;p>&lt;strong>Dedique aqui algum tempo para produzir a sua própria solução.&lt;/strong>&lt;/p>
+&lt;p>Apenas então prossiga para a células de código abaixo para ver a minha versão do jogo:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Importamos a função choice, que fará o papel do nosso adversário
+from random import choice
+# Lista das jogadas válidas
+play = [&amp;quot;pedra&amp;quot;, &amp;quot;papel&amp;quot;, &amp;quot;tesoura&amp;quot;]
+# Matriz de decisão do resultado, contendo as regras do jogo
+rule = ((&amp;quot;e&amp;quot;, &amp;quot;d&amp;quot;, &amp;quot;v&amp;quot;), (&amp;quot;v&amp;quot;, &amp;quot;e&amp;quot;, &amp;quot;d&amp;quot;), (&amp;quot;d&amp;quot;, &amp;quot;v&amp;quot;, &amp;quot;e&amp;quot;))
+# Texto a ser exibido na tela para cada resultado possível
+text = {
+&amp;quot;e&amp;quot;: &amp;quot; Empatou!&amp;quot;,
+&amp;quot;v&amp;quot;: &amp;quot; Parabéns, você venceu!&amp;quot;,
+&amp;quot;d&amp;quot;: &amp;quot; Você foi derrotado!&amp;quot;,
+}
+# Aqui temos o jogo propriamente dito
+while True:
+h, c = input(&amp;quot;Faça a sua jogada: &amp;quot;).lower(), choice(play)
+if h == &amp;quot;sair&amp;quot;: # É sempre uma boa prática ter uma saída de um laço while True
+break
+if h in play: # E um teste de que a jogada foi válida
+print(f&amp;quot; O computador jogou {c}&amp;quot;)
+print(text[rule[play.index(h)][play.index(c)]])
+else:
+print(f&amp;quot; As jogadas válidas são:\n {play}&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;p>E aqui vemos o jogo em ação:&lt;/p>
+&lt;pre>&lt;code class="language-text">Faça a sua jogada: pedra
+O computador jogou pedra
+Empatou!
+Faça a sua jogada: Papel
+O computador jogou papel
+Empatou!
+Faça a sua jogada: TESOURA
+O computador jogou papel
+Parabéns, você venceu!
+Faça a sua jogada: SaIR
+&lt;/code>&lt;/pre>
+&lt;p>Muitas vezes nos deparamos com a tarefa de ter que desvendar o código escrito por outra pessoa, e esse é o segundo passo desse desafio. Você consegue compreender como se dá o jogo no bloco acima? Se a resposta for não, recomendo a leitura sobre as estruturas de dados em Python chamadas &lt;a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries" target="_blank" rel="noopener">dicionários&lt;/a>, além de algumas &lt;a href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops" target="_blank" rel="noopener">cláusulas de controle de laços&lt;/a>.&lt;/p></description></item></channel></rss>

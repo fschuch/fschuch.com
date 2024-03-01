@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jogos | F. Schuch</title><link>https://www.fschuch.com/tag/jogos/</link><atom:link href="https://www.fschuch.com/tag/jogos/index.xml" rel="self" type="application/rss+xml"/><description>Jogos</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Tue, 23 Jul 2019 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Jogos</title><link>https://www.fschuch.com/tag/jogos/</link></image><item><title>Desafio de Programação: O jogo Pedra, Papel e Tesoura</title><link>https://www.fschuch.com/blog/2019/07/23/desafio-de-programacao-o-jogo-pedra-papel-e-tesoura/</link><pubDate>Tue, 23 Jul 2019 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2019/07/23/desafio-de-programacao-o-jogo-pedra-papel-e-tesoura/</guid><description>&lt;p>Pedra, papel e tesoura é um clássico, portanto imagino que você já deva ter jogado em algum momento. Mas não custa nada relembrar, a regra é simples: pedra ganha da tesoura, tesoura ganha do papel e papel ganha da pedra (para mais informações, veja &lt;a href="https://pt.wikipedia.org/wiki/Pedra,_papel_e_tesoura" target="_blank" rel="noopener">Wikipédia&lt;/a>).&lt;/p>
+&lt;pre>&lt;code class="language-mermaid">graph TD
+A(Pedra) --&amp;gt;| ganha de | B(Tesoura)
+B --&amp;gt;| ganha de | C(Papel)
+C --&amp;gt;| ganha de | A
+&lt;/code>&lt;/pre>
+&lt;p>Do ponto de vista computacional, esse é um belo exercício para praticar.&lt;/p>
+&lt;div class="alert alert-note">
+&lt;div>
+Dica: A função &lt;a href="https://docs.python.org/3/library/random.html#random.choice">choise&lt;/a> do módulo &lt;a href="https://docs.python.org/3/library/random.html">random&lt;/a> é uma boa opção para que o computador escolha aleatoriamente a sua jogada dentre as possibilidades pré estabelecidas em uma lista.
+&lt;/div>
+&lt;/div>
+&lt;p>Claro que existem vários caminhos diferentes para resolver um dado problema, para esse desafio não seria diferente. A cada problemas que resolvemos, agregamos experiência para abordar o seguinte.&lt;/p>
+&lt;p>&lt;strong>Dedique aqui algum tempo para produzir a sua própria solução.&lt;/strong>&lt;/p>
+&lt;p>Apenas então prossiga para a células de código abaixo para ver a minha versão do jogo:&lt;/p>
+&lt;pre>&lt;code class="language-python"># Importamos a função choice, que fará o papel do nosso adversário
+from random import choice
+# Lista das jogadas válidas
+play = [&amp;quot;pedra&amp;quot;, &amp;quot;papel&amp;quot;, &amp;quot;tesoura&amp;quot;]
+# Matriz de decisão do resultado, contendo as regras do jogo
+rule = ((&amp;quot;e&amp;quot;, &amp;quot;d&amp;quot;, &amp;quot;v&amp;quot;), (&amp;quot;v&amp;quot;, &amp;quot;e&amp;quot;, &amp;quot;d&amp;quot;), (&amp;quot;d&amp;quot;, &amp;quot;v&amp;quot;, &amp;quot;e&amp;quot;))
+# Texto a ser exibido na tela para cada resultado possível
+text = {
+&amp;quot;e&amp;quot;: &amp;quot; Empatou!&amp;quot;,
+&amp;quot;v&amp;quot;: &amp;quot; Parabéns, você venceu!&amp;quot;,
+&amp;quot;d&amp;quot;: &amp;quot; Você foi derrotado!&amp;quot;,
+}
+# Aqui temos o jogo propriamente dito
+while True:
+h, c = input(&amp;quot;Faça a sua jogada: &amp;quot;).lower(), choice(play)
+if h == &amp;quot;sair&amp;quot;: # É sempre uma boa prática ter uma saída de um laço while True
+break
+if h in play: # E um teste de que a jogada foi válida
+print(f&amp;quot; O computador jogou {c}&amp;quot;)
+print(text[rule[play.index(h)][play.index(c)]])
+else:
+print(f&amp;quot; As jogadas válidas são:\n {play}&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;p>E aqui vemos o jogo em ação:&lt;/p>
+&lt;pre>&lt;code class="language-text">Faça a sua jogada: pedra
+O computador jogou pedra
+Empatou!
+Faça a sua jogada: Papel
+O computador jogou papel
+Empatou!
+Faça a sua jogada: TESOURA
+O computador jogou papel
+Parabéns, você venceu!
+Faça a sua jogada: SaIR
+&lt;/code>&lt;/pre>
+&lt;p>Muitas vezes nos deparamos com a tarefa de ter que desvendar o código escrito por outra pessoa, e esse é o segundo passo desse desafio. Você consegue compreender como se dá o jogo no bloco acima? Se a resposta for não, recomendo a leitura sobre as estruturas de dados em Python chamadas &lt;a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries" target="_blank" rel="noopener">dicionários&lt;/a>, além de algumas &lt;a href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops" target="_blank" rel="noopener">cláusulas de controle de laços&lt;/a>.&lt;/p></description></item></channel></rss>
