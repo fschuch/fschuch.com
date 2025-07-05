@@ -14,10 +14,6 @@ date: "2020-08-14"
 # Optional external URL for project (replaces project detail page).
 external_link: ""
 
-image:
-  caption: Image from [pypi.org](https://pypi.org/)
-  focal_point: Smart
-
 links:
 - icon: github
   icon_pack: fab
@@ -30,7 +26,7 @@ links:
 - icon: book
   icon_pack: fas
   name: Documentação
-  url: "https://xcompact3d-toolbox.readthedocs.io/en/latest/"
+  url: "https://docs.fschuch.com/xcompact3d_toolbox/"
 ---
 
 ## Sobre

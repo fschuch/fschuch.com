@@ -7,9 +7,19 @@ tags:
 date: "2020-08-14"
 
 # Optional external URL for project (replaces project detail page).
-external_link: https://pypi.org/project/xcompact3d-toolbox/
+external_link: ""
 
-image:
-  caption: Image from [pypi.org](https://pypi.org/)
-  focal_point: Smart
+links:
+- icon: github
+  icon_pack: fab
+  name: See on GitHub
+  url: "https://github.com/fschuch/xcompact3d_toolbox"
+- icon: python
+  icon_pack: fab
+  name: See on Pip
+  url: "https://pypi.org/project/xcompact3d-toolbox/"
+- icon: book
+  icon_pack: fas
+  name: Documentation
+  url: "https://docs.fschuch.com/xcompact3d_toolbox/"
 ---
