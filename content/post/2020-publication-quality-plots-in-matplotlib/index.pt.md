@@ -31,7 +31,7 @@ Os pontos acima serão abordados em Python, ou mais especificamente, no pacote [
 
 Além disso, funções de plotagem Matplotlib são integradas às principais soluções para gerenciamento de dados em Python, como [NumPy](https://numpy.org/), [Pandas](https://pandas.pydata.org/), [Xarray](http://xarray.pydata.org/en/stable/), [Dask](https://dask.org/) e muitos outros.
 
-Matplotlib acompanha as principais distribuições de Python, de modo que podemos importar para nosso código com:
+Confira na [documentação do Matplotlib](https://matplotlib.org/stable/install/index.html) a melhor maneira de instalação no seu sistema. Podemos importar para nosso código com:
 
 ```python
 import matplotlib.pyplot as plt
@@ -113,13 +113,13 @@ Agora vamos falar sobre o estilo das figuras, incluindo sequencia de cores, esti
 Uma série de estilos já estão preparados e inclusos na biblioteca, e todos eles estão disponíveis em [Documentação - Matplotlib](https://matplotlib.org/3.1.0/gallery/style_sheets/style_sheets_reference.html).
 De lá, retirei alguns para exemplificar o leque de possibilidades que temos a nossa disposição:
 
-{{< figure src="<https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_001.png>" >}}
-{{< figure src="<https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_002.png>" >}}
-{{< figure src="<https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_005.png>" >}}
-{{< figure src="<https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_006.png>" >}}
-{{< figure src="<https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_008.png>" >}}
-{{< figure src="<https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_009.png>" >}}
-{{< figure src="<https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_011.png>" >}}
+{{< figure src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_001.png" >}}
+{{< figure src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_002.png" >}}
+{{< figure src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_005.png" >}}
+{{< figure src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_006.png" >}}
+{{< figure src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_008.png" >}}
+{{< figure src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_009.png" >}}
+{{< figure src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_011.png" >}}
 
 Indicamos o uso de um estilo pelo seu nome, e o seguinte comando:
 
