@@ -77,4 +77,3 @@ email: ""
 
 Possuo experiência na aplicação e também no desenvolvimento de ferramentas computacionais capazes de resolver problemas complexos, além de realizar o processamento, visualização e comunicação dos dados produzidos por essas soluções.
 Tais ferramentas são frequentemente impulsionadas por Computação de Alto Desempenho (HPC).
-Um defensor do Jupyter Notebook, como uma ferramenta de produção, colaboração, pesquisa e ensino.
