@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SciPy | F. Schuch</title><link>https://www.fschuch.com/tag/scipy/</link><atom:link href="https://www.fschuch.com/tag/scipy/index.xml" rel="self" type="application/rss+xml"/><description>SciPy</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Tue, 04 May 2021 15:30:00 -0300</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>SciPy</title><link>https://www.fschuch.com/tag/scipy/</link></image><item><title>Métodos Numéricos em Python</title><link>https://www.fschuch.com/talk/metodos-numericos-em-python/</link><pubDate>Tue, 04 May 2021 15:30:00 -0300</pubDate><guid>https://www.fschuch.com/talk/metodos-numericos-em-python/</guid><description>&lt;p>Esta palestra tem por objetivo introduzir os principais conceitos de programação e Python, empregando a didática interativa da plataforma Jupyter Notebook. Além disso, demonstra-se como solucionar problemas em métodos numéricos por meio de propostas computacionais. Para tanto, o material é dividido em duas aulas:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SciPy | F. Schuch</title><link>https://www.fschuch.com/tag/scipy/</link><atom:link href="https://www.fschuch.com/tag/scipy/index.xml" rel="self" type="application/rss+xml"/><description>SciPy</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><copyright>© 2020-2025 Felipe N. Schuch</copyright><lastBuildDate>Tue, 04 May 2021 15:30:00 -0300</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>SciPy</title><link>https://www.fschuch.com/tag/scipy/</link></image><item><title>Métodos Numéricos em Python</title><link>https://www.fschuch.com/talk/metodos-numericos-em-python/</link><pubDate>Tue, 04 May 2021 15:30:00 -0300</pubDate><guid>https://www.fschuch.com/talk/metodos-numericos-em-python/</guid><description>&lt;p>Esta palestra tem por objetivo introduzir os principais conceitos de programação e Python, empregando a didática interativa da plataforma Jupyter Notebook. Além disso, demonstra-se como solucionar problemas em métodos numéricos por meio de propostas computacionais. Para tanto, o material é dividido em duas aulas:&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/metodos-numericos-com-python/blob/main/Aulas/01-Introdu%c3%a7%c3%a3o-Python-Bibliotecas.ipynb" target="_blank" rel="noopener">Ligeira Introdução à Python&lt;/a>, contemplando:&lt;/p>
@@ -444,7 +444,7 @@ title=&amp;quot;Uma Figura Interativa&amp;quot;,
 )
 fig.show()
 &lt;/code>&lt;/pre>
-&lt;div id="chart-613827495" class="chart">&lt;/div>
+&lt;div id="chart-479583612" class="chart">&lt;/div>
 &lt;script>
 (function() {
 let a = setInterval( function() {
@@ -453,7 +453,7 @@ return;
 }
 clearInterval( a );
 Plotly.d3.json("./example.json", function(chart) {
-Plotly.plot('chart-613827495', chart.data, chart.layout, {responsive: true});
+Plotly.plot('chart-479583612', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();

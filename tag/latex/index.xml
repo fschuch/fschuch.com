@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX | F. Schuch</title><link>https://www.fschuch.com/tag/latex/</link><atom:link href="https://www.fschuch.com/tag/latex/index.xml" rel="self" type="application/rss+xml"/><description>LaTeX</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>LaTeX</title><link>https://www.fschuch.com/tag/latex/</link></image><item><title>Gráficos com qualidade de publicação em Python com Matplotlib</title><link>https://www.fschuch.com/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib/</link><pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX | F. Schuch</title><link>https://www.fschuch.com/tag/latex/</link><atom:link href="https://www.fschuch.com/tag/latex/index.xml" rel="self" type="application/rss+xml"/><description>LaTeX</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><copyright>© 2020-2025 Felipe N. Schuch</copyright><lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>LaTeX</title><link>https://www.fschuch.com/tag/latex/</link></image><item><title>Gráficos com qualidade de publicação em Python com Matplotlib</title><link>https://www.fschuch.com/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib/</link><pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib/</guid><description>&lt;details class="toc-inpage d-print-none " open>
 &lt;summary class="font-weight-bold">Lista de Conteúdos&lt;/summary>
 &lt;nav id="TableOfContents">
 &lt;ul>
@@ -28,20 +28,22 @@
 &lt;h2 id="metodologia">Metodologia&lt;/h2>
 &lt;p>Os pontos acima serão abordados em Python, ou mais especificamente, no pacote &lt;a href="https://matplotlib.org/" target="_blank" rel="noopener">Matplotlib&lt;/a>, que é uma biblioteca de plotagem 2D, que produz figuras de qualidade de publicação em uma variedade de formatos impressos e ambientes interativos para múltiplas plataformas. Matplotlib pode ser usada em scripts Python, nos shells do Python e do &lt;a href="https://ipython.org/" target="_blank" rel="noopener">IPython&lt;/a>, no &lt;a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook&lt;/a>, nos servidores de aplicativos da web e em quatro kits de ferramentas de interface gráfica do usuário. &lt;strong>Matplotlib tenta tornar as coisas fáceis simples e as coisas difíceis possíveis&lt;/strong>. Você pode gerar gráficos, histogramas, espectros de potência, gráficos de barras, gráficos de erros, diagramas de dispersão, etc., com apenas algumas linhas de código.&lt;/p>
 &lt;p>Além disso, funções de plotagem Matplotlib são integradas às principais soluções para gerenciamento de dados em Python, como &lt;a href="https://numpy.org/" target="_blank" rel="noopener">NumPy&lt;/a>, &lt;a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas&lt;/a>, &lt;a href="http://xarray.pydata.org/en/stable/" target="_blank" rel="noopener">Xarray&lt;/a>, &lt;a href="https://dask.org/" target="_blank" rel="noopener">Dask&lt;/a> e muitos outros.&lt;/p>
-&lt;p>Matplotlib acompanha as principais distribuições de Python, de modo que podemos importar para nosso código com:&lt;/p>
+&lt;p>Confira na &lt;a href="https://matplotlib.org/stable/install/index.html" target="_blank" rel="noopener">documentação do Matplotlib&lt;/a> a melhor maneira de instalação no seu sistema. Podemos importar para nosso código com:&lt;/p>
 &lt;pre>&lt;code class="language-python">import matplotlib.pyplot as plt
 &lt;/code>&lt;/pre>
 &lt;p>Agora vamos abordar especificamente cada tópico listado para a produção de figuras com qualidade de publicação.&lt;/p>
 &lt;h3 id="localização">Localização&lt;/h3>
-&lt;p>Se seu interesse é produzir conteúdo em lingua inglesa, indico que pule para o &lt;a href="#estilo">próximo tópico&lt;/a>. Caso contrário, podemos usar o pacote &lt;a href="https://docs.python.org/3.8/library/locale.html" target="_blank" rel="noopener">locale&lt;/a> para garantir a consistência de nossas figuras com os padrões da lingua portuguesa, por exemplo, ou realmente qualquer outra. Para tanto, podemos importar o pacote e definir a linguagem padrão como português:&lt;/p>
+&lt;p>Se seu interesse é produzir conteúdo em língua inglesa, indico que pule para o &lt;a href="#estilo">próximo tópico&lt;/a>. Caso contrário, podemos usar o pacote &lt;a href="https://docs.python.org/3.8/library/locale.html" target="_blank" rel="noopener">locale&lt;/a> para garantir a consistência de nossas figuras com os padrões da língua portuguesa, por exemplo, ou realmente qualquer outra. Para tanto, podemos importar o pacote e definir a linguagem padrão como português:&lt;/p>
 &lt;pre>&lt;code class="language-python">import locale
 locale.setlocale(locale.LC_ALL, &amp;quot;pt_BR.utf8&amp;quot;)
 &lt;/code>&lt;/pre>
 &lt;p>Todos os parâmetros personalizáveis são armazenados no &lt;a href="https://docs.python.org/pt-br/3.8/tutorial/datastructures.html#dictionaries" target="_blank" rel="noopener">dicionário&lt;/a> &lt;code>plt.rcParams&lt;/code>, uma visão completa está disponível na página de sua &lt;a href="https://matplotlib.org/3.1.1/tutorials/introductory/customizing.html" target="_blank" rel="noopener">Documentação&lt;/a>, mas não se preocupe, os principais pontos serão demonstrados aqui.&lt;/p>
 &lt;p>O passo a seguir é informar que queremos utilizar outro idioma para a notação nos eixos dos gráficos, por exemplo, usar &lt;code>,&lt;/code> como separador decimal, fazemos isso com o seguinte código:&lt;/p>
-&lt;pre>&lt;code class="language-python">plt.rcParams.update({
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
 'axes.formatter.use_locale' : True,
-})
+}
+)
 &lt;/code>&lt;/pre>
 &lt;p>Não faz sentido confundir o público com diferentes separadores de decimal se podemos resolver isso facilmente com três linhas de código, não é mesmo?&lt;/p>
 &lt;p>Perceba que essa definição só é válida para os eixos das figuras, não modificando o comportamento do próprio núcleo Python, por exemplo:&lt;/p>
@@ -114,93 +116,48 @@ Caso queira retomar os parâmetros originais, use:&lt;/p>
 &lt;h3 id="dimensões">Dimensões&lt;/h3>
 &lt;p>Outro ponto essencial, a relação entre o tamanho da figura e o tamanho da fonte. Quando falamos em qualidade de publicação, os textos e números dos gráficos devem ser exatamente do mesmo tamanho que o restante do documento onde eles são inseridos.&lt;/p>
 &lt;p>O ideal aqui é a precisa definição da largura e da altura que se deseja a figura, para que ela possa ser inserida no documento final em uma escala 1:1, sem nenhuma distorção.&lt;/p>
-&lt;p>Temos uma função preparada para isso:&lt;/p>
-&lt;pre>&lt;code>def get_figsize(
-columnwidth=4, wf=1.0, hf_rel=(5.0 ** 0.5 - 1.0) / 2.0, hf_abs=None, unit=&amp;quot;inch&amp;quot;
-):
-&amp;quot;&amp;quot;&amp;quot;A função aceita uma série de argumentos para a precisa customização da
-largura e altura de uma figura que será produzida com Matplotlib.
-Maiores detalhes em:
-www.fschuch/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib
-© 2020 Felipe N. Schuch, sob os termos da CC BY SA 4.0.
-(www.creativecommons.org/licenses/by-sa/4.0)
-Parâmetros
-----------
-columnwidth : float
-Largura da página ou da coluna de texto (o padrão é 4)
-Obtenha isso em LaTeX usando \the\columnwidth
-wf : float
-A fração da largura que será utilizada pela figura (o padrão é 1.0)
-hf_rel : float
-Altura da figura, valor relativo em relação à largura (o padrão é a proporção áurea)
-hf_abs : float
-Altura da figura em termos absolutos, caso desejado (o padrão é None)
-Obtenha isso em LaTeX usando \the\textheight
-unit : float
-Unidade de comprimento utilizada para `columnwidth` e `hf_abs`,
-as opções suportadas são &amp;quot;inch&amp;quot; (polegada), &amp;quot;mm&amp;quot;, &amp;quot;cm&amp;quot; e &amp;quot;pt&amp;quot; (Pontos tipográfico)
-(o padrão é &amp;quot;inch&amp;quot;)
-Retorno
--------
-set
-Retorna um set contendo a largura e a altura especificada para a figura.
-Apura
--------
-ValueError
-Caso a unidade não seja suportada pela função.
-Exemplos
--------
-&amp;gt;&amp;gt;&amp;gt; import matplotlib.pyplot as plt
-&amp;gt;&amp;gt;&amp;gt; get_figsize()
-(4.0, 2.4721359549995796)
-&amp;gt;&amp;gt;&amp;gt; get_figsize(columnwidth=16, unit='cm', hf_abs=9)
-(6.299212598425196, 3.543307086614173)
-&amp;gt;&amp;gt;&amp;gt; get_figsize(columnwidth=4, unit='inch', hf_rel = 1.0)
-(4.0, 4.0)
-&amp;gt;&amp;gt;&amp;gt; plt.rcParams.update({
-... 'figure.figsize' : get_figsize(columnwidth=160, wf=0.75, unit='mm', hf_rel=1)
-... })
-&amp;quot;&amp;quot;&amp;quot;
-# Dessa maneira, unit não será sensível a letras maiúsculas e minúsculas
-unit = unit.lower()
-# Converte unidades para polegadas, conforme esperado por Matplotlib
-conversion = dict(inch=1.0, mm=25.4, cm=2.54, pt=72.0,)
-if unit in conversion.keys():
-fig_width = columnwidth / conversion[unit]
-if hf_abs is not None:
-fig_height = hf_abs / conversion[unit]
-else:
-raise ValueError(f&amp;quot;unit deve ser: {conversion.keys()}&amp;quot;)
-# A figura será apenas uma fração da largura útil da página
-fig_width *= wf
-# Caso hf_abs não seja definido, a altura será uma fração da largura
-if hf_abs is None:
-fig_height = fig_width * hf_rel
-# Retorna a largura e altura especificada para a figura
-return (fig_width, fig_height)
+&lt;p>Há um pacote Python de minha autoria que facilita essa tarefa, o &lt;a href="https://pypi.org/project/figure-scale" target="_blank" rel="noopener">figure-scale&lt;/a>. Maiores detalhes podem ser encontrados em sua &lt;a href="https://docs.fschuch.com/figure-scale/" target="_blank" rel="noopener">Documentação&lt;/a>, mas aqui vamos ver um exemplo de uso.&lt;/p>
+&lt;p>Primeiro, precisamos instalar o pacote:&lt;/p>
+&lt;pre>&lt;code class="language-shell">pip install figure-scale
+&lt;/code>&lt;/pre>
+&lt;p>A classe &lt;code>FigureScale&lt;/code> é o principal componente do pacote.
+Ela permite definir as dimensões da figura da maneira que for mais conveniente para seu caso:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Largura e Altura&lt;/strong>: Especificar ambas as dimensões explicitamente;&lt;/li>
+&lt;li>&lt;strong>Largura e Proporção&lt;/strong>: Especificar a largura e deixar a altura ser calculada a partir da proporção;&lt;/li>
+&lt;li>&lt;strong>Altura e Proporção&lt;/strong>: Especificar a altura e deixar a largura ser calculada a partir da proporção.&lt;/li>
+&lt;/ol>
+&lt;p>Todas as dimensões podem ser especificadas em várias unidades. Vamos explorar cada abordagem:&lt;/p>
+&lt;pre>&lt;code class="language-python">import figure_scale as fs
+size_a = fs.FigureScale(units=&amp;quot;mm&amp;quot;, width=100, height=100)
+size_b = fs.FigureScale(units=&amp;quot;mm&amp;quot;, width=100, aspect=1.0)
+size_c = fs.FigureScale(units=&amp;quot;mm&amp;quot;, height=100, aspect=1.0)
 &lt;/code>&lt;/pre>
 &lt;p>Vamos detalhar cada um dos parâmetros:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>columnwidth&lt;/code> é a largura útil da página, isso é, a largura da página menos ambas margens. Ou a largura da coluna, para os casos em que isso se aplicar. Em documentos &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a>, esse valor pode ser obtido com o comando &lt;code>\the\columnwidth&lt;/code>;&lt;/li>
-&lt;li>&lt;code>wf&lt;/code> é a fração da largura que será utilizada para a figura, porque nem sempre queremos todo o espaço. Isso é, &lt;code>wf=0.5&lt;/code> criará um gráfico que ocupa a metade da largura útil da página;&lt;/li>
-&lt;li>&lt;code>hf_rel&lt;/code> define a altura da figura em valor relativo em relação à largura. Por exemplo, &lt;code>hf_rel=1.0&lt;/code> criará uma figura quadrada, enquanto &lt;code>hf_rel=9.0/16.0&lt;/code> criará a proporção certa para telas wide-screen;&lt;/li>
-&lt;li>&lt;code>hf_abs&lt;/code> pode ser usado para o ajuste da altura em termos absolutos, caso o ajuste fino seja desejado. Em documentos &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a>, esse valor pode ser obtido com o comando &lt;code>\the\textheight&lt;/code>. Note que esse argumento desabilita o argumento anterior (&lt;code>hf_rel&lt;/code>);&lt;/li>
-&lt;li>&lt;code>unit&lt;/code> representa a unidade de comprimento para &lt;code>columnwidth&lt;/code> e &lt;code>hf_abs&lt;/code>, as opções suportadas são &amp;ldquo;inch&amp;rdquo; (polegada), &amp;ldquo;mm&amp;rdquo;, &amp;ldquo;cm&amp;rdquo; e &amp;ldquo;pt&amp;rdquo; (pontos tipográfico, é a utilizada em $\LaTeX$). Assim, a função realiza a devida conversão de unidades, uma vez que Matplotlib espera essa definição em polegadas.&lt;/li>
+&lt;li>&lt;code>width&lt;/code> é a largura útil da página, isso é, a largura da página menos ambas margens. Ou a largura da coluna, para os casos em que isso se aplicar. Em documentos &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a>, esse valor pode ser obtido com o comando &lt;code>\the\columnwidth&lt;/code>;&lt;/li>
+&lt;li>&lt;code>height&lt;/code> pode ser usado para o ajuste da altura em termos absolutos, caso o ajuste fino seja desejado. Em documentos &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a>, esse valor pode ser obtido com o comando &lt;code>\the\textheight&lt;/code>;&lt;/li>
+&lt;li>&lt;code>aspect&lt;/code> define a altura da figura em valor relativo em relação à largura. Por exemplo, &lt;code>aspect=1.0&lt;/code> criará uma figura quadrada, enquanto &lt;code>aspect=9.0/16.0&lt;/code> criará a proporção certa para telas wide-screen;&lt;/li>
+&lt;li>&lt;code>unit&lt;/code> representa a unidade de comprimento para &lt;code>width&lt;/code> e &lt;code>height&lt;/code>, algumas das opções suportadas são &amp;ldquo;in&amp;rdquo; (polegada), &amp;ldquo;mm&amp;rdquo;, &amp;ldquo;cm&amp;rdquo; e &amp;ldquo;pt&amp;rdquo; (pontos tipográfico, é a utilizada em $\LaTeX$). Assim, o objeto realiza a devida conversão de unidades, uma vez que Matplotlib espera essa definição em polegadas.&lt;/li>
 &lt;/ul>
-&lt;p>A função retorna uma &lt;a href="https://docs.python.org/pt-br/3.8/tutorial/datastructures.html#tuples-and-sequences" target="_blank" rel="noopener">tupla&lt;/a> contendo a largura e altura, que é exatamente o que precisamos. Veja como agora podemos definir com precisão o padrão de desejamos para dimensões e tamanho da fonte:&lt;/p>
-&lt;pre>&lt;code class="language-python">plt.rcParams.update({
+&lt;p>Note que apenas dois dos três parâmetros &lt;code>width&lt;/code>, &lt;code>height&lt;/code> e &lt;code>aspect&lt;/code> são necessários, o terceiro será calculado automaticamente a partir dos outros dois.
+A classe &lt;code>FigureScale&lt;/code> implementa o protocole de &lt;a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" target="_blank" rel="noopener">Sequence&lt;/a>, fazendo com que possa ser aceito como argumento para o parâmetro &lt;code>figsize&lt;/code> em qualquer função Matplotlib que o aceite, como &lt;code>plt.subplots()&lt;/code>, &lt;code>plt.figure()&lt;/code> e outros.&lt;/p>
+&lt;p>Veja como agora podemos definir com precisão o padrão de desejamos para dimensões e tamanho da fonte:&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
 #
-'figure.figsize' : get_figsize(columnwidth=160, unit='mm', hf_rel=1),
+'figure.figsize' : fs.FigureScale(units='mm', width=160, aspect=1),
 #
 &amp;quot;axes.labelsize&amp;quot;: 12,
 &amp;quot;font.size&amp;quot;: 12,
 &amp;quot;legend.fontsize&amp;quot;: 12,
 &amp;quot;xtick.labelsize&amp;quot;: 12,
 &amp;quot;ytick.labelsize&amp;quot;: 12,
-})
+}
+)
 &lt;/code>&lt;/pre>
 &lt;p>É possível realizar posteriormente um ajuste personalizado para cada figura, por exemplo:&lt;/p>
-&lt;pre>&lt;code class="language-python">fig, axes = plt.subplots(figsize=get_figsize(columnwidth=16, unit='cm', hf_rel=0.5))
+&lt;pre>&lt;code class="language-python">fig, axes = plt.subplots(figsize=fs.FigureScale(units='mm', width=160, aspect=1))
 &lt;/code>&lt;/pre>
 &lt;p>Toda minha produção técnica/científica tem sido feita em &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a>, o que eu certamente recomendo. De fato, esse pode ser um tópico para outro post no futuro próximo.
 Se esse não é o seu caso, pode ser o momento de prosseguir para o &lt;a href="#formato">próximo tópico&lt;/a>.
@@ -208,48 +165,56 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:&lt
 &lt;ul>
 &lt;li>
 &lt;p>Artigo com o &lt;a href="https://www.ctan.org/pkg/els-cas-templates/" target="_blank" rel="noopener">template de duas colunas da Elsevier&lt;/a>:&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update({
-'figure.figsize' : get_figsize(columnwidth=238.25444, unit='pt'),
+&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+{
+'figure.figsize' : fs.FigureScale(unit='pt', width=238.25444, aspect=3/4),
 #
 &amp;quot;axes.labelsize&amp;quot;: 8,
 &amp;quot;font.size&amp;quot;: 8,
 &amp;quot;legend.fontsize&amp;quot;: 8,
 &amp;quot;xtick.labelsize&amp;quot;: 8,
 &amp;quot;ytick.labelsize&amp;quot;: 8
-})
+}
+)
 &lt;/code>&lt;/pre>
 &lt;/li>
 &lt;li>
 &lt;p>Relatório técnico, Dissertação ou Tese com &lt;a href="https://www.abntex.net.br/" target="_blank" rel="noopener">abnTeX2&lt;/a>:&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update({
-'figure.figsize' : get_figsize(columnwidth=455.0, unit='pt'),
+&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+{
+'figure.figsize' : fs.FigureScale(unit='pt', width=455.0, aspect=3/4),
 #
 &amp;quot;axes.labelsize&amp;quot;: 12,
 &amp;quot;font.size&amp;quot;: 12,
 &amp;quot;legend.fontsize&amp;quot;: 12,
 &amp;quot;xtick.labelsize&amp;quot;: 12,
 &amp;quot;ytick.labelsize&amp;quot;: 12,
-})
+}
+)
 &lt;/code>&lt;/pre>
 &lt;/li>
 &lt;li>
 &lt;p>Pôster em tamanho A0 com &lt;a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener">beamer&lt;/a> (e &lt;a href="https://www.overleaf.com/latex/templates/landscape-beamer-poster-template/vjpmsxxdvtqk" target="_blank" rel="noopener">esse template&lt;/a>):&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update({
-'figure.figsize' : get_figsize(columnwidth=2376.3973*.75, unit='pt'),
+&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+{
+'figure.figsize' : fs.FigureScale(unit='pt', width=2376.3973*.75, aspect=9/16),
 #
 &amp;quot;axes.labelsize&amp;quot;: 24,
 &amp;quot;font.size&amp;quot;: 24,
 &amp;quot;legend.fontsize&amp;quot;: 24,
 &amp;quot;xtick.labelsize&amp;quot;: 24,
 &amp;quot;ytick.labelsize&amp;quot;: 24,
-})
+}
+)
 &lt;/code>&lt;/pre>
 &lt;/li>
 &lt;li>
 &lt;p>Apresentação de slides com &lt;a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener">beamer&lt;/a> (e o tema &lt;a href="https://github.com/elauksap/focus-beamertheme" target="_blank" rel="noopener">Focus v2.6&lt;/a>):&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update({
-'figure.figsize' : get_figsize(columnwidth=412.56497, unit='pt'),
-})
+&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+{
+'figure.figsize' : fs.FigureScale(unit='pt', width=412.56497), aspect=9/16,
+}
+)
 &lt;/code>&lt;/pre>
 &lt;/li>
 &lt;/ul>
@@ -351,13 +316,15 @@ loading="lazy" data-zoomable />&lt;/div>
 &lt;/ul>
 &lt;p>A efetiva escolha sobre quais elementos converter é novamente um compromisso entre a qualidade da imagem e o seu tamanho em disco, e isso certamente depende de cada aplicação, ou mesmo da preferência pessoal. Note que dpi ainda é um parâmetro válido para os elementos convertidos para pixels.&lt;/p>
 &lt;p>Finalmente, podemos definir esses parâmetros para serem aplicados como padrão em nosso código da seguinte maneira:&lt;/p>
-&lt;pre>&lt;code class="language-python">plt.rcParams.update({
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
 'figure.dpi' : 240,
 'savefig.format' : 'pdf',
 #
 'text.usetex' : True,
 'text.latex.preamble' : &amp;quot;\\usepackage{icomma}&amp;quot;,
-})
+}
+)
 &lt;/code>&lt;/pre>
 &lt;p>A opção &lt;code>text.usetex&lt;/code> é particularmente útil para quem usa $\LaTeX$, permitindo incluir equações como anotações, título ou como rótulo para as coordenadas. A opção &lt;code>'text.latex.preamble' : &amp;quot;\\usepackage{icomma}&amp;quot;&lt;/code> é um bônus, isso elimina o espaço inserido em modo matemático após cada vírgula, que certamente não são bem-vindos quando falamos em qualidade de publicação.&lt;/p>
 &lt;h2 id="conclusão">Conclusão&lt;/h2>

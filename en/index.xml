@@ -1,4 +1,344 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>F. Schuch</title><link>https://www.fschuch.com/en/</link><atom:link href="https://www.fschuch.com/en/index.xml" rel="self" type="application/rss+xml"/><description>F. Schuch</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 05 Sep 2022 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>F. Schuch</title><link>https://www.fschuch.com/en/</link></image><item><title>A Cartesian Immersed Boundary Method Based on 1D Flow Reconstructions for High-Fidelity Simulations of Incompressible Turbulent Flows Around Moving Objects</title><link>https://www.fschuch.com/en/publication/2022-flow-turbulence-and-combustion/</link><pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2022-flow-turbulence-and-combustion/</guid><description/></item><item><title>Plunging condition for particle-laden flows over sloping bottoms: three-dimensional turbulence-resolving simulations</title><link>https://www.fschuch.com/en/publication/2021-computers-and-geosciences/</link><pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2021-computers-and-geosciences/</guid><description/></item><item><title>Python and XCompact3d</title><link>https://www.fschuch.com/en/talk/python-and-xcompact3d/</link><pubDate>Fri, 19 Mar 2021 13:15:00 +0000</pubDate><guid>https://www.fschuch.com/en/talk/python-and-xcompact3d/</guid><description/></item><item><title>Sandbox flow configuration: A rapid prototyping tool inside XCompact3d</title><link>https://www.fschuch.com/en/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</link><pubDate>Fri, 12 Mar 2021 15:55:00 +0000</pubDate><guid>https://www.fschuch.com/en/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</guid><description/></item><item><title>A Jupyter sandbox environment coupled into the high-order Navier-Stokes solver Xcompact3d</title><link>https://www.fschuch.com/en/publication/2020-jupytercon/</link><pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2020-jupytercon/</guid><description>&lt;h1 id="outline">Outline&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>F. Schuch</title><link>https://www.fschuch.com/en/</link><atom:link href="https://www.fschuch.com/en/index.xml" rel="self" type="application/rss+xml"/><description>F. Schuch</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2020-2025 Felipe N. Schuch</copyright><lastBuildDate>Sat, 05 Jul 2025 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>F. Schuch</title><link>https://www.fschuch.com/en/</link></image><item><title>Publication-Quality Plots in Python with Matplotlib</title><link>https://www.fschuch.com/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/</link><pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+&lt;summary class="font-weight-bold">Table of Contents&lt;/summary>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#introduction">Introduction&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#methodology">Methodology&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#localization">Localization&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#style">Style&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#dimensions">Dimensions&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#format">Format&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#conclusion">Conclusion&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/details>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>The synthesis and analysis of data and results in graphical form is a topic of interest for professionals from the most diverse areas, whether in the production of technical/scientific, educational content, or for digital media outreach. A good figure will attract the attention of your target audience.&lt;/p>
+&lt;p>There are four topics that, in my opinion, directly influence the final result of the plots that will be produced, especially when we talk about publication quality. They are:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>&lt;a href="#localization">Localization&lt;/a>:&lt;/strong> Numerical formatting should be in accordance with the language for which you&amp;rsquo;re producing content, whether in formatting dates, currency, or even the decimal separator;&lt;/li>
+&lt;li>&lt;strong>&lt;a href="#style">Style&lt;/a>:&lt;/strong> Here various visual aspects are defined, such as the plot&amp;rsquo;s color scheme, axes and background, font, and other elements. It&amp;rsquo;s important to maintain consistency across the various plots that will constitute the same document;&lt;/li>
+&lt;li>&lt;strong>&lt;a href="#dimensions">Dimensions&lt;/a>:&lt;/strong> The definition of the figure&amp;rsquo;s width and height, as well as font size, should be consistent with the type of content where the plot will be inserted, whether in slides, poster, report, article, social media posts and many others;&lt;/li>
+&lt;li>&lt;strong>&lt;a href="#format">Format&lt;/a>:&lt;/strong> The format in which figures will be saved. Vector options are preferable because they maintain good visual presentation even on high-resolution screens or prints, or when figures are enlarged.&lt;/li>
+&lt;/ol>
+&lt;!--adsense-->
+&lt;h2 id="methodology">Methodology&lt;/h2>
+&lt;p>The points above will be addressed in Python, or more specifically, in the &lt;a href="https://matplotlib.org/" target="_blank" rel="noopener">Matplotlib&lt;/a> package, which is a 2D plotting library that produces publication-quality figures in a variety of print formats and interactive environments across multiple platforms. Matplotlib can be used in Python scripts, Python and &lt;a href="https://ipython.org/" target="_blank" rel="noopener">IPython&lt;/a> shells, &lt;a href="https://jupyter.org/" target="_blank" rel="noopener">Jupyter Notebook&lt;/a>, web application servers, and four graphical user interface toolkits. &lt;strong>Matplotlib tries to make easy things easy and hard things possible&lt;/strong>. You can generate plots, histograms, power spectra, bar charts, error plots, scatter plots, etc., with just a few lines of code.&lt;/p>
+&lt;p>Additionally, Matplotlib plotting functions are integrated with major data management solutions in Python, such as &lt;a href="https://numpy.org/" target="_blank" rel="noopener">NumPy&lt;/a>, &lt;a href="https://pandas.pydata.org/" target="_blank" rel="noopener">Pandas&lt;/a>, &lt;a href="http://xarray.pydata.org/en/stable/" target="_blank" rel="noopener">Xarray&lt;/a>, &lt;a href="https://dask.org/" target="_blank" rel="noopener">Dask&lt;/a> and many others.&lt;/p>
+&lt;p>Refer to the &lt;a href="https://matplotlib.org/stable/install/index.html" target="_blank" rel="noopener">Matplotlib documentation&lt;/a> for the best way to install it on your system. We can import it into our code with:&lt;/p>
+&lt;pre>&lt;code class="language-python">import matplotlib.pyplot as plt
+&lt;/code>&lt;/pre>
+&lt;p>Now let&amp;rsquo;s specifically address each topic listed for producing publication-quality figures.&lt;/p>
+&lt;h3 id="localization">Localization&lt;/h3>
+&lt;p>If your interest is to produce content in English, I suggest you skip to the &lt;a href="#style">next topic&lt;/a>. Otherwise, we can use the &lt;a href="https://docs.python.org/3.8/library/locale.html" target="_blank" rel="noopener">locale&lt;/a> package to ensure consistency of our figures with the standards of Portuguese, for example, or really any other language. To do so, we can import the package and set the default language as Portuguese:&lt;/p>
+&lt;pre>&lt;code class="language-python">import locale
+locale.setlocale(locale.LC_ALL, &amp;quot;pt_BR.utf8&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;p>All customizable parameters are stored in the &lt;a href="https://docs.python.org/3.8/tutorial/datastructures.html#dictionaries" target="_blank" rel="noopener">dictionary&lt;/a> &lt;code>plt.rcParams&lt;/code>, a complete view is available on its &lt;a href="https://matplotlib.org/3.1.1/tutorials/introductory/customizing.html" target="_blank" rel="noopener">Documentation&lt;/a> page, but don&amp;rsquo;t worry, the main points will be demonstrated here.&lt;/p>
+&lt;p>The next step is to inform that we want to use another language for notation on the plot axes, for example, using &lt;code>,&lt;/code> as decimal separator, we do this with the following code:&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
+'axes.formatter.use_locale' : True,
+}
+)
+&lt;/code>&lt;/pre>
+&lt;p>It doesn&amp;rsquo;t make sense to confuse the audience with different decimal separators if we can easily solve this with three lines of code, right?&lt;/p>
+&lt;p>Notice that this definition is only valid for figure axes, not modifying the behavior of Python&amp;rsquo;s core itself, for example:&lt;/p>
+&lt;pre>&lt;code class="language-python">value = 0.67
+print(value)
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text"> 0.67
+&lt;/code>&lt;/pre>
+&lt;p>Note that the print still uses the dot as decimal separator. For prints, annotations or legends in figures, we can use the &lt;code>locale.str()&lt;/code> method to automatically format floating-point numbers:&lt;/p>
+&lt;pre>&lt;code class="language-python">print(locale.str(value))
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text"> 0,67
+&lt;/code>&lt;/pre>
+&lt;p>This can be a good practice, since you just need to return one line of code to English (&lt;code>locale.setlocale(locale.LC_ALL, &amp;quot;en_US.utf8&amp;quot;)&lt;/code>), and all the rest of the code will behave appropriately.&lt;/p>
+&lt;p>It&amp;rsquo;s also possible to easily format monetary data:&lt;/p>
+&lt;pre>&lt;code class="language-python">print(locale.currency(value))
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text"> 'R$ 0,67'
+&lt;/code>&lt;/pre>
+&lt;p>And date formatting, with the &lt;a href="https://docs.python.org/3.8/library/time.html" target="_blank" rel="noopener">time&lt;/a> package, see:&lt;/p>
+&lt;pre>&lt;code class="language-python">from time import gmtime, strftime
+strftime(&amp;quot;%a, %d %b %Y %H:%M:%S +0000&amp;quot;, gmtime())
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text"> 'Wed, 14 Oct 2020 22:31:50 +0000'
+&lt;/code>&lt;/pre>
+&lt;h3 id="style">Style&lt;/h3>
+&lt;p>Now let&amp;rsquo;s talk about figure style, including color sequence, axis style, background color, presence or absence of grid, as well as its own style, annotation formatting and many other details.&lt;/p>
+&lt;p>A series of styles are already prepared and included in the library, and all of them are available in &lt;a href="https://matplotlib.org/3.1.0/gallery/style_sheets/style_sheets_reference.html" target="_blank" rel="noopener">Documentation - Matplotlib&lt;/a>.
+From there, I took some to exemplify the range of possibilities we have at our disposal:&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_001.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_002.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_005.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_006.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_008.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_009.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img src="https://matplotlib.org/3.1.0/_images/sphx_glr_style_sheets_reference_011.png" alt="" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>&lt;/p>
+&lt;p>We indicate the use of a style by its name, and the following command:&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.style.use('ggplot')
+&lt;/code>&lt;/pre>
+&lt;p>It&amp;rsquo;s also possible to combine various styles in a list, to produce unique results:&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.style.use(['ggplot', 'dark_background'])
+&lt;/code>&lt;/pre>
+&lt;p>Note that styles further to the right will overwrite parameters previously defined by styles to the left, so the order in which they are provided can change the final result.&lt;/p>
+&lt;p>You can still customize each aspect of the plots individually, for more details, I suggest consulting the &lt;a href="https://matplotlib.org/3.1.1/tutorials/introductory/customizing.html" target="_blank" rel="noopener">Documentation - Matplotlib&lt;/a>.
+If you want to return to the original parameters, use:&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.rcdefaults()
+&lt;/code>&lt;/pre>
+&lt;h3 id="dimensions">Dimensions&lt;/h3>
+&lt;p>Another essential point: the relationship between figure size and font size. When we talk about publication quality, the texts and numbers in plots should be exactly the same size as the rest of the document where they are inserted.&lt;/p>
+&lt;p>The ideal here is the precise definition of the width and height you want for the figure, so that it can be inserted in the final document at a 1:1 scale, without any distortion.&lt;/p>
+&lt;p>There&amp;rsquo;s a Python package of my authorship that facilitates this task, &lt;a href="https://pypi.org/project/figure-scale" target="_blank" rel="noopener">figure-scale&lt;/a>. More details can be found in its &lt;a href="https://docs.fschuch.com/figure-scale/" target="_blank" rel="noopener">Documentation&lt;/a>, but here we&amp;rsquo;ll see a usage example.&lt;/p>
+&lt;p>First, we need to install the package:&lt;/p>
+&lt;pre>&lt;code class="language-shell">pip install figure-scale
+&lt;/code>&lt;/pre>
+&lt;p>The &lt;code>FigureScale&lt;/code> class is the main component of the package.
+It allows you to define figure dimensions in whatever way is most convenient for your case:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Width and Height&lt;/strong>: Specify both dimensions explicitly;&lt;/li>
+&lt;li>&lt;strong>Width and Aspect Ratio&lt;/strong>: Specify the width and let the height be calculated from the aspect ratio;&lt;/li>
+&lt;li>&lt;strong>Height and Aspect Ratio&lt;/strong>: Specify the height and let the width be calculated from the aspect ratio.&lt;/li>
+&lt;/ol>
+&lt;p>All dimensions can be specified in various units. Let&amp;rsquo;s explore each approach:&lt;/p>
+&lt;pre>&lt;code class="language-python">import figure_scale as fs
+size_a = fs.FigureScale(units=&amp;quot;mm&amp;quot;, width=100, height=100)
+size_b = fs.FigureScale(units=&amp;quot;mm&amp;quot;, width=100, aspect=1.0)
+size_c = fs.FigureScale(units=&amp;quot;mm&amp;quot;, height=100, aspect=1.0)
+&lt;/code>&lt;/pre>
+&lt;p>Let&amp;rsquo;s detail each parameter:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>width&lt;/code> is the usable page width, that is, the page width minus both margins. Or the column width, for cases where this applies. In &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a> documents, this value can be obtained with the command &lt;code>\the\columnwidth&lt;/code>;&lt;/li>
+&lt;li>&lt;code>height&lt;/code> can be used for absolute height adjustment, if fine-tuning is desired. In &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a> documents, this value can be obtained with the command &lt;code>\the\textheight&lt;/code>;&lt;/li>
+&lt;li>&lt;code>aspect&lt;/code> defines the figure height as a relative value in relation to width. For example, &lt;code>aspect=1.0&lt;/code> will create a square figure, while &lt;code>aspect=9.0/16.0&lt;/code> will create the right proportion for wide-screen displays;&lt;/li>
+&lt;li>&lt;code>units&lt;/code> represents the length unit for &lt;code>width&lt;/code> and &lt;code>height&lt;/code>, some of the supported options are &amp;ldquo;in&amp;rdquo; (inch), &amp;ldquo;mm&amp;rdquo;, &amp;ldquo;cm&amp;rdquo; and &amp;ldquo;pt&amp;rdquo; (typographic points, used in $\LaTeX$). Thus, the object performs the proper unit conversion, since Matplotlib expects this definition in inches.&lt;/li>
+&lt;/ul>
+&lt;p>Note that only two of the three parameters &lt;code>width&lt;/code>, &lt;code>height&lt;/code> and &lt;code>aspect&lt;/code> are necessary, the third will be calculated automatically from the other two.
+The &lt;code>FigureScale&lt;/code> class implements the &lt;a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" target="_blank" rel="noopener">Sequence&lt;/a> protocol, making it acceptable as an argument for the &lt;code>figsize&lt;/code> parameter in any Matplotlib function that accepts it, such as &lt;code>plt.subplots()&lt;/code>, &lt;code>plt.figure()&lt;/code> and others.&lt;/p>
+&lt;p>See how we can now precisely define the standard we want for dimensions and font size:&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
+#
+'figure.figsize' : fs.FigureScale(units='mm', width=160, aspect=1),
+#
+&amp;quot;axes.labelsize&amp;quot;: 12,
+&amp;quot;font.size&amp;quot;: 12,
+&amp;quot;legend.fontsize&amp;quot;: 12,
+&amp;quot;xtick.labelsize&amp;quot;: 12,
+&amp;quot;ytick.labelsize&amp;quot;: 12,
+}
+)
+&lt;/code>&lt;/pre>
+&lt;p>It&amp;rsquo;s possible to later make a custom adjustment for each figure, for example:&lt;/p>
+&lt;pre>&lt;code class="language-python">fig, axes = plt.subplots(figsize=fs.FigureScale(units='mm', width=160, aspect=1))
+&lt;/code>&lt;/pre>
+&lt;p>All my technical/scientific production has been done in &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a>, which I certainly recommend. In fact, this could be a topic for another post in the near future.
+If this isn&amp;rsquo;t your case, it might be time to proceed to the &lt;a href="#format">next topic&lt;/a>.
+Either way, I&amp;rsquo;ll share some other adjustments for reference:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Article with &lt;a href="https://www.ctan.org/pkg/els-cas-templates/" target="_blank" rel="noopener">Elsevier&amp;rsquo;s two-column template&lt;/a>:&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
+'figure.figsize' : fs.FigureScale(units='pt', width=238.25444, aspect=3/4),
+#
+&amp;quot;axes.labelsize&amp;quot;: 8,
+&amp;quot;font.size&amp;quot;: 8,
+&amp;quot;legend.fontsize&amp;quot;: 8,
+&amp;quot;xtick.labelsize&amp;quot;: 8,
+&amp;quot;ytick.labelsize&amp;quot;: 8
+}
+)
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>Technical report, Dissertation or Thesis with &lt;a href="https://www.abntex.net.br/" target="_blank" rel="noopener">abnTeX2&lt;/a>:&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
+'figure.figsize' : fs.FigureScale(units='pt', width=455.0, aspect=3/4),
+#
+&amp;quot;axes.labelsize&amp;quot;: 12,
+&amp;quot;font.size&amp;quot;: 12,
+&amp;quot;legend.fontsize&amp;quot;: 12,
+&amp;quot;xtick.labelsize&amp;quot;: 12,
+&amp;quot;ytick.labelsize&amp;quot;: 12,
+}
+)
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>A0 size poster with &lt;a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener">beamer&lt;/a> (and &lt;a href="https://www.overleaf.com/latex/templates/landscape-beamer-poster-template/vjpmsxxdvtqk" target="_blank" rel="noopener">this template&lt;/a>):&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
+'figure.figsize' : fs.FigureScale(units='pt', width=2376.3973*.75, aspect=9/16),
+#
+&amp;quot;axes.labelsize&amp;quot;: 24,
+&amp;quot;font.size&amp;quot;: 24,
+&amp;quot;legend.fontsize&amp;quot;: 24,
+&amp;quot;xtick.labelsize&amp;quot;: 24,
+&amp;quot;ytick.labelsize&amp;quot;: 24,
+}
+)
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>Slide presentation with &lt;a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener">beamer&lt;/a> (and the &lt;a href="https://github.com/elauksap/focus-beamertheme" target="_blank" rel="noopener">Focus v2.6&lt;/a> theme):&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
+'figure.figsize' : fs.FigureScale(units='pt', width=412.56497, aspect=9/16),
+}
+)
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;/ul>
+&lt;p>In $\LaTeX$, you can be sure everything worked out when the figure is included with &lt;code>scale=1&lt;/code>, and the dimensions and font size look appropriate, for example:&lt;/p>
+&lt;pre>&lt;code class="language-latex">\includegraphics[scale=1]{&amp;lt;figure_name&amp;gt;}
+&lt;/code>&lt;/pre>
+&lt;!--adsense-->
+&lt;h3 id="format">Format&lt;/h3>
+&lt;p>Finally, we have the format in which the plots will be saved.
+They can be basically divided into two large groups, and we have a code block to exemplify:&lt;/p>
+&lt;pre>&lt;code class="language-python">import numpy as np
+x = np.linspace(0.0, 2.0 * np.pi)
+y = np.sin(x)
+for f in ['jpg', 'svg']:
+plt.plot(x,y, label = 'Label')
+plt.legend()
+plt.savefig('example_line.'+f, format=f)
+&lt;/code>&lt;/pre>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Raster format&lt;/strong>: The figure consists of an array of pixels (or matrix), which has a defined size, for example 240 x 120 pixels. If we want to enlarge it, we&amp;rsquo;ll see each small pixel, in a somewhat squared effect. In this group we have, for example, JPG and PNG formats, see the result:&lt;/p>
+&lt;figure id="figure-raster-format-figure-768-x-576-pixels-jpg">
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >
+&lt;img alt="Raster format figure 768 x 576 pixels (jpg)." srcset="
+/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/example_line_hu4a02b2ee2cc82d426183992a53dbd112_51903_5dfb47db9dffca673319f3b8411ff61c.jpg 400w,
+/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/example_line_hu4a02b2ee2cc82d426183992a53dbd112_51903_f3c1f8eda28b893d9b6b6e6bf774c689.jpg 760w,
+/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/example_line_hu4a02b2ee2cc82d426183992a53dbd112_51903_1200x1200_fit_q90_lanczos.jpg 1200w"
+src="https://www.fschuch.com/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/example_line_hu4a02b2ee2cc82d426183992a53dbd112_51903_5dfb47db9dffca673319f3b8411ff61c.jpg"
+width="760"
+height="570"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Raster format figure 768 x 576 pixels (jpg).
+&lt;/figcaption>&lt;/figure>
+&lt;p>The figure quality is controlled by the number of pixels, or the &lt;strong>dpi&lt;/strong> parameter (dots per inch). Increasing dpi increases image quality, but also increases its disk space;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Vector Format&lt;/strong>: Here, the figure is composed of vectors, using mathematical elements to compose the complete figure. Unlike the previous group, it doesn&amp;rsquo;t lose quality when enlarged. As examples we have SVG and PDF formats, see the figure:&lt;/p>
+&lt;figure id="figure-vector-format-figure-svg">
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >
+&lt;img alt="Vector format figure (svg)."
+src="https://www.fschuch.com/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/example_line.svg"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Vector format figure (svg).
+&lt;/figcaption>&lt;/figure>
+&lt;/li>
+&lt;/ol>
+&lt;p>But after all, which one to choose? The answer is: it depends.&lt;/p>
+&lt;p>I&amp;rsquo;d say vector options are preferable (svg for web, PDF for technical production) because they maintain good visual presentation even on high-resolution screens or prints, or when figures are enlarged.
+However, there are applications that simply don&amp;rsquo;t accept vector formats (like some social networks), so we can switch to raster format (jpg or png).
+Another challenge for vector format is when we have a high number of vector artifacts. Regardless of the type of plot, as the amount of data increases from hundreds, to thousands and millions of points, it might be that the space the vector figure occupies on disk is, after all, impractical.&lt;/p>
+&lt;p>Note however that there&amp;rsquo;s an intermediate approach, methods in Matplotlib that allow converting vector elements to raster representation, called &lt;code>rasterization&lt;/code>.
+To exemplify this, we have a modified code block from &lt;a href="https://matplotlib.org/3.1.3/gallery/misc/rasterization_demo.html" target="_blank" rel="noopener">Documentation - Matplotlib&lt;/a>, see the code and resulting figure:&lt;/p>
+&lt;pre>&lt;code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+d = np.arange(100).reshape(10, 10)
+x, y = np.meshgrid(np.arange(11), np.arange(11))
+theta = 0.25*np.pi
+xx = x*np.cos(theta) - y*np.sin(theta)
+yy = x*np.sin(theta) + y*np.cos(theta)
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3)
+ax1.set_aspect(1)
+ax1.pcolormesh(xx, yy, d)
+ax1.text(0.5, 0.5, &amp;quot;Text&amp;quot;, alpha=0.2,
+va=&amp;quot;center&amp;quot;, ha=&amp;quot;center&amp;quot;, size=50, transform=ax1.transAxes)
+ax1.set_title(&amp;quot;No Rasterization&amp;quot;)
+ax2.set_aspect(1)
+ax2.pcolormesh(xx, yy, d, zorder=-15)
+ax2.text(0.5, 0.5, &amp;quot;Text&amp;quot;, alpha=0.2, zorder=5,
+va=&amp;quot;center&amp;quot;, ha=&amp;quot;center&amp;quot;, size=50, transform=ax2.transAxes)
+ax2.set_title(&amp;quot;Rasterization z$&amp;lt;-10$&amp;quot;)
+ax2.set_rasterization_zorder(-10)
+ax3.set_aspect(1)
+ax3.pcolormesh(xx, yy, d)
+ax3.text(0.5, 0.5, &amp;quot;Text&amp;quot;, alpha=0.2,
+va=&amp;quot;center&amp;quot;, ha=&amp;quot;center&amp;quot;, size=50, transform=ax3.transAxes)
+ax3.set_title(&amp;quot;Rasterization&amp;quot;)
+ax3.set_rasterized(True)
+plt.savefig(&amp;quot;test_rasterization.pdf&amp;quot;, dpi=150)
+plt.savefig(&amp;quot;test_rasterization.eps&amp;quot;, dpi=150)
+if not plt.rcParams[&amp;quot;text.usetex&amp;quot;]:
+plt.savefig(&amp;quot;test_rasterization.svg&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >
+&lt;img alt=""
+src="https://www.fschuch.com/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/test_rasterization.svg"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;p>We see above a vector figure with three sub-plots:&lt;/p>
+&lt;ul>
+&lt;li>In the left element, we have the purely vector figure (&lt;em>No Rasterization&lt;/em>), notice the good visual quality even when enlarged;&lt;/li>
+&lt;li>The figure on the right was converted to raster format (&lt;em>Rasterization&lt;/em>) with the line &lt;code>ax3.set_rasterized(True)&lt;/code>, including title, coordinates, annotation and the &lt;code>pcolormesh&lt;/code>, even though the figure was saved as svg. Notice how it was totally represented pixel by pixel;&lt;/li>
+&lt;li>In the center we have an intermediate solution. In this case, only elements with &lt;code>zorder&lt;/code>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> less than &lt;code>-10&lt;/code> were transformed with the line &lt;code>ax2.set_rasterization_zorder(-10)&lt;/code>, in this case we have the &lt;code>pcolormesh&lt;/code>. Title, coordinates and annotation remained vectorial, and thus, we can get the best of both worlds.&lt;/li>
+&lt;/ul>
+&lt;p>The effective choice about which elements to convert is again a compromise between image quality and its disk size, and this certainly depends on each application, or even personal preference. Note that dpi is still a valid parameter for elements converted to pixels.&lt;/p>
+&lt;p>Finally, we can define these parameters to be applied as default in our code as follows:&lt;/p>
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
+{
+'figure.dpi' : 240,
+'savefig.format' : 'pdf',
+#
+'text.usetex' : True,
+'text.latex.preamble' : &amp;quot;\\usepackage{icomma}&amp;quot;,
+}
+)
+&lt;/code>&lt;/pre>
+&lt;p>The &lt;code>text.usetex&lt;/code> option is particularly useful for those who use $\LaTeX$, allowing you to include equations as annotations, title or as label for coordinates. The option &lt;code>'text.latex.preamble' : &amp;quot;\\usepackage{icomma}&amp;quot;&lt;/code> is a bonus, this eliminates the space inserted in math mode after each comma, which are certainly not welcome when we talk about publication quality.&lt;/p>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>The presentation of high-quality results is a fundamental point to attract engagement and attention from your audience.
+Here it was demonstrated how attention to details and a few lines of code can have a huge impact on the presentation of results in graphical format.
+Finally, I hope that this account of mine about producing figures in Python and Matplotlib will be useful to you as a starting point and motivation to continue studying the topic.&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>The &lt;code>zorder&lt;/code> parameter controls the order in which each plot element will be displayed, that is, text with &lt;code>zorder=5&lt;/code> will be displayed over the &lt;code>pcolormesh&lt;/code> figure with &lt;code>zorder=-15&lt;/code>. For more information, consult the &lt;a href="https://matplotlib.org/3.1.1/gallery/misc/zorder_demo.html" target="_blank" rel="noopener">Documentation - Matplotlib&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>Figure Scale</title><link>https://www.fschuch.com/en/project/figure-scale/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/project/figure-scale/</guid><description/></item><item><title>Wizard Template</title><link>https://www.fschuch.com/en/project/wizard-template/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/project/wizard-template/</guid><description/></item><item><title>A Cartesian Immersed Boundary Method Based on 1D Flow Reconstructions for High-Fidelity Simulations of Incompressible Turbulent Flows Around Moving Objects</title><link>https://www.fschuch.com/en/publication/2022-flow-turbulence-and-combustion/</link><pubDate>Mon, 05 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2022-flow-turbulence-and-combustion/</guid><description/></item><item><title>Plunging condition for particle-laden flows over sloping bottoms: three-dimensional turbulence-resolving simulations</title><link>https://www.fschuch.com/en/publication/2021-computers-and-geosciences/</link><pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2021-computers-and-geosciences/</guid><description/></item><item><title>Python and XCompact3d</title><link>https://www.fschuch.com/en/talk/python-and-xcompact3d/</link><pubDate>Fri, 19 Mar 2021 13:15:00 +0000</pubDate><guid>https://www.fschuch.com/en/talk/python-and-xcompact3d/</guid><description/></item><item><title>Sandbox flow configuration: A rapid prototyping tool inside XCompact3d</title><link>https://www.fschuch.com/en/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</link><pubDate>Fri, 12 Mar 2021 15:55:00 +0000</pubDate><guid>https://www.fschuch.com/en/talk/sandbox-flow-configuration-a-rapid-prototyping-tool-inside-xcompact3d/</guid><description/></item><item><title>A Jupyter sandbox environment coupled into the high-order Navier-Stokes solver Xcompact3d</title><link>https://www.fschuch.com/en/publication/2020-jupytercon/</link><pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/publication/2020-jupytercon/</guid><description>&lt;h1 id="outline">Outline&lt;/h1>
 &lt;p>Beginners may face many barriers to entry in a Navier-Stokes solver, for instance:&lt;/p>
 &lt;ul>
 &lt;li>The domain decomposition for parallel computation in a distributed-memory system;&lt;/li>

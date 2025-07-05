@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Plotly | F. Schuch</title><link>https://www.fschuch.com/tag/plotly/</link><atom:link href="https://www.fschuch.com/tag/plotly/index.xml" rel="self" type="application/rss+xml"/><description>Plotly</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><lastBuildDate>Fri, 22 Jan 2021 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Plotly</title><link>https://www.fschuch.com/tag/plotly/</link></image><item><title>Jupyter Notebook como uma Poderosa Ferramenta Educacional</title><link>https://www.fschuch.com/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/</link><pubDate>Fri, 22 Jan 2021 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Plotly | F. Schuch</title><link>https://www.fschuch.com/tag/plotly/</link><atom:link href="https://www.fschuch.com/tag/plotly/index.xml" rel="self" type="application/rss+xml"/><description>Plotly</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><copyright>© 2020-2025 Felipe N. Schuch</copyright><lastBuildDate>Fri, 22 Jan 2021 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Plotly</title><link>https://www.fschuch.com/tag/plotly/</link></image><item><title>Jupyter Notebook como uma Poderosa Ferramenta Educacional</title><link>https://www.fschuch.com/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/</link><pubDate>Fri, 22 Jan 2021 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2021/01/22/jupyter-notebook-como-uma-poderosa-ferramenta-educacional/</guid><description>&lt;details class="toc-inpage d-print-none " open>
 &lt;summary class="font-weight-bold">Lista de Conteúdos&lt;/summary>
 &lt;nav id="TableOfContents">
 &lt;ul>
@@ -404,7 +404,7 @@ title=&amp;quot;Uma Figura Interativa&amp;quot;,
 )
 fig.show()
 &lt;/code>&lt;/pre>
-&lt;div id="chart-613827495" class="chart">&lt;/div>
+&lt;div id="chart-479583612" class="chart">&lt;/div>
 &lt;script>
 (function() {
 let a = setInterval( function() {
@@ -413,7 +413,7 @@ return;
 }
 clearInterval( a );
 Plotly.d3.json("./example.json", function(chart) {
-Plotly.plot('chart-613827495', chart.data, chart.layout, {responsive: true});
+Plotly.plot('chart-479583612', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();
