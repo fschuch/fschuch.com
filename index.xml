@@ -720,7 +720,7 @@ title=&amp;quot;Uma Figura Interativa&amp;quot;,
 )
 fig.show()
 &lt;/code>&lt;/pre>
-&lt;div id="chart-479583612" class="chart">&lt;/div>
+&lt;div id="chart-376248195" class="chart">&lt;/div>
 &lt;script>
 (function() {
 let a = setInterval( function() {
@@ -729,7 +729,7 @@ return;
 }
 clearInterval( a );
 Plotly.d3.json("./example.json", function(chart) {
-Plotly.plot('chart-479583612', chart.data, chart.layout, {responsive: true});
+Plotly.plot('chart-376248195', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();
