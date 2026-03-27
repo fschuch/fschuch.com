@@ -669,7 +669,7 @@ title=&amp;quot;Uma Figura Interativa&amp;quot;,
 )
 fig.show()
 &lt;/code>&lt;/pre>
-&lt;div id="chart-814539726" class="chart">&lt;/div>
+&lt;div id="chart-467321859" class="chart">&lt;/div>
 &lt;script>
 (function() {
 let a = setInterval( function() {
@@ -678,7 +678,7 @@ return;
 }
 clearInterval( a );
 Plotly.d3.json("./example.json", function(chart) {
-Plotly.plot('chart-814539726', chart.data, chart.layout, {responsive: true});
+Plotly.plot('chart-467321859', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();
@@ -923,7 +923,7 @@ size_c = fs.FigureScale(units=&amp;quot;mm&amp;quot;, height=100, aspect=1.0)
 &lt;li>&lt;code>width&lt;/code> é a largura útil da página, isso é, a largura da página menos ambas margens. Ou a largura da coluna, para os casos em que isso se aplicar. Em documentos &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a>, esse valor pode ser obtido com o comando &lt;code>\the\columnwidth&lt;/code>;&lt;/li>
 &lt;li>&lt;code>height&lt;/code> pode ser usado para o ajuste da altura em termos absolutos, caso o ajuste fino seja desejado. Em documentos &lt;a href="https://www.latex-project.org/" target="_blank" rel="noopener">$\LaTeX$&lt;/a>, esse valor pode ser obtido com o comando &lt;code>\the\textheight&lt;/code>;&lt;/li>
 &lt;li>&lt;code>aspect&lt;/code> define a altura da figura em valor relativo em relação à largura. Por exemplo, &lt;code>aspect=1.0&lt;/code> criará uma figura quadrada, enquanto &lt;code>aspect=9.0/16.0&lt;/code> criará a proporção certa para telas wide-screen;&lt;/li>
-&lt;li>&lt;code>unit&lt;/code> representa a unidade de comprimento para &lt;code>width&lt;/code> e &lt;code>height&lt;/code>, algumas das opções suportadas são &amp;ldquo;in&amp;rdquo; (polegada), &amp;ldquo;mm&amp;rdquo;, &amp;ldquo;cm&amp;rdquo; e &amp;ldquo;pt&amp;rdquo; (pontos tipográfico, é a utilizada em $\LaTeX$). Assim, o objeto realiza a devida conversão de unidades, uma vez que Matplotlib espera essa definição em polegadas.&lt;/li>
+&lt;li>&lt;code>units&lt;/code> representa a unidade de comprimento para &lt;code>width&lt;/code> e &lt;code>height&lt;/code>, algumas das opções suportadas são &amp;ldquo;in&amp;rdquo; (polegada), &amp;ldquo;mm&amp;rdquo;, &amp;ldquo;cm&amp;rdquo; e &amp;ldquo;pt&amp;rdquo; (pontos tipográfico, é a utilizada em $\LaTeX$). Assim, o objeto realiza a devida conversão de unidades, uma vez que Matplotlib espera essa definição em polegadas.&lt;/li>
 &lt;/ul>
 &lt;p>Note que apenas dois dos três parâmetros &lt;code>width&lt;/code>, &lt;code>height&lt;/code> e &lt;code>aspect&lt;/code> são necessários, o terceiro será calculado automaticamente a partir dos outros dois.
 A classe &lt;code>FigureScale&lt;/code> implementa o protocole de &lt;a href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" target="_blank" rel="noopener">Sequence&lt;/a>, fazendo com que possa ser aceito como argumento para o parâmetro &lt;code>figsize&lt;/code> em qualquer função Matplotlib que o aceite, como &lt;code>plt.subplots()&lt;/code>, &lt;code>plt.figure()&lt;/code> e outros.&lt;/p>
