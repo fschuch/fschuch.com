@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Matplotlib | F. Schuch</title><link>https://www.fschuch.com/en/tag/matplotlib/</link><atom:link href="https://www.fschuch.com/en/tag/matplotlib/index.xml" rel="self" type="application/rss+xml"/><description>Matplotlib</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2020-2025 Felipe N. Schuch</copyright><lastBuildDate>Sat, 05 Jul 2025 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Matplotlib</title><link>https://www.fschuch.com/en/tag/matplotlib/</link></image><item><title>Publication-Quality Plots in Python with Matplotlib</title><link>https://www.fschuch.com/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/</link><pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Matplotlib | F. Schuch</title><link>https://www.fschuch.com/en/tag/matplotlib/</link><atom:link href="https://www.fschuch.com/en/tag/matplotlib/index.xml" rel="self" type="application/rss+xml"/><description>Matplotlib</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2020-2026 Felipe N. Schuch</copyright><lastBuildDate>Sat, 05 Jul 2025 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Matplotlib</title><link>https://www.fschuch.com/en/tag/matplotlib/</link></image><item><title>Publication-Quality Plots in Python with Matplotlib</title><link>https://www.fschuch.com/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/</link><pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/en/blog/2025/07/05/publication-quality-plots-in-python-with-matplotlib/</guid><description>&lt;details class="toc-inpage d-print-none " open>
 &lt;summary class="font-weight-bold">Table of Contents&lt;/summary>
 &lt;nav id="TableOfContents">
 &lt;ul>
@@ -149,6 +149,7 @@ The &lt;code>FigureScale&lt;/code> class implements the &lt;a href="https://docs
 'figure.figsize' : fs.FigureScale(units='mm', width=160, aspect=1),
 #
 &amp;quot;axes.labelsize&amp;quot;: 12,
+&amp;quot;axes.titlesize&amp;quot; : 12,
 &amp;quot;font.size&amp;quot;: 12,
 &amp;quot;legend.fontsize&amp;quot;: 12,
 &amp;quot;xtick.labelsize&amp;quot;: 12,
@@ -170,10 +171,11 @@ Either way, I&amp;rsquo;ll share some other adjustments for reference:&lt;/p>
 'figure.figsize' : fs.FigureScale(units='pt', width=238.25444, aspect=3/4),
 #
 &amp;quot;axes.labelsize&amp;quot;: 8,
+&amp;quot;axes.titlesize&amp;quot; : 8,
 &amp;quot;font.size&amp;quot;: 8,
 &amp;quot;legend.fontsize&amp;quot;: 8,
 &amp;quot;xtick.labelsize&amp;quot;: 8,
-&amp;quot;ytick.labelsize&amp;quot;: 8
+&amp;quot;ytick.labelsize&amp;quot;: 8,
 }
 )
 &lt;/code>&lt;/pre>
@@ -185,6 +187,7 @@ Either way, I&amp;rsquo;ll share some other adjustments for reference:&lt;/p>
 'figure.figsize' : fs.FigureScale(units='pt', width=455.0, aspect=3/4),
 #
 &amp;quot;axes.labelsize&amp;quot;: 12,
+&amp;quot;axes.titlesize&amp;quot; : 12,
 &amp;quot;font.size&amp;quot;: 12,
 &amp;quot;legend.fontsize&amp;quot;: 12,
 &amp;quot;xtick.labelsize&amp;quot;: 12,
@@ -200,6 +203,7 @@ Either way, I&amp;rsquo;ll share some other adjustments for reference:&lt;/p>
 'figure.figsize' : fs.FigureScale(units='pt', width=2376.3973*.75, aspect=9/16),
 #
 &amp;quot;axes.labelsize&amp;quot;: 24,
+&amp;quot;axes.titlesize&amp;quot; : 24,
 &amp;quot;font.size&amp;quot;: 24,
 &amp;quot;legend.fontsize&amp;quot;: 24,
 &amp;quot;xtick.labelsize&amp;quot;: 24,

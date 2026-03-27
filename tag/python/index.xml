@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python | F. Schuch</title><link>https://www.fschuch.com/tag/python/</link><atom:link href="https://www.fschuch.com/tag/python/index.xml" rel="self" type="application/rss+xml"/><description>Python</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><copyright>© 2020-2025 Felipe N. Schuch</copyright><lastBuildDate>Sat, 02 Sep 2023 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Python</title><link>https://www.fschuch.com/tag/python/</link></image><item><title>Figure Scale</title><link>https://www.fschuch.com/project/figure-scale/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/project/figure-scale/</guid><description/></item><item><title>Wizard Template</title><link>https://www.fschuch.com/project/wizard-template/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/project/wizard-template/</guid><description/></item><item><title>Acelerando a exploração de dados multidimensionais com Xarray</title><link>https://www.fschuch.com/talk/acelerando-a-exploracao-de-dados-multidimensionais-com-xarray/</link><pubDate>Sun, 17 Oct 2021 15:00:00 -0300</pubDate><guid>https://www.fschuch.com/talk/acelerando-a-exploracao-de-dados-multidimensionais-com-xarray/</guid><description/></item><item><title>Métodos Numéricos em Python</title><link>https://www.fschuch.com/talk/metodos-numericos-em-python/</link><pubDate>Tue, 04 May 2021 15:30:00 -0300</pubDate><guid>https://www.fschuch.com/talk/metodos-numericos-em-python/</guid><description>&lt;p>Esta palestra tem por objetivo introduzir os principais conceitos de programação e Python, empregando a didática interativa da plataforma Jupyter Notebook. Além disso, demonstra-se como solucionar problemas em métodos numéricos por meio de propostas computacionais. Para tanto, o material é dividido em duas aulas:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python | F. Schuch</title><link>https://www.fschuch.com/tag/python/</link><atom:link href="https://www.fschuch.com/tag/python/index.xml" rel="self" type="application/rss+xml"/><description>Python</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><copyright>© 2020-2026 Felipe N. Schuch</copyright><lastBuildDate>Sat, 02 Sep 2023 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>Python</title><link>https://www.fschuch.com/tag/python/</link></image><item><title>Figure Scale</title><link>https://www.fschuch.com/project/figure-scale/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/project/figure-scale/</guid><description/></item><item><title>Wizard Template</title><link>https://www.fschuch.com/project/wizard-template/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/project/wizard-template/</guid><description/></item><item><title>Acelerando a exploração de dados multidimensionais com Xarray</title><link>https://www.fschuch.com/talk/acelerando-a-exploracao-de-dados-multidimensionais-com-xarray/</link><pubDate>Sun, 17 Oct 2021 15:00:00 -0300</pubDate><guid>https://www.fschuch.com/talk/acelerando-a-exploracao-de-dados-multidimensionais-com-xarray/</guid><description/></item><item><title>Métodos Numéricos em Python</title><link>https://www.fschuch.com/talk/metodos-numericos-em-python/</link><pubDate>Tue, 04 May 2021 15:30:00 -0300</pubDate><guid>https://www.fschuch.com/talk/metodos-numericos-em-python/</guid><description>&lt;p>Esta palestra tem por objetivo introduzir os principais conceitos de programação e Python, empregando a didática interativa da plataforma Jupyter Notebook. Além disso, demonstra-se como solucionar problemas em métodos numéricos por meio de propostas computacionais. Para tanto, o material é dividido em duas aulas:&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;a href="http://nbviewer.jupyter.org/github/fschuch/metodos-numericos-com-python/blob/main/Aulas/01-Introdu%c3%a7%c3%a3o-Python-Bibliotecas.ipynb" target="_blank" rel="noopener">Ligeira Introdução à Python&lt;/a>, contemplando:&lt;/p>
@@ -720,7 +720,7 @@ title=&amp;quot;Uma Figura Interativa&amp;quot;,
 )
 fig.show()
 &lt;/code>&lt;/pre>
-&lt;div id="chart-376248195" class="chart">&lt;/div>
+&lt;div id="chart-814539726" class="chart">&lt;/div>
 &lt;script>
 (function() {
 let a = setInterval( function() {
@@ -729,7 +729,7 @@ return;
 }
 clearInterval( a );
 Plotly.d3.json("./example.json", function(chart) {
-Plotly.plot('chart-376248195', chart.data, chart.layout, {responsive: true});
+Plotly.plot('chart-814539726', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();
@@ -985,6 +985,7 @@ A classe &lt;code>FigureScale&lt;/code> implementa o protocole de &lt;a href="ht
 'figure.figsize' : fs.FigureScale(units='mm', width=160, aspect=1),
 #
 &amp;quot;axes.labelsize&amp;quot;: 12,
+&amp;quot;axes.titlesize&amp;quot; : 12,
 &amp;quot;font.size&amp;quot;: 12,
 &amp;quot;legend.fontsize&amp;quot;: 12,
 &amp;quot;xtick.labelsize&amp;quot;: 12,
@@ -1001,26 +1002,28 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:&lt
 &lt;ul>
 &lt;li>
 &lt;p>Artigo com o &lt;a href="https://www.ctan.org/pkg/els-cas-templates/" target="_blank" rel="noopener">template de duas colunas da Elsevier&lt;/a>:&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
 {
-'figure.figsize' : fs.FigureScale(unit='pt', width=238.25444, aspect=3/4),
+'figure.figsize' : fs.FigureScale(units='pt', width=238.25444, aspect=3/4),
 #
 &amp;quot;axes.labelsize&amp;quot;: 8,
+&amp;quot;axes.titlesize&amp;quot; : 8,
 &amp;quot;font.size&amp;quot;: 8,
 &amp;quot;legend.fontsize&amp;quot;: 8,
 &amp;quot;xtick.labelsize&amp;quot;: 8,
-&amp;quot;ytick.labelsize&amp;quot;: 8
+&amp;quot;ytick.labelsize&amp;quot;: 8,
 }
 )
 &lt;/code>&lt;/pre>
 &lt;/li>
 &lt;li>
 &lt;p>Relatório técnico, Dissertação ou Tese com &lt;a href="https://www.abntex.net.br/" target="_blank" rel="noopener">abnTeX2&lt;/a>:&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
 {
-'figure.figsize' : fs.FigureScale(unit='pt', width=455.0, aspect=3/4),
+'figure.figsize' : fs.FigureScale(units='pt', width=455.0, aspect=3/4),
 #
 &amp;quot;axes.labelsize&amp;quot;: 12,
+&amp;quot;axes.titlesize&amp;quot; : 12,
 &amp;quot;font.size&amp;quot;: 12,
 &amp;quot;legend.fontsize&amp;quot;: 12,
 &amp;quot;xtick.labelsize&amp;quot;: 12,
@@ -1031,11 +1034,12 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:&lt
 &lt;/li>
 &lt;li>
 &lt;p>Pôster em tamanho A0 com &lt;a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener">beamer&lt;/a> (e &lt;a href="https://www.overleaf.com/latex/templates/landscape-beamer-poster-template/vjpmsxxdvtqk" target="_blank" rel="noopener">esse template&lt;/a>):&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
 {
-'figure.figsize' : fs.FigureScale(unit='pt', width=2376.3973*.75, aspect=9/16),
+'figure.figsize' : fs.FigureScale(units='pt', width=2376.3973*.75, aspect=9/16),
 #
 &amp;quot;axes.labelsize&amp;quot;: 24,
+&amp;quot;axes.titlesize&amp;quot; : 24,
 &amp;quot;font.size&amp;quot;: 24,
 &amp;quot;legend.fontsize&amp;quot;: 24,
 &amp;quot;xtick.labelsize&amp;quot;: 24,
@@ -1046,9 +1050,9 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:&lt
 &lt;/li>
 &lt;li>
 &lt;p>Apresentação de slides com &lt;a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener">beamer&lt;/a> (e o tema &lt;a href="https://github.com/elauksap/focus-beamertheme" target="_blank" rel="noopener">Focus v2.6&lt;/a>):&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
 {
-'figure.figsize' : fs.FigureScale(unit='pt', width=412.56497), aspect=9/16,
+'figure.figsize' : fs.FigureScale(units='pt', width=412.56497, aspect=9/16),
 }
 )
 &lt;/code>&lt;/pre>

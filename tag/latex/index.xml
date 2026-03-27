@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX | F. Schuch</title><link>https://www.fschuch.com/tag/latex/</link><atom:link href="https://www.fschuch.com/tag/latex/index.xml" rel="self" type="application/rss+xml"/><description>LaTeX</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><copyright>© 2020-2025 Felipe N. Schuch</copyright><lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>LaTeX</title><link>https://www.fschuch.com/tag/latex/</link></image><item><title>Gráficos com qualidade de publicação em Python com Matplotlib</title><link>https://www.fschuch.com/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib/</link><pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib/</guid><description>&lt;details class="toc-inpage d-print-none " open>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX | F. Schuch</title><link>https://www.fschuch.com/tag/latex/</link><atom:link href="https://www.fschuch.com/tag/latex/index.xml" rel="self" type="application/rss+xml"/><description>LaTeX</description><generator>Wowchemy (https://wowchemy.com)</generator><language>pt-br</language><copyright>© 2020-2026 Felipe N. Schuch</copyright><lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate><image><url>https://www.fschuch.com/media/icon_hu25d0b20bf2bf90ac27c6cbd6ce22358d_22074_512x512_fill_lanczos_center_2.png</url><title>LaTeX</title><link>https://www.fschuch.com/tag/latex/</link></image><item><title>Gráficos com qualidade de publicação em Python com Matplotlib</title><link>https://www.fschuch.com/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib/</link><pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate><guid>https://www.fschuch.com/blog/2020/10/14/graficos-com-qualidade-de-publicacao-em-python-com-matplotlib/</guid><description>&lt;details class="toc-inpage d-print-none " open>
 &lt;summary class="font-weight-bold">Lista de Conteúdos&lt;/summary>
 &lt;nav id="TableOfContents">
 &lt;ul>
@@ -149,6 +149,7 @@ A classe &lt;code>FigureScale&lt;/code> implementa o protocole de &lt;a href="ht
 'figure.figsize' : fs.FigureScale(units='mm', width=160, aspect=1),
 #
 &amp;quot;axes.labelsize&amp;quot;: 12,
+&amp;quot;axes.titlesize&amp;quot; : 12,
 &amp;quot;font.size&amp;quot;: 12,
 &amp;quot;legend.fontsize&amp;quot;: 12,
 &amp;quot;xtick.labelsize&amp;quot;: 12,
@@ -165,26 +166,28 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:&lt
 &lt;ul>
 &lt;li>
 &lt;p>Artigo com o &lt;a href="https://www.ctan.org/pkg/els-cas-templates/" target="_blank" rel="noopener">template de duas colunas da Elsevier&lt;/a>:&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
 {
-'figure.figsize' : fs.FigureScale(unit='pt', width=238.25444, aspect=3/4),
+'figure.figsize' : fs.FigureScale(units='pt', width=238.25444, aspect=3/4),
 #
 &amp;quot;axes.labelsize&amp;quot;: 8,
+&amp;quot;axes.titlesize&amp;quot; : 8,
 &amp;quot;font.size&amp;quot;: 8,
 &amp;quot;legend.fontsize&amp;quot;: 8,
 &amp;quot;xtick.labelsize&amp;quot;: 8,
-&amp;quot;ytick.labelsize&amp;quot;: 8
+&amp;quot;ytick.labelsize&amp;quot;: 8,
 }
 )
 &lt;/code>&lt;/pre>
 &lt;/li>
 &lt;li>
 &lt;p>Relatório técnico, Dissertação ou Tese com &lt;a href="https://www.abntex.net.br/" target="_blank" rel="noopener">abnTeX2&lt;/a>:&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
 {
-'figure.figsize' : fs.FigureScale(unit='pt', width=455.0, aspect=3/4),
+'figure.figsize' : fs.FigureScale(units='pt', width=455.0, aspect=3/4),
 #
 &amp;quot;axes.labelsize&amp;quot;: 12,
+&amp;quot;axes.titlesize&amp;quot; : 12,
 &amp;quot;font.size&amp;quot;: 12,
 &amp;quot;legend.fontsize&amp;quot;: 12,
 &amp;quot;xtick.labelsize&amp;quot;: 12,
@@ -195,11 +198,12 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:&lt
 &lt;/li>
 &lt;li>
 &lt;p>Pôster em tamanho A0 com &lt;a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener">beamer&lt;/a> (e &lt;a href="https://www.overleaf.com/latex/templates/landscape-beamer-poster-template/vjpmsxxdvtqk" target="_blank" rel="noopener">esse template&lt;/a>):&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
 {
-'figure.figsize' : fs.FigureScale(unit='pt', width=2376.3973*.75, aspect=9/16),
+'figure.figsize' : fs.FigureScale(units='pt', width=2376.3973*.75, aspect=9/16),
 #
 &amp;quot;axes.labelsize&amp;quot;: 24,
+&amp;quot;axes.titlesize&amp;quot; : 24,
 &amp;quot;font.size&amp;quot;: 24,
 &amp;quot;legend.fontsize&amp;quot;: 24,
 &amp;quot;xtick.labelsize&amp;quot;: 24,
@@ -210,9 +214,9 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:&lt
 &lt;/li>
 &lt;li>
 &lt;p>Apresentação de slides com &lt;a href="https://ctan.org/pkg/beamer" target="_blank" rel="noopener">beamer&lt;/a> (e o tema &lt;a href="https://github.com/elauksap/focus-beamertheme" target="_blank" rel="noopener">Focus v2.6&lt;/a>):&lt;/p>
-&lt;pre>&lt;code class="language-python">ptl.rcParams.update(
+&lt;pre>&lt;code class="language-python">plt.rcParams.update(
 {
-'figure.figsize' : fs.FigureScale(unit='pt', width=412.56497), aspect=9/16,
+'figure.figsize' : fs.FigureScale(units='pt', width=412.56497, aspect=9/16),
 }
 )
 &lt;/code>&lt;/pre>
