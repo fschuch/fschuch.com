@@ -177,7 +177,7 @@ Vamos detalhar cada um dos parâmetros:
 * `width` é a largura útil da página, isso é, a largura da página menos ambas margens. Ou a largura da coluna, para os casos em que isso se aplicar. Em documentos [$\LaTeX$](https://www.latex-project.org/), esse valor pode ser obtido com o comando `\the\columnwidth`;
 * `height` pode ser usado para o ajuste da altura em termos absolutos, caso o ajuste fino seja desejado. Em documentos [$\LaTeX$](https://www.latex-project.org/), esse valor pode ser obtido com o comando `\the\textheight`;
 * `aspect` define a altura da figura em valor relativo em relação à largura. Por exemplo, `aspect=1.0` criará uma figura quadrada, enquanto `aspect=9.0/16.0` criará a proporção certa para telas wide-screen;
-* `unit` representa a unidade de comprimento para `width` e `height`, algumas das opções suportadas são "in" (polegada), "mm", "cm" e "pt" (pontos tipográfico, é a utilizada em $\LaTeX$). Assim, o objeto realiza a devida conversão de unidades, uma vez que Matplotlib espera essa definição em polegadas.
+* `units` representa a unidade de comprimento para `width` e `height`, algumas das opções suportadas são "in" (polegada), "mm", "cm" e "pt" (pontos tipográfico, é a utilizada em $\LaTeX$). Assim, o objeto realiza a devida conversão de unidades, uma vez que Matplotlib espera essa definição em polegadas.
 
 Note que apenas dois dos três parâmetros `width`, `height` e `aspect` são necessários, o terceiro será calculado automaticamente a partir dos outros dois.
 A classe `FigureScale` implementa o protocole de [Sequence](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence), fazendo com que possa ser aceito como argumento para o parâmetro `figsize` em qualquer função Matplotlib que o aceite, como `plt.subplots()`, `plt.figure()` e outros.
@@ -191,6 +191,7 @@ plt.rcParams.update(
         'figure.figsize' : fs.FigureScale(units='mm', width=160, aspect=1),
         #
         "axes.labelsize": 12,
+        "axes.titlesize" : 12,
         "font.size": 12,
         "legend.fontsize": 12,
         "xtick.labelsize": 12,
@@ -212,15 +213,16 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:
 * Artigo com o [template de duas colunas da Elsevier](https://www.ctan.org/pkg/els-cas-templates/):
 
     ```python
-    ptl.rcParams.update(
+    plt.rcParams.update(
         {
-            'figure.figsize' : fs.FigureScale(unit='pt', width=238.25444, aspect=3/4),
+            'figure.figsize' : fs.FigureScale(units='pt', width=238.25444, aspect=3/4),
             #
             "axes.labelsize": 8,
+            "axes.titlesize" : 8,
             "font.size": 8,
             "legend.fontsize": 8,
             "xtick.labelsize": 8,
-            "ytick.labelsize": 8
+            "ytick.labelsize": 8,
         }
     )
     ```
@@ -228,11 +230,12 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:
 * Relatório técnico, Dissertação ou Tese com [abnTeX2](https://www.abntex.net.br/):
 
     ```python
-    ptl.rcParams.update(
+    plt.rcParams.update(
         {
-            'figure.figsize' : fs.FigureScale(unit='pt', width=455.0, aspect=3/4),
+            'figure.figsize' : fs.FigureScale(units='pt', width=455.0, aspect=3/4),
             #
             "axes.labelsize": 12,
+            "axes.titlesize" : 12,
             "font.size": 12,
             "legend.fontsize": 12,
             "xtick.labelsize": 12,
@@ -244,11 +247,12 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:
 * Pôster em tamanho A0 com [beamer](https://ctan.org/pkg/beamer) (e [esse template](https://www.overleaf.com/latex/templates/landscape-beamer-poster-template/vjpmsxxdvtqk)):
 
     ```python
-    ptl.rcParams.update(
+    plt.rcParams.update(
         {
-            'figure.figsize' : fs.FigureScale(unit='pt', width=2376.3973*.75, aspect=9/16),
+            'figure.figsize' : fs.FigureScale(units='pt', width=2376.3973*.75, aspect=9/16),
             #
             "axes.labelsize": 24,
+            "axes.titlesize" : 24,
             "font.size": 24,
             "legend.fontsize": 24,
             "xtick.labelsize": 24,
@@ -260,9 +264,9 @@ De qualquer maneira, vou compartilhar alguns outros ajustes para referência:
 * Apresentação de slides com [beamer](https://ctan.org/pkg/beamer) (e o tema [Focus v2.6](https://github.com/elauksap/focus-beamertheme)):
 
     ```python
-    ptl.rcParams.update(
+    plt.rcParams.update(
         {
-            'figure.figsize' : fs.FigureScale(unit='pt', width=412.56497), aspect=9/16,
+            'figure.figsize' : fs.FigureScale(units='pt', width=412.56497, aspect=9/16),
         }
     )
     ```

@@ -191,6 +191,7 @@ plt.rcParams.update(
         'figure.figsize' : fs.FigureScale(units='mm', width=160, aspect=1),
         #
         "axes.labelsize": 12,
+        "axes.titlesize" : 12,
         "font.size": 12,
         "legend.fontsize": 12,
         "xtick.labelsize": 12,
@@ -217,10 +218,11 @@ Either way, I'll share some other adjustments for reference:
             'figure.figsize' : fs.FigureScale(units='pt', width=238.25444, aspect=3/4),
             #
             "axes.labelsize": 8,
+            "axes.titlesize" : 8,
             "font.size": 8,
             "legend.fontsize": 8,
             "xtick.labelsize": 8,
-            "ytick.labelsize": 8
+            "ytick.labelsize": 8,
         }
     )
     ```
@@ -233,6 +235,7 @@ Either way, I'll share some other adjustments for reference:
             'figure.figsize' : fs.FigureScale(units='pt', width=455.0, aspect=3/4),
             #
             "axes.labelsize": 12,
+            "axes.titlesize" : 12,
             "font.size": 12,
             "legend.fontsize": 12,
             "xtick.labelsize": 12,
@@ -249,6 +252,7 @@ Either way, I'll share some other adjustments for reference:
             'figure.figsize' : fs.FigureScale(units='pt', width=2376.3973*.75, aspect=9/16),
             #
             "axes.labelsize": 24,
+            "axes.titlesize" : 24,
             "font.size": 24,
             "legend.fontsize": 24,
             "xtick.labelsize": 24,
